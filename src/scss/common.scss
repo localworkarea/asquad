@@ -1,1 +1,59 @@
 // Заголовки, загальні БЕМ блоки та інше...
+.title-main {
+  font-weight: 700;
+  font-size: rem(96);
+  line-height: calc(110/96);
+  @media (max-width:$netbook){
+    font-size: rem(64);
+    line-height: calc(74/64);
+  }
+  @media (max-width:$mobileXS){
+    font-size: rem(40);
+    line-height: calc(46/40); 
+  }
+}
+.title-second {
+  font-weight: 700;
+  font-size: rem(64);
+  line-height: calc(74/64);
+  @media (max-width:$netbook){
+    font-size: rem(48);
+    line-height: calc(56/48);
+  }
+  @media (max-width:$mobileXS){
+    font-size: rem(28);
+    line-height: calc(32/28);
+  }
+}
+.title-third {
+  font-weight: 700;
+  font-size: rem(36);
+  line-height: calc(42/36);
+  @media (max-width:$netbook){
+    font-size: rem(32);
+    line-height: calc(36/32);
+  }
+  @media (max-width:$mobileXS){
+    font-size: rem(18);
+    line-height: calc(20/18);
+  }
+}
+
+// --- mouse-wheel =============================
+.mouse-wheel {
+  // .mouse-wheel__body
+  &__body {
+    position: relative;
+  }
+  // .mouse-wheel__mouse
+  &__mouse {
+  
+  }
+  // .mouse-wheel__wheel
+  &__wheel {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
