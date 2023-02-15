@@ -1,20 +1,21 @@
 // === --- MAIN (1) --- ===================================================
 .main {
   background-color: $mainColor;
-  
+  padding: rem(32) 0;
   // .main__container
   &__container {
-    display: flex;
-    	min-height: 100%;
-    	flex-direction: column;
   }
   // .main__logo
   &__logo {
-    color: white;
-    font-family: 'Rosa ASQD', sans-serif;
-    font-size: rem(74);
-    line-height: 0.7;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    filter: invert(99%) sepia(0%) saturate(2%) hue-rotate(255deg) brightness(110%) contrast(101%);
+    img {
+      height: rem(52);
+      @media (max-width:$mobileXS){
+          height: rem(32);
+      };
+    }
     &:not(:last-child) {
       margin-bottom: rem(32);
     }
@@ -49,9 +50,8 @@
   // .main__mouse-wheel
   &__mouse-wheel {
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: rem(144);
-    transform: translateY(-50%);
     .touch & {
       display: none;
     }
