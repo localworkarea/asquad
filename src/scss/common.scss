@@ -7,8 +7,8 @@
     font-size: rem(64);
     line-height: calc(74/64);
   }
-  @media (max-width:$mobileXS){
-    font-size: rem(40);
+  @media (max-width:$mobileSmall){
+    @include adaptiveValue("font-size", 64, 40);
     line-height: calc(46/40); 
   }
 }
@@ -20,8 +20,8 @@
     font-size: rem(48);
     line-height: calc(56/48);
   }
-  @media (max-width:$mobileXS){
-    font-size: rem(28);
+  @media (max-width:$mobileSmall){
+    @include adaptiveValue("font-size", 48, 28);
     line-height: calc(32/28);
   }
 }
@@ -34,7 +34,7 @@
     line-height: calc(36/32);
   }
   @media (max-width:$mobileXS){
-    font-size: rem(18);
+    @include adaptiveValue("font-size", 32, 18);
     line-height: calc(20/18);
   }
 }
@@ -48,7 +48,6 @@
   }
   // .mouse-wheel__mouse
   &__mouse {
-  
   }
   // .mouse-wheel__wheel
   &__wheel {
