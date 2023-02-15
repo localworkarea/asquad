@@ -1,15 +1,12 @@
 // === --- MAIN (1) --- ===================================================
 .main {
   background-color: $mainColor;
-  padding-top: rem(70);
-  @media (max-width:$netbook){
-     padding-top: rem(38); 
-  }
-  @media (max-width:$mobileXS){
-     padding-top: rem(20); 
-  }
+  
   // .main__container
   &__container {
+    display: flex;
+    	min-height: 100%;
+    	flex-direction: column;
   }
   // .main__logo
   &__logo {
@@ -20,6 +17,13 @@
     text-align: center;
     &:not(:last-child) {
       margin-bottom: rem(32);
+    }
+    margin-top: rem(38);
+    @media (max-width:$netbook){
+       margin-top: rem(38); 
+    }
+    @media (max-width:$mobileXS){
+       margin-top: rem(4); 
     }
   }
   // .main__title

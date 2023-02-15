@@ -123,9 +123,9 @@ body {
 		}
 		@if ($containerPadding>0) {
 			@if ($maxWidthContainer>0) {
-				padding: 0 rem(math.div($containerPadding, 2));
+				padding: rem(32) rem(math.div($containerPadding, 2));
 				@media (max-width: 375px) {
-					padding: 0 rem(16);
+					padding: rem(16);
 				}
 			} @else {
 				@include adaptiveValue("padding-left", math.div($containerPadding, 2), 15);
