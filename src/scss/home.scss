@@ -1,7 +1,7 @@
 // === --- MAIN (1) --- ===================================================
 .main {
   background-color: $mainColor;
-  padding: rem(32) 0;
+  @include adaptiveValue("padding-top", 32, 16, 0, 768, 320);
   // .main__container
   &__container {
   }
@@ -55,9 +55,58 @@
   }
 }
 
-
-
 // === --- FOCUS (2) --- ===================================================
+.focus {
+   background-color: $mainColor;
+   @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+  // .focus__container
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    @media (max-width:$mobile){
+        flex-direction: column;
+        justify-content: center;
+    }
+  }
+  // .focus__item
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: rem(36);
+    @media (max-width:$mobile){
+       row-gap: rem(32); 
+       grid-template-columns: 1fr;
+    }
+  }
+  // .focus__item
+  &__item {
+    width: 100%;
+    min-height: 100%;
+    background: rgba(16, 24, 32, 0.75);
+    border: rem(1) solid $gray_dark;
+    backdrop-filter: blur(8px);
+    border-radius: rem(30);
+    @include adaptiveValue("padding-top", 122, 32);
+    @include adaptiveValue("padding-bottom", 122, 32);
+    @include adaptiveValue("padding-left", 122, 32);
+    @include adaptiveValue("padding-right", 122, 32);
+    @include adaptiveValue("font-size", 36, 32, 0, 1920, 1366);
+    @include adaptiveValue("font-size", 32, 18, 3, 768, 320);
+  }
+  // .focus__text
+  &__text {
+    color: $gray_light;
+    text-align: center;
+    font-weight: 500;
+   
+    line-height: calc(42/36);
+    span {
+      font-weight: 700;
+    }
+
+  }
+}
 
 // === --- integrations (3) --- ===================================================
 
