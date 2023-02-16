@@ -1,42 +1,19 @@
 // Заголовки, загальні БЕМ блоки та інше...
 .title-main {
   font-weight: 700;
-  font-size: rem(96);
+  // font-size: rem(96);
+  @include adaptiveValue("font-size", 96, 40);
   line-height: calc(110/96);
-  @media (max-width:$netbook){
-    font-size: rem(64);
-    line-height: calc(74/64);
-  }
-  @media (max-width:$mobileSmall){
-    @include adaptiveValue("font-size", 64, 40);
-    line-height: calc(46/40); 
-  }
 }
 .title-second {
   font-weight: 700;
-  font-size: rem(64);
+  @include adaptiveValue("font-size", 64, 28);
   line-height: calc(74/64);
-  @media (max-width:$netbook){
-    font-size: rem(48);
-    line-height: calc(56/48);
-  }
-  @media (max-width:$mobileSmall){
-    @include adaptiveValue("font-size", 48, 28);
-    line-height: calc(32/28);
-  }
 }
 .title-third {
   font-weight: 700;
-  font-size: rem(36);
+  @include adaptiveValue("font-size", 36, 18);
   line-height: calc(42/36);
-  @media (max-width:$netbook){
-    font-size: rem(32);
-    line-height: calc(36/32);
-  }
-  @media (max-width:$mobileXS){
-    @include adaptiveValue("font-size", 32, 18);
-    line-height: calc(20/18);
-  }
 }
 
 // --- mouse-wheel =============================
