@@ -19,6 +19,12 @@ filter: invert(69%) sepia(18%) saturate(389%) hue-rotate(150deg) brightness(80%)
 .title-second {
   font-weight: 700;
   @include adaptiveValue("font-size", 64, 28);
+  line-height: calc(74/64);
+}
+.title-second-b {
+  font-weight: 700;
+  @include adaptiveValue("font-size", 64, 24);
+  line-height: calc(74/64);
 }
 .title-third {
   font-weight: 700;
@@ -27,7 +33,20 @@ filter: invert(69%) sepia(18%) saturate(389%) hue-rotate(150deg) brightness(80%)
   @include adaptiveValue("font-size", 32, 18, 3, 768, 320);
   line-height: calc(42/36);
 }
-
+.title-fourth {
+  font-weight: 700;
+  @include adaptiveValue("font-size", 48, 28, 0, 768,320);
+  line-height: calc(56/48);
+}
+.text-second {
+  font-weight: 500;
+  font-size: 36px;
+  @include adaptiveValue("font-size", 36, 32, 0, 1920, 1366);
+  @include adaptiveValue("font-size", 32, 18, 3, 768, 320);
+  line-height: calc(42/36);
+  color: $blue_100;
+  text-align: center;
+}
 // --- mouse-wheel =============================
 .mouse-wheel {
   // .mouse-wheel__body

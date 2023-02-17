@@ -2,6 +2,7 @@
 .main {
   background-color: $mainColor;
   @include adaptiveValue("padding-top", 32, 16, 0, 768, 320);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   // .main__container
   &__container {
   }
@@ -59,6 +60,7 @@
 .focus {
    background-color: $mainColor;
    @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   // .focus__container
   &__container {
     display: flex;
@@ -67,6 +69,10 @@
     @media (max-width:$mobile){
         flex-direction: column;
         justify-content: center;
+    }
+    @media (max-width:$mobileSmall){
+        padding-bottom: 32px;
+        justify-content: flex-end;
     }
   }
   // .focus__item
@@ -109,10 +115,159 @@
 }
 
 // === --- integrations (3) --- ===================================================
+.integrations {
+  background-color: $mainColor;
+   @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  // .integrations__container
+  &__container {
+    display: flex;
+    align-items: flex-end;
+    min-height: 100%;
+  }
+  // .integrations__content
+  &__content {
+    text-align: center;
+    @include adaptiveValue("padding-bottom", 64, 0, 0, 1920, 1366);
+  }
+  // .integrations__title
+  &__title {
+    color: white;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  // .integrations__text
+  &__text {
+    font-weight: 400;
+    @include adaptiveValue("font-size", 24, 16, 0, 768, 320);
+    line-height: calc(26/24);
+    color: $gray_middle;
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  // .integrations__block
+  &__block {
+    display: flex;
+    justify-content: center;
+    @include adaptiveValue("column-gap", 64, 0);
+    @media (max-width:$mobile){
+       flex-direction: column; 
+       row-gap: 16px;
+    }
+  }
+  // .integrations__item
+  &__item {
+    @include adaptiveValue("font-size", 32, 24, 0, 768, 320);
+    color: $gray_middle;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 8px;
+    span {
+      display: inline-block;
+      font-style: italic;
+      font-weight: 700;
+      color: #0062EB;
+    }
+    @media (max-width:$mobile){
+      flex-direction: column; 
+   }
+  }
+}
 
 // === --- awesome (4) --- ===================================================
+.awesome {
+  background-color: $blue_main;
+  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  // .awesome__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    @media (max-width:$mobile){
+       justify-content: unset; 
+    }
+  }
+  // .awesome__content
+  &__content {
+    @include adaptiveValue("margin-top", 196, 96, 3, 768, 320);
+  }
+  // .awesome__title
+  &__title {
+    text-align: center;
+    color: white;
+    @include adaptiveValue("margin-bottom", 64, 32, 0, 1920, 1366);
+  }
+  // .awesome__mouse-wheel
+  &__mouse-wheel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 // === --- industries (5) --- ===================================================
+.industries {
+  background-color: $blue_main;
+  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  // .industries__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    @media (max-width:$mobile){
+        align-items: center;
+        justify-content: unset;
+    }
+  }
+  // .industries__content
+  &__content {
+    display: flex;
+  }
+  // .industries__block
+  &__block {
+    background: rgba(0, 98, 235, 0.75);
+    border: rem(1) solid $blue_100;
+    backdrop-filter: blur(8px);
+    border-radius: rem(30);
+    @include adaptiveValue("padding-top", 122, 64, 0, 1920, 1366);
+    @include adaptiveValue("padding-top", 64, 32, 3, 1366, 768);
+    @include adaptiveValue("padding-bottom", 122, 64, 0, 1920, 1366);
+    @include adaptiveValue("padding-bottom", 64, 32, 3, 1366, 768);
+    @include adaptiveValue("padding-left", 122, 64, 0, 1920, 1366);
+    @include adaptiveValue("padding-left", 64, 32, 3, 1366, 768);
+    @include adaptiveValue("padding-right", 122, 64, 0, 1920, 1366);
+    @include adaptiveValue("padding-right", 64, 32, 3, 1366, 768);
+    @media (max-width:$mobile){
+       margin-top: 32px; 
+    }
+  }
+  // .industries__body
+  &__body{
+    max-width: rem(566);
+  }
+  // .industries__title
+  &__title {
+    color: white;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+  // .industries__text
+  &__text {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+}
+
 
 // === --- choose (6) --- ===================================================
 
