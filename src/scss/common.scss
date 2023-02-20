@@ -65,3 +65,17 @@ filter: invert(69%) sepia(18%) saturate(389%) hue-rotate(150deg) brightness(80%)
     transform: translateX(-50%);
   }
 }
+
+
+.image-anim {
+position: absolute;
+width: 100%;
+  // .image-anim__img
+  &__img {
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    pointer-events: none;
+  }
+}

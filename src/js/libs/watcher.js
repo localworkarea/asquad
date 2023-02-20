@@ -118,14 +118,44 @@ class ScrollWatcher {
 			// Бачимо об'єкт
 			// Додаємо клас
 			!targetElement.classList.contains('_watcher-view') ? targetElement.classList.add('_watcher-view') : null;
+
+
+
+			// ДОБАВЛЕНИЕ КЛАССА ДЛЯ HEADER ==============================================
+			if (targetElement.classList.contains('_header-hidden')) {
+				document.documentElement.classList.add('header-hidden');
+			}
+			if (targetElement.classList.contains('_header-black')) {
+				document.documentElement.classList.add('header-black');
+			}
+			if (targetElement.classList.contains('_header-white')) {
+				document.documentElement.classList.remove('header-black');
+			}
+			// =============================================================================
+			
+			
 			this.scrollWatcherLogging(`Я бачу ${targetElement.classList}, додав клас _watcher-view`);
 		} else {
 			// Не бачимо об'єкт
 			// Забираємо клас
 			targetElement.classList.contains('_watcher-view') ? targetElement.classList.remove('_watcher-view') : null;
+
+
+				// УДАЛЕНИЕ КЛАССА ДЛЯ HEADER ==============================================
+			if (targetElement.classList.contains('_header-hidden')) {
+				document.documentElement.classList.remove('header-hidden');
+			}
+			// if (targetElement.classList.contains('_header-white')) {
+			// 	document.documentElement.classList.remove('header-black');
+			// }
+
+				//=======================================================================================
+
 			this.scrollWatcherLogging(`Я не бачу ${targetElement.classList}, прибрав клас _watcher-view`);
 		}
 	}
+
+	
 	// Функція відключення стеження за об'єктом
 	scrollWatcherOff(targetElement, observer) {
 		observer.unobserve(targetElement);

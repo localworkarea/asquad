@@ -6,8 +6,8 @@
 	<body>
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
-			<main data-fp class="page">
-					<section data-fp-section class="main">
+			<main data-fp data-fp-effect="slider" class="page">
+					<section data-fp-section data-watch-threshold="0.2" data-watch data-watch class="main _header-hidden">
 						<div class="main__container">
 							<div class="main__logo">
 								<img src="@img/icons-logo/Logo.svg" alt="logo">
@@ -22,7 +22,7 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section class="focus">
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="focus _header-white">
 						<div class="focus__container">
 							<div class="focus__content">
 								<div class="focus__item">
@@ -34,7 +34,7 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section class="integrations">
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="integrations _header-white">
 						<div class="integrations__container">
 							<div class="integrations__content">
 								<h2 class="integrations__title title-second-b">Integrations in one day</h2>
@@ -47,7 +47,7 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section class="awesome">
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="awesome _header-white">
 						<div class="awesome__container">
 							<div class="awesome__content">
 								<h2 class="awesome__title title-second">Awesome, right?<br>Keep scrolling</h2>
@@ -60,7 +60,7 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section class="industries">
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="industries _header-white">
 						<div class="industries__container">
 							<div class="industries__content">
 								<div class="industries__block">
@@ -72,8 +72,11 @@
 								</div>
 							</div>
 						</div>
+						<div data-prlx-parent class="industries__image">
+							<img data-prlx  src="@img/2.png" alt="image" class="industries__img">
+						</div>
 					</section>
-					<section data-fp-section class="choose">
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="choose _header-white">
 						<div class="choose__container">
 							<h2 class="choose__title text-second">Choose your path:</h2>
 							<div class="choose__content">
@@ -82,18 +85,28 @@
 										<img src="@img/sections/section_6/1.svg" alt="logo" class="choose__img img-choose-one">
 										<h3 class="choose__subtitle title-second">White Label</h3>
 									</div>
-									<div class="choose__text text-second">Leverage a tailor-made payment solution to power your daily operations with payments and reduce development costs</div>
+									<div class="choose__text text-second">Leverage a <span>tailor-made payment solution</span> to power your daily operations with payments and reduce development costs</div>
 								</div>
 								<div class="choose__block">
 									<div class="choose__head">
 										<img src="@img/sections/section_6/1.svg" alt="logo" class="choose__img img-choose-sec">
 										<h3 class="choose__subtitle title-second">Payment Gateway</h3>
 									</div>
-									<div class="choose__text text-second">Become a proud partner of ours, then accept payments and make payouts in a secure and efficient way</div>
+									<div class="choose__text text-second"><span>Become a proud partner of ours,</span> then accept payments and make payouts in a secure and efficient way</div>
 								</div>
 							</div>
 						</div>
 					</section>
+					<section data-fp-section data-watch-threshold="0.2" data-watch class="manage _header-black">
+						<div class="manage__container">
+							
+						</div>
+					</section>
+					
+
+					<!-- <div data-prlx-parent class="image-anim">
+						<img data-prlx  src="@img/1.png" alt="image" class="image-anim__img">
+					</div> -->
 			</main>
 			@@include('html/_footer.htm',{})
 		</div>
