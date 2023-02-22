@@ -24,9 +24,9 @@ class Popup {
 			setAutoplayYoutube: true,
 			// Зміна класів
 			classes: {
-				popup: 'popup',
+				popup: 'popup-form',
 				// popupWrapper: 'popup__wrapper',
-				popupContent: 'popup__content',
+				popupContent: 'popup-form__content',
 				popupActive: 'popup_show', // Додається для попапа, коли він відкривається
 				bodyActive: 'popup-show', // Додається для боді, коли попап відкритий
 			},
@@ -189,22 +189,22 @@ class Popup {
 
 			if (this.targetOpen.element) {
 				// YouTube
-				if (this.youTubeCode) {
-					const codeVideo = this.youTubeCode;
-					const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`
-					const iframe = document.createElement('iframe');
-					iframe.setAttribute('allowfullscreen', '');
+				// if (this.youTubeCode) {
+				// 	const codeVideo = this.youTubeCode;
+				// 	const urlVideo = `https://www.youtube.com/embed/${codeVideo}?rel=0&showinfo=0&autoplay=1`
+				// 	const iframe = document.createElement('iframe');
+				// 	iframe.setAttribute('allowfullscreen', '');
 
-					const autoplay = this.options.setAutoplayYoutube ? 'autoplay;' : '';
-					iframe.setAttribute('allow', `${autoplay}; encrypted-media`);
+				// 	const autoplay = this.options.setAutoplayYoutube ? 'autoplay;' : '';
+				// 	iframe.setAttribute('allow', `${autoplay}; encrypted-media`);
 
-					iframe.setAttribute('src', urlVideo);
+				// 	iframe.setAttribute('src', urlVideo);
 
-					if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
-						const youtubePlace = this.targetOpen.element.querySelector('.popup__text').setAttribute(`${this.options.youtubePlaceAttribute}`, '');
-					}
-					this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
-				}
+				// 	if (!this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`)) {
+				// 		const youtubePlace = this.targetOpen.element.querySelector('.popup__text').setAttribute(`${this.options.youtubePlaceAttribute}`, '');
+				// 	}
+				// 	this.targetOpen.element.querySelector(`[${this.options.youtubePlaceAttribute}]`).appendChild(iframe);
+				// }
 				if (this.options.hashSettings.location) {
 					// Отримання хешу та його виставлення
 					this._getHash();

@@ -1,18 +1,8 @@
 // === --- MAIN (1) --- ===================================================
 .main {
-  background-color: $mainColor;
+  // background-color: $mainColor;
   @include adaptiveValue("padding-top", 32, 16, 0, 768, 320);
   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
-  // &:before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background-color: $mainColor;
-  //   z-index: -5;
-  // }
   // .main__container
   &__container {
     // z-index: 2;
@@ -71,7 +61,7 @@
 
 // === --- FOCUS (2) --- ===================================================
 .focus {
-   background-color: $mainColor;
+  //  background-color: $mainColor;
    @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
    @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   // .focus__container
@@ -132,7 +122,7 @@
 
 // === --- integrations (3) --- ===================================================
 .integrations {
-  background-color: $mainColor;
+  // background-color: $mainColor;
    @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
    @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
    overflow: hidden;
@@ -455,11 +445,430 @@
 // === --- manage (7) --- ===================================================
 .manage {
   background-color: $gray_light;
+  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  overflow-y: auto;
+  overflow-x: hidden;
+  &.active-section {
+    .anim-manage__item {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+  // .manage__container
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    position: relative;
+    @media (max-width: 1200px) {
+      justify-content: flex-start;
+    }
+  }
+  // .manage__content
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(32);
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      row-gap: rem(32);
+      align-items: center;
+    }
+  }
+  // .manage__block
+  &__block {
+    width: 29.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .block-info__txt {
+      display: none;
+      &:not(:last-child) {
+        margin-bottom: rem(32);
+      }
+      @media (min-width: 1200.98px) {
+        display: block;
+      }
+    }
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+  }
+  // .manage__anim
+  &__anim {
+  }
 }
+.anim-manage {
+  width: 64%;
+  position: relative;
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: rem(781);
+  }
+  @media (max-width:$mobile){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: clip;
+    width: rem(781); 
+ }
+  @media (max-width:$mobileSmall){
+     width: rem(541); 
+  }
+  // .anim-manage__item
+  &__item {
+    overflow: hidden;
+    filter: drop-shadow(0px 0px 20.4796px rgba(123, 148, 157, 0.5));
+    border-radius: 15px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: all 0.8s linear;
+    }
+  }
+  .item-first {
+    position: absolute;
+    top: 32%;
+    left: 0;
+    z-index: 3;
+    background-color: white;
+    width: rem(376);
+    height: rem(173);
+    @media (max-width: 1366px) {
+      width: rem(272);
+      height: rem(126);
+    }
+    @media (max-width: $mobileSmall) {
+      width: rem(189);
+      height: rem(87);
+    }
+  }
+  .item-second {
+    margin-left: 19%;
+    background-color: $gray_light;
+    width: rem(620);
+    height: rem(831);
+    @media (max-width: 1366px) {
+      width: rem(450);
+      height: rem(603);
+    }
+    @media (max-width: $mobile) {
+      margin-left: 0;
+    }
+    @media (max-width: $mobileSmall) {
+      width: rem(311);
+      height: rem(418);
+    }
+  }
+  .item-third {
+    position: absolute;
+    top: 43%;
+    right: 0;
+    z-index: 2;
+    background-color: white;
+    width: rem(410);
+    height: rem(318);
+    @media (max-width: 1366px) {
+      width: rem(297);
+      height: rem(230);
+    }
+    @media (max-width: $mobileSmall) {
+      width: rem(206);
+      height: rem(160);
+    }
+  }
+}
+
+
 // === --- options (8) --- ===================================================
 .options {
   background-color: $gray_light;
+  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  overflow-y: auto;
+  overflow-x: hidden;
+  // .options__container
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: rem(32);
+    min-height: 100%;
+    position: relative;
+    @media (max-width: 1200px) {
+      justify-content: flex-start;
+      flex-direction: column;
+      row-gap: rem(32);
+    }
+  }
+  // .options__block
+  &__block {
+    width: 29.6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media (max-width: 1200px) {
+      width: 100%;
+      justify-content: flex-start;
+    }
+    .block-info__title {
+      max-width: rem(332);
+      @media (max-width: 1200px) {
+        max-width: 100%;
+        text-align: center;
+      }
+      @media (max-width:$mobile){
+         max-width: rem(278); 
+         margin: 0 auto rem(32);
+      }
+      @media (max-width:$mobileSmall){
+         max-width: rem(200); 
+      }
+    }
+    .block-info__txt {
+      @media (max-width: 1200px) {
+        text-align: center;
+      }
+    }
+  }
+  // .options__btns
+  &__btns {
+    width: rem(1134);
+    height: rem(824);
+    position: relative;
+    @media (max-width: 1366px) {
+      width: rem(823);
+      height: rem(598);
+    }
+    @media (max-width:$mobileSmall){
+      width: rem(570);
+      height: rem(414);
+    }
+  }
 }
+.btns-options {
+  // .btns-options__logo
+  &__logo {
+    filter: invert(6%) sepia(30%) saturate(842%) hue-rotate(169deg) brightness(98%) contrast(94%);
+    filter: drop-shadow(0px 0px 25px rgba(123, 148, 157, 0.5));
+    @include adaptiveValue("height", 296, 214, 0, 1920, 1366);
+    @include adaptiveValue("height", 214, 148, 3, 768, 375);
+    width: auto;
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  // .btns-options__btn
+  &__body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  // .btns-options__btn
+  &__btn {
+    position: absolute;
+    @include adaptiveValue("height", 96, 70, 0, 1920, 1366);
+    @include adaptiveValue("height", 70, 48, 3, 768, 375);
+    @include adaptiveValue("width", 96, 70, 0, 1920, 1366);
+    @include adaptiveValue("width", 70, 48, 3, 768, 375);
+    
+    background: $gray_light;
+    border: rem(1) solid #FFFFFF;
+    box-shadow: 0px 0px rem(25) rgba(123, 148, 157, 0.5);
+    border-radius: rem(15);
+    z-index: 2;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include adaptiveValue("width", 32, 23, 0, 1920, 1366);
+      @include adaptiveValue("width", 23, 16, 3, 768, 375);
+      height: rem(3);
+      background-color: $gray_dark;
+      transition: all 0.3s ease-out;
+      @media (max-width:$mobile){
+          height: rem(2);
+      }
+    }
+    &::before {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $blue_main;
+      }
+    }
+    &:nth-child(1) {
+      top: 9.6%;
+      left: 1.5%;
+    }
+    &:nth-child(2) {
+      bottom: 34.4%;
+      left: 22.8%;
+    }
+    &:nth-child(3) {
+      bottom: 3.9%;
+      left: 10.5%;
+    }
+    &:nth-child(4) {
+      top: 0;
+      right: 31%;
+    }
+    &:nth-child(5) {
+      right: 23.3%;
+      bottom: 49.8%;
+    }
+    &:nth-child(6) {
+      right: 44.2%;
+      bottom: 16.6%;
+    }
+    &:nth-child(7) {
+      right: 10.6%;
+      bottom: 9%;
+    }
+  }
+  // .btns-options__card
+  &__card {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    max-width: fit-content;
+    padding: rem(32) rem(64);
+    background: #FFFFFF;
+    box-shadow: 0px 0px rem(25) rgba(123, 148, 157, 0.5);
+    border-radius: rem(15);
+    .card-item {
+      height: auto;
+    }
+    .card-item-1 {
+      @media (max-width: 1366px) {
+        width: rem(46);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(32); 
+      }
+    }
+    .card-item-2 {
+      @media (max-width: 1366px) {
+        width: rem(70);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(48); 
+      }
+    }
+    .card-item-3 {
+      @media (max-width: 1366px) {
+        width: rem(46);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(32); 
+      }
+    }
+    .card-item-4 {
+      @media (max-width: 1366px) {
+        width: rem(46);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(32); 
+      }
+    }
+    .card-item-5 {
+      @media (max-width: 1366px) {
+        width: rem(70);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(48); 
+      }
+    }
+    .card-item-6 {
+      @media (max-width: 1366px) {
+        width: rem(46);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(32); 
+      }
+    }
+    .card-item-7 {
+      @media (max-width: 1366px) {
+        width: rem(70);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(48); 
+      }
+    }
+    .card-item-8 {
+      @media (max-width: 1366px) {
+        width: rem(70);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(48); 
+      }
+    }
+    .card-item-9 {
+      @media (max-width: 1366px) {
+        width: rem(70);
+      }
+      @media (max-width:$mobileSmall){
+         width: rem(48); 
+      }
+    }
+    @media (max-width: 1366px) {
+      padding: rem(23) rem(46);
+    }
+    @media (max-width:$mobileSmall){
+      padding: rem(16) rem(32); 
+    }
+  
+    &:nth-child(1) {
+      top: 11.4%;
+      left: 13.9%;
+    }
+    &:nth-child(2) {
+      top: 31.7%;
+      left: 4.2%;
+    }
+    &:nth-child(3) {
+      right: 29.6%;
+      bottom: 0;
+    }
+    &:nth-child(4) {
+      left: 0;
+      bottom: 27%;
+    }
+    &:nth-child(5) {
+      right: 15%;
+      bottom: 26%;
+    }
+    &:nth-child(6) {
+      right: 0;
+      bottom: 49.6%;
+    }
+    &:nth-child(7) {
+      top: 17.5%;
+      right: 13.9%;
+    }
+    &:nth-child(8) {
+      left: 20.9%;
+      bottom: 10.8%;
+    }
+    &:nth-child(9) {
+      top: 5.8%;
+      left: 35.4%;
+    }
+  }
+}
+
+
 // === --- custom (9) --- ===================================================
 
 // === --- api (10) --- ===================================================
