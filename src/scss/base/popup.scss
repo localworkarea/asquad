@@ -1,5 +1,5 @@
 .popup-form {
-	background: rgba(16, 24, 32, 0);
+	background-color: rgba(16, 24, 32, 0.25);
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -7,7 +7,8 @@
 	right: 0;
 	width: 100%;
 	height: 100%;
-	transition: background 0.5s ease 0s;
+	transition: opacity 0.5s ease 0s;
+	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
 	z-index: 150;
@@ -15,7 +16,7 @@
 		visibility: visible;
 		overflow: auto;
 		pointer-events: auto;
-		background: rgba(16, 24, 32, 0.25);
+		opacity: 1;
 	}
 }
 
@@ -28,18 +29,18 @@
 	position: absolute;
 	display: flex;
 	z-index: 151;
+	top: 0;
 	right: 0;
 	transform: translateX(100%);
-	top: 0;
 	min-height: 100%;
 	width: 100%;
 	max-width: fit-content;
 	visibility: hidden;
-	transition: all 0.3s ease-out 0s;
+	transition: transform 0.5s ease 0s;
 	background-color: white;
-	padding: 20px;
-	box-shadow: 0px 0px 25px rgba(123, 148, 157, 0.5);	
-	border-radius: 15px 0px 0px 15px;
+	padding: rem(20);
+	box-shadow: 0px 0px rem(25) rgba(123, 148, 157, 0.5);	
+	border-radius: rem(15) 0px 0px rem(15);
 	@include adaptiveValue("padding-top", 122, 64, 0, 1920, 768);
 	@include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
 	padding-left: rem(122);
@@ -47,9 +48,18 @@
 	.lock & {
 		visibility: visible;
 	}
-	@media (max-width:$mobileSmall){
+
+	@media (max-width:700px){
 		padding-left: rem(32);
 		padding-right: rem(32);
+	}
+	@media (max-width: 550px) {
+		max-width: 100%;
+		border-radius: 0;
+	}
+	@media (max-width:$mobileXS){
+		padding-left: rem(16);
+		padding-right: rem(16);
 	}
 }
 
@@ -71,7 +81,8 @@
 
 .form-title {
 	font-weight: 700;
-	@include adaptiveValue("font-size", 48, 42);
+	@include adaptiveValue("font-size", 48, 42, 0, 1920, 768);
+	@include adaptiveValue("font-size", 42, 26, 3, 768, 320);
 	line-height: calc(56/48);
 }
 
@@ -86,29 +97,35 @@
 	font-weight: 500;
 	font-size: rem(24);
 	line-height: calc(27/24);
+	@media (max-width:$mobileXS){
+		 font-size: rem(16); 
+		 height: rem(30);
+	}
 }
 .btn-gray-light {
 	background-color: $gray_light;
-	transition: font-family 0.1s ease;
+	transition: font-family 0.1s linear;
 	&:hover {
-		// font-family: 'Rosa ASQD';
-		// font-size: rem(32);
+		font-family: 'Rosa ASQD';
+		font-size: rem(32);
 	}
 }
 .btn-black {
 	background-color: $gray_light;
 	color: $gray_middle;
-	transition: font-family 0.1s ease, background-color 0.2s ease;
+	transition: font-family 0.1s linear, background-color 0.2s ease;
 	&:hover {
 		background-color: $mainColor;
 		color: white;
-		// font-family: 'Rosa ASQD';
-		// font-size: rem(32);
+		font-family: 'Rosa ASQD';
+		font-size: rem(32);
 	}
 }
 .form__error {
+	padding-left: rem(16);
 	color: $red_main;
 	font-weight: 400;
+	font-family: sans-serif;
 	font-size: rem(16);
 	line-height: calc(18/16);
 	position: absolute;
@@ -122,10 +139,12 @@
 }
 .reset-btn {
 	position: absolute;
+	cursor: pointer;
 	top: 57%;
 	right: rem(18);
-	z-index: 2;
+	z-index: 3;
 	opacity: 0;
+	visibility: hidden;
 	transition: opacity 0.3s ease;
 }
 .form {
@@ -139,17 +158,24 @@
 		max-width: rem(904);
 		&:not(:last-child) {
 			margin-bottom: rem(98);
+			@media (max-width:$mobileXS){
+				margin-bottom: rem(42); 
+		 }
 		}
-		@media (max-width: 1024px) {
+		@media (max-width: 1200px) {
 			max-width: rem(562);
 		}
 		@media (max-width: 860px) {
 			max-width: rem(440);
 		}
+		
 	}
 	// .form__head
 	&__head {
 		margin-bottom: rem(64);
+		@media (max-width:$mobileSmall){
+			 margin-bottom: rem(24); 
+		}
 	}
 	// .form__title
 	&__title {
@@ -159,19 +185,22 @@
 	}
 	// .form__subtitle
 	&__subtitle {
+		font-weight: 500;
 		color: $gray_dark;
 		font-size: rem(36);
+		@include adaptiveValue("font-size", 36, 16, 0, 768, 320);
 		line-height: calc(42/36);
 		max-width: rem(760);
 	}
 	// .form__inputs
 	&__inputs {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns:rem(438) rem(438);
 		column-gap: rem(24);
+		padding: 0 3px;
 		@include adaptiveValue("row-gap", 64, 24, 0, 1920, 768);
 		@include adaptiveValue("margin-bottom", 64, 24, 0, 1920, 768);
-		@media (max-width: 1024px) {
+		@media (max-width: 1200px) {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -180,6 +209,18 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
+		&._form-focus {
+			input {
+				background: #FFFFFF;
+				border: 1px solid #0062EB;
+				box-shadow: 0px 0px 5px rgba(0, 98, 235, 0.5);
+			}
+			.form__input {
+				&::placeholder {
+					color: $gray_middle;
+				}
+			}
+		}
 		&._form-error {
 			input {
 				background: #FFFFFF;
@@ -187,6 +228,7 @@
 				box-shadow: 0px 0px rem(5) rgba(235, 0, 117, 0.5);
 			}	
 			.reset-btn {
+				visibility: visible;
 				opacity: 1;
 			}
 		}
@@ -195,10 +237,14 @@
 	&__label {
 		color: $gray_dark;
 		font-weight: 400;
+		font-family: sans-serif;
 		font-size: rem(18);
 		line-height: calc(20/18);
 		margin-bottom: rem(2);
 		padding-left: rem(16);
+		@media (max-width:$mobileXS){
+			 font-size: rem(14); 
+		}
 	}
 	// .form__input
 	&__input {
@@ -207,17 +253,26 @@
     border-radius: rem(20);
     width: 100%;
     font-size: rem(20);
+		font-weight: 500;
     transition: all 0.3s ease 0s;
 		background-color: $gray_light;
 		outline: none;
-		&.input {
-
-		}
 		&::placeholder {
-			color: $gray_dark;;
+			color: $gray_dark;
 		}
-		&._form-focus {
-
+		&.input-form-tel {
+			&:focus {
+				background: #FFFFFF;
+				border: 1px solid #0062EB;
+				box-shadow: 0px 0px 5px rgba(0, 98, 235, 0.5);
+				&::placeholder {
+					color: $gray_middle;
+				}
+			}
+		}
+		@media (max-width:$mobileXS){
+			 font-size: rem(16); 
+			 height: rem(30);
 		}
 	}
 	// .form__buttons
@@ -228,6 +283,10 @@
 		@media (max-width: 860px) {
 			justify-content: space-between;
 		}
+		@media (max-width:$mobileXS){
+			 flex-direction: column-reverse;
+			 row-gap: rem(16); 
+		}
 	}
 	// .form__button
 	&__button {
@@ -235,4 +294,14 @@
 			width: 100%;
 		}
 	}
+}
+
+input:disabled {
+		&::placeholder {
+			color: $gray_middle;
+		}
+}
+button:disabled {
+	background-color: $gray_light;
+	color: $gray_middle;
 }

@@ -6,11 +6,13 @@
 }
 .tippy-box {
 	position: relative;
-	background-color: #333;
+	background-color: #101820;
 	color: #fff;
-	border-radius: 4px;
-	font-size: 14px;
-	line-height: 1.4;
+	border-radius: 15px;
+	font-size: 20px;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.2;
 	outline: 0;
 	transition-property: transform, visibility, opacity;
 }
@@ -58,7 +60,7 @@
 .tippy-arrow {
 	width: 16px;
 	height: 16px;
-	color: #333;
+	color: #101820;
 }
 .tippy-arrow:before {
 	content: "";
@@ -68,6 +70,6 @@
 }
 .tippy-content {
 	position: relative;
-	padding: 5px 9px;
+	padding: 8px 12px;
 	z-index: 1;
 }

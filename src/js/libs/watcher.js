@@ -1,7 +1,6 @@
 // Підключення функціоналу "Чортоги Фрілансера"
 import { isMobile, uniqArray, FLS } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
-
 // Спостерігач об'єктів [всевидюче око]
 // data-watch - можна писати значення для застосування кастомного коду
 // data-watch-root - батьківський елемент всередині якого спостерігати за об'єктом
@@ -119,8 +118,6 @@ class ScrollWatcher {
 			// Додаємо клас
 			!targetElement.classList.contains('_watcher-view') ? targetElement.classList.add('_watcher-view') : null;
 
-
-
 			// ДОБАВЛЕНИЕ КЛАССА ДЛЯ HEADER ==============================================
 			if (targetElement.classList.contains('_header-hidden')) {
 				document.documentElement.classList.add('header-hidden');
@@ -146,6 +143,9 @@ class ScrollWatcher {
 			}
 
 			//================================================================
+			if (targetElement.classList.contains('api')) {
+				
+			}
 			
 			this.scrollWatcherLogging(`Я бачу ${targetElement.classList}, додав клас _watcher-view`);
 		} else {
@@ -170,6 +170,7 @@ class ScrollWatcher {
 			if (targetElement.classList.contains('main')) {
 				animSlide.classList.remove('_anim-main');
 			}
+
 				//=======================================================================================
 
 			this.scrollWatcherLogging(`Я не бачу ${targetElement.classList}, прибрав клас _watcher-view`);

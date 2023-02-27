@@ -1,3 +1,191 @@
-//====================================================================================================
-
-//====================================================================================================
+.footer {
+  background-color: $gray_light;
+  @include adaptiveValue("padding-top", 32, 16, 0, 768, 375);
+  // .footer__container
+  &__container {
+  }
+  // .footer__top
+  &__top {
+  }
+  // .footer__bottom
+  &__bottom {
+  }
+}
+.top-footer {
+  @include adaptiveValue("padding-bottom", 154, 96, 0, 768, 375);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  @include adaptiveValue("column-gap", 262, 122, 0, 1920, 1366);
+  @include adaptiveValue("column-gap", 64, 64, 3, 992, 375);
+  width: 100%;
+  @media (max-width: 620px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: rem(64);
+  }
+  // .top-footer__logo
+  &__logo {
+  }
+  // .top-footer__links
+  &__links {
+    display: flex;
+    @include adaptiveValue("column-gap", 220, 122, 0, 1920, 1366);
+    @include adaptiveValue("row-gap", 62, 36, 0, 768, 375);
+    @media (max-width: 1150px) {
+      flex-direction: column;
+    }
+    @media (max-width: 620px) {
+      text-align: center;
+    }
+  }
+  // .top-footer__list
+  &__list {
+  }
+  // .top-footer__item
+  &__item {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 62, 36, 0, 768, 375);
+    }
+  }
+  // .top-footer__link
+  &__link {
+    font-weight: 500;
+    font-size: rem(20);
+    line-height: calc(24/20);
+    @media (max-width:$mobileSmall){
+       font-size: rem(18); 
+    }
+  }
+  // .top-footer__sub-list
+  &__sub-list {
+  }
+  // .top-footer__sub-item
+  &__sub-item {
+    margin-top: rem(24);
+  }
+  // .top-footer__sub-link
+  &__sub-link {
+    color: $gray_dark;
+    font-weight: 500;
+    font-size: rem(20);
+    line-height: calc(24/20);
+    @media (max-width:$mobileSmall){
+       font-size: rem(18); 
+    }
+  }
+  // .top-footer__icons
+  &__icons {
+  }
+  // .top-footer__icons-body
+  &__icons-body {
+    display: flex;
+    align-items: center;
+    column-gap: rem(32);
+    @media (max-width:$tablet){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: rem(32);
+    }
+    @media (max-width: 620px) { 
+      display: flex;
+    }
+  }
+  // .top-footer__icon
+  &__icon {
+    filter: invert(87%) sepia(16%) saturate(170%) hue-rotate(148deg) brightness(91%) contrast(92%);
+    transition: all .1s ease;
+    @media (any-hover: hover){
+      &:hover{
+        filter: invert(6%) sepia(30%) saturate(842%) hue-rotate(169deg) brightness(98%) contrast(94%);
+      }
+    }
+  }
+}
+.bttm-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: rem(64);
+  border-top: rem(2) solid $gray_middle;
+  @media (max-width: 700px) {
+    flex-direction: column-reverse;
+    row-gap: rem(32);
+  }
+  // .bttm-footer__icons
+  &__icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: rem(508);
+    @media (max-width: 840px) {
+      max-width: rem(381);
+    }
+    @media (max-width:$mobileXS){
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      width: auto;
+    }
+    @media (max-width: 374px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-items: center;
+    }
+    .icon {
+      height: auto;
+      @media (max-width: 840px) {
+        transform: scale(0.75);
+      }
+      @media (max-width:$mobileSmall){
+        transform: scale(0.65);
+      }
+      @media (max-width:$mobileXS){
+        // transform: scale(0.6);
+      }
+    }
+    .icon-java {
+      width: rem(34);
+    }
+    .icon-core {
+      width: rem(98);
+    }
+    .icon-amazon {
+      width: rem(84);
+    }
+    .icon-aws {
+      width: rem(53);
+    }
+    .icon-pci {
+      width: rem(64);
+    }
+    .icon-gdpr {
+      width: rem(32);
+    }
+  }
+  // .bttm-footer__rights
+  &__rights {
+  }
+  // .bttm-footer__c
+  &__c {
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: calc(16/14);
+    text-align: right;
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+  // .bttm-footer__tech
+  &__tech {
+    font-size: rem(14);
+    font-weight: 400;
+    font-family: sans-serif;
+    line-height: calc(16/14);
+    text-align: right;
+    color: $gray_dark;
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+}

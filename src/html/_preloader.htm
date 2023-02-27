@@ -39,19 +39,33 @@
 			top: 0;
 			left: 0;
 			display: flex;
-			justify-content:center;
-			align-items: center;
+			justify-content: center;
+			align-items: flex-start;
+			background-color: #101820;
 		}
 		/* Блок з елементами */
 		.fls-preloader__body{
-			padding: 0.93rem;
+			padding: 4.1rem;
 			max-width: 31.25rem;
 			display: flex;
-			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+		}
+		.fls-preloader__images {
+			width: 40px;
+			height: 40px;
 		}
 		/* Блок з лічильником */
-		.fls-preloader__counter{
-			font-size: 10rem;
+		.fls-preloader__counter {
+			font-family: 'GT', sans-serif;
+			font-weight: 500;
+			font-size: 3rem;
+			line-height: calc(56/48);
+			color: #FFFFFF;
+		}
+		.fls-preloader__counter span {
+			color: #BCCCD1;
 		}
 		/* Прогресбар */
 		.fls-preloader__line{}
@@ -62,7 +76,35 @@
 			height: 0.8rem;
 			background-color: #7A956B;
 		}
+
+		@media (max-width: 479.98px) {
+			.fls-preloader__body {
+				padding: 2rem;
+			}
+		}
+		
+		@media (max-width: 375px) {
+			.fls-preloader__body {
+				padding: 1.2rem;
+				gap: 18px;
+			}
+			.fls-preloader__images {
+				width: 25px;
+				height: 25px;
+			}
+			.fls-preloader__counter {
+				font-size: 1.75rem;
+			}
+		}
+
 	</style>
+		<!-- <div class="fls-preloader">
+			<div class="fls-preloader__body">
+				<img src="img/icons/s-white.svg" alt="image" class="fls-preloader__images">
+				<div class="fls-preloader__counter">0<span>%</span></div>
+				<div class="fls-preloader__line"><span></span></div>
+			</div>
+		</div>`; -->
 	<!-- Скріпт прелоадера -->
 	<script>
 		function preloader() {
@@ -72,8 +114,8 @@
 				const preloaderTemplate =`
 					<div class="fls-preloader">
 						<div class="fls-preloader__body">
-							<div class="fls-preloader__counter">0%</div>
-							<div class="fls-preloader__line"><span></span></div>
+							<img src="img/icons/s-white.svg" alt="image" class="fls-preloader__images">
+							<div class="fls-preloader__counter">0<span>%</span></div>
 						</div>
 					</div>`;
 				document.querySelector('html').insertAdjacentHTML("beforeend",preloaderTemplate);
@@ -118,7 +160,7 @@
 					setInterval(() => {
 						preloader.remove();
 						preloaderContainer.remove();
-					}, 500);
+					}, 1000);
 				}
 			}else{
 				preloaderContainer.remove();
