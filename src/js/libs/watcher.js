@@ -30,7 +30,6 @@ class ScrollWatcher {
 	// Конструктор спостерігачів
 	scrollWatcherConstructor(items) {
 		if (items.length) {
-			this.scrollWatcherLogging(`Прокинувся, стежу за об'єктами (${items.length})...`);
 			// Унікалізуємо параметри
 			let uniqParams = uniqArray(Array.from(items).map(function (item) {
 				return `${item.dataset.watchRoot ? item.dataset.watchRoot : null}|${item.dataset.watchMargin ? item.dataset.watchMargin : '0px'}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
@@ -62,9 +61,7 @@ class ScrollWatcher {
 				// Ініціалізація спостерігача зі своїми налаштуваннями
 				this.scrollWatcherInit(groupItems, configWatcher);
 			});
-		} else {
-			this.scrollWatcherLogging("Сплю, немає об'єктів для стеження. ZzzZZzz");
-		}
+		} 
 	}
 	// Функція створення налаштувань
 	getScrollWatcherConfig(paramsWatch) {
@@ -73,13 +70,10 @@ class ScrollWatcher {
 		// Батько, у якому ведеться спостереження
 		if (document.querySelector(paramsWatch.root)) {
 			configWatcher.root = document.querySelector(paramsWatch.root);
-		} else if (paramsWatch.root !== 'null') {
-			this.scrollWatcherLogging(`Эмм... батьківського об'єкта ${paramsWatch.root} немає на сторінці`);
 		}
 		// Відступ спрацьовування
 		configWatcher.rootMargin = paramsWatch.margin;
 		if (paramsWatch.margin.indexOf('px') < 0 && paramsWatch.margin.indexOf('%') < 0) {
-			this.scrollWatcherLogging(`йой, налаштування data-watch-margin потрібно задавати в PX або %`);
 			return
 		}
 		// Точки спрацьовування
@@ -128,6 +122,14 @@ class ScrollWatcher {
 			if (targetElement.classList.contains('_header-white')) {
 				document.documentElement.classList.remove('header-black');
 			}
+			if (targetElement.classList.contains('footer__bottom')) {
+				const headerItem = document.querySelector('.header');
+					headerItem.classList.add('hide-header');
+			}
+
+			// if (targetElement.classList.contains('footer')) {
+			// 	document.documentElement.classList.add('header-hidden');
+			// }
 			// =============================================================================
 			// КЛАСС ДЛЯ СДВИГА ПЕРВОЙ КАРТИНКИ ============
 			const animSlide = document.querySelector('.image-anim');
@@ -141,13 +143,8 @@ class ScrollWatcher {
 			if (targetElement.classList.contains('integrations')) {
 				animSlide.classList.add('_anim-integrations');
 			}
-
-			//================================================================
-			if (targetElement.classList.contains('api')) {
-				
-			}
 			
-			this.scrollWatcherLogging(`Я бачу ${targetElement.classList}, додав клас _watcher-view`);
+
 		} else {
 			// Не бачимо об'єкт
 			// Забираємо клас
@@ -170,10 +167,11 @@ class ScrollWatcher {
 			if (targetElement.classList.contains('main')) {
 				animSlide.classList.remove('_anim-main');
 			}
-
-				//=======================================================================================
-
-			this.scrollWatcherLogging(`Я не бачу ${targetElement.classList}, прибрав клас _watcher-view`);
+			if (targetElement.classList.contains('footer__bottom')) {
+				const headerItem = document.querySelector('.header');
+					headerItem.classList.remove('hide-header');
+			}
+			
 		}
 	}
 

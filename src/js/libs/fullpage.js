@@ -371,14 +371,31 @@ export class FullPage {
 
 			// Клік для буллетів
 			click: this.clickBullets.bind(this),
+			clickblock: this.clickBlock.bind(this),
+
+
 		}
 		if (isMobile.iOS()) {
 			document.addEventListener('touchmove', (e) => {
 				e.preventDefault();
 			});
 		}
+	
+	//===============================
+		// перемикання слайдів choose your path:
+		const chooseBlocks = document.querySelectorAll('.choose__block');
+		for (let index = 0; index < chooseBlocks.length; index++) {
+			chooseBlocks[index].addEventListener("click", this.events.clickblock);
+		}
+
 		this.setEvents();
+// --------------------------
+	
 	}
+	clickBlock(e) {
+		this.switchingSection(6);
+	}
+
 	setEvents() {
 		// Подія колеса миші
 		this.wrapper.addEventListener('wheel', this.events.wheel);
@@ -415,6 +432,7 @@ export class FullPage {
 			this.switchingSection(idClickBullet)
 		}
 	}
+	
 	//===============================
 	// Установка стилів для буллетів
 	setActiveBullet(idButton) {
@@ -543,12 +561,15 @@ export class FullPage {
 				--this.activeSectionId : this.activeSectionId;
 		}
 
-		// Зміна слайдів
+			// Зміна слайдів
 		if (this.stopEvent) this.switchingSection();
 	}
+
+
 	//===============================
 	// Функція перемикання слайдів
 	switchingSection(idSection = this.activeSectionId) {
+	
 		this.activeSectionId = idSection;
 		// Встановлення події закінчення програвання анімації
 		this.wrapper.classList.add(this.options.wrapperAnimatedClass);
@@ -569,13 +590,14 @@ export class FullPage {
 			}
 		}));
 	}
+
 	//===============================
-	// Встановлення булетів
+	// Установка буллетов
 	setBullets() {
-		// Пошук оболонки буллетів
+		// Поиск оболочки буллетов
 		this.bulletsWrapper = document.querySelector(`.${this.options.bulletsClass}`);
 
-		// Якщо немає створюємо
+		// Если нету создаем
 		if (!this.bulletsWrapper) {
 			const bullets = document.createElement('div');
 			bullets.classList.add(this.options.bulletsClass);
@@ -583,7 +605,7 @@ export class FullPage {
 			this.bulletsWrapper = bullets;
 		}
 
-		// Створення буллетів
+		// Создание буллетов
 		if (this.bulletsWrapper) {
 			for (let index = 0; index < this.sections.length; index++) {
 				const span = document.createElement('span');

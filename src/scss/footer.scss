@@ -140,9 +140,6 @@
       @media (max-width:$mobileSmall){
         transform: scale(0.65);
       }
-      @media (max-width:$mobileXS){
-        // transform: scale(0.6);
-      }
     }
     .icon-java {
       width: rem(34);
@@ -180,7 +177,6 @@
   &__tech {
     font-size: rem(14);
     font-weight: 400;
-    font-family: sans-serif;
     line-height: calc(16/14);
     text-align: right;
     color: $gray_dark;

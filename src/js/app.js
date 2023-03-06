@@ -26,7 +26,7 @@ import * as flsFunctions from "./files/functions.js";
 /* (i) необхідно для коректного відображення webp із css */
 flsFunctions.isWebp();
 /* Додавання класу touch для HTML якщо браузер мобільний */
-flsFunctions.addTouchClass();
+// flsFunctions.addTouchClass();
 /* Додавання loaded для HTML після повного завантаження сторінки */
 flsFunctions.addLoadedClass();
 /* Модуль для роботи з меню (Бургер) */
@@ -147,7 +147,7 @@ import "./files/tippy.js";
 Документація плагіна: https://swiperjs.com/
 Сніппет(HTML): swiper
 */
-import "./files/sliders.js";
+// import "./files/sliders.js";
 
 // ========================================================================================================================================================================================================================================================
 // Модулі роботи з прокручуванням сторінки ========================================================================================================================================================================================================================================================
@@ -165,12 +165,12 @@ import "./files/sliders.js";
 // Документація по роботі у шаблоні: https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html
 // Документація плагіна: https://github.com/verlok/vanilla-lazyload
 // Сніппет(HTML):
-import './files/scroll/lazyload.js';
+// import './files/scroll/lazyload.js';
 
 // Спостерігач за об'єктами з атрибутом data-watch
 // Документація: https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html
 // Сніппет(HTML):
-import './libs/watcher.js'
+import './libs/watcher.js';
 
 // Модуль поекранної прокрутки
 // Документація: https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html
@@ -180,10 +180,10 @@ import './libs/fullpage.js';
 // Модуль паралаксу
 // Документація: https://template.fls.guru/template-docs/paralaks-pri-skroli.html
 // Сніппет(HTML):
-import './libs/parallax.js'
+// import './libs/parallax.js'
 
 // Функції роботи скролом
-import * as flsScroll from "./files/scroll/scroll.js";
+// import * as flsScroll from "./files/scroll/scroll.js";
 
 // Плавна навігація по сторінці
 // Документація: https://template.fls.guru/template-docs/modul-plavnoj-navigacii-po-stranice.html

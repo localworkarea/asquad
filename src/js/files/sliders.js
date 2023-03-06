@@ -27,20 +27,24 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
-	if (document.querySelector('.product__slider')) { // Вказуємо склас потрібного слайдера
+	if (document.querySelector('.manage__slider')) { // Вказуємо склас потрібного слайдера
 		// Створюємо слайдер
-		new Swiper('.product__slider', { // Вказуємо склас потрібного слайдера
+		new Swiper('.manage__slider', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			// modules: [Navigation],
 			// observer: true,
 			// observeParents: true,
-			// freeMode: true,
-			// slidesPerView: 2.5,
-			// spaceBetween: 271,
+			freeMode: true,
+			slidesPerView: 1.2,
+			// centeredSlides: true,
+			// centerInsufficientSlides:true,
+			// centeredSlidesBounds: true,
+			// width: 550,
+			// spaceBetween: 50,
 			// autoHeight: true,
 			speed: 800,
-			// touchAngle: 90,
+			touchAngle: 90,
 			// grabCursor: true,
 
 			// // Управление колесом мыши
@@ -52,32 +56,32 @@ function initSliders() {
 			// },
 
 			// Брейкпоінти
-			breakpoints: {
-				320: {
-					slidesPerView: 1.2,
-					spaceBetween: 70,
-				},
-				375: {
-					slidesPerView: 1.7,
-					spaceBetween: 70,
-				},
-				768: {
-					slidesPerView: 1.7,
-					spaceBetween: 136,
-				},
-				992: {
-					slidesPerView: 1.9,
-					spaceBetween: 63,
-				},
-				1366: {
-					slidesPerView: 2.5,
-					spaceBetween: 63,
-				},
-				1500: {
-					slidesPerView: 2.5,
-					spaceBetween: 271,
-				},
-			},
+			// breakpoints: {
+			// 	320: {
+			// 		slidesPerView: 1.2,
+			// 		spaceBetween: 70,
+			// 	},
+			// 	375: {
+			// 		slidesPerView: 1.7,
+			// 		spaceBetween: 70,
+			// 	},
+			// 	768: {
+			// 		slidesPerView: 1.7,
+			// 		spaceBetween: 136,
+			// 	},
+			// 	992: {
+			// 		slidesPerView: 1.9,
+			// 		spaceBetween: 63,
+			// 	},
+			// 	1366: {
+			// 		slidesPerView: 2.5,
+			// 		spaceBetween: 63,
+			// 	},
+			// 	1500: {
+			// 		slidesPerView: 2.5,
+			// 		spaceBetween: 271,
+			// 	},
+			// },
 			// Події
 			on: {
 

@@ -7,7 +7,7 @@
 	right: 0;
 	width: 100%;
 	height: 100%;
-	transition: opacity 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
 	opacity: 0;
 	visibility: hidden;
 	pointer-events: none;
@@ -111,9 +111,15 @@
 	}
 }
 .btn-black {
-	background-color: $gray_light;
-	color: $gray_middle;
+	background-color: $mainColor;
+	color: white;
 	transition: font-family 0.1s linear, background-color 0.2s ease;
+	&:disabled {
+		&:hover {
+			background-color: $gray_light;
+		color: $gray_middle;
+		}
+	}
 	&:hover {
 		background-color: $mainColor;
 		color: white;
@@ -125,12 +131,15 @@
 	padding-left: rem(16);
 	color: $red_main;
 	font-weight: 400;
-	font-family: sans-serif;
 	font-size: rem(16);
 	line-height: calc(18/16);
 	position: absolute;
 	bottom: rem(-22);
 	left: 0;
+	@media (max-width:$mobileXS){
+		 font-size: rem(14); 
+		 bottom: rem(-18);
+	}
 }
 .form-textarea {
 	min-height: rem(88);
@@ -144,8 +153,15 @@
 	right: rem(18);
 	z-index: 3;
 	opacity: 0;
-	visibility: hidden;
 	transition: opacity 0.3s ease;
+	&.btn-reset-textarea {
+		top: 32%;
+	}
+	@media (any-hover: hover){
+		&:hover{
+			opacity: 1;	
+		}
+	}
 }
 .form {
 	display: flex;
@@ -156,6 +172,7 @@
 	&__block {
 		width: 100%;
 		max-width: rem(904);
+		padding: 0 rem(3);
 		&:not(:last-child) {
 			margin-bottom: rem(98);
 			@media (max-width:$mobileXS){
@@ -195,9 +212,9 @@
 	// .form__inputs
 	&__inputs {
 		display: grid;
-		grid-template-columns:rem(438) rem(438);
+		grid-template-columns:rem(436) rem(436);
 		column-gap: rem(24);
-		padding: 0 3px;
+		padding: 0 rem(3);
 		@include adaptiveValue("row-gap", 64, 24, 0, 1920, 768);
 		@include adaptiveValue("margin-bottom", 64, 24, 0, 1920, 768);
 		@media (max-width: 1200px) {
@@ -220,6 +237,9 @@
 					color: $gray_middle;
 				}
 			}
+			.reset-btn {
+				opacity: 1;
+			}
 		}
 		&._form-error {
 			input {
@@ -227,9 +247,17 @@
 				border: rem(1) solid #EB0075;
 				box-shadow: 0px 0px rem(5) rgba(235, 0, 117, 0.5);
 			}	
+		}
+		&._show-reset-btn {
 			.reset-btn {
-				visibility: visible;
 				opacity: 1;
+			}
+		}
+		&.item-form-phone {
+			&._show-reset-btn {
+				.reset-btn {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -237,7 +265,6 @@
 	&__label {
 		color: $gray_dark;
 		font-weight: 400;
-		font-family: sans-serif;
 		font-size: rem(18);
 		line-height: calc(20/18);
 		margin-bottom: rem(2);
@@ -255,8 +282,14 @@
     font-size: rem(20);
 		font-weight: 500;
     transition: all 0.3s ease 0s;
+		border: rem(1) solid transparent;
 		background-color: $gray_light;
 		outline: none;
+		&._form-error {
+			background: #FFFFFF;
+			border: rem(1) solid #EB0075;
+			box-shadow: 0px 0px rem(5) rgba(235, 0, 117, 0.5);
+	}
 		&::placeholder {
 			color: $gray_dark;
 		}
@@ -269,6 +302,10 @@
 					color: $gray_middle;
 				}
 			}
+			
+		}
+		&:hover {
+			border: 1px solid #0062EB;
 		}
 		@media (max-width:$mobileXS){
 			 font-size: rem(16); 
@@ -304,4 +341,9 @@ input:disabled {
 button:disabled {
 	background-color: $gray_light;
 	color: $gray_middle;
+}
+textarea:focus {
+	background: #FFFFFF;
+	border: 1px solid #0062EB;
+	box-shadow: 0px 0px 5px rgba(0, 98, 235, 0.5);
 }

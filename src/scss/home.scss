@@ -2,11 +2,13 @@
 .main {
   overflow: auto;
   padding-top: rem(32);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+     padding-bottom: rem(16); 
+  }
   @media (max-width:$mobileXS){
      padding-top: rem(16); 
   }
-  // @include adaptiveValue("padding-top", 32, 16, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   &.active-section {
     .mouse-wheel__body {
       animation: mouse-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 1s 6 alternate none;
@@ -14,9 +16,6 @@
     .mouse-wheel__wheel {
       animation: wheel-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 1.2s 6 alternate none;
     }
-  }
-  // .main__container
-  &__container {
   }
   // .main__logo
   &__logo {
@@ -62,8 +61,8 @@
     position: absolute;
     top: 60%;
     right: rem(144);
-    .touch & {
-      display: none;
+    @media (max-width: 1366px) {
+     display: none;
     }
   }
 
@@ -71,10 +70,13 @@
 
 // === --- FOCUS (2) --- ===================================================
 .focus {
-  //  background-color: $mainColor;
-   @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
-   overflow: auto;
+  overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .focus__container
   &__container {
     display: flex;
@@ -99,7 +101,7 @@
        flex-direction: column;
     }
    @media (max-width:$mobileSmall){
-    margin-bottom: rem(32);      
+    margin-bottom: rem(82);      
    }
   }
   // .focus__item
@@ -133,10 +135,13 @@
 
 // === --- integrations (3) --- ===================================================
 .integrations {
-  // background-color: $mainColor;
-   @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
-   overflow: auto;
+  overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .integrations__container
   &__container {
     display: flex;
@@ -149,6 +154,7 @@
     text-align: center;
     max-width: rem(1070);
     @include adaptiveValue("padding-bottom", 64, 0, 0, 1920, 1366);
+    @include adaptiveValue("padding-bottom", 90, 55, 3, 768, 320);
   }
   // .integrations__title
   &__title {
@@ -160,7 +166,6 @@
   // .integrations__text
   &__text {
     font-weight: 400;
-    font-family: sans-serif;
     @include adaptiveValue("font-size", 24, 16, 0, 768, 320);
     line-height: calc(26/24);
     color: $gray_middle;
@@ -200,13 +205,16 @@
   }
 }
 
-
 // === --- awesome (4) --- ===================================================
 .awesome {
   background-color: $blue_main;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     .mouse-wheel__body {
       animation: mouse-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.7s 6 alternate none;
@@ -246,9 +254,13 @@
 // === --- industries (5) --- ===================================================
 .industries {
   background-color: $blue_main;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     .industries__img {
       opacity: 1;
@@ -288,6 +300,9 @@
   // .industries__body
   &__body{
     max-width: rem(566);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   // .industries__title
   &__title {
@@ -337,20 +352,29 @@
 // === --- choose (6) --- ===================================================
 .choose {
   background-color: $blue_main;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .choose__container
   &__container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100%;
+    
+    @media (max-width:$mobile){
+        justify-content: unset;
+    }
   }
   // .choose__title
   &__title {
     color: $blue_100;
     text-align: center;
+    @include adaptiveValue("margin-top", 112, 48, 3, 768, 375);
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 96, 32, 0, 1920, 1024);
       @media (max-width: 375px) {
@@ -395,10 +419,14 @@
           }
         }
         .subtitle-chose-one {
-          transform: translateX(40px);
+          @media (min-width: 1366px) {
+            transform: translateX(40px);
+          }
         }
         .subtitle-chose-two {
-          transform: translateX(40px);
+          @media (min-width: 1366px) {
+            transform: translateX(40px);
+          }
         }
       }
     }
@@ -434,7 +462,7 @@
   &__text {
     color: $blue_100;
     text-align: center;
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
       max-width: rem(566);
     }
     span {
@@ -447,15 +475,15 @@
       opacity: 0;
       visibility: hidden;
       position: absolute;
-      top: 0;
-      width: rem(71);
-      height: rem(71);
+      top: 10%;
+      width: rem(56);
+      height: rem(56);
       transition: all 0.3s ease-out;
       &.img-choose-one {
-        left: 6%;
+        left: 2%;
       }
       &.img-choose-sec {
-        left: -12%;
+        left: -14%;
       }
     }
     @media (max-width: 1366px) {
@@ -467,10 +495,14 @@
 // === --- manage (7) --- ===================================================
 .manage {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow-x: hidden;
   overflow-y: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // overflow: auto;
   &.active-section {
     .anim-manage__item {
@@ -520,17 +552,20 @@
         display: block;
       }
     }
+    @media (max-width: 1500px) {
+      width: 33%;
+    }
     @media (max-width: 1200px) {
       width: 100%;
     }
-  }
-  // .manage__anim
-  &__anim {
   }
 }
 .anim-manage {
   width: 64%;
   position: relative;
+  @media (max-width: 1500px) {
+    width: 57%;
+  }
   @media (max-width: 1200px) {
     width: rem(781);
   }
@@ -539,20 +574,22 @@
     max-width: rem(781);
   }
   @media (max-width:$mobile){
-    overflow: auto;
+    overflow-x: auto;
     padding: rem(19);
+    display: flex;
+    scroll-snap-type: x proximity;
  }
-  @media (max-width:$mobileSmall){
-    //  width: rem(541); 
-  }
   // .anim-manage__body
   &__body {
     @media (max-width:$mobile){
        width: rem(703); 
        position: relative;
+       flex: 1 0 703px;
+       scroll-snap-align: center;
+       scroll-behavior: smooth;
     }
     @media (max-width:$mobileSmall){
-       width: rem(540); 
+       flex: 1 0 540px;
     }
   }
   // .anim-manage__item
@@ -576,14 +613,9 @@
     background-color: white;
     width: rem(376);
     height: rem(173);
-    @media (max-width: 1366px) {
+    @media (max-width: 1500px) {
       width: rem(272);
       height: rem(126);
-    }
-    @media (max-width:$mobile){
-      //  position: relative;
-      //  top: 32%;
-      //  left: 10%; 
     }
     @media (max-width: $mobileSmall) {
       width: rem(189);
@@ -595,7 +627,7 @@
     background-color: $gray_light;
     width: rem(620);
     height: rem(831);
-    @media (max-width: 1366px) {
+    @media (max-width: 1500px) {
       width: rem(450);
       height: rem(603);
     }
@@ -605,6 +637,7 @@
     @media (max-width: $mobileSmall) {
       width: rem(311);
       height: rem(418);
+      margin-left: 22%;
     }
   }
   .item-third {
@@ -615,7 +648,7 @@
     background-color: white;
     width: rem(410);
     height: rem(318);
-    @media (max-width: 1366px) {
+    @media (max-width: 1500px) {
       width: rem(297);
       height: rem(230);
     }
@@ -629,10 +662,14 @@
 // === --- options (8) --- ===================================================
 .options {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
-    overflow-x: hidden;
-    overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .options__container
   &__container {
     display: flex;
@@ -661,6 +698,11 @@
       width: 100%;
       justify-content: flex-start;
     }
+    .block-info {
+      @media (min-width: 1200px) {
+        margin-bottom: rem(201);
+      }
+    }
     .block-info__title {
       max-width: rem(332);
       @media (max-width: 1200px) {
@@ -681,9 +723,6 @@
       }
     }
   }
-  // .options__btns
-  &__btns {
-  }
 }
 
 .btns-options {
@@ -696,52 +735,65 @@
   }
   @media (max-width:$mobile){
      overflow-x: auto; 
-     position: absolute;
      width: 100%;
      height: rem(674);
+     display: flex;
+     scroll-snap-type: both;
   }
   @media (max-width:$mobileSmall){
     height: rem(490);
   }
+
+  // .btns-options__wrapper
+  &__wrapper {
+    @media (max-width:$mobile){
+       height: rem(674);
+      //  width: rem(861);
+       position: relative;
+       flex: 1 0 861px;
+       scroll-snap-align: center;
+       scroll-behavior: smooth;
+    }
+    @media (max-width:$mobileSmall){
+      flex: 1 0 646px;
+      height: rem(490);
+
+    }
+  }
+  
   // .btns-options__logo
   &__logo {
     filter: invert(6%) sepia(30%) saturate(842%) hue-rotate(169deg) brightness(98%) contrast(94%);
     filter: drop-shadow(0px 0px 25px rgba(123, 148, 157, 0.5));
     @include adaptiveValue("height", 296, 214, 0, 1920, 1366);
-    @include adaptiveValue("height", 214, 148, 3, 768, 375);
+    @include adaptiveValue("height", 214, 148, 3, 768, 478);
     width: auto;
     position: absolute;
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
     @media (max-width:$mobileSmall){
-       left: 55%; 
+       left: 50%; 
     }
   }
-  // .btns-options__wrapper
-  &__wrapper {
-    @media (max-width:$mobile){
-       width: rem(823);
-       height: rem(674);
-       position: relative;
-    }
-    @media (max-width:$mobileSmall){
-      width: rem(570);
-      height: rem(490);
-    }
-  }
-  // .btns-options__btn
+  // .btns-options__body
   &__body {
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     @media (max-width:$mobile){
        margin: rem(19); 
        width: rem(823);
        height: rem(636);
+      //  scroll-snap-align: center;
     }
     @media (max-width:$mobileSmall){
       height: rem(452);
+      // width: 100%;
       width: rem(608);
     }
   }
@@ -946,16 +998,17 @@
 // === --- custom (9) --- ===================================================
 .custom {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow-x: hidden;
   overflow-y: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     .anim-custom__item{
       opacity: 1;
-      &.item-first {
-
-      }
       &.item-second {
         right: 58%;
         @media (max-width:$mobile){
@@ -1013,9 +1066,6 @@
       width:100%;
     }
   }
-  // .custom__anim
-  &__anim {
-  }
 }
 .anim-custom {
   width: 70%;
@@ -1039,11 +1089,11 @@
   // .anim-custom__wrapper
   &__wrapper {
     @media (max-width:$mobile){
-      width: rem(855);
+      width: rem(800);
       height: rem(544);
     }
     @media (max-width:$mobileSmall){
-      width: rem(593);
+      width: rem(651);
       height: rem(415);
     }
   }
@@ -1094,12 +1144,8 @@
     width: 100%;
     height: auto;
     transition: all 0.1s ease-out 0.9s;
-    &.img-1 {
-    }
     &.img-2 {
       opacity: 0;
-    }
-    &.img-3 {
     }
     &.img-4 {
       opacity: 0;
@@ -1111,9 +1157,13 @@
 // === --- api (10) --- ===================================================
 .api {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .api__container
   &__container {
     display: flex;
@@ -1155,6 +1205,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    bottom: 0;
     height: 100%;
     overflow-x: auto;
     @media (min-width: 1200px) {
@@ -1186,7 +1237,7 @@
   &__typing-line {
     display: none;
     @media (max-width:$mobile){
-      display: block;
+      display: flex;
       z-index: 3;
       position: absolute;
       bottom: 0;
@@ -1223,21 +1274,18 @@
     @media (max-width:$mobileXS){
       margin: rem(75) rem(16);
     }
-    @media (max-height: 695px) {
-      margin: rem(50) rem(16);
+    @media (max-width: $mobile) {
+      @media (max-height: 695px) {
+        margin: rem(50) rem(16);
+      }
+      @media (max-height: 600px) {
+        margin: rem(30) rem(16);
+      }
     }
-    @media (max-height: 600px) {
-      margin: rem(30) rem(16);
-    }
+  
   }
 }
 .typing {
-  // .typing__id
-  &__id {
-  }
-  // .typing__text
-  &__text {
-  }
   // .typing__numb
   &__numb {
     font-weight: 400;
@@ -1268,10 +1316,13 @@
 // === --- routing (11) --- ===================================================
 .routing {
   background-color: $mainColor;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
-  position: relative;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
    .industries__block {
     background: rgba(16, 24, 32, 0.75);
     border: 1px solid #7B949D;
@@ -1280,8 +1331,8 @@
     max-width: fit-content;
     z-index: 2;
    }
+ 
   // .industries__body
-  // .industries__title
   // .industries__text
 
    // .routing__container
@@ -1331,9 +1382,13 @@
 // === --- hold (12) --- ===================================================
 .hold {
   background-color: $mainColor;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     .mouse-wheel__body {
       animation: mouse-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.7s 6 alternate none;
@@ -1347,39 +1402,97 @@
 // === --- product (13) --- ===================================================
 .product {
   background-color: $mainColor;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
-  // .product__container
-  &__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100%;
-  }
-  // .product__slider
-  &__slider {
-    height: rem(678);
-    @media (max-height: 992px) {
-      height: rem(580);
-    }
-    @media (max-width:$mobileSmall){
-      margin-top: rem(48);
-      height: rem(600);
-    }
-    @media (max-width:$mobileXS){
-       margin-top: rem(10); 
-    }
-  }
   // .product__wrapper
   &__wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+    -ms-overflow-style: none; 
+    @media (max-width: 1366px) {
+    }
+    @media (max-width:$mobile){
+    }
+    @media (max-width:$mobileXS){
+    }
   }
-  // .product__slide
-  &__slide {
-    color: white;
+  // .product__body
+  &__body {
+    position: relative;
+    width: max-content;
+    display: flex;
+    column-gap: rem(271);
+    margin: rem(35);
+    cursor: pointer;
+    @media (min-width: 992px) {
+      @media (max-height: 750px) {
+        margin-top: rem(60);
+        margin-bottom: rem(0);
+      }
+    }
+    @media (max-width: 1366px) {
+      column-gap: rem(63);
+    }
+    @media (max-width:$mobile){
+       column-gap: rem(137); 
+    }
+    @media (max-width:$mobileSmall){
+       margin-top: rem(25);
+       margin-bottom: rem(80);
+    }
+    @media (max-width:$mobileXS){
+       column-gap: rem(70); 
+       margin-top: rem(40);
+       margin-bottom: rem(15);
+    }
+    @media (max-width: 320px) {
+      margin-top: rem(35);
+      margin-bottom: 0;
+    }
   }
 }
 .slide-product {
+
+  &.slide-one {
+    width: rem(542);
+    @media (max-width: 1366px) {
+      width: rem(482);
+    }
+    @media (max-width: 768px) {
+      width: rem(364);
+    }
+    @media (max-width:$mobileXS){
+       width: rem(180); 
+    }
+  }
+  &.slide-two {
+    width: rem(494);
+    @media (max-width:$mobile){
+       width: rem(464); 
+    }
+    @media (max-width:$mobileSmall){
+       width: rem(364); 
+    }
+    @media (max-width:$mobileXS){
+       width: rem(180); 
+    }
+  }
+  &.slide-three {
+    width: rem(484);
+    @media (max-width:$mobile){
+       width: rem(364); 
+    }
+    @media (max-width:$mobileXS){
+       width: rem(180); 
+    }
+  }
   // .slide-product__image-ibg
   &__image-ibg {
     @include adaptiveValue("width", 248, 196, 0, 1920, 1366);
@@ -1397,6 +1510,9 @@
   &__title {
     text-align: center;
     @include adaptiveValue("margin-bottom", 32, 24, 0, 768, 375);
+    span {
+      font-weight: 500;
+    }
     &.title-one {
       color: $blue_main;
     }
@@ -1406,6 +1522,17 @@
     &.title-three {
       color: $red_main;
     }
+    @media (min-width: 1020px) {
+      width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .line-break {
+      display: none;
+      @media (max-width: 1020px) {
+        display: block;
+      }
+    }
   }
   // .slide-product__info
   &__info {
@@ -1414,13 +1541,15 @@
     align-items: center;
     text-align: center;
   }
-   // .slide-product__info
-   &__info-list {
-
-   }
   // .slide-product__text
   &__text {
     color: $gray_middle;
+    .text-bold {
+      font-weight: 700;
+    }
+    .text-regular {
+      font-weight: 400;
+    }
     &:not(:last-child) {
       @include adaptiveValue("margin-bottom", 32, 24, 0, 768, 375);
     }
@@ -1450,12 +1579,13 @@
 // === --- technologies (14) --- ===================================================
 .technologies {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
-  overflow: auto;
-  // .technologies__container
-  &__container {
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
   }
+  overflow: auto;
   // .technologies__title
   &__title {
     font-weight: 700;
@@ -1465,10 +1595,13 @@
     line-height: calc(74/64);
     text-align: center;
     margin-bottom: rem(32);
-    @include adaptiveValue("margin-top", 122, 32, 0, 1920, 1366);
+    @include adaptiveValue("margin-top", 122, 15, 0, 1920, 1366);
     span {
       color: $gray_dark;
       font-weight: 500;
+    }
+    @media (max-width:$mobileSmall){
+       margin-bottom: rem(20); 
     }
   }
   // .technologies__content
@@ -1476,9 +1609,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-   
-    @include adaptiveValue("row-gap", 96, 64, 0, 1920, 1366);
-    @include adaptiveValue("row-gap", 64, 32, 3, 1024, 768);
+    @include adaptiveValue("row-gap", 96, 20, 0, 1920, 1366);
+    @include adaptiveValue("row-gap", 64, 20, 3, 1024, 768);
   }
   // .technologies__buttons
   &__buttons {
@@ -1534,6 +1666,11 @@
     grid-template-rows: 164px 164px;
     column-gap: rem(122);
     row-gap: rem(64);
+    @media (max-width: 1500px) {
+      @media (min-width: 1200px) {
+        row-gap: rem(32);
+      }
+    }
     @media (max-width: 1366px) {
       column-gap: rem(64);
       row-gap: rem(32);
@@ -1593,9 +1730,13 @@
 // === --- result (15) --- ===================================================
 .result {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
   overflow: auto;
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     .result__img {
       opacity: 1;
@@ -1616,6 +1757,9 @@
   .industries__text {
     color: $blue_main;
   }
+  .industries__title {
+    width: max-content;
+   }
 
   // .result__container
   &__container {
@@ -1658,12 +1802,38 @@
 
 // === --- request (16) --- ===================================================
 .request {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   &.active-section {
     @media (min-width: 1345px) {
+
+      .texts-gray-top-a {
+        .text-block__txt {
+          &.txt-two {
+            animation: text-start-right 0.5s ease-in 5.9s 1 normal forwards;
+            
+          }
+        }
+      }
+
+      .texts-gray-top {
+        .text-block__txt {
+          &.txt-two {
+            animation: text-start-right 0.5s ease-in 3.5s 1 normal forwards, text-end-right 0.5s ease-out 5.5s 1 normal forwards;
+          }
+          &.txt-one {        
+            animation: text-start-right 0.5s ease-in 6s 1 normal forwards;
+          }
+        }
+      }
+
       .texts-color-center {
         .text-block__txt {
           &.txt-red {
@@ -1677,21 +1847,21 @@
           }
         }
       }
+
       .texts-gray-bottom {
         .text-block__txt {
-          &.txt-two {     
+          &.txt-one {     
             animation: text-start-left 0.5s ease-in 0.6s 1 normal forwards, text-end-left 0.5s ease-out 3.1s 1 normal forwards;   
-          
           }
           &.txt-three {
             animation: text-start-left 0.5s ease-in 3.6s 1 normal forwards, text-end-left 0.5s ease-out 5.6s 1 normal forwards;
-          
           }
           &.txt-fourth {
             animation: text-start-left 0.5s ease-in 6.1s 1 normal forwards;
           }
         }
       }
+      
       .texts-gray-bottom-a {
         .text-block__txt {
           &.txt-three {
@@ -1706,27 +1876,7 @@
           }
         }
       }
-      .texts-gray-top {
-        .text-block__txt {
-          &.txt-one {
-            animation: text-start-right 0.5s ease-in 3.5s 1 normal forwards, text-end-right 0.5s ease-out 5.5s 1 normal forwards;
-          }
-          &.txt-two {        
-            animation: text-start-right 0.5s ease-in 6s 1 normal forwards;
-          }
-        }
-      }
-      .texts-gray-top-a {
-        .text-block__txt {
-          &.txt-one {
-            animation: text-start-right 0.5s ease-in 5.9s 1 normal forwards;
-          }
-        }
-      }
     }
-  }
-  // .request__wrapper
-  &__wrapper {
   }
   // .request__container
   &__container {
@@ -1746,10 +1896,8 @@
        padding-bottom: rem(58); 
     }
   }
-  // .request__block
-  &__block {
-  }
 }
+
 .text-block {
   display: flex;
   width: 100%;
@@ -1853,18 +2001,15 @@
     height: rem(60);
     background: $gray_light;
     border-radius: rem(30);
-    border: rem(1) solid transparent;
     font-weight: 500;
     font-size: rem(24);
     line-height: calc(27/24);
     transition: background-color .1s ease, color .1s ease, border-color .1s ease, font-family .1s ease,;
     &:hover {
-      background-color: $mainColor;
-      color: white;
+      color: $mainColor;
       font-family: Rosa ASQD;
       font-size: rem(30);
       line-height: 1.1;
-      border-color: $gray_middle;
     }
     @media (max-width: 1530px) {
       width: rem(257);
@@ -1885,18 +2030,23 @@
   @include adaptiveValue("margin-bottom", 96, 48, 0, 1920, 1366);
   .txt-one {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-two {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-three {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-fourth {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-five {
     opacity: 0;
+    color: $gray_middle;
   }
   @media (max-width: 1345px) {
       display: none;
@@ -1951,18 +2101,23 @@
   @include adaptiveValue("margin-top", 96, 48, 0, 1920, 1366);
   .txt-one {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-two {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-three {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-fourth {
     opacity: 0;
+    color: $gray_middle;
   }
   .txt-five {
     opacity: 0;
+    color: $gray_middle;
   }
   @media (max-width: 1345px) {
       display: none;
@@ -2036,8 +2191,12 @@
 // === --- not-found (404 PAGE) (18) --- ===================================================
 .not-found {
   background-color: $gray_light;
-  @include adaptiveValue("padding-top", 104, 56, 0, 768, 320);
-  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 320);
+  padding-top: rem(104);
+  padding-bottom: rem(32);
+  @media (max-width:$mobileSmall){
+    padding-top: rem(56);
+    padding-bottom: rem(16); 
+  }
   // .not-found__container
   &__container {
     display: flex;
@@ -2077,8 +2236,3 @@
    
   }
 }
-.title-second {
-}
-.title-third {
-}
-

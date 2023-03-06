@@ -12,8 +12,14 @@ resetBtn.forEach(item => {
   item.addEventListener("click", resetInput);
 });
 function resetInput() {
-  document.querySelector('.form').reset();
+  document.querySelectorAll('form')[1].reset();
+  document.querySelectorAll('form')[0].reset();
+  const formItems =  document.querySelectorAll('.form__item');
+  formItems.forEach(item => {
+    item.classList.remove('_show-reset-btn');
+  });
 }
+
 
 
 // Can also be included with a regular script tag
@@ -25,7 +31,7 @@ document.addEventListener("watcherCallback", function(e) {
     if(!$is_typed_call){
       var typed = new Typed('#typed', {
         stringsElement: '#typed-strings',
-        typeSpeed: 5,
+        typeSpeed: 3,
         loop: false,
         loopCount: Infinity,
         showCursor: false,
@@ -37,18 +43,34 @@ document.addEventListener("watcherCallback", function(e) {
 
 
 
-import intlTelInput from 'intl-tel-input';
+// import intlTelInput from 'intl-tel-input';
 
-const input = document.querySelector("#phone");
-intlTelInput(input, {
-    // any initialisation options go here
-    singleDialCode: true,
-    preferenceCountries: ["us", "gb", "ua"],
-});
-const input2 = document.querySelector("#phone_2");
-intlTelInput(input2, {
-    // any initialisation options go here
-    singleDialCode: true,
-    preferenceCountries: ["us", "gb", "ua"],
-});
+// const input = document.querySelector("#phone");
+// intlTelInput(input, {
+//   placeholderNumberType: "MOBILE",
+//       preferredCountries: ['ua', 'us'],
+//       separateDialCode: true,
+// });
+// const input2 = document.querySelector("#phone_2");
+// intlTelInput(input2, {
+//   placeholderNumberType: "MOBILE",
+//   preferredCountries: ['ua', 'us'],
+//   separateDialCode: true,
+// });
 
+// const productSection = document.querySelector('.product');
+// const productWrapper = document.querySelector('.product__wrapper');
+// const productBody = document.querySelector('.product__body');
+// let leftBodyPosition = 0;
+// if (productSection.classList.contains('active-section')) {
+//   productWrapper.onwheel = function(event) {
+//     let deltaEv = event.deltaY;
+//     leftBodyPosition = leftBodyPosition - 0.8*deltaEv;
+//     productBody.style.left = leftBodyPosition + 'px';
+    
+//     if (leftBodyPosition > '-1') {
+//       // productBody.style.left = 0;
+//     }
+//     return false;
+//   };
+// } 

@@ -396,7 +396,9 @@ export function tabs() {
 				tabActiveTitle.length ? tabActiveTitle[0].classList.remove('_tab-active') : null;
 				tabTitle.classList.add('_tab-active');
 				setTabsStatus(tabsBlock);
-			}
+			} else if(tabTitle.classList.contains('_tab-active')){
+        document.querySelector('.technologies__btn_none').click();
+      }
 			e.preventDefault();
 		}
 	}
@@ -410,7 +412,7 @@ export function menuInit() {
 				document.documentElement.classList.toggle("menu-open");
 			}
 		});
-	};
+	}
 }
 export function menuOpen() {
 	bodyLock();

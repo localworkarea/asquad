@@ -13,12 +13,22 @@
 
 
 
-@import 'intl-tel-input/build/css/intlTelInput.css';
+// @import 'intl-tel-input/build/css/intlTelInput.css';
 
-.iti__flag {background-image: url("../img/flags/flags.png");}
+.iti__flag {
+	background-image: url("../img/flags/flags.png");
+	width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti__flag {background-image: url("../img/flags/flags@2x.png");}
+  .iti__flag {
+		background-image: url("../img/flags/flags@2x.png");
+		width: 14px;
+    height: 14px;
+    border-radius: 50%;
+	}
 }
 
 // Стилі мап
