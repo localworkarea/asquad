@@ -7957,6 +7957,12 @@ textarea:focus {
   }
 }
 
+@media (max-width: 445px) {
+  .hold .lottie__hold-on {
+    width: 48.5rem;
+  }
+}
+
 @media (max-width: 420px) {
   .industries.previous-section .industries__block {
     height: 25rem;
@@ -8447,10 +8453,6 @@ textarea:focus {
 
   .api__typing-body {
     margin: 4.6875rem 1rem;
-  }
-
-  .hold .lottie__hold-on {
-    width: 48.5rem;
   }
 
   .product__body {
