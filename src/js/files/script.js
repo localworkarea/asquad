@@ -75,3 +75,6 @@ function resetInput() {
 //     return false;
 //   };
 // } 
+
+
+// import '@lottiefiles/lottie-player';

@@ -4819,6 +4819,15 @@ textarea:focus {
           animation: wheel-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.9s 6 alternate none;
 }
 
+.hold .lottie__hold-on {
+  width: 120rem;
+  height: 64rem;
+}
+
+.hold .awesome__content {
+  overflow: hidden;
+}
+
 .hold .awesome__title {
   max-width: 37.5rem;
 }

@@ -3207,6 +3207,13 @@
       animation: wheel-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.9s 6 alternate none;
     }
   }
+  .lottie__hold-on {
+    width: rem(1920);
+    height: rem(1024);
+  }
+  .awesome__content {
+    overflow: hidden;
+  }
   .awesome__title {
     max-width: rem(600);
   }

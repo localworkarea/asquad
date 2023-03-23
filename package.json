@@ -72,6 +72,7 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"dependencies": {
+		"@lottiefiles/lottie-player": "^1.7.1",
 		"gulp-cheerio": "^1.0.0",
 		"intl-tel-input": "^17.0.19",
 		"isotope-layout": "^3.0.6",
