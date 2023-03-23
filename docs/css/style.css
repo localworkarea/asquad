@@ -4804,7 +4804,7 @@ textarea:focus {
 
 .hold {
   background-color: #101820;
-  overflow: auto;
+  overflow: hidden;
   padding-top: 6.5rem;
   padding-bottom: 2rem;
 }
@@ -4819,9 +4819,32 @@ textarea:focus {
           animation: wheel-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.9s 6 alternate none;
 }
 
+.hold .awesome__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: unset;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 .hold .lottie__hold-on {
   width: 120rem;
   height: 64rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .hold .awesome__content {
@@ -7365,6 +7388,12 @@ textarea:focus {
     right: -50%;
   }
 
+  .hold .lottie__hold-on {
+    top: 37%;
+    width: 81.25rem;
+    height: 46.875rem;
+  }
+
   .product__body {
     -webkit-column-gap: 8.5625rem;
        -moz-column-gap: 8.5625rem;
@@ -7845,6 +7874,10 @@ textarea:focus {
   .hold {
     padding-top: 3.5rem;
     padding-bottom: 1rem;
+  }
+
+  .hold .lottie__hold-on {
+    top: 23%;
   }
 
   .product__body {
@@ -8414,6 +8447,10 @@ textarea:focus {
 
   .api__typing-body {
     margin: 4.6875rem 1rem;
+  }
+
+  .hold .lottie__hold-on {
+    width: 48.5rem;
   }
 
   .product__body {

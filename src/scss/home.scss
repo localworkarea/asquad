@@ -3192,7 +3192,7 @@
 // === --- hold (12) --- ===================================================
 .hold {
   background-color: $mainColor;
-  overflow: auto;
+  overflow: hidden;
   padding-top: rem(104);
   padding-bottom: rem(32);
   @media (max-width:$mobileSmall){
@@ -3207,9 +3207,33 @@
       animation: wheel-move 1.3s cubic-bezier(0.55, 0.085, 0, 0.99) 0.9s 6 alternate none;
     }
   }
+  .awesome__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: unset;
+    flex: 1;
+  }
   .lottie__hold-on {
     width: rem(1920);
     height: rem(1024);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media (max-width:$mobile){
+        top: 37%;
+       width: rem(1300);
+       height: rem(750); 
+    }
+    @media (max-width:$mobileSmall){
+      top: 23%;
+
+    }
+    @media (max-width:$mobileXS){
+        width: rem(776);
+    }
   }
   .awesome__content {
     overflow: hidden;
