@@ -4,7 +4,7 @@
 	left: 0;
 	right: 0;
 	width: 100%;
-	z-index: 10;
+	z-index: 25;
 	@include adaptiveValue("padding-top", 32, 16, 0, 768, 320);
 	transition: all 0.2s ease-out;
 
@@ -81,7 +81,7 @@
 		opacity: 0;
 		visibility: hidden;
 	}
-	.header-hidden & {
+	&.header-hidden {
 		opacity: 0;
 		visibility: hidden;
 	}
@@ -102,7 +102,6 @@
 	&__logo-pc {
 		display: none;
 		filter: invert(99%) sepia(2%) saturate(977%) hue-rotate(322deg) brightness(120%) contrast(100%);
-		// transition: all 0s linear 0.05s;
 		
 		.menu-open & {
 			filter: invert(0%) sepia(97%) saturate(0%) hue-rotate(34deg) brightness(91%) contrast(103%);
@@ -120,7 +119,6 @@
 	&__logo-mob {
 		display: none;
 		filter: invert(99%) sepia(2%) saturate(977%) hue-rotate(322deg) brightness(120%) contrast(100%);
-		// transition: all 0s linear 0.05s;
 	
 		.menu-open & {
 			filter: invert(0%) sepia(97%) saturate(0%) hue-rotate(34deg) brightness(91%) contrast(103%);
@@ -201,7 +199,7 @@
 		font-size: rem(20);
 		line-height: calc(24/20);
 		color: white;
-		transition: all 0.3s linear;
+		transition: all 0.2s linear;
 		z-index: 2;
 		position: relative;
 		@media (max-width:$mobileXS){
@@ -273,7 +271,7 @@
 		line-height: calc(26/24);
 		border-radius: rem(20);
 		background-color: white;
-		transition: background-color 0.3s linear, color 0.3s linear, font-family 0.1s linear;
+		transition: background-color 0.2s linear, color 0.2s linear, font-family 0.1s linear;
 		&:hover {
 			font-family: Rosa ASQD;
 			font-size: rem(30);
@@ -308,7 +306,7 @@
 		&::before,
 		&::after {
 			content: "";
-			transition: all 0.3s ease 0s;
+			transition: all 0.2s ease 0s;
 			right: 0;
 			position: absolute;
 			width: rem(16);

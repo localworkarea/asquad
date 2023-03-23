@@ -1,6 +1,7 @@
 import { isMobile } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
-
+// Can also be included with a regular script tag
+import Typed from 'typed.js';
 /*
 	data-fp - оболонка
 	data-fp-section - секції
@@ -297,9 +298,84 @@ export class FullPage {
 	styleFade() {
 		for (let index = 0; index < this.sections.length; index++) {
 			const section = this.sections[index];
+			const header = document.querySelector('.header');
+			const imageAnim = document.querySelector('.image-anim');
+
 			if (index === this.activeSectionId) {
 				section.style.opacity = '1';
 				section.style.visibility = 'visible';
+
+				if (section.classList.contains('_header-hidden') && section.classList.contains('active-section')) {
+					header.classList.add('header-hidden');
+				} 
+				if (!section.classList.contains('_header-hidden') && section.classList.contains('active-section')) {
+					header.classList.remove('header-hidden');
+				} 
+
+				if (section.classList.contains('_header-black') && section.classList.contains('active-section')) {
+					document.documentElement.classList.add('header-black');
+				} 
+				if (!section.classList.contains('_header-black') && section.classList.contains('active-section')) {
+					document.documentElement.classList.remove('header-black');
+				} 
+
+				if (section.classList.contains('bg-black') && section.classList.contains('active-section')) {
+					document.documentElement.classList.add('bg-black');
+				} 
+				if (!section.classList.contains('bg-black') && section.classList.contains('active-section')) {
+					document.documentElement.classList.remove('bg-black');
+				} 
+				if (section.classList.contains('bg-blue') && section.classList.contains('active-section')) {
+					document.documentElement.classList.add('bg-blue');
+				} 
+				if (!section.classList.contains('bg-blue') && section.classList.contains('active-section')) {
+					document.documentElement.classList.remove('bg-blue');
+				} 
+				if (section.classList.contains('bg-gray') && section.classList.contains('active-section')) {
+					document.documentElement.classList.add('bg-gray');
+				} 
+				if (!section.classList.contains('bg-gray') && section.classList.contains('active-section')) {
+					document.documentElement.classList.remove('bg-gray');
+				} 
+
+				if (section.classList.contains('main') && section.classList.contains('active-section')) {
+					imageAnim.classList.add('_anim-main');
+				} 
+				if (!section.classList.contains('main') && section.classList.contains('active-section')) {
+					imageAnim.classList.remove('_anim-main');
+				} 
+
+				if (section.classList.contains('focus') && section.classList.contains('active-section')) {
+					imageAnim.classList.add('_anim-focus');
+				} 
+				if (!section.classList.contains('focus') && section.classList.contains('active-section')) {
+					imageAnim.classList.remove('_anim-focus');
+				} 
+
+				if (section.classList.contains('integrations') && section.classList.contains('active-section')) {
+					imageAnim.classList.add('_anim-integrations');
+				} 
+				if (!section.classList.contains('integrations') && section.classList.contains('active-section')) {
+					imageAnim.classList.remove('_anim-integrations');
+				} 
+				var $is_typed_call = false;
+  			if (section.classList.contains('api') && section.classList.contains('active-section')) {
+  			  // if(!$is_typed_call){
+					// let timerId =	setTimeout(function() {
+					// 		var typed = new Typed('#typed', {
+					// 			stringsElement: '#typed-strings',
+					// 			typeSpeed: 0,
+					// 			loop: false,
+					// 			loopCount: Infinity,
+					// 			showCursor: false,
+					// 		});
+					// 	}, 400);
+					// 		$is_typed_call = true;
+  			  // }
+  			}
+  			if (!section.classList.contains('api') && section.classList.contains('active-section')) {
+  			}
+
 			} else {
 				section.style.opacity = '0';
 				section.style.visibility = 'hidden';

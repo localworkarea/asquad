@@ -10,7 +10,7 @@
 		visibility: hidden;
 	}
 	.loaded body{
-		transition: opacity 0.7s ease 0s;
+		transition: opacity 0.8s ease 0s, background-color 0.3s ease 0s;
 		opacity: 1;
 		visibility: visible;
 	}
@@ -48,11 +48,13 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			gap: 24px;
+			gap: 10px;
+			padding-right: 118px;
 		}
 		.fls-preloader__images {
 			width: 40px;
 			height: 40px;
+			animation: spinner 0.3s linear 0.3s infinite normal none;
 		}
 		/* Блок з лічильником */
 		.fls-preloader__counter {
@@ -65,26 +67,27 @@
 		.fls-preloader__counter span {
 			color: #BCCCD1;
 		}
-		/* Прогресбар */
-		.fls-preloader__line{}
-		/* Лінія прогресбару */
-		.fls-preloader__line span{
-			display: inline-block;
-			transition: width 0.2s ease;
-			height: 0.8rem;
-			background-color: #7A956B;
+	
+		@keyframes spinner {
+  		0% { 
+  		  transform: rotate(0deg);
+  		}
+  		100% {
+  		  transform: rotate(360deg);
+  		}
 		}
 
 		@media (max-width: 479.98px) {
 			.fls-preloader__body {
-				padding: 2rem;
+				padding-top: 2rem;
 			}
 		}
 		
 		@media (max-width: 375px) {
 			.fls-preloader__body {
-				padding: 1.2rem;
-				gap: 18px;
+				padding-top: 1.2rem;
+				gap: 10px;
+				padding-right: 96px;
 			}
 			.fls-preloader__images {
 				width: 25px;
@@ -107,7 +110,7 @@
 					<div class="fls-preloader">
 						<div class="fls-preloader__body">
 							<img src="img/icons/s-white.svg" alt="image" class="fls-preloader__images">
-							<div class="fls-preloader__counter">0<span>%</span></div>
+							<div class="fls-preloader__counter">0<span></span></div>
 						</div>
 					</div>`;
 				document.querySelector('html').insertAdjacentHTML("beforeend",preloaderTemplate);
@@ -132,8 +135,8 @@
 					}
 				});
 				function setValueProgress(progress) {
-					showPecentLoad ? showPecentLoad.innerText = `${progress}%`: null;
-					showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+					showPecentLoad ? showPecentLoad.innerText = `${progress}`: null;
+					showLineLoad ? showLineLoad.style.width = `${progress}` : null;
 				}
 				showPecentLoad ? setValueProgress(progress) : null;
 
@@ -152,7 +155,7 @@
 					setInterval(() => {
 						preloader.remove();
 						preloaderContainer.remove();
-					}, 1000);
+					}, 500);
 				}
 			}else{
 				preloaderContainer.remove();

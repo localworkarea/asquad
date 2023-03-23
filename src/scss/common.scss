@@ -56,35 +56,41 @@
   }
 }
 
-@keyframes mouse-move {
-  0% {
-      transform: translateY(0%);
-  }
-  100% {
-      transform: translateY(45px);
-  }
-}
-@keyframes wheel-move {
-  0% {
-      transform: translateY(0%);
-  }
-  100% {
-      transform: translateY(45px);
-  }
-}
+// @keyframes mouse-move {
+//   0% {
+//       transform: translateY(0%);
+//   }
+//   100% {
+//       transform: translateY(45px);
+//   }
+// }
+// @keyframes wheel-move {
+//   0% {
+//       transform: translateY(0%);
+//   }
+//   100% {
+//       transform: translateY(45px);
+//   }
+// }
 
 
+.previous-section {}
+.active-section {}
+.next-section {}
 
+// HERO ANIMATION == section 1-3 =====================
 .image-anim {
 position: fixed;
 width: 100%;
 height: 100%;
 pointer-events: none;
-background-color: $mainColor;
 overflow: hidden;
+visibility: hidden;
+
   &._anim-main {
-    .image-anim__img {
-      transform: translate(11%, 44%);
+    visibility: visible;
+    .image-anim__item {
+      transform: translate(11%, 18%);
       @media (max-width: 992px) {
         transform: translate(0%, 38%);
       }      
@@ -97,8 +103,9 @@ overflow: hidden;
     }
   }
   &._anim-focus {
-    .image-anim__img {
-      transform: translate(11%, 0%);
+    visibility: visible;
+    .image-anim__item {
+      transform: translate(11%, -15%);
       @media (max-width: 992px) {
         transform: translate(0%, 0%);
       } 
@@ -111,7 +118,8 @@ overflow: hidden;
     }
   }
   &._anim-integrations {
-    .image-anim__img {
+    visibility: visible;
+    .image-anim__item {
       transform: translate(11%, -50%);
       @media (max-width: 992px) {
         transform: translate(0%, -50%);
@@ -121,13 +129,23 @@ overflow: hidden;
       } 
     }
   }
-  // .image-anim__img
-  &__img {
+  // .image-anim__item
+  &__item {
     position: absolute;
     width: 80%;
     height: auto;
     transform: translate(11%, -90%);
-    transition: transform 1.2s cubic-bezier(0.55, 0.085, 0, 0.99) 0s;
+    transition: transform 0.5s cubic-bezier(0.55, 0.085, 0, 0.99) 0s;
+
+    // вкл/выкл видео или картинку ----
+    &.video-item {
+
+    }
+    &.image-item {
+      display: none;
+    }
+    // ---------------------------------
+
     @media (max-width: 992px) {
       left: -12%;
       width: 120%;
@@ -139,13 +157,20 @@ overflow: hidden;
     }
   }
 }
-
+//-------------------------------------------------------
 
 .block-info {
+  span {
+    display: inline-block;
+  }
   // .block-info__title
   &__title {
     color: $mainColor;
     margin-bottom: rem(32);
+    overflow: hidden;
+    span {
+      transform: translateY(200%);
+    }
     @media (max-width: 1200px) {
       text-align: center;
     }
@@ -153,18 +178,17 @@ overflow: hidden;
   // .block-info__texts
   &__texts {
     color: $gray_dark;
+    span {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    @media (max-width: 1200px){
+      text-align: center;
+    }
   }
   // .block-info__txt
   &__txt {
-    &:not(:last-child) {
-      margin-bottom: rem(32);
-    }
-  }
-  // .block-info__txt-mob
-  &__txt-mob {
-    display: none;
-    @media (max-width: 1200px) {
-      display: block;
+    @media (max-width: 1200px){
       text-align: center;
     }
   }
@@ -197,18 +221,13 @@ overflow: hidden;
       position: absolute;
       top: 0;
       left: 0;
-      width: 50%;
+      width: 0;
       height: rem(2);
       z-index: 2;
       background-color: $mainColor;
-      opacity: 0;
-      transition: all 0.3s ease-out;
+      transition: all 4s linear 0.3s;
     }
-    &._active {
-      &::before {
-        opacity: 1;
-      }
-    }
+
     &:nth-child(1) {}
     &:nth-child(2) {}
     &:nth-child(3) {

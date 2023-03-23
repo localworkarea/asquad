@@ -113,15 +113,15 @@ class ScrollWatcher {
 			!targetElement.classList.contains('_watcher-view') ? targetElement.classList.add('_watcher-view') : null;
 
 			// ДОБАВЛЕНИЕ КЛАССА ДЛЯ HEADER ==============================================
-			if (targetElement.classList.contains('_header-hidden')) {
-				document.documentElement.classList.add('header-hidden');
-			}
-			if (targetElement.classList.contains('_header-black')) {
-				document.documentElement.classList.add('header-black');
-			}
-			if (targetElement.classList.contains('_header-white')) {
-				document.documentElement.classList.remove('header-black');
-			}
+			// if (targetElement.classList.contains('_header-hidden')) {
+			// 	document.documentElement.classList.add('header-hidden');
+			// }
+			// if (targetElement.classList.contains('_header-black')) {
+			// 	document.documentElement.classList.add('header-black');
+			// }
+			// if (targetElement.classList.contains('_header-white')) {
+			// 	document.documentElement.classList.remove('header-black');
+			// }
 			if (targetElement.classList.contains('footer__bottom')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.add('hide-header');
@@ -132,17 +132,17 @@ class ScrollWatcher {
 			// }
 			// =============================================================================
 			// КЛАСС ДЛЯ СДВИГА ПЕРВОЙ КАРТИНКИ ============
-			const animSlide = document.querySelector('.image-anim');
+			// const animSlide = document.querySelector('.image-anim');
 
-			if (targetElement.classList.contains('main')) {
-				animSlide.classList.add('_anim-main');
-			}
-			if (targetElement.classList.contains('focus')) {
-				animSlide.classList.add('_anim-focus');
-			}
-			if (targetElement.classList.contains('integrations')) {
-				animSlide.classList.add('_anim-integrations');
-			}
+			// if (targetElement.classList.contains('main')) {
+			// 	animSlide.classList.add('_anim-main');
+			// }
+			// if (targetElement.classList.contains('focus')) {
+			// 	animSlide.classList.add('_anim-focus');
+			// }
+			// if (targetElement.classList.contains('integrations')) {
+			// 	animSlide.classList.add('_anim-integrations');
+			// }
 			
 
 		} else {
@@ -152,21 +152,21 @@ class ScrollWatcher {
 
 
 				// УДАЛЕНИЕ КЛАССА ДЛЯ HEADER ==============================================
-			if (targetElement.classList.contains('_header-hidden')) {
-				document.documentElement.classList.remove('header-hidden');
-			}
+			// if (targetElement.classList.contains('_header-hidden')) {
+			// 	document.documentElement.classList.remove('header-hidden');
+			// }
 
-			const animSlide = document.querySelector('.image-anim');
+			// const animSlide = document.querySelector('.image-anim');
 
-			if (targetElement.classList.contains('focus')) {
-				animSlide.classList.remove('_anim-focus');
-			}
-			if (targetElement.classList.contains('integrations')) {
-				animSlide.classList.remove('_anim-integrations');
-			}
-			if (targetElement.classList.contains('main')) {
-				animSlide.classList.remove('_anim-main');
-			}
+			// if (targetElement.classList.contains('focus')) {
+			// 	animSlide.classList.remove('_anim-focus');
+			// }
+			// if (targetElement.classList.contains('integrations')) {
+			// 	animSlide.classList.remove('_anim-integrations');
+			// }
+			// if (targetElement.classList.contains('main')) {
+			// 	animSlide.classList.remove('_anim-main');
+			// }
 			if (targetElement.classList.contains('footer__bottom')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.remove('hide-header');

@@ -4,19 +4,22 @@
 	"title":"Unleash Your Business with Asquad's Payment Solutions"
 	})
 	<body>
-		<div data-fp data-fp-effect="slider" class="wrapper">
+		<div data-fp data-fp-effect="fade" class="wrapper">
 			@@include('html/_header.htm',{})
 			<div class="image-anim">
-				<img src="@img/1.png" alt="image" class="image-anim__img">
+				<video  preload="metadata" muted="muted" autoplay playsinline loop class="image-anim__item video-item">
+					<source src="@img/01-hero-WEBM-1200px.webm" type="video/webm">
+				</video>
+				<img src="img/test_apng.png" class="image-anim__item image-item" alt="hero">
 			</div>
 			<main  class="page">
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="main _header-hidden">
+					<!-- <section data-fp-section class="main _header-hidden bg-black">
 						<div class="main__container">
 							<div class="main__logo">
 								<img src="@img/icons-logo/Logo.svg" alt="logo">
 							</div>
-							<h1 class="main__title title-main">Low-Code Payment Platform</h1>
-							<p class="main__text">Payment Innovations they say.. Well, they say, but we do</p>
+							<h1 class="main__title title-main"><span>Low-Code</span> <span>Payment</span> <span>Platform</span></h1>
+							<p class="main__text"><span>Payment Innovations they say..</span> <span>Well, they say, but we do</span></p>
 							<div class="main__mouse-wheel mouse-wheel">
 								<div class="mouse-wheel__body">
 									<img class="mouse-wheel__mouse" src="@img/icons/mouse.svg" alt="mouse">
@@ -25,24 +28,24 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="focus _header-white">
+					<section data-fp-section class="focus bg-black">
 						<div class="focus__container">
 							<div class="focus__content">
 								<div class="focus__item">
-									<div class="focus__text">What traditional gateways take weeks to do, <span>we execute in 12 hours,</span> allowing you to expand into new markets faster</div>
+									<div class="focus__text"><span>What traditional gateways take</span> <span>weeks to do, <b>we execute in</b></span> <span><b>12 hours,</b> allowing you to expand</span> <span>into new markets faster</span></div>
 								</div>
 								<div class="focus__item">
-									<div class="focus__text">Our focus is on the <span>speed of integrations</span> with new financial entities, with no compromise on quality</div>
+									<div class="focus__text"><span>Our focus is on the <b>speed of</b></span><span> <b>integrations</b> with new financial</span> <span>entities, with no compromise</span>  <span>on quality</span></div>
 								</div>
 							</div>
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="integrations _header-white">
+					<section data-fp-section class="integrations bg-black">
 						<div class="integrations__container">
 							<div class="integrations__content">
-								<h2 class="integrations__title title-second-b">Integrations in one day</h2>
-								<p class="integrations__text">A group of Fintech enthusiasts with backgrounds in payment infrastructure creation decided to join forces and build a payment gateway and processing system based on the latest technologies.</p>
-								<p class="integrations__text">And you know what? It runs smooth as buttered silk</p>
+								<h2 class="integrations__title title-second-b"><span>Integrations</span> <span>in</span> <span>one</span> <span>day</span></h2>
+								<p class="integrations__text anim-text-top"><span>A group of Fintech enthusiasts with backgrounds in payment infrastructure creation decided to join</span> <span>forces and build a payment gateway and processing system based on the latest technologies.</span></p>
+								<p class="integrations__text anim-text-btm">And you know what? It runs smooth as buttered silk</p>
 								<div class="integrations__block">
 									<p class="integrations__item">Bank tech integration&nbsp;<span>12 hours</span></p>
 									<p class="integrations__item">Current integration edit&nbsp;<span>~ 30 min</span></p>
@@ -50,10 +53,22 @@
 							</div>
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="awesome _header-white">
+
+					<section data-fp-section class="awesome bg-blue">
 						<div class="awesome__container">
 							<div class="awesome__content">
-								<h2 class="awesome__title title-second">Awesome, right?<br>Keep scrolling</h2>
+								<h2 class="awesome__title title-second">
+									<p class="awesome__title_line"><span class="anim-text">
+										<span class="anim-ltt-a"><span class="a-big-anim">A</span><span class="a-anim">a</span></span>wesome,
+										</span> 
+										<span class="anim-text">right?</span> 
+									</p>
+									<p class="awesome__title_line">
+										<span class="anim-text">Ke<span class="anim-ltt-e"><span class="e-main-anim">e</span><span class="e-anim">e</span></span>p</span> 
+										<span class="anim-text">scr<span class="anim-ltt-o"><span class="o-main-anim">o</span><span class="o-anim">o</span><span class="i-anim">i</span></span>lling
+										</span>
+									</p>
+								</h2>
 								<div class="awesome__mouse-wheel mouse-wheel">
 									<div class="mouse-wheel__body">
 										<img class="mouse-wheel__mouse" src="@img/icons/mouse.svg" alt="mouse">
@@ -63,59 +78,72 @@
 							</div>
 						</div>
 					</section> 
-
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="industries _header-white">
+					<section data-fp-section class="industries bg-blue">
 						<div class="industries__container">
-							<div class="industries__content">
 								<div class="industries__block">
 									<div class="industries__body">
-										<h2 class="industries__title title-second">Across Industries</h2>
-										<p class="industries__text text-second">We use ready-made integrations to accelerate your business expansion, adapting them to specific business needs.</p>
-										<p class="industries__text text-second">Plus, new payment integrations are completed several times faster</p>
+										<h2 class="industries__title title-second"><span>Across</span> <span>Industries</span></h2>
+										<p class="industries__text text-second">
+											<span class="anim-text">We use ready-made integrations</span>
+											<span class="anim-text">to accelerate your business</span>
+											<span class="anim-text">expansion, adapting them to</span>
+											<span class="anim-text">specific business needs.</span>
+											<span class="anim-text">Plus, new payment integrations</span>
+											<span class="anim-text">are completed several times faster</span>
+										</p>
 									</div>
 								</div>
-							</div>
 						</div>
 						<div class="industries__image">
-							<img src="@img/2.png" alt="image" class="industries__img">
+							<img src="@img/sections/section_5/1.png" alt="image" class="industries__img">
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="choose _header-white">
+					<section data-fp-section class="choose bg-blue">
 						<div class="choose__container">
-							<h2 class="choose__title text-second">Choose your path:</h2>
-							<div class="choose__content">
-								<div class="choose__block">
-									<div class="choose__head">
-										<img src="@img/sections/section_6/1.svg" alt="logo" class="choose__img img-choose-one">
-										<h3 class="choose__subtitle subtitle-chose-one title-second">White Label</h3>
+							<h2 class="choose__title text-second"><span>Choose</span> <span>your</span> <span>path:</span></h2>
+							<div class="choose__content-wr">	
+								<div class="choose__content">
+									<div class="choose__block">
+											<div class="choose__head">
+												<img src="@img/icons/s-white.svg" alt="logo" class="choose__img img-choose-one">
+												<h3 class="choose__subtitle subtitle-chose-one title-second"><span>White</span> <span>Label</span></h3>
+											</div>
+											<div class="choose__text text-second text-choose-one">
+												<span>Leverage a <b>tailor-made payment</b></span> 
+												<span><b>solution</b> to power your daily</span> 
+												<span>operations with payments and</span> 
+												<span>reduce development costs</span>
+											</div>
 									</div>
-									<div class="choose__text text-second">Leverage a <span>tailor-made payment solution</span> to power your daily operations with payments and reduce development costs</div>
-								</div>
-								<div class="choose__block">
-									<div class="choose__head">
-										<img src="@img/sections/section_6/1.svg" alt="logo" class="choose__img img-choose-sec">
-										<h3 class="choose__subtitle subtitle-chose-two title-second">Payment Gateway</h3>
+									<div class="choose__block">
+											<div class="choose__head">
+												<img src="@img/icons/s-white.svg" alt="logo" class="choose__img img-choose-sec">
+												<h3 class="choose__subtitle subtitle-chose-two title-second"><span>Payment</span> <span>Gateway</span></h3>
+											</div>
+											<div class="choose__text text-second text-choose-two">
+												<span><b>Become a proud partner of</b></span> 
+												<span><b>ours,</b> then accept payments</span> 
+												<span>and make payouts in a secure</span> 
+												<span>efficient way</span>
+											</div>
 									</div>
-									<div class="choose__text text-second"><span>Become a proud partner of ours,</span> then accept payments and make payouts in a secure and efficient way</div>
 								</div>
 							</div>
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="manage _header-black">
+
+					<section data-fp-section class="manage _header-black bg-gray">
 						<div class="manage__container">
 							<div class="manage__content">
 								<div class="manage__block">
 									<div class="block-info">									
-										<h2 class="block-info__title title-third">Manage Payments Through Uncluttered Admin Panel</h2>
-										<div class="block-info__texts">
-											<p class="block-info__txt text-third">The intuitive admin portal keeps you in complete control of all your data. Initiate and analyze payment traffic.</p>
-											<p class="block-info__txt text-third">Make single and batch payouts.</p>
-											<p class="block-info__txt text-third">Assign roles for your team, share access with specified capabilities, and perform numerous other functions with no extra effort</p>
-											<div class="block-info__txt-mob text-third">The intuitive admin portal keeps you in complete control of all your data. Initiate and analyze payment traffic. Make single and batch payouts. Assign roles for your team, share access with specified capabilities, and perform numerous other functions with no extra effort</div>
+										<h2 class="block-info__title title-third"><span>Manage</span> <span>Payments</span> <span>Through</span> <span>Uncluttered</span> <span>Admin</span> <span>Panel</span></h2>
+										<div class="block-info__texts text-third">
+											<span class="anim-txt-a">The intuitive admin portal keeps you in</span> <span class="anim-txt-b">complete control of all your data. Initiate</span> <span class="anim-txt-c">and analyze payment traffic.</span><br class="break"><span class="anim-txt-d">Make single and batch payouts.</span><br class="break"><span class="anim-txt-e">Assign roles for your team, share access with</span> <span class="anim-txt-f">specified capabilities, and perform numerous</span> <span class="anim-txt-g">other functions with no extra effort</span>
 										</div>
 									</div>
 									<div class="progress-line">
-										<span class="progress-line__line _active"></span>
+										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
@@ -139,20 +167,20 @@
 							
 						</div>
 					</section>
-
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="options _header-black">
+					<section data-fp-section class="options _header-black bg-gray">
 						<div class="options__container">
 								<div class="options__block">
 									<div class="block-info">									
-										<h2 class="block-info__title title-third">Juggle the Multiple
-											Payment Options</h2>
-										<div class="block-info__texts">
-											<p class="block-info__txt text-third">We don't limit you to standard payment methods; instead, we adapt to the needs of your customer base in specific GEO</p>
+										<h2 class="block-info__title title-third">
+											<span>Juggle</span> <span>the</span> <span>Multiple</span>
+											<span>Payment</span> <span>Options</span></h2>
+										<div class="block-info__texts text-third">
+												<span>We don't limit you to standard payment</span> <span>methods; instead, we adapt to the needs of</span> <span>your customer base in specific GEO</span>
 										</div>
 									</div>
 									<div class="progress-line">
 										<span class="progress-line__line"></span>
-										<span class="progress-line__line _active"></span>
+										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
 										<span class="progress-line__line"></span>
@@ -160,7 +188,10 @@
 								</div>
 								<div data-da=".options,768,2"  class="options__btns btns-options">
 									<div class="btns-options__wrapper">
-										<img class="btns-options__logo" src="@img/icons-logo/Logo-mobile.svg" alt="logog">
+										<div class="btns-options__logo">
+											<img class="btns-options__big" src="@img/icons-logo/logo-half-1.svg" alt="logo">
+											<img class="btns-options__small" src="@img/icons/s-black.svg" alt="logo">
+										</div>
 										<div class="btns-options__body">
 											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
 											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
@@ -203,25 +234,21 @@
 								</div>
 							
 						</div>
-					</section> 
-
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="custom _header-black">
+					</section>
+					<section data-fp-section class="custom custom-first _header-black bg-gray">
 						<div class="custom__container">
 							<div class="custom__block">
 								<div class="block-info">									
-									<h2 class="block-info__title title-third">Customize Payment	Widget for Your Niche</h2>
-									<div class="block-info__texts">
-										<p class="block-info__txt text-third">Seamlessly deploy our Widget into
-											your company's digital experience.</p>
-										<p class="block-info__txt text-third">Then customize it with your logo and branding for a seamless experience</p>
-										<div class="block-info__txt-mob text-third">Seamlessly deploy our Widget into
-											your company's digital experience. Then customize it with your logo and branding for a seamless experience</div>
+									<h2 class="block-info__title title-third"><span>Customize</span> <span>Payment</span>	<span>Widget</span> <span>for</span> <span>Your</span> <span>Niche</span></h2>
+									<div class="block-info__texts text-third">
+										<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
+										<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
 									</div>
 								</div>
 								<div class="progress-line">
 									<span class="progress-line__line"></span>
 									<span class="progress-line__line"></span>
-									<span class="progress-line__line _active"></span>
+									<span class="progress-line__line"></span>
 									<span class="progress-line__line"></span>
 									<span class="progress-line__line"></span>
 								</div>
@@ -230,75 +257,106 @@
 								<div class="anim-custom__wrapper">
 									<div  class="anim-custom__item item-first">
 										<img class="anim-custom__img img-1" src="@img/sections/section_9/1.png" alt="image">
-										<img class="anim-custom__img img-2" src="@img/sections/section_9/3.png" alt="image">
 									</div>
 									<div class="anim-custom__item item-second">
 										<img class="anim-custom__img img-3" src="@img/sections/section_9/2.png" alt="image">
-										<img class="anim-custom__img img-4" src="@img/sections/section_9/4.png" alt="image">
 									</div>
 								</div>
 							</div>
 						</div>
 					</section>  
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="api _header-black">
+					<section data-fp-section class="custom custom-second _header-black bg-gray">
+						<div class="custom__container">
+							<div class="custom__block">
+								<div class="block-info">									
+									<h2 class="block-info__title title-third">Customize Payment	Widget for Your Niche</h2>
+									<div class="block-info__texts text-third">
+										<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
+										<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
+									</div>
+								</div>
+								<div class="progress-line">
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+								</div>
+							</div>
+							<div data-da=".custom-second,768,2" class="custom__anim anim-custom">
+								<div class="anim-custom__wrapper">
+									<div  class="anim-custom__item item-first">
+										<img class="anim-custom__img img-2" src="@img/sections/section_9/3.png" alt="image">
+									</div>
+									<div class="anim-custom__item item-second">
+										<img class="anim-custom__img img-4" src="@img/sections/section_9/4.png" alt="image">
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>   
+					<section data-fp-section class="api _header-black bg-gray">
 						<div class="api__container">
 							<div class="api__block">
 								<div class="block-info">									
-									<h2 class="block-info__title title-third">API at a Glance</h2>
-									<div class="block-info__texts">
-										<p class="block-info__txt text-third">Asquad's API is about both innovations in payments and intelligible documentation.</p>
-										<p class="block-info__txt text-third">It allows developers to adapt payment flow quickly to your business needs.</p>
-										<p class="block-info__txt text-third">Though it's self-explanatory and rarely needs assistance, our support team is available to answer any questions you may have</p>
-										<div class="block-info__txt-mob text-third">Asquad's API is about both innovations in payments and intelligible documentation. It allows developers to adapt payment flow quickly to your business needs. Though it's self-explanatory and rarely needs assistance, our support team is available to answer any questions you may have</div>
+									<h2 class="block-info__title title-third"><span>API</span> <span>at</span> <span>a</span> <span>Glance</span></h2>
+									<div class="block-info__texts text-third">
+										<span>Asquad's API is about both innovations in</span> <span>payments and intelligible documentation.</span> <span>It allows developers to adapt payment flow</span> <span>quickly to your business needs.</span>
+										<span>Though it's self-explanatory and rarely needs</span> <span>assistance, our support team is available to</span> <span>answer any questions you may have</span>
 									</div>
 								</div>
 								<div class="progress-line">
 									<span class="progress-line__line"></span>
 									<span class="progress-line__line"></span>
 									<span class="progress-line__line "></span>
-									<span class="progress-line__line _active"></span>
+									<span class="progress-line__line"></span>
 									<span class="progress-line__line"></span>
 								</div>
 							</div>
-						</div>
-						<div class="api__typing">
-							<div class="api__typing-body">
-								<div class="tying__id" id="typed-strings">
-									<p class="typing__text">
-										<span class="typing__numb">1</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">function</span> <span class="typing__orang">asquad</span> (<span class="typing__orang">payments, payouts</span>) {<br>
-										<span class="typing__numb">2</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">const</span> <span class="typing__orang">rule</span> <span class="typing__red">=</span> <span class="typing__yell">"We do not miss Declines and route them to Success"</span>;<br>
-										<span class="typing__numb">3</span>&nbsp;&nbsp;&nbsp;<br>
-										<span class="typing__numb">4</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> IntegrationBy(<span class="typing__red">43200</span>); <span class="typing__gray">//24 hours</span><br>
-										<span class="typing__numb">5</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> ChangesBy(<span class="typing__red">1800</span>); <span class="typing__gray">//30 minutes</span><br>
-										<span class="typing__numb">6</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">if</span> (canFixDecline()) { <span class="typing__purp">do</span> Success(); }<br>
-										<span class="typing__numb">7</span>&nbsp;&nbsp;&nbsp;  <br>
-										<span class="typing__numb">8</span>&nbsp;&nbsp;&nbsp;asquadVisualized();<br>
-										<span class="typing__numb">9</span>&nbsp;&nbsp;&nbsp;}<br>
-										<span class="typing__numb">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
-									</p>
+							<div data-da=".api,1200,2" class="api__typing">
+								<div class="api__typing-body">
+									<div class="tying__id" id="typed-strings">
+										<p class="typing__text">
+											<span class="typing__numb">1</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">function</span> <span class="typing__orang">asquad</span> (<span class="typing__orang">payments, payouts</span>) {<br>
+											<span class="typing__numb">2</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">const</span> <span class="typing__orang">rule</span> <span class="typing__red">=</span> <span class="typing__yell">"We do not miss Declines and route them to Success"</span>;<br>
+											<span class="typing__numb">3</span>&nbsp;&nbsp;&nbsp;<br>
+											<span class="typing__numb">4</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> IntegrationBy(<span class="typing__red">43200</span>); <span class="typing__gray">//24 hours</span><br>
+											<span class="typing__numb">5</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> ChangesBy(<span class="typing__red">1800</span>); <span class="typing__gray">//30 minutes</span><br>
+											<span class="typing__numb">6</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">if</span> (canFixDecline()) { <span class="typing__purp">do</span> Success(); }<br>
+											<span class="typing__numb">7</span>&nbsp;&nbsp;&nbsp;  <br>
+											<span class="typing__numb">8</span>&nbsp;&nbsp;&nbsp;asquadVisualized();<br>
+											<span class="typing__numb">9</span>&nbsp;&nbsp;&nbsp;}<br>
+											<span class="typing__numb">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+										</p>
+									</div>
+									<span id="typed"></span>
 								</div>
-								<span id="typed"></span>
+								<span class="api__typing-line"></span>
 							</div>
 						</div>
-						<span class="api__typing-line"></span>
-					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="routing _header-white">
+					</section> -->
+
+					 <section data-fp-section class="routing bg-black">
 						<div class="routing__container">
 								<div class="industries__block">
 									<div class="industries__body">
-										<h2 class="industries__title title-second">Smart Routing & Elastic Cascading</h2>
-										<p class="industries__text text-second">With an entry 70% conversion rate, the merchant can increase this number to 95% through our Smart Routing and Elastic Cascading</p>
+										<h2 class="industries__title title-second"><span>Smart</span> <span>Routing</span> <span>&</span> <span>Elastic</span> <span>Cascading</span></h2>
+										<p class="industries__text text-second">
+											<span>With an entry 70% conversion rate,</span> <span>the merchant can increase this</span>	<span>number to 95% through our Smart</span>
+											<span>Routing and Elastic Cascading</span>
+										</p>
 									</div>
 								</div>
 						</div>
 						<div class="routing__image">
-							<img src="@img/sections/section_11/2.png" alt="image" class="routing__img">
+							<img src="@img/sections/section_11/1.png" alt="image" class="routing__img">
 						</div>
 					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="hold _header-white">
+					<section data-fp-section class="hold bg-black">
 						<div class="awesome__container">
 							<div class="awesome__content">
-								<h2 class="awesome__title title-second">Hold on.<br>We’re Not Done Yet</h2>
+								<!-- <h2 class="awesome__title title-second">Hold on.<br>We’re Not Done Yet</h2> -->
+								<lottie-player src="js/hold_on.json" background="transparent" speed="1" style="width:600px; height:350px;" loop autoplay mode="normal" ></lottie-player>
 								<div class="awesome__mouse-wheel mouse-wheel">
 									<div class="mouse-wheel__body">
 										<img class="mouse-wheel__mouse" src="@img/icons/mouse.svg" alt="mouse">
@@ -308,8 +366,7 @@
 							</div>
 						</div>
 					</section>
-					
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="product _header-white">
+					<section data-fp-section class="product bg-black">
 								<div class="product__wrapper">
 									<div class="product__body">
 										<div class="product__slide slide-product slide-one">
@@ -363,7 +420,8 @@
 									</div>
 								</div>
 					</section>  
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="technologies _header-black">
+
+					<section data-fp-section class="technologies _header-black bg-gray">
 						<div class="technologies__container">
 							<h2 class="technologies__title">Technologies <span>&</span> Certificates</h2>
 							<div data-tabs class="technologies__content">
@@ -489,8 +547,8 @@
 								</div>
 							</div>
 						</div>
-					</section>
-					<section data-fp-section data-watch-threshold="0.2" data-watch class="result _header-black">
+					</section> 
+					<section data-fp-section class="result _header-black bg-gray">
 						<div class="result__container">
 							<div class="industries__block">
 								<div class="industries__body">
@@ -503,9 +561,9 @@
 						<div class="result__image">
 							<img src="@img/sections/section_15/1.jpg" alt="image" class="result__img">
 						</div>
-					</section>
-					<div data-fp-section class="request">
-						<section data-watch-threshold="0.2" data-watch class="request__wrapper _header-black">
+					</section> 
+					<div data-fp-section class="request _header-black bg-gray">
+						<section class="request__wrapper  section">
 							<div class="request__container">
 								<div class="text-block__texts texts-gray-top-a">
 									<p class="text-block__txt txt-gray txt-one">Our platform lets you move and scale your business faster than your competitors</p>

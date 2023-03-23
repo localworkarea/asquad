@@ -22,24 +22,25 @@ function resetInput() {
 
 
 
-// Can also be included with a regular script tag
-import Typed from 'typed.js';
+// // Can also be included with a regular script tag
+// import Typed from 'typed.js';
 
-var $is_typed_call = false;
-document.addEventListener("watcherCallback", function(e) {
-  if (e.detail.entry.target.classList.contains('api') && e.detail.entry.isIntersecting) {
-    if(!$is_typed_call){
-      var typed = new Typed('#typed', {
-        stringsElement: '#typed-strings',
-        typeSpeed: 3,
-        loop: false,
-        loopCount: Infinity,
-        showCursor: false,
-      });
-      $is_typed_call = true;
-    }
-  }
-});
+// var $is_typed_call = false;
+// document.addEventListener("watcherCallback", function(e) {
+//   if (e.detail.entry.target.classList.contains('api') && e.detail.entry.isIntersecting) {
+//     if(!$is_typed_call){
+//       var typed = new Typed('#typed', {
+//         stringsElement: '#typed-strings',
+//         typeSpeed: 3,
+//         loop: false,
+//         loopCount: Infinity,
+//         showCursor: false,
+//       });
+//       $is_typed_call = true;
+//     }
+//   }
+// });
+
 
 
 
