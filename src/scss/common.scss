@@ -86,9 +86,11 @@ height: 100%;
 pointer-events: none;
 overflow: hidden;
 visibility: hidden;
+display: none;
 
   &._anim-main {
     visibility: visible;
+    display: block;
     .image-anim__item {
       transform: translate(11%, 18%);
       @media (max-width: 992px) {
@@ -104,6 +106,7 @@ visibility: hidden;
   }
   &._anim-focus {
     visibility: visible;
+    display: block;
     .image-anim__item {
       transform: translate(11%, -15%);
       @media (max-width: 992px) {
@@ -119,6 +122,7 @@ visibility: hidden;
   }
   &._anim-integrations {
     visibility: visible;
+    display: block;
     .image-anim__item {
       transform: translate(11%, -50%);
       @media (max-width: 992px) {
@@ -137,15 +141,6 @@ visibility: hidden;
     transform: translate(11%, -90%);
     transition: transform 0.5s cubic-bezier(0.55, 0.085, 0, 0.99) 0s;
 
-    // вкл/выкл видео или картинку ----
-    &.video-item {
-
-    }
-    &.image-item {
-      display: none;
-    }
-    // ---------------------------------
-
     @media (max-width: 992px) {
       left: -12%;
       width: 120%;
@@ -155,6 +150,37 @@ visibility: hidden;
       left: -18%;
       width: 140%;
     }
+  }
+}
+
+.animation {
+  // .animation__webm-pc
+  &__webm-pc {
+    display: block;
+    @media (max-width:$mobile){
+        display: none;
+    }
+  }
+  // .animation__webm-mob
+  &__webm-mob {
+    display: none;
+    @media (max-width:$mobile){
+       display: block; 
+    }
+  }
+  // .animation__apng-pc
+  &__apng-pc {
+    display: block;
+    @media (max-width:$mobile){
+      display: none;
+  }
+  }
+  // .animation__apng-mob
+  &__apng-mob {
+    display: none;
+    @media (max-width:$mobile){
+      display: block; 
+   }
   }
 }
 //-------------------------------------------------------

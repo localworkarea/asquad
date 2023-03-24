@@ -7,13 +7,15 @@
 		<div data-fp data-fp-effect="fade" class="wrapper">
 			@@include('html/_header.htm',{})
 			<div class="image-anim">
-				<!-- <video  preload="metadata" muted="muted" autoplay playsinline loop class="image-anim__item video-item">
-					<source src="@img/01-hero-WEBM-1200px.webm" type="video/webm">
+				<video  preload="metadata" muted="muted" autoplay playsinline loop class="image-anim__item">
+					<source class="animation__webm-pc" src="@img/animations/01_Hero_PC_webm_1200px.webm" type="video/webm">
+					<!-- <source class="animation__webm-mob" src="@img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm"> -->
 				</video>
-				<img src="img/test_apng.png" class="image-anim__item image-item" alt="hero"> -->
+				<!-- <img src="@img/animations/01_Hero_PC_apng_600px.png" class="image-anim__item animation__apng-pc" alt="hero"> 
+				<img src="@img/animations/01_Hero_Mob_apng_247px.png" class="image-anim__item animation__apng-mob" alt="hero">  -->
 			</div>
 			<main  class="page">
-					<!-- <section data-fp-section class="main _header-hidden bg-black">
+					<section data-fp-section class="main _header-hidden bg-black">
 						<div class="main__container">
 							<div class="main__logo">
 								<img src="@img/icons-logo/Logo.svg" alt="logo">
@@ -52,7 +54,7 @@
 								</div>
 							</div>
 						</div>
-					</section>
+					</section> 
 
 					<section data-fp-section class="awesome bg-blue">
 						<div class="awesome__container">
@@ -77,7 +79,7 @@
 								</div>
 							</div>
 						</div>
-					</section> 
+					</section>
 					<section data-fp-section class="industries bg-blue">
 						<div class="industries__container">
 								<div class="industries__block">
@@ -95,7 +97,12 @@
 								</div>
 						</div>
 						<div class="industries__image">
-							<img src="@img/sections/section_5/1.png" alt="image" class="industries__img">
+							<video preload="metadata" muted="muted" autoplay playsinline loop class="industries__img" data-src="@img/animations/02_Across_PC_webm_1200px.webm">
+								<source class="animation__webm-pc" data-src="@img/animations/02_Across_PC_webm_1200px.webm" type="video/webm">
+								<!-- <source class="animation__webm-mob" src="@img/animations/02_Across_Mob_webm_494px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/02_Across_PC_apng_600px.png" class="industries__img across__apng-pc" alt="hero"> 
+							<img src="@img/animations/02_Across_Mob_apng_247px.png" class="industries__img across__apng-mob" alt="hero">  -->
 						</div>
 					</section>
 					<section data-fp-section class="choose bg-blue">
@@ -105,7 +112,7 @@
 								<div class="choose__content">
 									<div class="choose__block">
 											<div class="choose__head">
-												<img src="@img/icons/s-white.svg" alt="logo" class="choose__img img-choose-one">
+												<!-- <img src="@img/animations/03_Logo_37px.png" alt="logo" class="choose__img img-choose-one"> -->
 												<h3 class="choose__subtitle subtitle-chose-one title-second"><span>White</span> <span>Label</span></h3>
 											</div>
 											<div class="choose__text text-second text-choose-one">
@@ -117,7 +124,7 @@
 									</div>
 									<div class="choose__block">
 											<div class="choose__head">
-												<img src="@img/icons/s-white.svg" alt="logo" class="choose__img img-choose-sec">
+												<!-- <img src="@img/animations/03_Logo_37px.png" alt="logo" class="choose__img img-choose-sec"> -->
 												<h3 class="choose__subtitle subtitle-chose-two title-second"><span>Payment</span> <span>Gateway</span></h3>
 											</div>
 											<div class="choose__text text-second text-choose-two">
@@ -334,7 +341,7 @@
 								<span class="api__typing-line"></span>
 							</div>
 						</div>
-					</section> -->
+					</section> 
 
 					 <section data-fp-section class="routing bg-black">
 						<div class="routing__container">
@@ -349,20 +356,18 @@
 								</div>
 						</div>
 						<div class="routing__image">
-							<img src="@img/sections/section_11/1.png" alt="image" class="routing__img">
+							<video  preload="metadata" muted="muted" autoplay playsinline loop class="routing__img">
+								<source class="animation__webm-pc" src="@img/animations/04_Roating_PC_webm_2100px.webm" type="video/webm">
+								<!-- <source class="animation__webm-mob" src="@img/animations/04_Roating_Mob_webm_878px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/04_Roating_PC_apng_1050px.png" class="routing__img animation__apng-pc" alt="hero"> 
+							<img src="@img/animations/04_Roating_Mob_apng_439px.png" class="routing__img animation__apng-mob" alt="hero">  -->
 						</div>
 					</section>
 					<section data-fp-section class="hold bg-black">
 						<div class="awesome__container">
 							<div class="awesome__content">
-								<!-- <h2 class="awesome__title title-second">Hold on.<br>We’re Not Done Yet</h2> -->
 								<lottie-player class="lottie__hold-on" src="js/hold_on.json" background="transparent" renderer="canvas" speed="1" loop autoplay mode="normal" ></lottie-player>
-								<!-- <div class="awesome__mouse-wheel mouse-wheel">
-									<div class="mouse-wheel__body">
-										<img class="mouse-wheel__mouse" src="@img/icons/mouse.svg" alt="mouse">
-										<img class="mouse-wheel__wheel" src="@img/icons/wheel.svg" alt="wheel">
-									</div>
-								</div> -->
 							</div>
 						</div>
 					</section>
@@ -371,31 +376,48 @@
 									<div class="product__body">
 										<div class="product__slide slide-product slide-one">
 											<div class="slide-product__image-ibg">
-												<img src="@img/sections/section_13/1.png" alt="image">
+												<!-- <img class="slide-product__img" src="@img/animations/05_Business_PC_apng_124px.png" alt="image"> -->
 											</div>
-											<h3 class="slide-product__title title-third title-one">Business <span>X</span> <br class="line-break"> Technology Synergy</h3>
-											<div class="slide-product__info">
-												<p class="slide-product__text text-third">Forget instructions, get down to business.
-													We designed payment infrastructure with a high degree of empathy, so you could use it right away.</p>
-												<p class="slide-product__text text-third">Spend less time learning how system works and more time for delivering great online payment experience to your customers and clients</p>
+											<h3 class="slide-product__title title-third title-one">
+												<span class="anim-title">Business</span> <span class="not-thin anim-title">X</span> <br class="line-break"> <span class="anim-title">Technology</span> <span class="anim-title">Synergy</span>
+											</h3>
+											<div class="slide-product__info text-third">
+												<span>Forget instructions, get down to business. We</span> 
+												<span>designed payment infrastructure with a high </span>
+												<span>degree of empathy, so you could use it right </span>
+												<span>away.</span>
+												<br class="line-break">
+												<span>Spend less time learning how system works and </span>
+												<span>more time for delivering great online payment </span>
+												<span>experience to your customers and clients</span>
 											</div>
 										</div>
+
 										<div class="product__slide slide-product slide-two">
 											<div class="slide-product__image-ibg">
-												<img src="@img/sections/section_13/2.png" alt="image">
+												<!-- <img class="slide-product__img" src="@img/animations/06_Flexibility_PC_apng_124px.png" alt="image"> -->
 											</div>
-											<h3 class="slide-product__title title-third title-two">Flexibility <span>&</span><br class="line-break"> Customization</h3>
-											<div class="slide-product__info">
-												<p class="slide-product__text text-third">Create your own custom configurations
-													for the <span class="text-bold">Payment Flow</span> and <span class="text-bold">Payment Widget.</span></p>
-												<p class="slide-product__text text-third">Integrate seamlessly: complete new integrations with the Bank or make changes into your existing payment inegrations without downtime or lost transactions</p>
+											<h3 class="slide-product__title title-third title-two">
+												<span class="anim-title">Flexibility</span> <span class="not-thin anim-title">&</span><br class="line-break"> <span class="anim-title">Customization</span>
+											</h3>
+											<div class="slide-product__info text-third">
+												<span>Create your own custom configurations for</span> 
+												<span>the <b>Payment Flow</b> and <b>Payment Widget.</b></span>
+															<br class="line-break">
+												<span>Integrate seamlessly: complete new </span>
+												<span>integrations with the Bank or make changes </span>
+												<span>into your existing payment inegrations </span>
+												<span>without downtime or lost transactions</span>
 											</div>
 										</div>
+
 										<div class="product__slide slide-product slide-three">
 											<div class="slide-product__image-ibg">
-												<img src="@img/sections/section_13/3.png" alt="image">
+												<!-- <img class="slide-product__img" src="@img/animations/07_Perfomance_PC_apng_124px.png" alt="image"> -->
 											</div>
-											<h3 class="slide-product__title title-third title-three">Performance <span>&</span><br class="line-break"> Scalability</h3>
+											<h3 class="slide-product__title title-third title-three">
+												<span class="anim-title">Performance</span> <span class="not-thin anim-title">&</span><br class="line-break"> <span class="anim-title">Scalability</span>
+											</h3>
 											<ul class="slide-product__info-list">
 												<li class="slide-product__label">We're able to:</li>
 												<li class="slide-product__item">
@@ -558,8 +580,14 @@
 								</div>
 							</div>
 						</div>
+						
 						<div class="result__image">
-							<img src="@img/sections/section_15/1.jpg" alt="image" class="result__img">
+							<video  preload="metadata" muted="muted" autoplay playsinline loop class="result__img">
+								<source class="animation__webm-pc" src="@img/animations/08_Payment_PC_webm_1200px.webm" type="video/webm">
+								<!-- <source class="animation__webm-mob" src="@img/animations/08_Payment_Mob_webm_594px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/08_Payment_PC_apng_600px.png" class="result__img animation__apng-pc" alt="hero">  -->
+							<!-- <img src="@img/animations/08_Payment_Mob_apng_297px.png" class="result__img animation__apng-mob" alt="hero">  -->
 						</div>
 					</section> 
 					<div data-fp-section class="request _header-black bg-gray">
