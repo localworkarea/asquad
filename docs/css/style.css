@@ -3345,6 +3345,7 @@ textarea:focus {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
 .manage__block .anim-txt-c,
@@ -6161,6 +6162,10 @@ textarea:focus {
 @media (min-width: 1200px) {
   .options__block .block-info {
     margin-bottom: 12.5625rem;
+  }
+
+  .custom__container {
+    overflow: hidden;
   }
 
   .api__container {

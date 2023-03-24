@@ -1539,6 +1539,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    overflow: hidden;
     @media (max-height: 750px){
       @media (min-width:1199px){
         justify-content: flex-start;
@@ -2283,6 +2284,9 @@
     min-height: 100%;
     position: relative;
     @include adaptiveValue("margin-bottom", 98, 74, 3, 768, 375);
+    @media (min-width: 1200px) {
+      overflow: hidden;
+    }
     @media (max-width: 1200px) {
       flex-direction: column;
       justify-content: flex-start;
