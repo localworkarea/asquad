@@ -3599,7 +3599,8 @@
             }
         }
         flsModules.watcher = new ScrollWatcher({});
-        __webpack_require__(614);
+        var lib_typed = __webpack_require__(614);
+        var $is_typed_call = false;
         class FullPage {
             constructor(element, options) {
                 let config = {
@@ -3688,6 +3689,8 @@
                 this.nextSectionId = this.activeSectionId + 1 < this.sections.length ? this.activeSectionId + 1 : false;
                 this.activeSection = this.sections[this.activeSectionId];
                 this.activeSection.classList.add(this.options.activeClass);
+                for (let index = 0; index < this.sections.length; index++) document.documentElement.classList.remove(`fp-section-${index}`);
+                document.documentElement.classList.add(`fp-section-${this.activeSectionId}`);
                 if (false !== this.previousSectionId) {
                     this.previousSection = this.sections[this.previousSectionId];
                     this.previousSection.classList.add(this.options.previousClass);
@@ -3772,9 +3775,12 @@
                     const section = this.sections[index];
                     const header = document.querySelector(".header");
                     const imageAnim = document.querySelector(".image-anim");
+                    const requestSection = document.querySelector(".request");
+                    document.querySelector(".industries__img");
+                    document.querySelector(".animation__webm-pc");
                     if (index === this.activeSectionId) {
                         section.style.opacity = "1";
-                        section.style.visibility = "visible";
+                        section.style.pointerEvents = "all";
                         if (section.classList.contains("_header-hidden") && section.classList.contains("active-section")) header.classList.add("header-hidden");
                         if (!section.classList.contains("_header-hidden") && section.classList.contains("active-section")) header.classList.remove("header-hidden");
                         if (section.classList.contains("_header-black") && section.classList.contains("active-section")) document.documentElement.classList.add("header-black");
@@ -3791,11 +3797,37 @@
                         if (!section.classList.contains("focus") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-focus");
                         if (section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.add("_anim-integrations");
                         if (!section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-integrations");
-                        if (section.classList.contains("api") && section.classList.contains("active-section")) ;
-                        if (!section.classList.contains("api") && section.classList.contains("active-section")) ;
+                        if (section.classList.contains("api") && section.classList.contains("active-section")) if (!$is_typed_call) {
+                            setTimeout((function() {
+                                new lib_typed("#typed", {
+                                    stringsElement: "#typed-strings",
+                                    typeSpeed: 0,
+                                    loop: false,
+                                    loopCount: 1 / 0,
+                                    showCursor: false
+                                });
+                            }), 400);
+                            $is_typed_call = true;
+                        }
+                        function addAnim() {
+                            if (section.classList.contains("request") && section.classList.contains("active-section")) {
+                                requestSection.classList.add("_anim-start");
+                                setTimeout(addAnim, 13100);
+                            }
+                        }
+                        function removeAnim() {
+                            if (section.classList.contains("request") && section.classList.contains("active-section")) {
+                                requestSection.classList.remove("_anim-start");
+                                setTimeout(removeAnim, 13e3);
+                            }
+                        }
+                        setTimeout(addAnim, 13100);
+                        setTimeout(removeAnim, 13e3);
+                        if (section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.add("_anim-start");
+                        if (!section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.remove("_anim-start");
                     } else {
                         section.style.opacity = "0";
-                        section.style.visibility = "hidden";
+                        section.style.pointerEvents = "none";
                     }
                 }
             }
@@ -3918,10 +3950,9 @@
                 return this.clickOrTouch = false;
             }
             transitionend(e) {
-                if (e.target.closest(this.options.selectorSection)) {
-                    this.stopEvent = false;
-                    this.wrapper.classList.remove(this.options.wrapperAnimatedClass);
-                }
+                this.stopEvent = false;
+                document.documentElement.classList.remove(this.options.wrapperAnimatedClass);
+                this.wrapper.classList.remove(this.options.wrapperAnimatedClass);
             }
             wheel(e) {
                 if (e.target.closest(this.options.noEventSelector)) return;
@@ -3931,25 +3962,41 @@
                 if (this.goScroll) this.choiceOfDirection(yCoord);
             }
             choiceOfDirection(direction) {
-                this.stopEvent = true;
-                if (0 === this.activeSectionId && direction < 0 || this.activeSectionId === this.sections.length - 1 && direction > 0) this.stopEvent = false;
                 if (direction > 0 && false !== this.nextSection) this.activeSectionId = this.activeSectionId + 1 < this.sections.length ? ++this.activeSectionId : this.activeSectionId; else if (direction < 0 && false !== this.previousSection) this.activeSectionId = this.activeSectionId - 1 >= 0 ? --this.activeSectionId : this.activeSectionId;
-                if (this.stopEvent) this.switchingSection();
+                this.switchingSection(this.activeSectionId, direction);
             }
-            switchingSection(idSection = this.activeSectionId) {
+            switchingSection(idSection = this.activeSectionId, direction) {
+                if (!direction) if (idSection < this.activeSectionId) direction = -100; else if (idSection > this.activeSectionId) direction = 100;
                 this.activeSectionId = idSection;
-                this.wrapper.classList.add(this.options.wrapperAnimatedClass);
-                this.wrapper.addEventListener("transitionend", this.events.transitionEnd);
-                this.removeClasses();
-                this.setClasses();
-                this.setStyle();
-                if (this.options.bullets) this.setActiveBullet(this.activeSectionId);
-                this.options.onSwitching(this);
-                document.dispatchEvent(new CustomEvent("fpswitching", {
-                    detail: {
-                        fp: this
+                this.stopEvent = true;
+                if (false === this.previousSectionId && direction < 0 || false === this.nextSectionId && direction > 0) this.stopEvent = false;
+                if (this.stopEvent) {
+                    document.documentElement.classList.add(this.options.wrapperAnimatedClass);
+                    this.wrapper.classList.add(this.options.wrapperAnimatedClass);
+                    this.removeClasses();
+                    this.setClasses();
+                    this.setStyle();
+                    if (this.options.bullets) this.setActiveBullet(this.activeSectionId);
+                    let delaySection;
+                    if (direction < 0) {
+                        delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
+                        document.documentElement.classList.add("fp-up");
+                        document.documentElement.classList.remove("fp-down");
+                    } else {
+                        delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
+                        document.documentElement.classList.remove("fp-up");
+                        document.documentElement.classList.add("fp-down");
                     }
-                }));
+                    setTimeout((() => {
+                        this.events.transitionEnd();
+                    }), delaySection);
+                    this.options.onSwitching(this);
+                    document.dispatchEvent(new CustomEvent("fpswitching", {
+                        detail: {
+                            fp: this
+                        }
+                    }));
+                }
             }
             setBullets() {
                 this.bulletsWrapper = document.querySelector(`.${this.options.bulletsClass}`);
