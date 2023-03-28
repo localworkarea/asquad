@@ -11,8 +11,8 @@
 					<!-- <source class="animation__webm-pc" src="@img/animations/01_Hero_PC_webm_1200px.webm" type="video/webm"> -->
 					<!-- <source class="animation__webm-mob" src="@img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm"> -->
 				</video>
-				<!-- <img src="@img/animations/01_Hero_PC_apng_600px.svg" class="image-anim__item animation__apng-pc" alt="hero"> 
-				<img src="@img/animations/01_Hero_Mob_apng_247px.svg" class="image-anim__item animation__apng-mob" alt="hero">  -->
+				<!-- <img src="@img/animations/01_Hero_PC_apng_600px.svg" class="image-anim__item animation__apng-pc" alt="hero">  -->
+				<!-- <img src="@img/animations/01_Hero_Mob_apng_247px.svg" class="image-anim__item animation__apng-mob" alt="hero">  -->
 			</div>
 			<main  class="page">
 					<section data-fp-section class="main _header-hidden bg-black">
@@ -60,16 +60,16 @@
 						<div class="awesome__container">
 							<div class="awesome__content">
 								<h2 class="awesome__title title-second">
-									<p class="awesome__title_line"><span class="anim-text">
+									<div class="awesome__title_line"><span class="anim-text">
 										<span class="anim-ltt-a"><span class="a-big-anim">A</span><span class="a-anim">a</span></span>wesome,
 										</span> 
 										<span class="anim-text">right?</span> 
-									</p>
-									<p class="awesome__title_line">
+									</div>
+									<div class="awesome__title_line">
 										<span class="anim-text">Ke<span class="anim-ltt-e"><span class="e-main-anim">e</span><span class="e-anim">e</span></span>p</span> 
 										<span class="anim-text">scr<span class="anim-ltt-o"><span class="o-main-anim">o</span><span class="o-anim">o</span><span class="i-anim">i</span></span>lling
 										</span>
-									</p>
+									</div>
 								</h2>
 								<div class="awesome__mouse-wheel mouse-wheel">
 									<div class="mouse-wheel__body">
@@ -160,13 +160,13 @@
 								<div data-da=".manage,768,2" class="manage__anim anim-manage">
 									<div class="anim-manage__body">
 										<div  class="anim-manage__item item-first">
-											<img src="@img/sections/section_7/1.png" alt="Mid-info">
+											<div class="lottie__manage-amount"></div>
 										</div>
 										<div class="anim-manage__item item-second">
-											<img src="@img/sections/section_7/2.png" alt="Transactions">
+											<div class="lottie__manage-transactions"></div>
 										</div>
 										<div class="anim-manage__item item-third">
-											<img src="@img/sections/section_7/3.png" alt="Mid-info">
+											<div class="lottie__manage-graphic"></div>
 										</div>
 									</div>
 								</div>
@@ -369,7 +369,7 @@
 					<section data-fp-section class="hold bg-black">
 						<div class="awesome__container">
 							<div class="awesome__content">
-								<lottie-player class="lottie__hold-on" src="files/hold_on.json" background="transparent" speed="1" loop autoplay mode="normal" ></lottie-player>
+								<div class="lottie__hold-on"></div>
 							</div>
 						</div>
 					</section> 
@@ -640,7 +640,10 @@
 										<p class="text-block__txt txt-pupr">Integrations with financial entities are faster than at traditional payment systems</p>
 										<p class="text-block__txt txt-orange">We convince with unique, intelligently networked innovations, not with words</p>
 									</div>
-									<button data-popup="#form-demo" type="button" class="text-block__btn">Request a Demo</button>
+									<button data-popup="#form-demo" type="button" class="text-block__btn">
+										<span>Request a Demo</span>
+										<div class="lottie__btn-request"></div>
+									</button>
 								</div>
 
 								<div class="text-block__texts texts-gray-bottom">
@@ -664,6 +667,7 @@
 			</main>
 		</div>
 		<script src="js/lottie-player.js"></script>
+		<script src="js/bodymovin.js"></script>
 		@@include('html/_popup.htm',{})
 		@@include('html/_preloader.htm',{})
 		@@include('html/_js.htm',{})

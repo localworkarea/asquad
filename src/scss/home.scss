@@ -4366,6 +4366,7 @@
   }
   // .text-block__btn
   &__btn {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4377,18 +4378,36 @@
     font-weight: 500;
     font-size: rem(24);
     line-height: calc(27/24);
-    transition: background-color .1s ease, color .1s ease, border-color .1s ease, font-family .1s ease,;
-    &:hover {
-      color: $mainColor;
-      font-family: Rosa ASQD;
-      font-size: rem(30);
-      line-height: 1.1;
+    transition: background-color .1s ease, color .1s ease, border-color .1s ease;
+    @media (any-hover: hover){
+      &:hover{
+        span {
+          opacity: 0;
+        }
+      }
+    }
+    .lottie__btn-request {
+      position: absolute;
+      top: 54%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64%;
+      height: auto;
+      object-fit: contain;
+      z-index: 2;
+      opacity: 0;
     }
     @media (max-width: 1530px) {
       width: rem(257);
+      .lottie__btn-request {
+        width: 100%;
+      }
     }
     @media (max-width: 1345px) {
       width: rem(400);
+      .lottie__btn-request {
+        width: 64%;
+      }
     }
     @media (max-width:$mobileSmall){
        width: rem(215);

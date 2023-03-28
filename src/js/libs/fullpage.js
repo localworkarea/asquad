@@ -24,6 +24,35 @@ import Typed from 'typed.js';
 	fpdestroy
 	fpswitching
 */
+const animationHoldOn = bodymovin.loadAnimation({
+	container: document.querySelector('.lottie__hold-on'),
+	renderer: 'svg',
+	loop: false,
+	autoplay: false,
+	path: 'files/hold_on.json',
+});
+const animationManageAmount = bodymovin.loadAnimation({
+	container: document.querySelector('.lottie__manage-amount'),
+	renderer: 'svg',
+	loop: true,
+	autoplay: false,
+	path: 'files/ManagePayments_AmountFlow.json',
+});
+const animationManageGraphic = bodymovin.loadAnimation({
+	container: document.querySelector('.lottie__manage-graphic'),
+	renderer: 'svg',
+	loop: true,
+	autoplay: false,
+	path: 'files/ManagePayments_GraphicCurrency.json',
+});
+const animationManageTransct = bodymovin.loadAnimation({
+	container: document.querySelector('.lottie__manage-transactions'),
+	renderer: 'svg',
+	loop: true,
+	autoplay: false,
+	path: 'files/ManagePayments_TransactionFlow.json',
+});
+
 var $is_typed_call = false;
 // Клас FullPage
 export class FullPage {
@@ -306,9 +335,6 @@ export class FullPage {
 			const header = document.querySelector('.header');
 			const imageAnim = document.querySelector('.image-anim');
 			const requestSection = document.querySelector('.request');
-			const industriesAnimVideo = document.querySelector('.industries__img');
-			const industriesVid = document.querySelector('.animation__webm-pc');
-			const industriesVidSrc = 'img/animations/02_Across_PC_webm_1200px.webm';
 
 			if (index === this.activeSectionId) {
 				section.style.opacity = '1';
@@ -368,16 +394,24 @@ export class FullPage {
 				if (!section.classList.contains('integrations') && section.classList.contains('active-section')) {
 					imageAnim.classList.remove('_anim-integrations');
 				} 
-
-				// if (section.classList.contains('industries') && section.classList.contains('active-section')) {
-				// 	industriesAnimVideo.setAttribute('src', industriesVidSrc);
-				// } 
-				// if (!section.classList.contains('industries') && section.classList.contains('active-section')) {
-				// 	industriesAnimVideo.removeAttribute('src', industriesVidSrc);
-				// 	// industriesAnimVideo.removeAttribute("autoplay", "false");
-				// 	// industriesAnimVideo.removeAttribute("muted", "muted");
-				// } 
-
+				if (section.classList.contains('hold') && section.classList.contains('active-section')) {
+						setTimeout(() => {
+							animationHoldOn.play();  
+						}, 300);
+				} 
+				if (!section.classList.contains('hold') && section.classList.contains('active-section')) {
+					animationHoldOn.stop();
+				} 
+				if (section.classList.contains("manage") && section.classList.contains("active-section")) {
+					animationManageAmount.play();
+					animationManageGraphic.play();
+					animationManageTransct.play();
+				}
+				if (!section.classList.contains("manage") && section.classList.contains("active-section")) {
+						animationManageAmount.stop();
+						animationManageGraphic.stop();
+						animationManageTransct.stop();
+				}
   			if (section.classList.contains('api') && section.classList.contains('active-section')) {
   			  if(!$is_typed_call){
 					let timerId =	setTimeout(function() {

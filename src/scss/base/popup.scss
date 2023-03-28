@@ -87,6 +87,7 @@
 }
 
 .form-btn {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -97,6 +98,27 @@
 	font-weight: 500;
 	font-size: rem(24);
 	line-height: calc(27/24);
+	@media (any-hover: hover){
+		&:hover{
+			span {
+				opacity: 0;
+			}
+		}
+	}
+	.lottie__btn-later,
+	.lottie__btn-later-two,
+	.lottie__btn-submit, 
+	.lottie__btn-submit-two,
+	.lottie__btn-close {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		z-index: 2;
+		opacity: 0; 
+	}
 	@media (max-width:$mobileXS){
 		 font-size: rem(16); 
 		 height: rem(30);
@@ -105,10 +127,6 @@
 .btn-gray-light {
 	background-color: $gray_light;
 	transition: font-family 0.1s linear;
-	&:hover {
-		font-family: 'Rosa ASQD';
-		font-size: rem(32);
-	}
 }
 .btn-black {
 	background-color: $mainColor;
@@ -116,15 +134,10 @@
 	transition: font-family 0.1s linear, background-color 0.2s ease;
 	&:disabled {
 		&:hover {
-			background-color: $gray_light;
-		color: $gray_middle;
+			span {
+				opacity: 1;
+			}
 		}
-	}
-	&:hover {
-		background-color: $mainColor;
-		color: white;
-		font-family: 'Rosa ASQD';
-		font-size: rem(32);
 	}
 }
 .form__error {

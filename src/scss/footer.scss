@@ -1,6 +1,7 @@
 .footer {
   background-color: $gray_light;
   @include adaptiveValue("padding-top", 32, 16, 0, 768, 375);
+  @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 375);
 
   &._watcher-view {
     .top-footer__logo {

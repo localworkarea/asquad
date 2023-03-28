@@ -3600,6 +3600,34 @@
         }
         flsModules.watcher = new ScrollWatcher({});
         var lib_typed = __webpack_require__(614);
+        const animationHoldOn = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__hold-on"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/hold_on.json"
+        });
+        const animationManageAmount = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__manage-amount"),
+            renderer: "svg",
+            loop: true,
+            autoplay: false,
+            path: "files/ManagePayments_AmountFlow.json"
+        });
+        const animationManageGraphic = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__manage-graphic"),
+            renderer: "svg",
+            loop: true,
+            autoplay: false,
+            path: "files/ManagePayments_GraphicCurrency.json"
+        });
+        const animationManageTransct = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__manage-transactions"),
+            renderer: "svg",
+            loop: true,
+            autoplay: false,
+            path: "files/ManagePayments_TransactionFlow.json"
+        });
         var $is_typed_call = false;
         class FullPage {
             constructor(element, options) {
@@ -3776,8 +3804,6 @@
                     const header = document.querySelector(".header");
                     const imageAnim = document.querySelector(".image-anim");
                     const requestSection = document.querySelector(".request");
-                    document.querySelector(".industries__img");
-                    document.querySelector(".animation__webm-pc");
                     if (index === this.activeSectionId) {
                         section.style.opacity = "1";
                         section.style.pointerEvents = "all";
@@ -3797,6 +3823,20 @@
                         if (!section.classList.contains("focus") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-focus");
                         if (section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.add("_anim-integrations");
                         if (!section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-integrations");
+                        if (section.classList.contains("hold") && section.classList.contains("active-section")) setTimeout((() => {
+                            animationHoldOn.play();
+                        }), 300);
+                        if (!section.classList.contains("hold") && section.classList.contains("active-section")) animationHoldOn.stop();
+                        if (section.classList.contains("manage") && section.classList.contains("active-section")) {
+                            animationManageAmount.play();
+                            animationManageGraphic.play();
+                            animationManageTransct.play();
+                        }
+                        if (!section.classList.contains("manage") && section.classList.contains("active-section")) {
+                            animationManageAmount.stop();
+                            animationManageGraphic.stop();
+                            animationManageTransct.stop();
+                        }
                         if (section.classList.contains("api") && section.classList.contains("active-section")) if (!$is_typed_call) {
                             setTimeout((function() {
                                 new lib_typed("#typed", {
@@ -4124,6 +4164,137 @@
                 item.classList.remove("_show-reset-btn");
             }));
         }
+        const menuBtn = document.querySelector(".menu__btn");
+        const lottieBtnDemo = document.querySelector(".lottie__btn-demo");
+        const animBtnDemo = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-demo"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_demo.json"
+        });
+        if (menuBtn) {
+            menuBtn.addEventListener("mouseenter", (function() {
+                animBtnDemo.play();
+                lottieBtnDemo.style.opacity = "1";
+            }));
+            menuBtn.addEventListener("mouseleave", (function() {
+                animBtnDemo.stop();
+                lottieBtnDemo.style.opacity = "0";
+            }));
+        }
+        const requestBtn = document.querySelector(".text-block__btn");
+        const lottieBtnReq = document.querySelector(".lottie__btn-request");
+        const animBtnReq = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-request"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_request.json"
+        });
+        if (requestBtn) {
+            requestBtn.addEventListener("mouseenter", (function() {
+                animBtnReq.play();
+                lottieBtnReq.style.opacity = "1";
+            }));
+            requestBtn.addEventListener("mouseleave", (function() {
+                animBtnReq.stop();
+                lottieBtnReq.style.opacity = "0";
+            }));
+        }
+        const formBtn = document.querySelectorAll(".form-btn");
+        const lottieBtnFormLater = document.querySelector(".lottie__btn-later");
+        const lottieBtnFormLaterTwo = document.querySelector(".lottie__btn-later-two");
+        const lottieBtnFormSubm = document.querySelector(".lottie__btn-submit");
+        const lottieBtnFormSubmTwo = document.querySelector(".lottie__btn-submit-two");
+        const lottieBtnFormClose = document.querySelector(".lottie__btn-close");
+        const animBtnFormLater = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-later"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_later.json"
+        });
+        const animBtnFormLaterTwo = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-later-two"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_later.json"
+        });
+        const animBtnFormSubmTwo = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-submit-two"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_submit.json"
+        });
+        const animBtnFormSubm = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-submit"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_submit.json"
+        });
+        const animBtnFormClose = bodymovin.loadAnimation({
+            container: document.querySelector(".lottie__btn-close"),
+            renderer: "svg",
+            loop: false,
+            autoplay: false,
+            path: "files/btn_close.json"
+        });
+        if (formBtn) formBtn.forEach((formBtn => {
+            if (formBtn.classList.contains("btn-gray-light")) {
+                formBtn.addEventListener("mouseenter", (function() {
+                    animBtnFormLater.play();
+                    lottieBtnFormLater.style.opacity = "1";
+                }));
+                formBtn.addEventListener("mouseleave", (function() {
+                    animBtnFormLater.stop();
+                    lottieBtnFormLater.style.opacity = "0";
+                }));
+            }
+            if (formBtn.classList.contains("btn-later-two")) {
+                formBtn.addEventListener("mouseenter", (function() {
+                    animBtnFormLaterTwo.play();
+                    lottieBtnFormLaterTwo.style.opacity = "1";
+                }));
+                formBtn.addEventListener("mouseleave", (function() {
+                    animBtnFormLaterTwo.stop();
+                    lottieBtnFormLaterTwo.style.opacity = "0";
+                }));
+            }
+            if (formBtn.classList.contains("btn-black")) {
+                formBtn.addEventListener("mouseenter", (function() {
+                    animBtnFormSubm.play();
+                    lottieBtnFormSubm.style.opacity = "1";
+                }));
+                formBtn.addEventListener("mouseleave", (function() {
+                    animBtnFormSubm.stop();
+                    lottieBtnFormSubm.style.opacity = "0";
+                }));
+            }
+            if (formBtn.classList.contains("btn-submit-two")) {
+                formBtn.addEventListener("mouseenter", (function() {
+                    animBtnFormSubmTwo.play();
+                    lottieBtnFormSubmTwo.style.opacity = "1";
+                }));
+                formBtn.addEventListener("mouseleave", (function() {
+                    animBtnFormSubmTwo.stop();
+                    lottieBtnFormSubmTwo.style.opacity = "0";
+                }));
+            }
+            if (formBtn.classList.contains("btn-close")) {
+                formBtn.addEventListener("mouseenter", (function() {
+                    animBtnFormClose.play();
+                    lottieBtnFormClose.style.opacity = "1";
+                }));
+                formBtn.addEventListener("mouseleave", (function() {
+                    animBtnFormClose.stop();
+                    lottieBtnFormClose.style.opacity = "0";
+                }));
+            }
+        }));
         window["FLS"] = true;
         isWebp();
         addTouchClass();

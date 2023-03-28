@@ -10,9 +10,11 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230328121607">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230328231637">
 	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js?_v=20230328231637"></script> -->
 </head>
 
 <body>
@@ -36,7 +38,10 @@
 							</li>
 							<li class="menu__item"><a data-tippy-content="Soon..." href="#" class="menu__link">About</a></li>
 						</ul>
-						<button data-popup="#form-demo" type="button" class="menu__btn">Demo</button>
+						<button data-popup="#form-demo" type="button" class="menu__btn">
+							<span>Demo</span>
+							<div class="lottie__btn-demo"></div>
+						</button>
 					</nav>
 					<button type="button" class="menu__icon icon-menu"><span></span></button>
 				</div>
@@ -44,11 +49,11 @@
 		</header>
 		<div class="image-anim">
 			<video muted autoplay loop class="image-anim__item">
-				<source class="animation__webm-pc" src="img/animations/01_Hero_PC_webm_1200px.webm" type="video/webm">
-				<source class="animation__webm-mob" src="img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm">
+				<!-- <source class="animation__webm-pc" src="img/animations/01_Hero_PC_webm_1200px.webm" type="video/webm"> -->
+				<!-- <source class="animation__webm-mob" src="img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm"> -->
 			</video>
-			<!-- <img src="img/animations/01_Hero_PC_apng_600px.png" class="image-anim__item animation__apng-pc" alt="hero"> 
-				<img src="img/animations/01_Hero_Mob_apng_247px.png" class="image-anim__item animation__apng-mob" alt="hero">  -->
+			<!-- <img src="img/animations/01_Hero_PC_apng_600px.png" class="image-anim__item animation__apng-pc" alt="hero">  -->
+			<!-- <img src="img/animations/01_Hero_Mob_apng_247px.png" class="image-anim__item animation__apng-mob" alt="hero">  -->
 		</div>
 		<main class="page">
 			<section data-fp-section class="main _header-hidden bg-black">
@@ -96,16 +101,16 @@
 				<div class="awesome__container">
 					<div class="awesome__content">
 						<h2 class="awesome__title title-second">
-							<p class="awesome__title_line"><span class="anim-text">
+							<div class="awesome__title_line"><span class="anim-text">
 									<span class="anim-ltt-a"><span class="a-big-anim">A</span><span class="a-anim">a</span></span>wesome,
 								</span>
 								<span class="anim-text">right?</span>
-							</p>
-							<p class="awesome__title_line">
+							</div>
+							<div class="awesome__title_line">
 								<span class="anim-text">Ke<span class="anim-ltt-e"><span class="e-main-anim">e</span><span class="e-anim">e</span></span>p</span>
 								<span class="anim-text">scr<span class="anim-ltt-o"><span class="o-main-anim">o</span><span class="o-anim">o</span><span class="i-anim">i</span></span>lling
 								</span>
-							</p>
+							</div>
 						</h2>
 						<div class="awesome__mouse-wheel mouse-wheel">
 							<div class="mouse-wheel__body">
@@ -134,8 +139,8 @@
 				</div>
 				<div class="industries__image">
 					<video muted autoplay loop class="industries__img">
-						<source class="animation__webm-pc" src="img/animations/02_Across_PC_webm_1200px.webm" type="video/webm">
-						<source class="animation__webm-mob" src="img/animations/02_Across_Mob_webm_494px.webm" type="video/webm">
+						<!-- <source class="animation__webm-pc" src="img/animations/02_Across_PC_webm_1200px.webm" type="video/webm"> -->
+						<!-- <source class="animation__webm-mob" src="img/animations/02_Across_Mob_webm_494px.webm" type="video/webm"> -->
 					</video>
 					<!-- <img src="img/animations/02_Across_PC_apng_600px.png" class="industries__img across__apng-pc" alt="hero"> 
 							<img src="img/animations/02_Across_Mob_apng_247px.png" class="industries__img across__apng-mob" alt="hero">  -->
@@ -148,7 +153,7 @@
 						<div class="choose__content">
 							<div class="choose__block">
 								<div class="choose__head">
-									<img src="img/animations/03_Logo_apng.png" alt="logo" class="choose__img img-choose-one">
+									<!-- <img src="img/animations/03_Logo_apng.png" alt="logo" class="choose__img img-choose-one"> -->
 									<h3 class="choose__subtitle subtitle-chose-one title-second"><span>White</span> <span>Label</span></h3>
 								</div>
 								<div class="choose__text text-second text-choose-one">
@@ -160,7 +165,7 @@
 							</div>
 							<div class="choose__block">
 								<div class="choose__head">
-									<img src="img/animations/03_Logo_apng.png" alt="logo" class="choose__img img-choose-sec">
+									<!-- <img src="img/animations/03_Logo_apng.png" alt="logo" class="choose__img img-choose-sec"> -->
 									<h3 class="choose__subtitle subtitle-chose-two title-second"><span>Payment</span> <span>Gateway</span></h3>
 								</div>
 								<div class="choose__text text-second text-choose-two">
@@ -196,13 +201,13 @@
 						<div data-da=".manage,768,2" class="manage__anim anim-manage">
 							<div class="anim-manage__body">
 								<div class="anim-manage__item item-first">
-									<picture><source srcset="img/sections/section_7/1.webp" type="image/webp"><img src="img/sections/section_7/1.png" alt="Mid-info"></picture>
+									<div class="lottie__manage-amount"></div>
 								</div>
 								<div class="anim-manage__item item-second">
-									<picture><source srcset="img/sections/section_7/2.webp" type="image/webp"><img src="img/sections/section_7/2.png" alt="Transactions"></picture>
+									<div class="lottie__manage-transactions"></div>
 								</div>
 								<div class="anim-manage__item item-third">
-									<picture><source srcset="img/sections/section_7/3.webp" type="image/webp"><img src="img/sections/section_7/3.png" alt="Mid-info"></picture>
+									<div class="lottie__manage-graphic"></div>
 								</div>
 							</div>
 						</div>
@@ -396,8 +401,8 @@
 				</div>
 				<div class="routing__image">
 					<video muted autoplay loop class="routing__img">
-						<source class="animation__webm-pc" src="img/animations/04_Roating_PC_webm_2100px.webm" type="video/webm">
-						<source class="animation__webm-mob" src="img/animations/04_Roating_Mob_webm_878px.webm" type="video/webm">
+						<!-- <source class="animation__webm-pc" src="img/animations/04_Roating_PC_webm_2100px.webm" type="video/webm"> -->
+						<!-- <source class="animation__webm-mob" src="img/animations/04_Roating_Mob_webm_878px.webm" type="video/webm"> -->
 					</video>
 					<!-- <img src="img/animations/04_Roating_PC_apng_1050px.png" class="routing__img animation__apng-pc" alt="hero">  -->
 					<!-- <img src="img/animations/04_Roating_Mob_apng_439px.png" class="routing__img animation__apng-mob" alt="hero">  -->
@@ -406,7 +411,7 @@
 			<section data-fp-section class="hold bg-black">
 				<div class="awesome__container">
 					<div class="awesome__content">
-						<lottie-player class="lottie__hold-on" src="files/hold_on.json" background="transparent" speed="1" loop autoplay mode="normal"></lottie-player>
+						<div class="lottie__hold-on"></div>
 					</div>
 				</div>
 			</section>
@@ -416,8 +421,8 @@
 						<div class="product__slide slide-product slide-one">
 							<div class="slide-product__image-ibg">
 								<video muted autoplay loop>
-									<source class="slide-product__img" src="img/animations/05_Business_PC_webm_248px.webm" type="video/webm">
-									<source class="slide-product__img" src="img/animations/05_Business_Mob_webm_148px.webm" type="video/webm">
+									<!-- <source class="slide-product__img" src="img/animations/05_Business_PC_webm_248px.webm" type="video/webm"> -->
+									<!-- <source class="slide-product__img" src="img/animations/05_Business_Mob_webm_148px.webm" type="video/webm"> -->
 								</video>
 								<!-- <img class="slide-product__img" src="img/animations/05_Business_PC_apng_124px.png" alt="image"> -->
 								<!-- <img class="slide-product__img" src="img/animations/05_Business_Mob_apng_74px.png" alt="image"> -->
@@ -440,8 +445,8 @@
 						<div class="product__slide slide-product slide-two">
 							<div class="slide-product__image-ibg">
 								<video muted autoplay loop>
-									<source class="slide-product__img" src="img/animations/06_Flexibility_PC_webm_248px.webm" type="video/webm">
-									<source class="slide-product__img" src="img/animations/06_Flexibility_Mob_webm_148px.webm" type="video/webm">
+									<!-- <source class="slide-product__img" src="img/animations/06_Flexibility_PC_webm_248px.webm" type="video/webm"> -->
+									<!-- <source class="slide-product__img" src="img/animations/06_Flexibility_Mob_webm_148px.webm" type="video/webm"> -->
 								</video>
 								<!-- <img class="slide-product__img" src="img/animations/06_Flexibility_PC_apng_124px.png" alt="image"> -->
 								<!-- <img class="slide-product__img" src="img/animations/06_Flexibility_Mob_apng_74px.png" alt="image"> -->
@@ -463,8 +468,8 @@
 						<div class="product__slide slide-product slide-three">
 							<div class="slide-product__image-ibg">
 								<video muted autoplay loop>
-									<source class="slide-product__img" src="img/animations/07_Perfomance_PC_webm_248px.webm" type="video/webm">
-									<source class="slide-product__img" src="img/animations/07_Perfomance_Mob_webm_148px.webm" type="video/webm">
+									<!-- <source class="slide-product__img" src="img/animations/07_Perfomance_PC_webm_248px.webm" type="video/webm"> -->
+									<!-- <source class="slide-product__img" src="img/animations/07_Perfomance_Mob_webm_148px.webm" type="video/webm"> -->
 								</video>
 								<!-- <img class="slide-product__img" src="img/animations/07_Perfomance_PC_apng_124px.png" alt="image"> -->
 								<!-- <img class="slide-product__img" src="img/animations/07_Perfomance_Mob_apng_124px.png" alt="image"> -->
@@ -644,8 +649,8 @@
 
 				<div class="result__image">
 					<video muted autoplay loop class="result__img">
-						<source class="animation__webm-pc" src="img/animations/08_Payment_PC_webm_1200px.webm" type="video/webm">
-						<source class="animation__webm-mob" src="img/animations/08_Payment_Mob_webm_594px.webm" type="video/webm">
+						<!-- <source class="animation__webm-pc" src="img/animations/08_Payment_PC_webm_1200px.webm" type="video/webm"> -->
+						<!-- <source class="animation__webm-mob" src="img/animations/08_Payment_Mob_webm_594px.webm" type="video/webm"> -->
 					</video>
 					<!-- <img src="img/animations/08_Payment_PC_apng_600px.png" class="result__img animation__apng-pc" alt="hero">  -->
 					<!-- <img src="img/animations/08_Payment_Mob_apng_297px.png" class="result__img animation__apng-mob" alt="hero">  -->
@@ -677,7 +682,10 @@
 								<p class="text-block__txt txt-pupr">Integrations with financial entities are faster than at traditional payment systems</p>
 								<p class="text-block__txt txt-orange">We convince with unique, intelligently networked innovations, not with words</p>
 							</div>
-							<button data-popup="#form-demo" type="button" class="text-block__btn">Request a Demo</button>
+							<button data-popup="#form-demo" type="button" class="text-block__btn">
+								<span>Request a Demo</span>
+								<div class="lottie__btn-request"></div>
+							</button>
 						</div>
 
 						<div class="text-block__texts texts-gray-bottom">
@@ -757,7 +765,8 @@
 			</div>
 		</main>
 	</div>
-	<script src="js/lottie-player.js?_v=20230328121607"></script>
+	<script src="js/lottie-player.js?_v=20230328231637"></script>
+	<script src="js/bodymovin.js?_v=20230328231637"></script>
 	<div id="form-partner" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content">
@@ -806,8 +815,14 @@
 						</div>
 					</div>
 					<div class="form__buttons">
-						<button data-close type="button" class="form__button form-btn btn-gray-light">Later</button>
-						<button id="btn-part-submit" type="submit" class="form__button form-btn btn-black">Submit</button>
+						<button data-close type="button" class="form__button form-btn btn-later-two btn-gray-light">
+							<span>Later</span>
+							<div class="lottie__btn-later-two"></div>
+						</button>
+						<button id="btn-part-submit" type="submit" class="form__button btn-submit-two form-btn btn-black">
+							<span>Submit</span>
+							<div class="lottie__btn-submit-two"></div>
+						</button>
 					</div>
 				</form>
 			</div>
@@ -841,31 +856,37 @@
 								</div>
 							</div>
 							<div class="form__item">
-								<label for="formEmail" class="form__label">Email</label>
-								<input id="formEmail" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
+								<label for="formEmail_2" class="form__label">Email</label>
+								<input id="formEmail_2" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
 							</div>
 							<div class="form__item">
-								<label for="formWebsite" class="form__label">Website</label>
-								<input id="formWebsite" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
+								<label for="formWebsite_2" class="form__label">Website</label>
+								<input id="formWebsite_2" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
 							</div>
 						</div>
 						<div class="form__item">
-							<label for="formMessage" class="form__label">Leave us a message</label>
-							<textarea id="formMessage" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
+							<label for="formMessage_2" class="form__label">Leave us a message</label>
+							<textarea id="formMessage_2" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
 							<div class="reset-btn btn-reset-textarea">
 								<img src="img/icons/x.svg" alt="reset">
 							</div>
 						</div>
 					</div>
 					<div class="form__buttons">
-						<button data-close type="button" class="form__button form-btn btn-gray-light">Later</button>
-						<button id="btn-req-submit" type="submit" class="form__button form-btn btn-black">Submit</button>
+						<button data-close type="button" class="form__button form-btn btn-gray-light">
+							<span>Later</span>
+							<div class="lottie__btn-later"></div>
+						</button>
+						<button id="btn-req-submit" type="submit" class="form__button form-btn btn-black">
+							<span>Submit</span>
+							<div class="lottie__btn-submit"></div>
+						</button>
 					</div>
 				</form>
 			</div>
@@ -879,7 +900,10 @@
 					Thank you!<br>
 					Our manager will contact you shortly
 				</div>
-				<button data-close type="button" class="form-message__close form-btn btn-gray-light">Close</button>
+				<button data-close type="button" class="form-message__close form-btn btn-close btn-gray-light">
+					<span>Close</span>
+					<div class="lottie__btn-close"></div>
+				</button>
 			</div>
 		</div>
 	</div>
@@ -1061,7 +1085,7 @@
 			preloader();
 		</script>
 	</div>
-	<script src="js/app.min.js?_v=20230328121607"></script>
+	<script src="js/app.min.js?_v=20230328231637"></script>
 </body>
 
 </html>
