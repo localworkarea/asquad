@@ -24,6 +24,13 @@ import Typed from 'typed.js';
 	fpdestroy
 	fpswitching
 */
+const animationAwesome = bodymovin.loadAnimation({
+	container: document.querySelector(".lottie__awesome"),
+	renderer: "svg",
+	loop: false,
+	autoplay: false,
+	path: "files/awesome_right.json"
+});
 const animationHoldOn = bodymovin.loadAnimation({
 	container: document.querySelector('.lottie__hold-on'),
 	renderer: 'svg',
@@ -243,14 +250,14 @@ export class FullPage {
 	// Присвоєння класів із різними ефектами
 	removeEffectsClasses() {
 		switch (this.options.mode) {
-			case 'slider':
-				this.wrapper.classList.remove('slider-mode');
-				break;
+			// case 'slider':
+			// 	this.wrapper.classList.remove('slider-mode');
+			// 	break;
 
-			case 'cards':
-				this.wrapper.classList.remove('cards-mode');
-				this.setZIndex();
-				break;
+			// case 'cards':
+			// 	this.wrapper.classList.remove('cards-mode');
+			// 	this.setZIndex();
+			// 	break;
 
 			case 'fade':
 				this.wrapper.classList.remove('fade-mode');
@@ -265,14 +272,14 @@ export class FullPage {
 	// Присвоєння класів із різними ефектами
 	setEffectsClasses() {
 		switch (this.options.mode) {
-			case 'slider':
-				this.wrapper.classList.add('slider-mode');
-				break;
+			// case 'slider':
+			// 	this.wrapper.classList.add('slider-mode');
+			// 	break;
 
-			case 'cards':
-				this.wrapper.classList.add('cards-mode');
-				this.setZIndex();
-				break;
+			// case 'cards':
+			// 	this.wrapper.classList.add('cards-mode');
+			// 	this.setZIndex();
+			// 	break;
 
 			case 'fade':
 				this.wrapper.classList.add('fade-mode');
@@ -289,13 +296,13 @@ export class FullPage {
 	// Функція встановлення стилів
 	setStyle() {
 		switch (this.options.mode) {
-			case 'slider':
-				this.styleSlider();
-				break;
+			// case 'slider':
+			// 	this.styleSlider();
+			// 	break;
 
-			case 'cards':
-				this.styleCards();
-				break;
+			// case 'cards':
+			// 	this.styleCards();
+			// 	break;
 
 			case 'fade':
 				this.styleFade();
@@ -304,30 +311,30 @@ export class FullPage {
 				break;
 		}
 	}
-	// slider-mode
-	styleSlider() {
-		for (let index = 0; index < this.sections.length; index++) {
-			const section = this.sections[index];
-			if (index === this.activeSectionId) {
-				section.style.transform = 'translate3D(0,0,0)';
-			} else if (index < this.activeSectionId) {
-				section.style.transform = 'translate3D(0,-100%,0)';
-			} else if (index > this.activeSectionId) {
-				section.style.transform = 'translate3D(0,100%,0)';
-			}
-		}
-	}
-	// cards mode
-	styleCards() {
-		for (let index = 0; index < this.sections.length; index++) {
-			const section = this.sections[index];
-			if (index >= this.activeSectionId) {
-				section.style.transform = 'translate3D(0,0,0)';
-			} else if (index < this.activeSectionId) {
-				section.style.transform = 'translate3D(0,-100%,0)';
-			}
-		}
-	}
+	// // slider-mode
+	// styleSlider() {
+	// 	for (let index = 0; index < this.sections.length; index++) {
+	// 		const section = this.sections[index];
+	// 		if (index === this.activeSectionId) {
+	// 			section.style.transform = 'translate3D(0,0,0)';
+	// 		} else if (index < this.activeSectionId) {
+	// 			section.style.transform = 'translate3D(0,-100%,0)';
+	// 		} else if (index > this.activeSectionId) {
+	// 			section.style.transform = 'translate3D(0,100%,0)';
+	// 		}
+	// 	}
+	// }
+	// // cards mode
+	// styleCards() {
+	// 	for (let index = 0; index < this.sections.length; index++) {
+	// 		const section = this.sections[index];
+	// 		if (index >= this.activeSectionId) {
+	// 			section.style.transform = 'translate3D(0,0,0)';
+	// 		} else if (index < this.activeSectionId) {
+	// 			section.style.transform = 'translate3D(0,-100%,0)';
+	// 		}
+	// 	}
+	// }
 	// fade style 
 	styleFade() {
 		for (let index = 0; index < this.sections.length; index++) {
@@ -393,6 +400,14 @@ export class FullPage {
 				} 
 				if (!section.classList.contains('integrations') && section.classList.contains('active-section')) {
 					imageAnim.classList.remove('_anim-integrations');
+				} 
+				if (section.classList.contains("awesome") && section.classList.contains("active-section")) {
+					setTimeout(() => {
+							animationAwesome.play();
+					}, 300);
+				} 
+				if (!section.classList.contains("awesome") && section.classList.contains("active-section")) {
+						animationAwesome.stop();
 				} 
 				if (section.classList.contains('hold') && section.classList.contains('active-section')) {
 						setTimeout(() => {
@@ -520,7 +535,7 @@ export class FullPage {
 			transitionEnd: this.transitionend.bind(this),
 
 			// Клік для буллетів
-			click: this.clickBullets.bind(this),
+			// click: this.clickBullets.bind(this),
 			clickblock: this.clickBlock.bind(this),
 
 
@@ -568,34 +583,34 @@ export class FullPage {
 	}
 	//===============================
 	// Функція кліка по булетах
-	clickBullets(e) {
-		// Натиснутий буллет
-		const bullet = e.target.closest(`.${this.options.bulletClass}`);
-		if (bullet) {
-			// Масив усіх буллетів
-			const arrayChildren = Array.from(this.bulletsWrapper.children);
+	// clickBullets(e) {
+	// 	// Натиснутий буллет
+	// 	const bullet = e.target.closest(`.${this.options.bulletClass}`);
+	// 	if (bullet) {
+	// 		// Масив усіх буллетів
+	// 		const arrayChildren = Array.from(this.bulletsWrapper.children);
 
-			// id Натиснутого буллета
-			const idClickBullet = arrayChildren.indexOf(bullet)
+	// 		// id Натиснутого буллета
+	// 		const idClickBullet = arrayChildren.indexOf(bullet)
 
-			// Перемикання секції
-			this.switchingSection(idClickBullet)
-		}
-	}
+	// 		// Перемикання секції
+	// 		this.switchingSection(idClickBullet)
+	// 	}
+	// }
 	
 	//===============================
 	// Установка стилів для буллетів
-	setActiveBullet(idButton) {
-		if (!this.bulletsWrapper) return
-		// Усі буллети
-		const bullets = this.bulletsWrapper.children;
+	// setActiveBullet(idButton) {
+	// 	if (!this.bulletsWrapper) return
+	// 	// Усі буллети
+	// 	const bullets = this.bulletsWrapper.children;
 
-		for (let index = 0; index < bullets.length; index++) {
-			const bullet = bullets[index];
-			if (idButton === index) bullet.classList.add(this.options.bulletActiveClass);
-			else bullet.classList.remove(this.options.bulletActiveClass);
-		}
-	}
+	// 	for (let index = 0; index < bullets.length; index++) {
+	// 		const bullet = bullets[index];
+	// 		if (idButton === index) bullet.classList.add(this.options.bulletActiveClass);
+	// 		else bullet.classList.remove(this.options.bulletActiveClass);
+	// 	}
+	// }
 	//===============================
 	// Функція натискання тач/пера/курсора
 	touchDown(e) {
@@ -656,7 +671,7 @@ export class FullPage {
 		// Чи дозволено перехід? 
 		this.checkScroll(yCoord, targetElement);
 		// Перехід
-		if (this.goScroll && Math.abs(yCoord) > 20) {
+		if (this.goScroll && Math.abs(yCoord) > 100) { // было 20 (29.03.23)
 			this.choiceOfDirection(yCoord);
 		}
 	}
@@ -814,27 +829,27 @@ export class FullPage {
 	}
 	//===============================
 	// Установка буллетов
-	setBullets() {
-		// Поиск оболочки буллетов
-		this.bulletsWrapper = document.querySelector(`.${this.options.bulletsClass}`);
+	// setBullets() {
+	// 	// Поиск оболочки буллетов
+	// 	this.bulletsWrapper = document.querySelector(`.${this.options.bulletsClass}`);
 
-		// Если нету создаем
-		if (!this.bulletsWrapper) {
-			const bullets = document.createElement('div');
-			bullets.classList.add(this.options.bulletsClass);
-			this.wrapper.append(bullets);
-			this.bulletsWrapper = bullets;
-		}
+	// 	// Если нету создаем
+	// 	if (!this.bulletsWrapper) {
+	// 		const bullets = document.createElement('div');
+	// 		bullets.classList.add(this.options.bulletsClass);
+	// 		this.wrapper.append(bullets);
+	// 		this.bulletsWrapper = bullets;
+	// 	}
 
-		// Создание буллетов
-		if (this.bulletsWrapper) {
-			for (let index = 0; index < this.sections.length; index++) {
-				const span = document.createElement('span');
-				span.classList.add(this.options.bulletClass);
-				this.bulletsWrapper.append(span);
-			}
-		}
-	}
+	// 	// Создание буллетов
+	// 	if (this.bulletsWrapper) {
+	// 		for (let index = 0; index < this.sections.length; index++) {
+	// 			const span = document.createElement('span');
+	// 			span.classList.add(this.options.bulletClass);
+	// 			this.bulletsWrapper.append(span);
+	// 		}
+	// 	}
+	// }
 	//===============================
 	// Z-INDEX
 	setZIndex() {

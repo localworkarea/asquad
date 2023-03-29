@@ -522,56 +522,6 @@
     padding-top: rem(56);
     padding-bottom: rem(16); 
   }
-  &.active-section {
-    .anim-text {
-      transform: translateY(0);
-      transition: transform 0.4s ease;
-      &:nth-child(1) {
-        transition-delay: 0.6s;
-      }
-      &:nth-child(2) {
-        transition-delay: 0.7s;
-      }
-      &:nth-child(3) {
-        transition-delay: 0.8s;
-      }
-      &:nth-child(4) {
-        transition-delay: 0.9s;
-      }
-    }
-    .a-big-anim {
-      animation: change-lttr-a-main 0.8s linear 1.4s 1 normal none;
-    }
-    .a-anim {
-      animation: change-lttr-a 0.8s linear 1.4s 1 normal none;
-    }
-    .e-main-anim {
-      animation: change-lttr-e-main 0.8s linear 1.4s 1 normal none;
-    }
-    .e-anim {
-      animation: change-lttr-e 0.8s linear 1.4s 1 normal none;
-    }
-    .o-main-anim {
-      animation: change-lttr-o-main 0.8s linear 1.4s 1 normal none;
-    }
-    .o-anim {
-      animation: change-lttr-o 0.8s linear 1.4s 1 normal none;
-    }
-    .i-anim {
-      animation: change-lttr-i 0.8s linear 1.4s 1 normal none;
-    }
-    .awesome__mouse-wheel {
-        opacity: 1;
-        visibility: visible;
-        transition: all 0.5s ease 1.8s;
-      }
-  }
-  &.previous-section {
-    .awesome__content {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-  }
   // .awesome__container
   &__container {
     display: flex;
@@ -583,256 +533,28 @@
     }
   }
   // .awesome__content
-  &__content {
+  .awesome__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transform: translateY(0);
-    opacity: 1;
-    transition: all 0.7s ease 0s;
-    @include adaptiveValue("margin-top", 196, 96, 3, 768, 320);
-  }
-  // .awesome__body
-  // &__body {
-  //   width: 100%;
-  //   max-width: rem(505);
-  // }
-  // .awesome__title
-  &__title {
-    text-align: center;
-    max-width: rem(552);
-    color: white;
-    transition: transform 0.5s ease 0s, opacity 0.5s ease 0s;
-    @include adaptiveValue("margin-bottom", 64, 32, 0, 1920, 1366);
-    span {
-      display: inline-block;
-    }
-    &_line {
-      overflow: hidden;
-    }
-    .anim-text {
-      transform: translateY(100%);
-    }    
-    .anim-ltt-a,
-    .anim-ltt-e,
-    .anim-ltt-o {
-      position: relative;
-    }
-    
-    .a-anim,
-    .e-anim,
-    .o-anim,
-    .i-anim {
-      position: absolute;
-      top: 5%;
-      left: 9%;
-      opacity: 0;
-      font-family:Rosa ASQD;
-    }
-    .e-anim {
-      left: 3%;
-    }
-
-    @media (max-width: 1280px) {
-      max-width: rem(420);
-    }
-    @media (max-width: 780px){
-        max-width: rem(320);
-    }
-    @media (max-width: 415px){
-        max-width: rem(250);
+    position: relative;
+    overflow: hidden;
+   
+    @media (max-width:$mobileSmall){
+       margin-top: rem(70); 
     }
   }
-  // .awesome__mouse-wheel
-  &__mouse-wheel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    transition-delay: 0s;
-  }
-  @keyframes change-lttr-a-main {
-    0% {
-      opacity: 1;
+  .lottie__awesome {
+    @media (max-width: 1100px) {
+      transform: scale(1.2);
     }
-    6% {
-      opacity: 1;
+    @media (max-width:$mobile){
+      transform: scale(1.8);
     }
-    7% {
-      opacity: 0;
-    }
-    63%{
-      opacity: 0;
-    }
-    64%{
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
+    @media (max-width:$mobileSmall){
+      transform: scale(2.3);
     }
   }
-  
-  @keyframes change-lttr-a {
-    0% {
-      opacity: 0;
-    }
-    6% {
-      opacity: 0;
-    }
-    7% {
-      opacity: 1;
-    }
-    63%{
-      opacity: 1;
-    }
-    64%{
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes change-lttr-e-main {
-    0% {
-      opacity: 1;
-    }
-    6% {
-      opacity: 1;
-    }
-    7% {
-      opacity: 0;
-    }
-    35% {
-      opacity: 0;
-    }
-    36%{
-      opacity: 1;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes change-lttr-e {
-    0% {
-      opacity: 0;
-    }
-    6% {
-      opacity: 0;
-    }
-    7% {
-      opacity: 1;
-    }
-    35% {
-      opacity: 1;
-    }
-    36%{
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  @keyframes change-lttr-o-main {
-    0% {
-      opacity: 1;
-    }
-    6% {
-      opacity: 1;
-    }
-    7% {
-      opacity: 0;
-      padding-right: rem(11);
-    }
-    35% {
-      padding-right: rem(11);
-    }
-    36%{
-      padding-right: rem(32);
-    }
-    63%{
-      padding-right: rem(32);
-    }
-    64%{
-      padding-right: rem(11);
-    }
-    92%{
-      opacity: 0;
-      padding-right: rem(11);
-    }
-    93% {
-      opacity: 1;
-      padding-right: rem(0);
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes change-lttr-o {
-    0% {
-      opacity: 0;
-    }
-    6% {
-      opacity: 0;
-    }
-    7% {
-      opacity: 1;
-    }
-    35% {
-      opacity: 1;
-    }
-    36%{
-      opacity: 0;
-    }
-    63%{
-      opacity: 0;
-    }
-    64%{
-      opacity: 1;
-    }
-    92%{
-      opacity: 1;
-    }
-    93% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
-  @keyframes change-lttr-i {
-    0% {
-      opacity: 0;
-    }
-    7% {
-      opacity: 0;
-    }
-    35% {
-      opacity: 0;
-    }
-    36%{
-      opacity: 1;
-    }
-    63%{
-      opacity: 1;
-    }
-    64%{
-      opacity: 0;
-    }
-    92%{
-      opacity: 0;
-    }
-    93% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  
 }
 
 // === --- industries (5) --- ===================================================
@@ -3066,7 +2788,7 @@
       }
       @media (max-width:672px){
         width: 100%;
-        height: 100%;
+        height: rem(300);
       }
     }
   }
@@ -3133,7 +2855,7 @@
       }
       @media (max-width:672px){
         width: 100%;
-        height: 100%;
+        height: rem(300);
       }
     }
   }
@@ -3168,7 +2890,7 @@
       }
       @media (max-width:672px){
         width: 80%;
-        height: 80%;
+        height: rem(300);
       }
     }
   }
