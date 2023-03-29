@@ -4268,10 +4268,16 @@
                 formBtn.addEventListener("mouseenter", (function() {
                     animBtnFormSubm.play();
                     lottieBtnFormSubm.style.opacity = "1";
+                  
                 }));
                 formBtn.addEventListener("mouseleave", (function() {
                     animBtnFormSubm.stop();
                     lottieBtnFormSubm.style.opacity = "0";
+                }));
+                formBtn.addEventListener("click", (function() {
+                    animBtnFormSubm.stop();
+                    lottieBtnFormSubm.style.opacity = "0";
+                
                 }));
             }
             if (formBtn.classList.contains("btn-submit-two")) {
@@ -4294,7 +4300,20 @@
                     lottieBtnFormClose.style.opacity = "0";
                 }));
             }
+          
         }));
+
+
+        
+
+
+
+
+
+
+
+
+
         window["FLS"] = true;
         isWebp();
         addTouchClass();

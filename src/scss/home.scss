@@ -4383,6 +4383,9 @@
       &:hover{
         span {
           opacity: 0;
+          .touch & {
+            opacity: 1;
+          }
         }
       }
     }
@@ -4396,6 +4399,10 @@
       object-fit: contain;
       z-index: 2;
       opacity: 0;
+      .touch & {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
     @media (max-width: 1530px) {
       width: rem(257);

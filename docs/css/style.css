@@ -378,7 +378,6 @@ h6 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  overflow-y: auto;
 }
 
 .form__block {
@@ -592,6 +591,10 @@ input:disabled::placeholder {
 button:disabled {
   background-color: #F0F4F5;
   color: #BCCCD1;
+}
+button:disabled .lottie__btn-submit{
+  opacity: 0;
+  visibility: hidden;
 }
 
 textarea:focus {
@@ -1238,6 +1241,11 @@ textarea:focus {
      object-fit: cover;
   z-index: 2;
   opacity: 0;
+}
+
+.touch .lottie__btn-demo {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .header-black .menu__btn {
@@ -10673,6 +10681,9 @@ textarea:focus {
 
   .menu__btn:hover span {
     opacity: 0;
+  }
+  .touch .menu__btn:hover span {
+    opacity: 1;
   }
 
   .top-footer__icon:hover {
