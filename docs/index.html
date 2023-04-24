@@ -10,9 +10,11 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230329155847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230424194907">
 	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js?_v=20230424194907"></script> -->
 </head>
 
 <body>
@@ -47,7 +49,7 @@
 		</header>
 		<div class="image-anim">
 			<video muted autoplay loop class="image-anim__item">
-				<!-- <source class="animation__webm-pc" src="img/animations/01_Hero_PC_webm_1200px.webm" type="video/webm"> -->
+				<!-- <source class="animation__webm-pc" src="img/animations//01_Hero_PC_webm_1200px.webm" type="video/webm"> -->
 				<!-- <source class="animation__webm-mob" src="img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm"> -->
 			</video>
 			<!-- <img src="img/animations/01_Hero_PC_apng_600px.svg" class="image-anim__item animation__apng-pc" alt="hero">  -->
@@ -60,7 +62,7 @@
 						<img src="img/icons-logo/Logo.svg" alt="logo">
 					</div>
 					<h1 class="main__title title-main"><span>Low-Code</span> <span>Payment</span> <span>Platform</span></h1>
-					<p class="main__text"><span>Payment Innovations they say..</span> <span>Well, they say, but we do</span></p>
+					<p class="main__text"><span>Payment Innovations they say..</span><br class="main__text-br"> <span>Well, they say, but we do</span></p>
 					<div class="main__mouse-wheel mouse-wheel">
 						<div class="mouse-wheel__body">
 							<img class="mouse-wheel__mouse" src="img/icons/mouse.svg" alt="mouse">
@@ -73,10 +75,10 @@
 				<div class="focus__container">
 					<div class="focus__content">
 						<div class="focus__item">
-							<div class="focus__text"><span>What traditional gateways take</span> <span>weeks to do, <b>we execute in</b></span> <span><b>12 hours,</b> allowing you to expand</span> <span>into new markets faster</span></div>
+							<div class="focus__text">What traditional gateways take weeks to do, <b>we execute in</b> <b>12 hours,</b> allowing you to expand into new markets faster</div>
 						</div>
 						<div class="focus__item">
-							<div class="focus__text"><span>Our focus is on the <b>speed of</b></span><span> <b>integrations</b> with new financial</span> <span>entities, with no compromise</span> <span>on quality</span></div>
+							<div class="focus__text">Our focus is on the <b>speed of</b> <b>integrations</b> with new financial entities, with no compromise on quality</div>
 						</div>
 					</div>
 				</div>
@@ -85,8 +87,8 @@
 				<div class="integrations__container">
 					<div class="integrations__content">
 						<h2 class="integrations__title title-second-b"><span>Integrations</span> <span>in</span> <span>one</span> <span>day</span></h2>
-						<p class="integrations__text anim-text-top"><span>A group of Fintech enthusiasts with backgrounds in payment infrastructure creation decided to join</span> <span>forces and build a payment gateway and processing system based on the latest technologies.</span></p>
-						<p class="integrations__text anim-text-btm">And you know what? It runs smooth as buttered silk</p>
+						<div class="integrations__text anim-text-top">A group of Fintech enthusiasts with backgrounds in payment infrastructure creation decided to join forces and build a payment gateway and processing system based on the latest technologies.</div>
+						<div class="integrations__text anim-text-btm">And you know what?<br> It runs smooth as buttered silk</div>
 						<div class="integrations__block">
 							<p class="integrations__item">Bank tech integration&nbsp;<span>12 hours</span></p>
 							<p class="integrations__item">Current integration edit&nbsp;<span>~ 30 min</span></p>
@@ -137,11 +139,16 @@
 									<!-- <img src="img/animations/03_Logo_apng.svg" alt="logo" class="choose__img img-choose-one"> -->
 									<h3 class="choose__subtitle subtitle-chose-one title-second"><span>White</span> <span>Label</span></h3>
 								</div>
-								<div class="choose__text text-second text-choose-one">
+								<div class="choose__text choose__text_all text-second text-choose-one">
 									<span>Leverage a <b>tailor-made payment</b></span>
 									<span><b>solution</b> to power your daily</span>
 									<span>operations with payments and</span>
 									<span>reduce development costs</span>
+								</div>
+								<div class="choose__text choose__text_tablet text-second text-choose-one">
+									<span>Leverage a <b>tailor-made payment solution</b></span>
+									<span>to power your daily operations with</span>
+									<span> payments and reduce development costs</span>
 								</div>
 							</div>
 							<div class="choose__block">
@@ -149,11 +156,16 @@
 									<!-- <img src="img/animations/03_Logo_apng.svg" alt="logo" class="choose__img img-choose-sec"> -->
 									<h3 class="choose__subtitle subtitle-chose-two title-second"><span>Payment</span> <span>Gateway</span></h3>
 								</div>
-								<div class="choose__text text-second text-choose-two">
+								<div class="choose__text choose__text_all text-second text-choose-two">
 									<span><b>Become a proud partner of</b></span>
 									<span><b>ours,</b> then accept payments</span>
 									<span>and make payouts in a secure</span>
-									<span>efficient way</span>
+									<span>and efficient way</span>
+								</div>
+								<div class="choose__text choose__text_tablet text-second text-choose-two">
+									<span><b>Become a proud partner of ours,</b> then</span>
+									<span>accept payments and make payouts in a</span>
+									<span>secure and efficient way</span>
 								</div>
 							</div>
 						</div>
@@ -166,10 +178,11 @@
 					<div class="manage__content">
 						<div class="manage__block">
 							<div class="block-info">
-								<h2 class="block-info__title title-third"><span>Manage</span> <span>Payments</span> <span>Through</span> <span>Uncluttered</span> <span>Admin</span> <span>Panel</span></h2>
+								<h2 class="block-info__title title-third"><span>Manage</span> <span>Payments</span> <span>Through</span><br> <span>Uncluttered</span> <span>Admin</span> <span>Panel</span></h2>
 								<div class="block-info__texts text-third">
 									<span class="anim-txt-a">The intuitive admin portal keeps you in</span> <span class="anim-txt-b">complete control of all your data. Initiate</span> <span class="anim-txt-c">and analyze payment traffic.</span><br class="break"><span class="anim-txt-d">Make single and batch payouts.</span><br class="break"><span class="anim-txt-e">Assign roles for your team, share access with</span> <span class="anim-txt-f">specified capabilities, and perform numerous</span> <span class="anim-txt-g">other functions with no extra effort</span>
 								</div>
+								<div class="manage__block-inf-txt-tablet text-third">The intuitive admin portal keeps you in complete control of all your data. Initiate and analyze payment traffic. Make single and batch payouts. Assign roles for your team, share access with specified capabilities, and perform numerous other functions with no extra effort</div>
 							</div>
 							<div class="progress-line">
 								<span class="progress-line__line"></span>
@@ -204,8 +217,8 @@
 								<span>Juggle</span> <span>the</span> <span>Multiple</span>
 								<span>Payment</span> <span>Options</span>
 							</h2>
-							<div class="block-info__texts text-third">
-								<span>We don't limit you to standard payment</span> <span>methods; instead, we adapt to the needs of</span> <span>your customer base in specific GEO</span>
+							<div class="block-info__texts options__block-inf-txt text-third">
+								We don't limit you to standard payment methods; instead, we adapt to the needs of your customer base in specific GEO
 							</div>
 						</div>
 						<div class="progress-line">
@@ -274,6 +287,9 @@
 								<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
 								<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
 							</div>
+							<div class="custom__text-tablet text-third">
+								Seamlessly deploy our Widget into your company's digital experience. Then customize it with your logo and branding for a seamless experience
+							</div>
 						</div>
 						<div class="progress-line">
 							<span class="progress-line__line"></span>
@@ -285,11 +301,14 @@
 					</div>
 					<div data-da=".custom,768,2" class="custom__anim anim-custom">
 						<div class="anim-custom__wrapper">
-							<div class="anim-custom__item item-first">
-								<picture><source srcset="img/sections/section_9/1.webp" type="image/webp"><img class="anim-custom__img img-1" src="img/sections/section_9/1.png" alt="image"></picture>
-							</div>
-							<div class="anim-custom__item item-second">
-								<picture><source srcset="img/sections/section_9/2.webp" type="image/webp"><img class="anim-custom__img img-3" src="img/sections/section_9/2.png" alt="image"></picture>
+							<div class="anim-custom__wrapper-02">
+								<span></span>
+								<div class="anim-custom__item item-first">
+									<picture><source srcset="img/sections/section_9/1.webp" type="image/webp"><img class="anim-custom__img img-1" src="img/sections/section_9/1.png" alt="image"></picture>
+								</div>
+								<div class="anim-custom__item item-second">
+									<picture><source srcset="img/sections/section_9/2.webp" type="image/webp"><img class="anim-custom__img img-3" src="img/sections/section_9/2.png" alt="image"></picture>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -304,6 +323,9 @@
 								<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
 								<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
 							</div>
+							<div class="custom__text-tablet text-third">
+								Seamlessly deploy our Widget into your company's digital experience. Then customize it with your logo and branding for a seamless experience
+							</div>
 						</div>
 						<div class="progress-line">
 							<span class="progress-line__line"></span>
@@ -315,6 +337,7 @@
 					</div>
 					<div data-da=".custom-second,768,2" class="custom__anim anim-custom">
 						<div class="anim-custom__wrapper">
+							<span></span>
 							<div class="anim-custom__item item-first">
 								<picture><source srcset="img/sections/section_9/3.webp" type="image/webp"><img class="anim-custom__img img-2" src="img/sections/section_9/3.png" alt="image"></picture>
 							</div>
@@ -330,9 +353,12 @@
 					<div class="api__block">
 						<div class="block-info">
 							<h2 class="block-info__title title-third"><span>API</span> <span>at</span> <span>a</span> <span>Glance</span></h2>
-							<div class="block-info__texts text-third">
-								<span>Asquad's API is about both innovations in</span> <span>payments and intelligible documentation.</span> <span>It allows developers to adapt payment flow</span> <span>quickly to your business needs.</span>
-								<span>Though it's self-explanatory and rarely needs</span> <span>assistance, our support team is available to</span> <span>answer any questions you may have</span>
+							<div class="api__text-split text-third">
+								Asquad's API is about both innovations in payments and intelligible documentation.
+
+								It allows developers to adapt payment flow quickly to your business needs.
+
+								Though it's self-explanatory and rarely needs assistance, our support team is available to answer any questions you may have
 							</div>
 						</div>
 						<div class="progress-line">
@@ -361,9 +387,10 @@
 							</div>
 							<span id="typed"></span>
 						</div>
-						<span class="api__typing-line"></span>
+
 					</div>
 				</div>
+				<span class="api__typing-line"></span>
 			</section>
 
 			<section data-fp-section class="routing bg-black">
@@ -371,11 +398,18 @@
 					<div class="industries__block">
 						<div class="industries__body">
 							<h2 class="industries__title title-second"><span>Smart</span> <span>Routing</span> <span>&</span><br> <span>Elastic</span> <span>Cascading</span></h2>
-							<p class="industries__text text-second">
+							<p class="industries__text text-pc text-second">
 								<span>With an entry <b>70% conversion rate,</b></span>
 								<span><b>the merchant can increase this</b></span>
 								<span><b>number to 95%</b> through our Smart</span>
 								<span>Routing and Elastic Cascading</span>
+							</p>
+							<p class="industries__text text-mob text-second">
+								<span>With an entry <b>70% conversion</b></span>
+								<span><b> rate, the merchant can increase</b></span>
+								<span><b>this number to 95%</b> through our </span>
+								<span>Smart Routing and Elastic</span>
+								<span>Cascading</span>
 							</p>
 						</div>
 					</div>
@@ -411,7 +445,7 @@
 							<h3 class="slide-product__title title-third title-one">
 								<span class="anim-title">Business</span> <span class="not-thin anim-title">X</span> <br class="line-break"> <span class="anim-title">Technology</span> <span class="anim-title">Synergy</span>
 							</h3>
-							<div class="slide-product__info text-third">
+							<div class="slide-product__info text-pc text-third">
 								<span>Forget instructions, get down to business. We</span>
 								<span>designed payment infrastructure with a high </span>
 								<span>degree of empathy, so you could use it right </span>
@@ -420,6 +454,35 @@
 								<span>Spend less time learning how system works and </span>
 								<span>more time for delivering great online payment </span>
 								<span>experience to your customers and clients</span>
+							</div>
+							<div class="slide-product__info text-tablet text-third">
+								<span>Forget instructions, get down to</span>
+								<span>business. We designed payment</span>
+								<span>infrastructure with a high degree</span>
+								<span>of empathy, so you could use it</span>
+								<span>right away.</span>
+								<br class="line-break">
+								<span>Spend less time learning how</span>
+								<span>system works and more time for</span>
+								<span>delivering great online payment</span>
+								<span>experience to your customers</span>
+								<span>and clients</span>
+							</div>
+							<div class="slide-product__info text-mob text-third">
+								<span>Forget instructions, get</span>
+								<span>down to business. We</span>
+								<span>designed payment</span>
+								<span>infrastructure with a</span>
+								<span>high degree of empathy,</span>
+								<span>so you could use it right</span>
+								<span>away.</span>
+								<br class="line-break">
+								<span>Spend less time learning</span>
+								<span>how system works and</span>
+								<span>more time for delivering</span>
+								<span>great online payment</span>
+								<span>experience to your</span>
+								<span>customers and clients</span>
 							</div>
 						</div>
 
@@ -435,7 +498,7 @@
 							<h3 class="slide-product__title title-third title-two">
 								<span class="anim-title">Flexibility</span> <span class="not-thin anim-title">&</span><br class="line-break"> <span class="anim-title">Customization</span>
 							</h3>
-							<div class="slide-product__info text-third">
+							<div class="slide-product__info text-pc text-third">
 								<span>Create your own custom configurations for</span>
 								<span>the <b>Payment Flow</b> and <b>Payment Widget.</b></span>
 								<br class="line-break">
@@ -443,6 +506,32 @@
 								<span>integrations with the Bank or make changes </span>
 								<span>into your existing payment inegrations </span>
 								<span>without downtime or lost transactions</span>
+							</div>
+							<div class="slide-product__info text-tablet text-third">
+								<span>Create your own custom configurations</span>
+								<span>for the <b>Payment Flow</b> and <b>Payment</b></span>
+								<span><b>Widget.</b></span>
+								<br class="line-break">
+								<span>Integrate seamlessly: complete new</span>
+								<span>integrations with the Bank or make</span>
+								<span>changes into your existing payment</span>
+								<span>inegrations without downtime or lost</span>
+								<span>transactions</span>
+							</div>
+							<div class="slide-product__info text-mob text-third">
+								<span>Create your own custom</span>
+								<span>configurations</span>
+								<span>for the <b>Payment Flow</b></span>
+								<span>and <b>Payment Widget.</b></span>
+								<br class="line-break">
+								<span>Integrate seamlessly:</span>
+								<span>complete new </span>
+								<span>integrations with the</span>
+								<span>Bank or make changes</span>
+								<span>into your existing</span>
+								<span>payment inegrations </span>
+								<span>without downtime or lost</span>
+								<span>transactions</span>
 							</div>
 						</div>
 
@@ -685,7 +774,7 @@
 						</div>
 					</div>
 				</section>
-				<footer data-watch-threshold="0.4" data-watch class="footer">
+				<footer data-watch-threshold="0.1" data-watch class="footer">
 					<div class="footer__container">
 						<div class="footer__top top-footer">
 							<a href="index.html" class="top-footer__logo">
@@ -746,75 +835,16 @@
 			</div>
 		</main>
 	</div>
-	<!-- <script src="js/lottie-player.js?_v=20230329155847"></script>
-		<script src="js/bodymovin.js?_v=20230329155847"></script> -->
-	<div id="form-partner" aria-hidden="true" class="popup-form">
-		<div class="popup-form__wrapper">
-			<div class="popup-form__content">
-				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
-					<div class="form__block">
-						<div class="form__head">
-							<div class="form__title form-title">Let's Partner</div>
-							<div class="form__subtitle">Fill out the form and we'll contact you about integrating your service</div>
-						</div>
-						<div class="form__inputs">
-							<div class="form__item">
-								<label for="formName-1" class="form__label">Name</label>
-								<input id="formName-1" type="text" name="name" placeholder="Adam Smith" class="form__input">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item item-form-phone">
-								<label for="phone_2" class="form__label">Phone number</label>
-								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item">
-								<label for="formEmail" class="form__label">Email</label>
-								<input id="formEmail" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item">
-								<label for="formWebsite" class="form__label">Website</label>
-								<input id="formWebsite" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-						</div>
-						<div class="form__item">
-							<label for="formMessage" class="form__label">Leave us a message</label>
-							<textarea id="formMessage" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
-							<div class="reset-btn btn-reset-textarea">
-								<img src="img/icons/x.svg" alt="reset">
-							</div>
-						</div>
-					</div>
-					<div class="form__buttons">
-						<button data-close type="button" class="form__button form-btn btn-later-two btn-gray-light">
-							<span>Later</span>
-							<div class="lottie__btn-later-two"></div>
-						</button>
-						<button id="btn-part-submit" type="submit" class="form__button btn-submit-two form-btn btn-black">
-							<span>Submit</span>
-							<div class="lottie__btn-submit-two"></div>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+	<!-- или подключить через _js.htm -->
+	<!-- <script src="js/lottie-player.js?_v=20230424194907"></script>
+<script src="js/bodymovin.js?_v=20230424194907"></script> -->
 
-
+	// --- R E Q U E S T a D E M 0 ---------------------------------
 
 	<div id="form-demo" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content">
+				<div id="response"></div>
 				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
 					<div class="form__block">
 						<div class="form__head">
@@ -824,7 +854,7 @@
 						<div class="form__inputs">
 							<div class="form__item">
 								<label for="formName" class="form__label">Name</label>
-								<input id="formName" type="text" name="name" placeholder="Adam Smith" class="form__input">
+								<input id="formName" type="text" name="name" maxlength="50" placeholder="Adam Smith" class="form__input">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -838,22 +868,23 @@
 							</div>
 							<div class="form__item">
 								<label for="formEmail_2" class="form__label">Email</label>
-								<input id="formEmail_2" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
+								<input id="formEmail_2" data-required="email" maxlength="255" data-validate type="text" name="email" data-error="The email format is not valid" placeholder="once@said.earlier" class="form__input form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
 							</div>
 							<div class="form__item">
 								<label for="formWebsite_2" class="form__label">Website</label>
-								<input id="formWebsite_2" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
+								<input id="formWebsite_2" data-required data-validate maxlength="500" type="url" name="url" data-error="The website format is not valid" placeholder="evolve.io" class="form__input input-form-web form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
+								<div class="error-web">The website format is not valid</div>
 							</div>
 						</div>
 						<div class="form__item">
 							<label for="formMessage_2" class="form__label">Leave us a message</label>
-							<textarea id="formMessage_2" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
+							<textarea id="formMessage_2" maxlength="2000" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
 							<div class="reset-btn btn-reset-textarea">
 								<img src="img/icons/x.svg" alt="reset">
 							</div>
@@ -874,11 +905,78 @@
 		</div>
 	</div>
 
+
+
+	// --- L E T` S P A R T N E R ---------------------------------
+
+	<div id="form-partner" aria-hidden="true" class="popup-form">
+		<div class="popup-form__wrapper">
+			<div class="popup-form__content">
+				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
+					<div class="form__block">
+						<div class="form__head">
+							<div class="form__title form-title">Let's Partner</div>
+							<div class="form__subtitle">Fill out the form and we'll contact you about integrating your service</div>
+						</div>
+						<div class="form__inputs">
+							<div class="form__item">
+								<label for="formName-1" class="form__label">Name</label>
+								<input id="formName-1" type="text" name="name" maxlength="50" placeholder="Adam Smith" class="form__input">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item item-form-phone">
+								<label for="phone_2" class="form__label">Phone number</label>
+								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item">
+								<label for="formEmail" class="form__label">Email</label>
+								<input id="formEmail" data-required="email" maxlength="255" data-validate type="text" name="email" data-error="The email format is not valid" placeholder="once@said.earlier" class="form__input form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item">
+								<label for="formWebsite" class="form__label">Website</label>
+								<input id="formWebsite" data-required data-validate maxlength="500" type="url" name="email" data-error="The website format is not valid" placeholder="evolve.io" class="form__input input-form-web form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+								<div class="error-web">Error website</div>
+							</div>
+						</div>
+						<div class="form__item">
+							<label for="formMessage" class="form__label">Leave us a message</label>
+							<textarea id="formMessage" maxlength="2000" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
+							<div class="reset-btn btn-reset-textarea">
+								<img src="img/icons/x.svg" alt="reset">
+							</div>
+						</div>
+					</div>
+					<div class="form__buttons">
+						<button data-close type="button" class="form__button form-btn btn-later-two btn-gray-light">
+							<span>Later</span>
+							<div class="lottie__btn-later-two"></div>
+						</button>
+						<button id="btn-part-submit" type="submit" class="form__button btn-submit-two form-btn btn-black">
+							<span>Submit</span>
+							<div class="lottie__btn-submit-two"></div>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<div id="form-message" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content form-message__content">
 				<div class="form-message__text form-title">
-					Thank you!<br>
+					<span>Thank you!</span><br>
 					Our manager will contact you shortly
 				</div>
 				<button data-close type="button" class="form-message__close form-btn btn-close btn-gray-light">
@@ -899,10 +997,11 @@
 		.loading body {
 			opacity: 0;
 			visibility: hidden;
+			transition: opacity 0.8s linear 0s;
 		}
 
 		.loaded body {
-			transition: opacity 0.8s ease 0s, background-color 0.3s ease 0s;
+			transition: opacity 0.8s linear 0s;
 			opacity: 1;
 			visibility: visible;
 		}
@@ -950,7 +1049,17 @@
 			.fls-preloader__images {
 				width: 40px;
 				height: 40px;
-				animation: spinner 0.3s linear 0.3s infinite normal none;
+				animation: spinner 1.5s ease-in-out 0.2s 1 normal none;
+			}
+
+			@keyframes spinner {
+				0% {
+					transform: rotate(0deg);
+				}
+
+				100% {
+					transform: rotate(1440deg);
+				}
 			}
 
 			/* Блок з лічильником */
@@ -966,17 +1075,7 @@
 				color: #BCCCD1;
 			}
 
-			@keyframes spinner {
-				0% {
-					transform: rotate(0deg);
-				}
-
-				100% {
-					transform: rotate(360deg);
-				}
-			}
-
-			@media (max-width: 479.98px) {
+			@media (max-width: 1366px) {
 				.fls-preloader__body {
 					padding-top: 2rem;
 				}
@@ -1051,13 +1150,19 @@
 					}
 
 					function addLoadedClass() {
-						htmlDocument.classList.add('loaded');
-						htmlDocument.classList.remove('lock');
-						htmlDocument.classList.remove('loading');
+
+						setInterval(() => {
+							htmlDocument.classList.add('loaded');
+							htmlDocument.classList.remove('lock');
+							htmlDocument.classList.remove('loading');
+
+
+						}, 300);
 						setInterval(() => {
 							preloader.remove();
 							preloaderContainer.remove();
-						}, 500);
+
+						}, 600);
 					}
 				} else {
 					preloaderContainer.remove();
@@ -1066,9 +1171,12 @@
 			preloader();
 		</script>
 	</div>
-	<script src="js/lottie-player.js"></script>
-	<script src="js/bodymovin.js"></script>
-	<script src="js/app.min.js?_v=20230329155847"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230424194907"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230424194907"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230424194907"></script> -->
+	<script src="files/lottie-player.js?_v=20230424194907"></script>
+	<script src="files/bodymovin.js?_v=20230424194907"></script>
+	<script src="js/app.min.js?_v=20230424194907"></script>
 </body>
 
 </html>

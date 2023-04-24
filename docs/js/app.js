@@ -908,8 +908,8 @@
                     closeEsc: true,
                     bodyLock: true,
                     hashSettings: {
-                        location: true,
-                        goHash: true
+                        location: false,
+                        goHash: false
                     },
                     on: {
                         beforeOpen: function() {},
@@ -1173,32 +1173,9 @@
                     if (!targetElement.hasAttribute("data-no-focus-classes")) {
                         targetElement.classList.remove("_form-focus");
                         targetElement.parentElement.classList.remove("_form-focus");
-                        document.getElementById("btn-part-submit").disabled = false;
-                        document.getElementById("btn-req-submit").disabled = false;
                     }
                     targetElement.hasAttribute("data-validate") ? formValidate.validateInput(targetElement) : null;
                 }
-            }));
-            const formBlocks = document.querySelectorAll(".form__block");
-            formBlocks.forEach((item => {
-                item.addEventListener("keyup", (function(e) {
-                    const targetElement = e.target;
-                    if (targetElement.value.length > 0) targetElement.parentElement.classList.add("_show-reset-btn"); else targetElement.parentElement.classList.remove("_show-reset-btn");
-                }));
-            }));
-            const itemFormPhone = document.querySelectorAll(".item-form-phone");
-            itemFormPhone.forEach((item => {
-                item.addEventListener("keyup", (function(e) {
-                    const targetElement = e.target;
-                    if (targetElement.value.length > 0) {
-                        const itemFormPhone = document.querySelectorAll(".item-form-phone");
-                        itemFormPhone.forEach((item => {
-                            item.classList.add("_show-reset-btn");
-                        }));
-                    } else itemFormPhone.forEach((item => {
-                        item.classList.remove("_show-reset-btn");
-                    }));
-                }));
             }));
         }
         let formValidate = {
@@ -1225,6 +1202,13 @@
                     this.addError(formRequiredItem);
                     error++;
                 } else this.removeError(formRequiredItem);
+                if (0 == error) {
+                    document.getElementById("btn-part-submit").disabled = false;
+                    document.getElementById("btn-req-submit").disabled = false;
+                } else {
+                    document.getElementById("btn-part-submit").disabled = true;
+                    document.getElementById("btn-req-submit").disabled = true;
+                }
                 return error;
             },
             addError(formRequiredItem) {
@@ -1234,8 +1218,6 @@
                 }));
                 formRequiredItem.classList.add("_form-error");
                 formRequiredItem.parentElement.classList.add("_form-error");
-                document.getElementById("btn-part-submit").disabled = true;
-                document.getElementById("btn-req-submit").disabled = true;
                 let inputError = formRequiredItem.parentElement.querySelector(".form__error");
                 if (inputError) formRequiredItem.parentElement.removeChild(inputError);
                 if (formRequiredItem.dataset.error) formRequiredItem.parentElement.insertAdjacentHTML("beforeend", `<div class="form__error">${formRequiredItem.dataset.error}</div>`);
@@ -1246,8 +1228,6 @@
                     item.classList.remove("_form-error");
                 }));
                 formRequiredItem.classList.remove("_form-error");
-                document.getElementById("btn-part-submit").disabled = false;
-                document.getElementById("btn-req-submit").disabled = false;
                 formRequiredItem.parentElement.classList.remove("_form-error");
                 if (formRequiredItem.parentElement.querySelector(".form__error")) formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector(".form__error"));
             },
@@ -1260,8 +1240,6 @@
                         el.parentElement.classList.remove("_form-focus");
                         el.classList.remove("_form-focus");
                         formValidate.removeError(el);
-                        document.getElementById("btn-part-submit").disabled = true;
-                        document.getElementById("btn-req-submit").disabled = true;
                     }
                     let checkboxes = form.querySelectorAll(".checkbox__input");
                     if (checkboxes.length > 0) for (let index = 0; index < checkboxes.length; index++) {
@@ -3568,13 +3546,13 @@
             scrollWatcherIntersecting(entry, targetElement) {
                 if (entry.isIntersecting) {
                     !targetElement.classList.contains("_watcher-view") ? targetElement.classList.add("_watcher-view") : null;
-                    if (targetElement.classList.contains("footer__bottom")) {
+                    if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.add("hide-header");
                     }
                 } else {
                     targetElement.classList.contains("_watcher-view") ? targetElement.classList.remove("_watcher-view") : null;
-                    if (targetElement.classList.contains("footer__bottom")) {
+                    if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.remove("hide-header");
                     }
@@ -3773,6 +3751,7 @@
                     const header = document.querySelector(".header");
                     const imageAnim = document.querySelector(".image-anim");
                     const requestSection = document.querySelector(".request");
+                    const apiTyping = document.querySelector(".api__typing");
                     if (index === this.activeSectionId) {
                         section.style.opacity = "1";
                         section.style.pointerEvents = "all";
@@ -3810,17 +3789,23 @@
                             animationManageGraphic.stop();
                             animationManageTransct.stop();
                         }
-                        if (section.classList.contains("api") && section.classList.contains("active-section")) if (!$is_typed_call) {
-                            setTimeout((function() {
-                                new lib_typed("#typed", {
-                                    stringsElement: "#typed-strings",
-                                    typeSpeed: 0,
-                                    loop: false,
-                                    loopCount: 1 / 0,
-                                    showCursor: false
-                                });
-                            }), 400);
-                            $is_typed_call = true;
+                        if (section.classList.contains("api") && section.classList.contains("active-section")) {
+                            apiTyping.style.visibility = "hidden";
+                            setTimeout((() => {
+                                apiTyping.style.visibility = "visible";
+                            }), 700);
+                            if (!$is_typed_call) {
+                                setTimeout((function() {
+                                    new lib_typed("#typed", {
+                                        stringsElement: "#typed-strings",
+                                        typeSpeed: 0,
+                                        loop: false,
+                                        loopCount: 1 / 0,
+                                        showCursor: false
+                                    });
+                                }), 700);
+                                $is_typed_call = true;
+                            }
                         }
                         function addAnim() {
                             if (section.classList.contains("request") && section.classList.contains("active-section")) {
@@ -3937,7 +3922,7 @@
                 if (!this.clickOrTouch || e.target.closest(this.options.noEventSelector)) return;
                 let yCoord = this._yP - e.changedTouches[0].pageY;
                 this.checkScroll(yCoord, targetElement);
-                if (this.goScroll && Math.abs(yCoord) > 100) this.choiceOfDirection(yCoord);
+                if (this.goScroll && Math.abs(yCoord) > 50) this.choiceOfDirection(yCoord);
             }
             touchUp(e) {
                 this._eventElement.removeEventListener("touchend", this.events.touchup);
@@ -4094,17 +4079,499 @@
         }
         const da = new DynamicAdapt("max");
         da.init();
+        (() => {
+            function append(...nodes) {
+                const length = nodes.length;
+                for (let i = 0; i < length; i++) {
+                    const node = nodes[i];
+                    if (1 === node.nodeType || 11 === node.nodeType) this.appendChild(node); else this.appendChild(document.createTextNode(String(node)));
+                }
+            }
+            function replaceChildren(...nodes) {
+                while (this.lastChild) this.removeChild(this.lastChild);
+                if (nodes.length) this.append(...nodes);
+            }
+            function replaceWith(...nodes) {
+                const parent = this.parentNode;
+                let i = nodes.length;
+                if (!parent) return;
+                if (!i) parent.removeChild(this);
+                while (i--) {
+                    let node = nodes[i];
+                    if ("object" !== typeof node) node = this.ownerDocument.createTextNode(node); else if (node.parentNode) node.parentNode.removeChild(node);
+                    if (!i) parent.replaceChild(node, this); else parent.insertBefore(this.previousSibling, node);
+                }
+            }
+            if ("undefined" !== typeof Element) {
+                if (!Element.prototype.append) {
+                    Element.prototype.append = append;
+                    DocumentFragment.prototype.append = append;
+                }
+                if (!Element.prototype.replaceChildren) {
+                    Element.prototype.replaceChildren = replaceChildren;
+                    DocumentFragment.prototype.replaceChildren = replaceChildren;
+                }
+                if (!Element.prototype.replaceWith) {
+                    Element.prototype.replaceWith = replaceWith;
+                    DocumentFragment.prototype.replaceWith = replaceWith;
+                }
+            }
+        })();
+        function extend(target, object) {
+            return Object.getOwnPropertyNames(Object(target)).reduce(((extended, key) => {
+                const currentValue = Object.getOwnPropertyDescriptor(Object(target), key);
+                const newValue = Object.getOwnPropertyDescriptor(Object(object), key);
+                return Object.defineProperty(extended, key, newValue || currentValue);
+            }), {});
+        }
+        function isString(value) {
+            return "string" === typeof value;
+        }
+        function isArray(value) {
+            return Array.isArray(value);
+        }
+        function parseSettings(settings = {}) {
+            const object = extend(settings);
+            let types;
+            if (void 0 !== object.types) types = object.types; else if (void 0 !== object.split) types = object.split;
+            if (void 0 !== types) object.types = (isString(types) || isArray(types) ? String(types) : "").split(",").map((type => String(type).trim())).filter((type => /((line)|(word)|(char))/i.test(type)));
+            if (object.absolute || object.position) object.absolute = object.absolute || /absolute/.test(settings.position);
+            return object;
+        }
+        function parseTypes(value) {
+            const types = isString(value) || isArray(value) ? String(value) : "";
+            return {
+                none: !types,
+                lines: /line/i.test(types),
+                words: /word/i.test(types),
+                chars: /char/i.test(types)
+            };
+        }
+        function isObject(value) {
+            return null !== value && "object" === typeof value;
+        }
+        function isNode(input) {
+            return isObject(input) && /^(1|3|11)$/.test(input.nodeType);
+        }
+        function isLength(value) {
+            return "number" === typeof value && value > -1 && value % 1 === 0;
+        }
+        function isArrayLike(value) {
+            return isObject(value) && isLength(value.length);
+        }
+        function toArray(value) {
+            if (isArray(value)) return value;
+            if (null == value) return [];
+            return isArrayLike(value) ? Array.prototype.slice.call(value) : [ value ];
+        }
+        function getTargetElements(target) {
+            let elements = target;
+            if (isString(target)) if (/^(#[a-z]\w+)$/.test(target.trim())) elements = document.getElementById(target.trim().slice(1)); else elements = document.querySelectorAll(target);
+            return toArray(elements).reduce(((result, element) => [ ...result, ...toArray(element).filter(isNode) ]), []);
+        }
+        const {entries, keys, values} = Object;
+        const expando = `_splittype`;
+        const cache = {};
+        let uid = 0;
+        function set(owner, key, value) {
+            if (!isObject(owner)) {
+                console.warn("[data.set] owner is not an object");
+                return null;
+            }
+            const id = owner[expando] || (owner[expando] = ++uid);
+            const data = cache[id] || (cache[id] = {});
+            if (void 0 === value) {
+                if (!!key && Object.getPrototypeOf(key) === Object.prototype) cache[id] = {
+                    ...data,
+                    ...key
+                };
+            } else if (void 0 !== key) data[key] = value;
+            return value;
+        }
+        function get(owner, key) {
+            const id = isObject(owner) ? owner[expando] : null;
+            const data = id && cache[id] || {};
+            if (void 0 === key) return data;
+            return data[key];
+        }
+        function remove(element) {
+            const id = element && element[expando];
+            if (id) {
+                delete element[id];
+                delete cache[id];
+            }
+        }
+        function cleanup() {
+            entries(cache).forEach((([id, {isRoot, isSplit}]) => {
+                if (!isRoot || !isSplit) {
+                    cache[id] = null;
+                    delete cache[id];
+                }
+            }));
+        }
+        function toWords(value, separator = " ") {
+            const string = value ? String(value) : "";
+            return string.trim().replace(/\s+/g, " ").split(separator);
+        }
+        const rsAstralRange = "\\ud800-\\udfff";
+        const rsComboMarksRange = "\\u0300-\\u036f\\ufe20-\\ufe23";
+        const rsComboSymbolsRange = "\\u20d0-\\u20f0";
+        const rsVarRange = "\\ufe0e\\ufe0f";
+        const rsAstral = `[${rsAstralRange}]`;
+        const rsCombo = `[${rsComboMarksRange}${rsComboSymbolsRange}]`;
+        const rsFitz = "\\ud83c[\\udffb-\\udfff]";
+        const rsModifier = `(?:${rsCombo}|${rsFitz})`;
+        const rsNonAstral = `[^${rsAstralRange}]`;
+        const rsRegional = "(?:\\ud83c[\\udde6-\\uddff]){2}";
+        const rsSurrPair = "[\\ud800-\\udbff][\\udc00-\\udfff]";
+        const rsZWJ = "\\u200d";
+        const reOptMod = `${rsModifier}?`;
+        const rsOptVar = `[${rsVarRange}]?`;
+        const rsOptJoin = "(?:" + rsZWJ + "(?:" + [ rsNonAstral, rsRegional, rsSurrPair ].join("|") + ")" + rsOptVar + reOptMod + ")*";
+        const rsSeq = rsOptVar + reOptMod + rsOptJoin;
+        const rsSymbol = `(?:${[ `${rsNonAstral}${rsCombo}?`, rsCombo, rsRegional, rsSurrPair, rsAstral ].join("|")}\n)`;
+        const reUnicode = RegExp(`${rsFitz}(?=${rsFitz})|${rsSymbol}${rsSeq}`, "g");
+        const unicodeRange = [ rsZWJ, rsAstralRange, rsComboMarksRange, rsComboSymbolsRange, rsVarRange ];
+        const reHasUnicode = RegExp(`[${unicodeRange.join("")}]`);
+        function asciiToArray(string) {
+            return string.split("");
+        }
+        function hasUnicode(string) {
+            return reHasUnicode.test(string);
+        }
+        function unicodeToArray(string) {
+            return string.match(reUnicode) || [];
+        }
+        function stringToArray(string) {
+            return hasUnicode(string) ? unicodeToArray(string) : asciiToArray(string);
+        }
+        function dist_toString(value) {
+            return null == value ? "" : String(value);
+        }
+        function toChars(string, separator = "") {
+            string = dist_toString(string);
+            if (string && isString(string)) if (!separator && hasUnicode(string)) return stringToArray(string);
+            return string.split(separator);
+        }
+        function createElement(name, attributes) {
+            const element = document.createElement(name);
+            if (!attributes) return element;
+            Object.keys(attributes).forEach((attribute => {
+                const rawValue = attributes[attribute];
+                const value = isString(rawValue) ? rawValue.trim() : rawValue;
+                if (null === value || "" === value) return;
+                if ("children" === attribute) element.append(...toArray(value)); else element.setAttribute(attribute, value);
+            }));
+            return element;
+        }
+        var defaults = {
+            splitClass: "",
+            lineClass: "line",
+            wordClass: "word",
+            charClass: "char",
+            types: [ "lines", "words", "chars" ],
+            absolute: false,
+            tagName: "div"
+        };
+        function splitWordsAndChars(textNode, settings) {
+            settings = extend(defaults, settings);
+            const types = parseTypes(settings.types);
+            const TAG_NAME = settings.tagName;
+            const VALUE = textNode.nodeValue;
+            const splitText = document.createDocumentFragment();
+            let words = [];
+            let chars = [];
+            if (/^\s/.test(VALUE)) splitText.append(" ");
+            words = toWords(VALUE).reduce(((result, WORD, idx, arr) => {
+                let wordElement;
+                let characterElementsForCurrentWord;
+                if (types.chars) characterElementsForCurrentWord = toChars(WORD).map((CHAR => {
+                    const characterElement = createElement(TAG_NAME, {
+                        class: `${settings.splitClass} ${settings.charClass}`,
+                        style: "display: inline-block;",
+                        children: CHAR
+                    });
+                    set(characterElement, "isChar", true);
+                    chars = [ ...chars, characterElement ];
+                    return characterElement;
+                }));
+                if (types.words || types.lines) {
+                    wordElement = createElement(TAG_NAME, {
+                        class: `${settings.wordClass} ${settings.splitClass}`,
+                        style: `display: inline-block; ${types.words && settings.absolute ? `position: relative;` : ""}`,
+                        children: types.chars ? characterElementsForCurrentWord : WORD
+                    });
+                    set(wordElement, {
+                        isWord: true,
+                        isWordStart: true,
+                        isWordEnd: true
+                    });
+                    splitText.appendChild(wordElement);
+                } else characterElementsForCurrentWord.forEach((characterElement => {
+                    splitText.appendChild(characterElement);
+                }));
+                if (idx < arr.length - 1) splitText.append(" ");
+                return types.words ? result.concat(wordElement) : result;
+            }), []);
+            if (/\s$/.test(VALUE)) splitText.append(" ");
+            textNode.replaceWith(splitText);
+            return {
+                words,
+                chars
+            };
+        }
+        function split(node, settings) {
+            const type = node.nodeType;
+            const wordsAndChars = {
+                words: [],
+                chars: []
+            };
+            if (!/(1|3|11)/.test(type)) return wordsAndChars;
+            if (3 === type && /\S/.test(node.nodeValue)) return splitWordsAndChars(node, settings);
+            const childNodes = toArray(node.childNodes);
+            if (childNodes.length) {
+                set(node, "isSplit", true);
+                if (!get(node).isRoot) {
+                    node.style.display = "inline-block";
+                    node.style.position = "relative";
+                    const nextSibling = node.nextSibling;
+                    const prevSibling = node.previousSibling;
+                    const text = node.textContent || "";
+                    const textAfter = nextSibling ? nextSibling.textContent : " ";
+                    const textBefore = prevSibling ? prevSibling.textContent : " ";
+                    set(node, {
+                        isWordEnd: /\s$/.test(text) || /^\s/.test(textAfter),
+                        isWordStart: /^\s/.test(text) || /\s$/.test(textBefore)
+                    });
+                }
+            }
+            return childNodes.reduce(((result, child) => {
+                const {words, chars} = split(child, settings);
+                return {
+                    words: [ ...result.words, ...words ],
+                    chars: [ ...result.chars, ...chars ]
+                };
+            }), wordsAndChars);
+        }
+        function getPosition(node, isWord, settings, scrollPos) {
+            if (!settings.absolute) return {
+                top: isWord ? node.offsetTop : null
+            };
+            const parent = node.offsetParent;
+            const [scrollX, scrollY] = scrollPos;
+            let parentX = 0;
+            let parentY = 0;
+            if (parent && parent !== document.body) {
+                const parentRect = parent.getBoundingClientRect();
+                parentX = parentRect.x + scrollX;
+                parentY = parentRect.y + scrollY;
+            }
+            const {width, height, x, y} = node.getBoundingClientRect();
+            const top = y + scrollY - parentY;
+            const left = x + scrollX - parentX;
+            return {
+                width,
+                height,
+                top,
+                left
+            };
+        }
+        function unSplitWords(element) {
+            if (!get(element).isWord) toArray(element.children).forEach((child => unSplitWords(child))); else {
+                remove(element);
+                element.replaceWith(...element.childNodes);
+            }
+        }
+        const createFragment = () => document.createDocumentFragment();
+        function repositionAfterSplit(element, settings, scrollPos) {
+            const types = parseTypes(settings.types);
+            const TAG_NAME = settings.tagName;
+            const nodes = element.getElementsByTagName("*");
+            const wordsInEachLine = [];
+            let wordsInCurrentLine = [];
+            let lineOffsetY = null;
+            let elementHeight;
+            let elementWidth;
+            let contentBox;
+            let lines = [];
+            const parent = element.parentElement;
+            const nextSibling = element.nextElementSibling;
+            const splitText = createFragment();
+            const cs = window.getComputedStyle(element);
+            const align = cs.textAlign;
+            const fontSize = parseFloat(cs.fontSize);
+            const lineThreshold = .2 * fontSize;
+            if (settings.absolute) {
+                contentBox = {
+                    left: element.offsetLeft,
+                    top: element.offsetTop,
+                    width: element.offsetWidth
+                };
+                elementWidth = element.offsetWidth;
+                elementHeight = element.offsetHeight;
+                set(element, {
+                    cssWidth: element.style.width,
+                    cssHeight: element.style.height
+                });
+            }
+            toArray(nodes).forEach((node => {
+                const isWordLike = node.parentElement === element;
+                const {width, height, top, left} = getPosition(node, isWordLike, settings, scrollPos);
+                if (/^br$/i.test(node.nodeName)) return;
+                if (types.lines && isWordLike) {
+                    if (null === lineOffsetY || top - lineOffsetY >= lineThreshold) {
+                        lineOffsetY = top;
+                        wordsInEachLine.push(wordsInCurrentLine = []);
+                    }
+                    wordsInCurrentLine.push(node);
+                }
+                if (settings.absolute) set(node, {
+                    top,
+                    left,
+                    width,
+                    height
+                });
+            }));
+            if (parent) parent.removeChild(element);
+            if (types.lines) {
+                lines = wordsInEachLine.map((wordsInThisLine => {
+                    const lineElement = createElement(TAG_NAME, {
+                        class: `${settings.splitClass} ${settings.lineClass}`,
+                        style: `display: block; text-align: ${align}; width: 100%;`
+                    });
+                    set(lineElement, "isLine", true);
+                    const lineDimensions = {
+                        height: 0,
+                        top: 1e4
+                    };
+                    splitText.appendChild(lineElement);
+                    wordsInThisLine.forEach(((wordOrElement, idx, arr) => {
+                        const {isWordEnd, top, height} = get(wordOrElement);
+                        const next = arr[idx + 1];
+                        lineDimensions.height = Math.max(lineDimensions.height, height);
+                        lineDimensions.top = Math.min(lineDimensions.top, top);
+                        lineElement.appendChild(wordOrElement);
+                        if (isWordEnd && get(next).isWordStart) lineElement.append(" ");
+                    }));
+                    if (settings.absolute) set(lineElement, {
+                        height: lineDimensions.height,
+                        top: lineDimensions.top
+                    });
+                    return lineElement;
+                }));
+                if (!types.words) unSplitWords(splitText);
+                element.replaceChildren(splitText);
+            }
+            if (settings.absolute) {
+                element.style.width = `${element.style.width || elementWidth}px`;
+                element.style.height = `${elementHeight}px`;
+                toArray(nodes).forEach((node => {
+                    const {isLine, top, left, width, height} = get(node);
+                    const parentData = get(node.parentElement);
+                    const isChildOfLineNode = !isLine && parentData.isLine;
+                    node.style.top = `${isChildOfLineNode ? top - parentData.top : top}px`;
+                    node.style.left = isLine ? `${contentBox.left}px` : `${left - (isChildOfLineNode ? contentBox.left : 0)}px`;
+                    node.style.height = `${height}px`;
+                    node.style.width = isLine ? `${contentBox.width}px` : `${width}px`;
+                    node.style.position = "absolute";
+                }));
+            }
+            if (parent) if (nextSibling) parent.insertBefore(element, nextSibling); else parent.appendChild(element);
+            return lines;
+        }
+        let _defaults = extend(defaults, {});
+        class SplitType {
+            static get data() {
+                return cache;
+            }
+            static get defaults() {
+                return _defaults;
+            }
+            static set defaults(options) {
+                _defaults = extend(_defaults, parseSettings(options));
+            }
+            static setDefaults(options) {
+                _defaults = extend(_defaults, parseSettings(options));
+                return defaults;
+            }
+            static revert(elements) {
+                getTargetElements(elements).forEach((element => {
+                    const {isSplit, html, cssWidth, cssHeight} = get(element);
+                    if (isSplit) {
+                        element.innerHTML = html;
+                        element.style.width = cssWidth || "";
+                        element.style.height = cssHeight || "";
+                        remove(element);
+                    }
+                }));
+            }
+            static create(target, options) {
+                return new SplitType(target, options);
+            }
+            constructor(elements, options) {
+                this.isSplit = false;
+                this.settings = extend(_defaults, parseSettings(options));
+                this.elements = getTargetElements(elements);
+                this.split();
+            }
+            split(options) {
+                this.revert();
+                this.elements.forEach((element => {
+                    set(element, "html", element.innerHTML);
+                }));
+                this.lines = [];
+                this.words = [];
+                this.chars = [];
+                const scrollPos = [ window.pageXOffset, window.pageYOffset ];
+                if (void 0 !== options) this.settings = extend(this.settings, parseSettings(options));
+                const types = parseTypes(this.settings.types);
+                if (types.none) return;
+                this.elements.forEach((element => {
+                    set(element, "isRoot", true);
+                    const {words, chars} = split(element, this.settings);
+                    this.words = [ ...this.words, ...words ];
+                    this.chars = [ ...this.chars, ...chars ];
+                }));
+                this.elements.forEach((element => {
+                    if (types.lines || this.settings.absolute) {
+                        const lines = repositionAfterSplit(element, this.settings, scrollPos);
+                        this.lines = [ ...this.lines, ...lines ];
+                    }
+                }));
+                this.isSplit = true;
+                window.scrollTo(scrollPos[0], scrollPos[1]);
+                cleanup();
+            }
+            revert() {
+                if (this.isSplit) {
+                    this.lines = null;
+                    this.words = null;
+                    this.chars = null;
+                    this.isSplit = false;
+                }
+                SplitType.revert(this.elements);
+            }
+        }
         const resetBtn = document.querySelectorAll(".reset-btn");
         resetBtn.forEach((item => {
             item.addEventListener("click", resetInput);
         }));
         function resetInput() {
-            document.querySelectorAll("form")[1].reset();
-            document.querySelectorAll("form")[0].reset();
+            this.previousElementSibling.value = "";
             const formItems = document.querySelectorAll(".form__item");
             formItems.forEach((item => {
                 item.classList.remove("_show-reset-btn");
             }));
+        }
+        const txHeight = 40;
+        const tx = document.getElementsByTagName("textarea");
+        for (let i = 0; i < tx.length; i++) {
+            if ("" == tx[i].value) tx[i].setAttribute("style", "height:" + txHeight + "px;overflow-y:hidden;"); else tx[i].setAttribute("style", "height:" + tx[i].scrollHeight + "px;overflow-y:hidden;");
+            tx[i].addEventListener("input", OnInput);
+        }
+        function OnInput(e) {
+            this.style.height = 0;
+            this.style.height = this.scrollHeight + "px";
         }
         const menuBtn = document.querySelector(".menu__btn");
         const lottieBtnDemo = document.querySelector(".lottie__btn-demo");
@@ -4237,12 +4704,33 @@
                 }));
             }
         }));
+        new SplitType(".focus__text", {
+            types: "lines"
+        });
+        new SplitType(".anim-text-top", {
+            types: "lines"
+        });
+        new SplitType(".anim-text-btm", {
+            types: "lines"
+        });
+        new SplitType(".manage__block-inf-txt-tablet", {
+            types: "lines"
+        });
+        new SplitType(".options__block-inf-txt", {
+            types: "lines"
+        });
+        new SplitType(".custom__text-tablet", {
+            types: "lines"
+        });
+        new SplitType(".api__text-split", {
+            types: "lines"
+        });
         (function(factory) {
             if ("object" === typeof module && module.exports) module.exports = factory(); else window.intlTelInput = factory();
         })((function(undefined) {
             "use strict";
             return function() {
-                var allCountries = [ [ "Afghanistan (‫افغانستان‬‎)", "af", "93" ], [ "Albania (Shqipëri)", "al", "355" ], [ "Algeria (‫الجزائر‬‎)", "dz", "213" ], [ "American Samoa", "as", "1", 5, [ "684" ] ], [ "Andorra", "ad", "376" ], [ "Angola", "ao", "244" ], [ "Anguilla", "ai", "1", 6, [ "264" ] ], [ "Antigua and Barbuda", "ag", "1", 7, [ "268" ] ], [ "Argentina", "ar", "54" ], [ "Armenia (Հայաստան)", "am", "374" ], [ "Aruba", "aw", "297" ], [ "Ascension Island", "ac", "247" ], [ "Australia", "au", "61", 0 ], [ "Austria (Österreich)", "at", "43" ], [ "Azerbaijan (Azərbaycan)", "az", "994" ], [ "Bahamas", "bs", "1", 8, [ "242" ] ], [ "Bahrain (‫البحرين‬‎)", "bh", "973" ], [ "Bangladesh (বাংলাদেশ)", "bd", "880" ], [ "Barbados", "bb", "1", 9, [ "246" ] ], [ "Belarus (Беларусь)", "by", "375" ], [ "Belgium (België)", "be", "32" ], [ "Belize", "bz", "501" ], [ "Benin (Bénin)", "bj", "229" ], [ "Bermuda", "bm", "1", 10, [ "441" ] ], [ "Bhutan (འབྲུག)", "bt", "975" ], [ "Bolivia", "bo", "591" ], [ "Bosnia and Herzegovina (Босна и Херцеговина)", "ba", "387" ], [ "Botswana", "bw", "267" ], [ "Brazil (Brasil)", "br", "55" ], [ "British Indian Ocean Territory", "io", "246" ], [ "British Virgin Islands", "vg", "1", 11, [ "284" ] ], [ "Brunei", "bn", "673" ], [ "Bulgaria (България)", "bg", "359" ], [ "Burkina Faso", "bf", "226" ], [ "Burundi (Uburundi)", "bi", "257" ], [ "Cambodia (កម្ពុជា)", "kh", "855" ], [ "Cameroon (Cameroun)", "cm", "237" ], [ "Canada", "ca", "1", 1, [ "204", "226", "236", "249", "250", "289", "306", "343", "365", "387", "403", "416", "418", "431", "437", "438", "450", "506", "514", "519", "548", "579", "581", "587", "604", "613", "639", "647", "672", "705", "709", "742", "778", "780", "782", "807", "819", "825", "867", "873", "902", "905" ] ], [ "Cape Verde (Kabu Verdi)", "cv", "238" ], [ "Caribbean Netherlands", "bq", "599", 1, [ "3", "4", "7" ] ], [ "Cayman Islands", "ky", "1", 12, [ "345" ] ], [ "Central African Republic (République centrafricaine)", "cf", "236" ], [ "Chad (Tchad)", "td", "235" ], [ "Chile", "cl", "56" ], [ "China (中国)", "cn", "86" ], [ "Christmas Island", "cx", "61", 2, [ "89164" ] ], [ "Cocos (Keeling) Islands", "cc", "61", 1, [ "89162" ] ], [ "Colombia", "co", "57" ], [ "Comoros (‫جزر القمر‬‎)", "km", "269" ], [ "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)", "cd", "243" ], [ "Congo (Republic) (Congo-Brazzaville)", "cg", "242" ], [ "Cook Islands", "ck", "682" ], [ "Costa Rica", "cr", "506" ], [ "Côte d’Ivoire", "ci", "225" ], [ "Croatia (Hrvatska)", "hr", "385" ], [ "Cuba", "cu", "53" ], [ "Curaçao", "cw", "599", 0 ], [ "Cyprus (Κύπρος)", "cy", "357" ], [ "Czech Republic (Česká republika)", "cz", "420" ], [ "Denmark (Danmark)", "dk", "45" ], [ "Djibouti", "dj", "253" ], [ "Dominica", "dm", "1", 13, [ "767" ] ], [ "Dominican Republic (República Dominicana)", "do", "1", 2, [ "809", "829", "849" ] ], [ "Ecuador", "ec", "593" ], [ "Egypt (‫مصر‬‎)", "eg", "20" ], [ "El Salvador", "sv", "503" ], [ "Equatorial Guinea (Guinea Ecuatorial)", "gq", "240" ], [ "Eritrea", "er", "291" ], [ "Estonia (Eesti)", "ee", "372" ], [ "Eswatini", "sz", "268" ], [ "Ethiopia", "et", "251" ], [ "Falkland Islands (Islas Malvinas)", "fk", "500" ], [ "Faroe Islands (Føroyar)", "fo", "298" ], [ "Fiji", "fj", "679" ], [ "Finland (Suomi)", "fi", "358", 0 ], [ "France", "fr", "33" ], [ "French Guiana (Guyane française)", "gf", "594" ], [ "French Polynesia (Polynésie française)", "pf", "689" ], [ "Gabon", "ga", "241" ], [ "Gambia", "gm", "220" ], [ "Georgia (საქართველო)", "ge", "995" ], [ "Germany (Deutschland)", "de", "49" ], [ "Ghana (Gaana)", "gh", "233" ], [ "Gibraltar", "gi", "350" ], [ "Greece (Ελλάδα)", "gr", "30" ], [ "Greenland (Kalaallit Nunaat)", "gl", "299" ], [ "Grenada", "gd", "1", 14, [ "473" ] ], [ "Guadeloupe", "gp", "590", 0 ], [ "Guam", "gu", "1", 15, [ "671" ] ], [ "Guatemala", "gt", "502" ], [ "Guernsey", "gg", "44", 1, [ "1481", "7781", "7839", "7911" ] ], [ "Guinea (Guinée)", "gn", "224" ], [ "Guinea-Bissau (Guiné Bissau)", "gw", "245" ], [ "Guyana", "gy", "592" ], [ "Haiti", "ht", "509" ], [ "Honduras", "hn", "504" ], [ "Hong Kong (香港)", "hk", "852" ], [ "Hungary (Magyarország)", "hu", "36" ], [ "Iceland (Ísland)", "is", "354" ], [ "India (भारत)", "in", "91" ], [ "Indonesia", "id", "62" ], [ "Iran (‫ایران‬‎)", "ir", "98" ], [ "Iraq (‫العراق‬‎)", "iq", "964" ], [ "Ireland", "ie", "353" ], [ "Isle of Man", "im", "44", 2, [ "1624", "74576", "7524", "7924", "7624" ] ], [ "Israel (‫ישראל‬‎)", "il", "972" ], [ "Italy (Italia)", "it", "39", 0 ], [ "Jamaica", "jm", "1", 4, [ "876", "658" ] ], [ "Japan (日本)", "jp", "81" ], [ "Jersey", "je", "44", 3, [ "1534", "7509", "7700", "7797", "7829", "7937" ] ], [ "Jordan (‫الأردن‬‎)", "jo", "962" ], [ "Kazakhstan (Казахстан)", "kz", "7", 1, [ "33", "7" ] ], [ "Kenya", "ke", "254" ], [ "Kiribati", "ki", "686" ], [ "Kosovo", "xk", "383" ], [ "Kuwait (‫الكويت‬‎)", "kw", "965" ], [ "Kyrgyzstan (Кыргызстан)", "kg", "996" ], [ "Laos (ລາວ)", "la", "856" ], [ "Latvia (Latvija)", "lv", "371" ], [ "Lebanon (‫لبنان‬‎)", "lb", "961" ], [ "Lesotho", "ls", "266" ], [ "Liberia", "lr", "231" ], [ "Libya (‫ليبيا‬‎)", "ly", "218" ], [ "Liechtenstein", "li", "423" ], [ "Lithuania (Lietuva)", "lt", "370" ], [ "Luxembourg", "lu", "352" ], [ "Macau (澳門)", "mo", "853" ], [ "North Macedonia (Македонија)", "mk", "389" ], [ "Madagascar (Madagasikara)", "mg", "261" ], [ "Malawi", "mw", "265" ], [ "Malaysia", "my", "60" ], [ "Maldives", "mv", "960" ], [ "Mali", "ml", "223" ], [ "Malta", "mt", "356" ], [ "Marshall Islands", "mh", "692" ], [ "Martinique", "mq", "596" ], [ "Mauritania (‫موريتانيا‬‎)", "mr", "222" ], [ "Mauritius (Moris)", "mu", "230" ], [ "Mayotte", "yt", "262", 1, [ "269", "639" ] ], [ "Mexico (México)", "mx", "52" ], [ "Micronesia", "fm", "691" ], [ "Moldova (Republica Moldova)", "md", "373" ], [ "Monaco", "mc", "377" ], [ "Mongolia (Монгол)", "mn", "976" ], [ "Montenegro (Crna Gora)", "me", "382" ], [ "Montserrat", "ms", "1", 16, [ "664" ] ], [ "Morocco (‫المغرب‬‎)", "ma", "212", 0 ], [ "Mozambique (Moçambique)", "mz", "258" ], [ "Myanmar (Burma) (မြန်မာ)", "mm", "95" ], [ "Namibia (Namibië)", "na", "264" ], [ "Nauru", "nr", "674" ], [ "Nepal (नेपाल)", "np", "977" ], [ "Netherlands (Nederland)", "nl", "31" ], [ "New Caledonia (Nouvelle-Calédonie)", "nc", "687" ], [ "New Zealand", "nz", "64" ], [ "Nicaragua", "ni", "505" ], [ "Niger (Nijar)", "ne", "227" ], [ "Nigeria", "ng", "234" ], [ "Niue", "nu", "683" ], [ "Norfolk Island", "nf", "672" ], [ "North Korea (조선 민주주의 인민 공화국)", "kp", "850" ], [ "Northern Mariana Islands", "mp", "1", 17, [ "670" ] ], [ "Norway (Norge)", "no", "47", 0 ], [ "Oman (‫عُمان‬‎)", "om", "968" ], [ "Pakistan (‫پاکستان‬‎)", "pk", "92" ], [ "Palau", "pw", "680" ], [ "Palestine (‫فلسطين‬‎)", "ps", "970" ], [ "Panama (Panamá)", "pa", "507" ], [ "Papua New Guinea", "pg", "675" ], [ "Paraguay", "py", "595" ], [ "Peru (Perú)", "pe", "51" ], [ "Philippines", "ph", "63" ], [ "Poland (Polska)", "pl", "48" ], [ "Portugal", "pt", "351" ], [ "Puerto Rico", "pr", "1", 3, [ "787", "939" ] ], [ "Qatar (‫قطر‬‎)", "qa", "974" ], [ "Réunion (La Réunion)", "re", "262", 0 ], [ "Romania (România)", "ro", "40" ], [ "Russia (Россия)", "ru", "7", 0 ], [ "Rwanda", "rw", "250" ], [ "Saint Barthélemy", "bl", "590", 1 ], [ "Saint Helena", "sh", "290" ], [ "Saint Kitts and Nevis", "kn", "1", 18, [ "869" ] ], [ "Saint Lucia", "lc", "1", 19, [ "758" ] ], [ "Saint Martin (Saint-Martin (partie française))", "mf", "590", 2 ], [ "Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)", "pm", "508" ], [ "Saint Vincent and the Grenadines", "vc", "1", 20, [ "784" ] ], [ "Samoa", "ws", "685" ], [ "San Marino", "sm", "378" ], [ "São Tomé and Príncipe (São Tomé e Príncipe)", "st", "239" ], [ "Saudi Arabia (‫المملكة العربية السعودية‬‎)", "sa", "966" ], [ "Senegal (Sénégal)", "sn", "221" ], [ "Serbia (Србија)", "rs", "381" ], [ "Seychelles", "sc", "248" ], [ "Sierra Leone", "sl", "232" ], [ "Singapore", "sg", "65" ], [ "Sint Maarten", "sx", "1", 21, [ "721" ] ], [ "Slovakia (Slovensko)", "sk", "421" ], [ "Slovenia (Slovenija)", "si", "386" ], [ "Solomon Islands", "sb", "677" ], [ "Somalia (Soomaaliya)", "so", "252" ], [ "South Africa", "za", "27" ], [ "South Korea (대한민국)", "kr", "82" ], [ "South Sudan (‫جنوب السودان‬‎)", "ss", "211" ], [ "Spain (España)", "es", "34" ], [ "Sri Lanka (ශ්‍රී ලංකාව)", "lk", "94" ], [ "Sudan (‫السودان‬‎)", "sd", "249" ], [ "Suriname", "sr", "597" ], [ "Svalbard and Jan Mayen", "sj", "47", 1, [ "79" ] ], [ "Sweden (Sverige)", "se", "46" ], [ "Switzerland (Schweiz)", "ch", "41" ], [ "Syria (‫سوريا‬‎)", "sy", "963" ], [ "Taiwan (台灣)", "tw", "886" ], [ "Tajikistan", "tj", "992" ], [ "Tanzania", "tz", "255" ], [ "Thailand (ไทย)", "th", "66" ], [ "Timor-Leste", "tl", "670" ], [ "Togo", "tg", "228" ], [ "Tokelau", "tk", "690" ], [ "Tonga", "to", "676" ], [ "Trinidad and Tobago", "tt", "1", 22, [ "868" ] ], [ "Tunisia (‫تونس‬‎)", "tn", "216" ], [ "Turkey (Türkiye)", "tr", "90" ], [ "Turkmenistan", "tm", "993" ], [ "Turks and Caicos Islands", "tc", "1", 23, [ "649" ] ], [ "Tuvalu", "tv", "688" ], [ "U.S. Virgin Islands", "vi", "1", 24, [ "340" ] ], [ "Uganda", "ug", "256" ], [ "Ukraine (Україна)", "ua", "380" ], [ "United Arab Emirates (‫الإمارات العربية المتحدة‬‎)", "ae", "971" ], [ "United Kingdom", "gb", "44", 0 ], [ "United States", "us", "1", 0 ], [ "Uruguay", "uy", "598" ], [ "Uzbekistan (Oʻzbekiston)", "uz", "998" ], [ "Vanuatu", "vu", "678" ], [ "Vatican City (Città del Vaticano)", "va", "39", 1, [ "06698" ] ], [ "Venezuela", "ve", "58" ], [ "Vietnam (Việt Nam)", "vn", "84" ], [ "Wallis and Futuna (Wallis-et-Futuna)", "wf", "681" ], [ "Western Sahara (‫الصحراء الغربية‬‎)", "eh", "212", 1, [ "5288", "5289" ] ], [ "Yemen (‫اليمن‬‎)", "ye", "967" ], [ "Zambia", "zm", "260" ], [ "Zimbabwe", "zw", "263" ], [ "Åland Islands", "ax", "358", 1, [ "18" ] ] ];
+                var allCountries = [ [ "Afghanistan", "af", "93" ], [ "Albania", "al", "355" ], [ "Algeria", "dz", "213" ], [ "American Samoa", "as", "1", 5, [ "684" ] ], [ "Andorra", "ad", "376" ], [ "Angola", "ao", "244" ], [ "Anguilla", "ai", "1", 6, [ "264" ] ], [ "Antigua and Barbuda", "ag", "1", 7, [ "268" ] ], [ "Argentina", "ar", "54" ], [ "Armenia", "am", "374" ], [ "Aruba", "aw", "297" ], [ "Ascension Island", "ac", "247" ], [ "Australia", "au", "61", 0 ], [ "Austria", "at", "43" ], [ "Azerbaijan", "az", "994" ], [ "Bahamas", "bs", "1", 8, [ "242" ] ], [ "Bahrain", "bh", "973" ], [ "Bangladesh", "bd", "880" ], [ "Barbados", "bb", "1", 9, [ "246" ] ], [ "Belarus", "by", "375" ], [ "Belgium", "be", "32" ], [ "Belize", "bz", "501" ], [ "Benin", "bj", "229" ], [ "Bermuda", "bm", "1", 10, [ "441" ] ], [ "Bhutan", "bt", "975" ], [ "Bolivia", "bo", "591" ], [ "Bosnia and Herzegovina", "ba", "387" ], [ "Botswana", "bw", "267" ], [ "Brazil", "br", "55" ], [ "British Indian Ocean Territory", "io", "246" ], [ "British Virgin Islands", "vg", "1", 11, [ "284" ] ], [ "Brunei", "bn", "673" ], [ "Bulgaria", "bg", "359" ], [ "Burkina Faso", "bf", "226" ], [ "Burundi", "bi", "257" ], [ "Cambodia", "kh", "855" ], [ "Cameroon", "cm", "237" ], [ "Canada", "ca", "1", 1, [ "204", "226", "236", "249", "250", "263", "289", "306", "343", "354", "365", "367", "368", "382", "387", "403", "416", "418", "428", "431", "437", "438", "450", "584", "468", "474", "506", "514", "519", "548", "579", "581", "584", "587", "604", "613", "639", "647", "672", "683", "705", "709", "742", "753", "778", "780", "782", "807", "819", "825", "867", "873", "902", "905" ] ], [ "Cape Verde", "cv", "238" ], [ "Caribbean Netherlands", "bq", "599", 1, [ "3", "4", "7" ] ], [ "Cayman Islands", "ky", "1", 12, [ "345" ] ], [ "Central African Republic", "cf", "236" ], [ "Chad", "td", "235" ], [ "Chile", "cl", "56" ], [ "China", "cn", "86" ], [ "Christmas Island", "cx", "61", 2, [ "89164" ] ], [ "Cocos Islands", "cc", "61", 1, [ "89162" ] ], [ "Colombia", "co", "57" ], [ "Comoros", "km", "269" ], [ "Congo (DRC)", "cd", "243" ], [ "Congo (Republic)", "cg", "242" ], [ "Cook Islands", "ck", "682" ], [ "Costa Rica", "cr", "506" ], [ "Côte d’Ivoire", "ci", "225" ], [ "Croatia", "hr", "385" ], [ "Cuba", "cu", "53" ], [ "Curaçao", "cw", "599", 0 ], [ "Cyprus ", "cy", "357" ], [ "Czech Republic", "cz", "420" ], [ "Denmark", "dk", "45" ], [ "Djibouti", "dj", "253" ], [ "Dominica", "dm", "1", 13, [ "767" ] ], [ "Dominican Republic", "do", "1", 2, [ "809", "829", "849" ] ], [ "Ecuador", "ec", "593" ], [ "Egypt", "eg", "20" ], [ "El Salvador", "sv", "503" ], [ "Equatorial Guinea", "gq", "240" ], [ "Eritrea", "er", "291" ], [ "Estonia", "ee", "372" ], [ "Eswatini", "sz", "268" ], [ "Ethiopia", "et", "251" ], [ "Falkland Islands", "fk", "500" ], [ "Faroe Islands", "fo", "298" ], [ "Fiji", "fj", "679" ], [ "Finland", "fi", "358", 0 ], [ "France", "fr", "33" ], [ "French Guiana", "gf", "594" ], [ "French Polynesia", "pf", "689" ], [ "Gabon", "ga", "241" ], [ "Gambia", "gm", "220" ], [ "Georgia", "ge", "995" ], [ "Germany", "de", "49" ], [ "Ghana", "gh", "233" ], [ "Gibraltar", "gi", "350" ], [ "Greece", "gr", "30" ], [ "Greenland", "gl", "299" ], [ "Grenada", "gd", "1", 14, [ "473" ] ], [ "Guadeloupe", "gp", "590", 0 ], [ "Guam", "gu", "1", 15, [ "671" ] ], [ "Guatemala", "gt", "502" ], [ "Guernsey", "gg", "44", 1, [ "1481", "7781", "7839", "7911" ] ], [ "Guinea", "gn", "224" ], [ "Guinea-Bissau", "gw", "245" ], [ "Guyana", "gy", "592" ], [ "Haiti", "ht", "509" ], [ "Honduras", "hn", "504" ], [ "Hong Kong", "hk", "852" ], [ "Hungary", "hu", "36" ], [ "Iceland", "is", "354" ], [ "India", "in", "91" ], [ "Indonesia", "id", "62" ], [ "Iran", "ir", "98" ], [ "Iraq", "iq", "964" ], [ "Ireland", "ie", "353" ], [ "Isle of Man", "im", "44", 2, [ "1624", "74576", "7524", "7924", "7624" ] ], [ "Israel", "il", "972" ], [ "Italy", "it", "39", 0 ], [ "Jamaica", "jm", "1", 4, [ "876", "658" ] ], [ "Japan", "jp", "81" ], [ "Jersey", "je", "44", 3, [ "1534", "7509", "7700", "7797", "7829", "7937" ] ], [ "Jordan", "jo", "962" ], [ "Kazakhstan", "kz", "7", 1, [ "33", "7" ] ], [ "Kenya", "ke", "254" ], [ "Kiribati", "ki", "686" ], [ "Kosovo", "xk", "383" ], [ "Kuwait", "kw", "965" ], [ "Kyrgyzstan", "kg", "996" ], [ "Laos", "la", "856" ], [ "Latvia", "lv", "371" ], [ "Lebanon", "lb", "961" ], [ "Lesotho", "ls", "266" ], [ "Liberia", "lr", "231" ], [ "Libya", "ly", "218" ], [ "Liechtenstein", "li", "423" ], [ "Lithuania", "lt", "370" ], [ "Luxembourg", "lu", "352" ], [ "Macau", "mo", "853" ], [ "Madagascar", "mg", "261" ], [ "Malawi", "mw", "265" ], [ "Malaysia", "my", "60" ], [ "Maldives", "mv", "960" ], [ "Mali", "ml", "223" ], [ "Malta", "mt", "356" ], [ "Marshall Islands", "mh", "692" ], [ "Martinique", "mq", "596" ], [ "Mauritania", "mr", "222" ], [ "Mauritius", "mu", "230" ], [ "Mayotte", "yt", "262", 1, [ "269", "639" ] ], [ "Mexico", "mx", "52" ], [ "Micronesia", "fm", "691" ], [ "Moldova", "md", "373" ], [ "Monaco", "mc", "377" ], [ "Mongolia", "mn", "976" ], [ "Montenegro", "me", "382" ], [ "Montserrat", "ms", "1", 16, [ "664" ] ], [ "Morocco", "ma", "212", 0 ], [ "Mozambique", "mz", "258" ], [ "Myanmar (Burma)", "mm", "95" ], [ "Namibia", "na", "264" ], [ "Nauru", "nr", "674" ], [ "Nepal", "np", "977" ], [ "Netherlands", "nl", "31" ], [ "New Caledonia", "nc", "687" ], [ "New Zealand", "nz", "64" ], [ "Nicaragua", "ni", "505" ], [ "Niger", "ne", "227" ], [ "Nigeria", "ng", "234" ], [ "Niue", "nu", "683" ], [ "Norfolk Island", "nf", "672" ], [ "North Korea", "kp", "850" ], [ "North Macedonia", "mk", "389" ], [ "Northern Mariana Islands", "mp", "1", 17, [ "670" ] ], [ "Norway", "no", "47", 0 ], [ "Oman", "om", "968" ], [ "Pakistan", "pk", "92" ], [ "Palau", "pw", "680" ], [ "Palestine", "ps", "970" ], [ "Panama", "pa", "507" ], [ "Papua New Guinea", "pg", "675" ], [ "Paraguay", "py", "595" ], [ "Peru", "pe", "51" ], [ "Philippines", "ph", "63" ], [ "Poland", "pl", "48" ], [ "Portugal", "pt", "351" ], [ "Puerto Rico", "pr", "1", 3, [ "787", "939" ] ], [ "Qatar", "qa", "974" ], [ "Réunion", "re", "262", 0 ], [ "Romania", "ro", "40" ], [ "Russia", "ru", "7", 0 ], [ "Rwanda", "rw", "250" ], [ "Saint Barthélemy", "bl", "590", 1 ], [ "Saint Helena", "sh", "290" ], [ "Saint Kitts and Nevis", "kn", "1", 18, [ "869" ] ], [ "Saint Lucia", "lc", "1", 19, [ "758" ] ], [ "Saint Martin", "mf", "590", 2 ], [ "Saint Pierre and Miquelon", "pm", "508" ], [ "Saint Vincent and the Grenadines", "vc", "1", 20, [ "784" ] ], [ "Samoa", "ws", "685" ], [ "San Marino", "sm", "378" ], [ "São Tomé and Príncipe", "st", "239" ], [ "Saudi Arabia", "sa", "966" ], [ "Senegal", "sn", "221" ], [ "Serbia", "rs", "381" ], [ "Seychelles", "sc", "248" ], [ "Sierra Leone", "sl", "232" ], [ "Singapore", "sg", "65" ], [ "Sint Maarten", "sx", "1", 21, [ "721" ] ], [ "Slovakia", "sk", "421" ], [ "Slovenia", "si", "386" ], [ "Solomon Islands", "sb", "677" ], [ "Somalia", "so", "252" ], [ "South Africa", "za", "27" ], [ "South Korea", "kr", "82" ], [ "South Sudan", "ss", "211" ], [ "Spain", "es", "34" ], [ "Sri Lanka", "lk", "94" ], [ "Sudan", "sd", "249" ], [ "Suriname", "sr", "597" ], [ "Svalbard and Jan Mayen", "sj", "47", 1, [ "79" ] ], [ "Sweden", "se", "46" ], [ "Switzerland", "ch", "41" ], [ "Syria", "sy", "963" ], [ "Taiwan", "tw", "886" ], [ "Tajikistan", "tj", "992" ], [ "Tanzania", "tz", "255" ], [ "Thailand", "th", "66" ], [ "Timor-Leste", "tl", "670" ], [ "Togo", "tg", "228" ], [ "Tokelau", "tk", "690" ], [ "Tonga", "to", "676" ], [ "Trinidad and Tobago", "tt", "1", 22, [ "868" ] ], [ "Tunisia", "tn", "216" ], [ "Turkey", "tr", "90" ], [ "Turkmenistan", "tm", "993" ], [ "Turks and Caicos Islands", "tc", "1", 23, [ "649" ] ], [ "Tuvalu", "tv", "688" ], [ "U.S. Virgin Islands", "vi", "1", 24, [ "340" ] ], [ "Uganda", "ug", "256" ], [ "Ukraine", "ua", "380" ], [ "United Arab Emirates", "ae", "971" ], [ "United Kingdom", "gb", "44", 0 ], [ "United States", "us", "1", 0 ], [ "Uruguay", "uy", "598" ], [ "Uzbekistan", "uz", "998" ], [ "Vanuatu", "vu", "678" ], [ "Vatican City", "va", "39", 1, [ "06698" ] ], [ "Venezuela", "ve", "58" ], [ "Vietnam", "vn", "84" ], [ "Wallis and Futuna", "wf", "681" ], [ "Western Sahara", "eh", "212", 1, [ "5288", "5289" ] ], [ "Yemen", "ye", "967" ], [ "Zambia", "zm", "260" ], [ "Zimbabwe", "zw", "263" ], [ "Åland Islands", "ax", "358", 1, [ "18" ] ] ];
                 for (var i = 0; i < allCountries.length; i++) {
                     var c = allCountries[i];
                     allCountries[i] = {
@@ -4254,6 +4742,29 @@
                     };
                 }
                 "use strict";
+                function _objectSpread(target) {
+                    for (var i = 1; i < arguments.length; i++) {
+                        var source = null != arguments[i] ? Object(arguments[i]) : {};
+                        var ownKeys = Object.keys(source);
+                        if ("function" === typeof Object.getOwnPropertySymbols) ownKeys.push.apply(ownKeys, Object.getOwnPropertySymbols(source).filter((function(sym) {
+                            return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+                        })));
+                        ownKeys.forEach((function(key) {
+                            _defineProperty(target, key, source[key]);
+                        }));
+                    }
+                    return target;
+                }
+                function _defineProperty(obj, key, value) {
+                    key = _toPropertyKey(key);
+                    if (key in obj) Object.defineProperty(obj, key, {
+                        value,
+                        enumerable: true,
+                        configurable: true,
+                        writable: true
+                    }); else obj[key] = value;
+                    return obj;
+                }
                 function _classCallCheck(instance, Constructor) {
                     if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
                 }
@@ -4263,13 +4774,30 @@
                         descriptor.enumerable = descriptor.enumerable || false;
                         descriptor.configurable = true;
                         if ("value" in descriptor) descriptor.writable = true;
-                        Object.defineProperty(target, descriptor.key, descriptor);
+                        Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
                     }
                 }
                 function _createClass(Constructor, protoProps, staticProps) {
                     if (protoProps) _defineProperties(Constructor.prototype, protoProps);
                     if (staticProps) _defineProperties(Constructor, staticProps);
+                    Object.defineProperty(Constructor, "prototype", {
+                        writable: false
+                    });
                     return Constructor;
+                }
+                function _toPropertyKey(arg) {
+                    var key = _toPrimitive(arg, "string");
+                    return "symbol" === typeof key ? key : String(key);
+                }
+                function _toPrimitive(input, hint) {
+                    if ("object" !== typeof input || null === input) return input;
+                    var prim = input[Symbol.toPrimitive];
+                    if (prim !== undefined) {
+                        var res = prim.call(input, hint || "default");
+                        if ("object" !== typeof res) return res;
+                        throw new TypeError("@@toPrimitive must return a primitive value.");
+                    }
+                    return ("string" === hint ? String : Number)(input);
                 }
                 var intlTelInputGlobals = {
                     getInstance: function getInstance(input) {
@@ -4285,7 +4813,7 @@
                 var id = 0;
                 var defaults = {
                     allowDropdown: true,
-                    autoHideDialCode: true,
+                    autoInsertDialCode: false,
                     autoPlaceholder: "polite",
                     customContainer: "",
                     customPlaceholder: null,
@@ -4301,6 +4829,7 @@
                     placeholderNumberType: "MOBILE",
                     preferredCountries: [ "us", "gb" ],
                     separateDialCode: false,
+                    showFlags: true,
                     utilsScript: ""
                 };
                 var regionlessNanpNumbers = [ "800", "822", "833", "844", "855", "866", "877", "880", "881", "882", "883", "884", "885", "886", "887", "888", "889" ];
@@ -4332,9 +4861,11 @@
                         key: "_init",
                         value: function _init() {
                             var _this2 = this;
-                            if (this.options.nationalMode) this.options.autoHideDialCode = false;
-                            if (this.options.separateDialCode) this.options.autoHideDialCode = this.options.nationalMode = false;
-                            this.isMobile = /Android.+Mobile|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                            if (this.options.nationalMode) this.options.autoInsertDialCode = false;
+                            if (this.options.separateDialCode) this.options.autoInsertDialCode = false;
+                            var forceShowFlags = this.options.allowDropdown && !this.options.separateDialCode;
+                            if (!this.options.showFlags && forceShowFlags) this.options.showFlags = true;
+                            this.isMobile = false;
                             if (this.isMobile) {
                                 document.body.classList.add("iti-mobile");
                                 if (!this.options.dropdownContainer) this.options.dropdownContainer = document.body;
@@ -4408,7 +4939,9 @@
                     }, {
                         key: "_countryNameSort",
                         value: function _countryNameSort(a, b) {
-                            return a.name.localeCompare(b.name);
+                            if (a.name < b.name) return -1;
+                            if (a.name > b.name) return 1;
+                            return 0;
                         }
                     }, {
                         key: "_processCountryCodes",
@@ -4461,36 +4994,40 @@
                         key: "_generateMarkup",
                         value: function _generateMarkup() {
                             if (!this.telInput.hasAttribute("autocomplete") && !(this.telInput.form && this.telInput.form.hasAttribute("autocomplete"))) this.telInput.setAttribute("autocomplete", "off");
+                            var _this$options = this.options, allowDropdown = _this$options.allowDropdown, separateDialCode = _this$options.separateDialCode, showFlags = _this$options.showFlags, customContainer = _this$options.customContainer, hiddenInput = _this$options.hiddenInput, dropdownContainer = _this$options.dropdownContainer;
                             var parentClass = "iti";
-                            if (this.options.allowDropdown) parentClass += " iti--allow-dropdown";
-                            if (this.options.separateDialCode) parentClass += " iti--separate-dial-code";
-                            if (this.options.customContainer) {
-                                parentClass += " ";
-                                parentClass += this.options.customContainer;
-                            }
+                            if (allowDropdown) parentClass += " iti--allow-dropdown";
+                            if (separateDialCode) parentClass += " iti--separate-dial-code";
+                            if (showFlags) parentClass += " iti--show-flags";
+                            if (customContainer) parentClass += " ".concat(customContainer);
                             var wrapper = this._createEl("div", {
                                 class: parentClass
                             });
                             this.telInput.parentNode.insertBefore(wrapper, this.telInput);
-                            this.flagsContainer = this._createEl("div", {
+                            var showFlagsContainer = allowDropdown || showFlags || separateDialCode;
+                            if (showFlagsContainer) this.flagsContainer = this._createEl("div", {
                                 class: "iti__flag-container"
                             }, wrapper);
                             wrapper.appendChild(this.telInput);
-                            this.selectedFlag = this._createEl("div", {
-                                class: "iti__selected-flag",
+                            if (showFlagsContainer) this.selectedFlag = this._createEl("div", _objectSpread({
+                                class: "iti__selected-flag"
+                            }, allowDropdown && {
                                 role: "combobox",
+                                "aria-haspopup": "listbox",
                                 "aria-controls": "iti-".concat(this.id, "__country-listbox"),
                                 "aria-owns": "iti-".concat(this.id, "__country-listbox"),
-                                "aria-expanded": "false"
-                            }, this.flagsContainer);
-                            this.selectedFlagInner = this._createEl("div", {
+                                "aria-expanded": "false",
+                                "aria-label": "Telephone country code"
+                            }), this.flagsContainer);
+                            if (showFlags) this.selectedFlagInner = this._createEl("div", {
                                 class: "iti__flag"
                             }, this.selectedFlag);
-                            if (this.options.separateDialCode) this.selectedDialCode = this._createEl("div", {
+                            if (this.selectedFlag && this.telInput.disabled) this.selectedFlag.setAttribute("aria-disabled", "true");
+                            if (separateDialCode) this.selectedDialCode = this._createEl("div", {
                                 class: "iti__selected-dial-code"
                             }, this.selectedFlag);
-                            if (this.options.allowDropdown) {
-                                this.selectedFlag.setAttribute("tabindex", "0");
+                            if (allowDropdown) {
+                                if (!this.telInput.disabled) this.selectedFlag.setAttribute("tabindex", "0");
                                 this.dropdownArrow = this._createEl("div", {
                                     class: "iti__arrow"
                                 }, this.selectedFlag);
@@ -4509,15 +5046,15 @@
                                     }, this.countryList);
                                 }
                                 this._appendListItems(this.countries, "iti__standard");
-                                if (this.options.dropdownContainer) {
+                                if (dropdownContainer) {
                                     this.dropdown = this._createEl("div", {
                                         class: "iti iti--container"
                                     });
                                     this.dropdown.appendChild(this.countryList);
                                 } else this.flagsContainer.appendChild(this.countryList);
                             }
-                            if (this.options.hiddenInput) {
-                                var hiddenInputName = this.options.hiddenInput;
+                            if (hiddenInput) {
+                                var hiddenInputName = hiddenInput;
                                 var name = this.telInput.getAttribute("name");
                                 if (name) {
                                     var i = name.lastIndexOf("[");
@@ -4533,12 +5070,12 @@
                     }, {
                         key: "_appendListItems",
                         value: function _appendListItems(countries, className, preferred) {
-                            var tmp = "";
+                            var tmp = preferred ? "<li class='li-intlTel-search'><div class='title-of-list-mob'>Country code</div><input class='input-intlTel-search' type='text' id='intlTel-search' placeholder='Search Country...' data-no-focus-classes><img class='icon-search-tel' src='img/icons/search-tel.svg' alt='search'></li>" : "";
                             for (var i = 0; i < countries.length; i++) {
                                 var c = countries[i];
                                 var idSuffix = preferred ? "-preferred" : "";
                                 tmp += "<li class='iti__country ".concat(className, "' tabIndex='-1' id='iti-").concat(this.id, "__item-").concat(c.iso2).concat(idSuffix, "' role='option' data-dial-code='").concat(c.dialCode, "' data-country-code='").concat(c.iso2, "' aria-selected='false'>");
-                                tmp += "<div class='iti__flag-box'><div class='iti__flag iti__".concat(c.iso2, "'></div></div>");
+                                if (this.options.showFlags) tmp += "<div class='iti__flag-box'><div class='iti__flag iti__".concat(c.iso2, "'></div></div>");
                                 tmp += "<span class='iti__country-name'>".concat(c.name, "</span>");
                                 tmp += "<span class='iti__dial-code'>+".concat(c.dialCode, "</span>");
                                 tmp += "</li>";
@@ -4554,13 +5091,13 @@
                             var val = useAttribute ? attributeValue : inputValue;
                             var dialCode = this._getDialCode(val);
                             var isRegionlessNanp = this._isRegionlessNanp(val);
-                            var _this$options = this.options, initialCountry = _this$options.initialCountry, nationalMode = _this$options.nationalMode, autoHideDialCode = _this$options.autoHideDialCode, separateDialCode = _this$options.separateDialCode;
+                            var _this$options2 = this.options, initialCountry = _this$options2.initialCountry, autoInsertDialCode = _this$options2.autoInsertDialCode;
                             if (dialCode && !isRegionlessNanp) this._updateFlagFromNumber(val); else if ("auto" !== initialCountry) {
                                 if (initialCountry) this._setFlag(initialCountry.toLowerCase()); else if (dialCode && isRegionlessNanp) this._setFlag("us"); else {
                                     this.defaultCountry = this.preferredCountries.length ? this.preferredCountries[0].iso2 : this.countries[0].iso2;
                                     if (!val) this._setFlag(this.defaultCountry);
                                 }
-                                if (!val && !nationalMode && !autoHideDialCode && !separateDialCode) this.telInput.value = "+".concat(this.selectedCountryData.dialCode);
+                                if (!val && autoInsertDialCode) this.telInput.value = "+".concat(this.selectedCountryData.dialCode);
                             }
                             if (val) this._updateValFromNumber(val);
                         }
@@ -4568,7 +5105,7 @@
                         key: "_initListeners",
                         value: function _initListeners() {
                             this._initKeyListeners();
-                            if (this.options.autoHideDialCode) this._initBlurListeners();
+                            if (this.options.autoInsertDialCode) this._initBlurListeners();
                             if (this.options.allowDropdown) this._initDropdownListeners();
                             if (this.hiddenInput) this._initHiddenInputListener();
                         }
@@ -4751,25 +5288,15 @@
                             };
                             this.countryList.addEventListener("click", this._handleClickCountryList);
                             var isOpening = true;
-                            this._handleClickOffToClose = function() {
-                                if (!isOpening) _this9._closeDropdown();
+                            this._handleClickOffToClose = function(e) {
+                                if (!isOpening && "intlTel-search" != e.target.id) _this9._closeDropdown();
                                 isOpening = false;
                             };
                             document.documentElement.addEventListener("click", this._handleClickOffToClose);
-                            var query = "";
-                            var queryTimer = null;
                             this._handleKeydownOnDropdown = function(e) {
-                                e.preventDefault();
-                                if ("ArrowUp" === e.key || "Up" === e.key || "ArrowDown" === e.key || "Down" === e.key) _this9._handleUpDownKey(e.key); else if ("Enter" === e.key) _this9._handleEnterKey(); else if ("Escape" === e.key) _this9._closeDropdown(); else if (/^[a-zA-ZÀ-ÿа-яА-Я ]$/.test(e.key)) {
-                                    if (queryTimer) clearTimeout(queryTimer);
-                                    query += e.key.toLowerCase();
-                                    _this9._searchForCountry(query);
-                                    queryTimer = setTimeout((function() {
-                                        query = "";
-                                    }), 1e3);
-                                }
+                                if ("ArrowUp" === e.key || "Up" === e.key || "ArrowDown" === e.key || "Down" === e.key) _this9._handleUpDownKey(e.key); else if ("Enter" === e.key) _this9._handleEnterKey(); else if ("Escape" === e.key) _this9._closeDropdown(); else if ("intlTel-search" == e.target.id) _this9._searchForCountry(e.target.value);
                             };
-                            document.addEventListener("keydown", this._handleKeydownOnDropdown);
+                            document.addEventListener("keyup", this._handleKeydownOnDropdown);
                         }
                     }, {
                         key: "_handleUpDownKey",
@@ -4788,7 +5315,7 @@
                     }, {
                         key: "_searchForCountry",
                         value: function _searchForCountry(query) {
-                            for (var i = 0; i < this.countries.length; i++) if (this._startsWith(this.countries[i].name, query)) {
+                            for (var i = 0; i < this.countries.length; i++) if (this._startsWith(this.countries[i].name, query) || this._startsWith("+" + this.countries[i].dialCode, query)) {
                                 var listItem = this.countryList.querySelector("#iti-".concat(this.id, "__item-").concat(this.countries[i].iso2));
                                 this._highlightListItem(listItem, false);
                                 this._scrollTo(listItem, true);
@@ -4805,7 +5332,7 @@
                         value: function _updateValFromNumber(originalNumber) {
                             var number = originalNumber;
                             if (this.options.formatOnDisplay && window.intlTelInputUtils && this.selectedCountryData) {
-                                var useNational = !this.options.separateDialCode && (this.options.nationalMode || "+" !== number.charAt(0));
+                                var useNational = this.options.nationalMode || "+" !== number.charAt(0) && !this.options.separateDialCode;
                                 var _intlTelInputUtils$nu = intlTelInputUtils.numberFormat, NATIONAL = _intlTelInputUtils$nu.NATIONAL, INTERNATIONAL = _intlTelInputUtils$nu.INTERNATIONAL;
                                 var format = useNational ? NATIONAL : INTERNATIONAL;
                                 number = intlTelInputUtils.formatNumber(number, this.selectedCountryData.iso2, format);
@@ -4819,7 +5346,7 @@
                             var number = originalNumber;
                             var selectedDialCode = this.selectedCountryData.dialCode;
                             var isNanp = "1" === selectedDialCode;
-                            if (number && this.options.nationalMode && isNanp && "+" !== number.charAt(0)) {
+                            if (number && isNanp && "+" !== number.charAt(0)) {
                                 if ("1" !== number.charAt(0)) number = "1".concat(number);
                                 number = "+".concat(number);
                             }
@@ -4856,6 +5383,7 @@
                             if (prevItem) prevItem.classList.remove("iti__highlight");
                             this.highlightedItem = listItem;
                             this.highlightedItem.classList.add("iti__highlight");
+                            this.selectedFlag.setAttribute("aria-activedescendant", listItem.getAttribute("id"));
                             if (shouldFocus) this.highlightedItem.focus();
                         }
                     }, {
@@ -4872,9 +5400,11 @@
                             var prevCountry = this.selectedCountryData.iso2 ? this.selectedCountryData : {};
                             this.selectedCountryData = countryCode ? this._getCountryData(countryCode, false, false) : {};
                             if (this.selectedCountryData.iso2) this.defaultCountry = this.selectedCountryData.iso2;
-                            this.selectedFlagInner.setAttribute("class", "iti__flag iti__".concat(countryCode));
-                            var title = countryCode ? "".concat(this.selectedCountryData.name, ": +").concat(this.selectedCountryData.dialCode) : "Unknown";
-                            this.selectedFlag.setAttribute("title", title);
+                            if (this.options.showFlags) this.selectedFlagInner.setAttribute("class", "iti__flag iti__".concat(countryCode));
+                            if (this.selectedFlag) {
+                                var title = countryCode ? "".concat(this.selectedCountryData.name, ": +").concat(this.selectedCountryData.dialCode) : "Unknown";
+                                this.selectedFlag.setAttribute("title", title);
+                            }
                             if (this.options.separateDialCode) {
                                 var dialCode = this.selectedCountryData.dialCode ? "+".concat(this.selectedCountryData.dialCode) : "";
                                 this.selectedDialCode.innerHTML = dialCode;
@@ -4893,7 +5423,6 @@
                                     nextItem.setAttribute("aria-selected", "true");
                                     nextItem.classList.add("iti__active");
                                     this.activeItem = nextItem;
-                                    this.selectedFlag.setAttribute("aria-activedescendant", nextItem.getAttribute("id"));
                                 }
                             }
                             return prevCountry.iso2 !== countryCode;
@@ -4929,7 +5458,7 @@
                         value: function _selectListItem(listItem) {
                             var flagChanged = this._setFlag(listItem.getAttribute("data-country-code"));
                             this._closeDropdown();
-                            this._updateDialCode(listItem.getAttribute("data-dial-code"), true);
+                            this._updateDialCode(listItem.getAttribute("data-dial-code"));
                             this.telInput.focus();
                             var len = this.telInput.value.length;
                             this.telInput.setSelectionRange(len, len);
@@ -4940,8 +5469,10 @@
                         value: function _closeDropdown() {
                             this.countryList.classList.add("iti__hide");
                             this.selectedFlag.setAttribute("aria-expanded", "false");
+                            this.selectedFlag.removeAttribute("aria-activedescendant");
                             this.dropdownArrow.classList.remove("iti__arrow--up");
-                            document.removeEventListener("keydown", this._handleKeydownOnDropdown);
+                            document.removeEventListener("keyup", this._handleKeydownOnDropdown);
+                            document.getElementById("intlTel-search").value = "";
                             document.documentElement.removeEventListener("click", this._handleClickOffToClose);
                             this.countryList.removeEventListener("mouseover", this._handleMouseoverCountryList);
                             this.countryList.removeEventListener("click", this._handleClickCountryList);
@@ -4975,15 +5506,18 @@
                         }
                     }, {
                         key: "_updateDialCode",
-                        value: function _updateDialCode(newDialCodeBare, hasSelectedListItem) {
+                        value: function _updateDialCode(newDialCodeBare) {
                             var inputVal = this.telInput.value;
                             var newDialCode = "+".concat(newDialCodeBare);
                             var newNumber;
                             if ("+" === inputVal.charAt(0)) {
                                 var prevDialCode = this._getDialCode(inputVal);
                                 if (prevDialCode) newNumber = inputVal.replace(prevDialCode, newDialCode); else newNumber = newDialCode;
-                            } else if (this.options.nationalMode || this.options.separateDialCode) return; else if (inputVal) newNumber = newDialCode + inputVal; else if (hasSelectedListItem || !this.options.autoHideDialCode) newNumber = newDialCode; else return;
-                            this.telInput.value = newNumber;
+                                this.telInput.value = newNumber;
+                            } else if (this.options.autoInsertDialCode) {
+                                if (inputVal) newNumber = newDialCode + inputVal; else newNumber = newDialCode;
+                                this.telInput.value = newNumber;
+                            }
                         }
                     }, {
                         key: "_getDialCode",
@@ -5066,7 +5600,7 @@
                                 if (label) label.removeEventListener("click", this._handleLabelClick);
                             }
                             if (this.hiddenInput && form) form.removeEventListener("submit", this._handleHiddenInputSubmit);
-                            if (this.options.autoHideDialCode) {
+                            if (this.options.autoInsertDialCode) {
                                 if (form) form.removeEventListener("submit", this._handleSubmitOrBlurEvent);
                                 this.telInput.removeEventListener("blur", this._handleSubmitOrBlurEvent);
                             }
@@ -5118,16 +5652,15 @@
                         key: "isValidNumber",
                         value: function isValidNumber() {
                             var val = this._getFullNumber().trim();
-                            var countryCode = this.options.nationalMode ? this.selectedCountryData.iso2 : "";
-                            return window.intlTelInputUtils ? intlTelInputUtils.isValidNumber(val, countryCode) : null;
+                            return window.intlTelInputUtils ? intlTelInputUtils.isValidNumber(val, this.selectedCountryData.iso2) : null;
                         }
                     }, {
                         key: "setCountry",
                         value: function setCountry(originalCountryCode) {
                             var countryCode = originalCountryCode.toLowerCase();
-                            if (!this.selectedFlagInner.classList.contains("iti__".concat(countryCode))) {
+                            if (this.selectedCountryData.iso2 !== countryCode) {
                                 this._setFlag(countryCode);
-                                this._updateDialCode(this.selectedCountryData.dialCode, false);
+                                this._updateDialCode(this.selectedCountryData.dialCode);
                                 this._triggerCountryChange();
                             }
                         }
@@ -5176,7 +5709,7 @@
                     return null;
                 };
                 intlTelInputGlobals.defaults = defaults;
-                intlTelInputGlobals.version = "17.0.19";
+                intlTelInputGlobals.version = "18.1.5";
                 return function(input, options) {
                     var iti = new Iti(input, options);
                     iti._init();
@@ -5186,43 +5719,16 @@
                 };
             }();
         }));
-        (function() {
-            var allCountries = [ [ "Afghanistan (‫افغانستان‬‎)", "af", "93" ], [ "Albania (Shqipëri)", "al", "355" ], [ "Algeria (‫الجزائر‬‎)", "dz", "213" ], [ "American Samoa", "as", "1", 5, [ "684" ] ], [ "Andorra", "ad", "376" ], [ "Angola", "ao", "244" ], [ "Anguilla", "ai", "1", 6, [ "264" ] ], [ "Antigua and Barbuda", "ag", "1", 7, [ "268" ] ], [ "Argentina", "ar", "54" ], [ "Armenia (Հայաստան)", "am", "374" ], [ "Aruba", "aw", "297" ], [ "Ascension Island", "ac", "247" ], [ "Australia", "au", "61", 0 ], [ "Austria (Österreich)", "at", "43" ], [ "Azerbaijan (Azərbaycan)", "az", "994" ], [ "Bahamas", "bs", "1", 8, [ "242" ] ], [ "Bahrain (‫البحرين‬‎)", "bh", "973" ], [ "Bangladesh (বাংলাদেশ)", "bd", "880" ], [ "Barbados", "bb", "1", 9, [ "246" ] ], [ "Belarus (Беларусь)", "by", "375" ], [ "Belgium (België)", "be", "32" ], [ "Belize", "bz", "501" ], [ "Benin (Bénin)", "bj", "229" ], [ "Bermuda", "bm", "1", 10, [ "441" ] ], [ "Bhutan (འབྲུག)", "bt", "975" ], [ "Bolivia", "bo", "591" ], [ "Bosnia and Herzegovina (Босна и Херцеговина)", "ba", "387" ], [ "Botswana", "bw", "267" ], [ "Brazil (Brasil)", "br", "55" ], [ "British Indian Ocean Territory", "io", "246" ], [ "British Virgin Islands", "vg", "1", 11, [ "284" ] ], [ "Brunei", "bn", "673" ], [ "Bulgaria (България)", "bg", "359" ], [ "Burkina Faso", "bf", "226" ], [ "Burundi (Uburundi)", "bi", "257" ], [ "Cambodia (កម្ពុជា)", "kh", "855" ], [ "Cameroon (Cameroun)", "cm", "237" ], [ "Canada", "ca", "1", 1, [ "204", "226", "236", "249", "250", "289", "306", "343", "365", "387", "403", "416", "418", "431", "437", "438", "450", "506", "514", "519", "548", "579", "581", "587", "604", "613", "639", "647", "672", "705", "709", "742", "778", "780", "782", "807", "819", "825", "867", "873", "902", "905" ] ], [ "Cape Verde (Kabu Verdi)", "cv", "238" ], [ "Caribbean Netherlands", "bq", "599", 1, [ "3", "4", "7" ] ], [ "Cayman Islands", "ky", "1", 12, [ "345" ] ], [ "Central African Republic (République centrafricaine)", "cf", "236" ], [ "Chad (Tchad)", "td", "235" ], [ "Chile", "cl", "56" ], [ "China (中国)", "cn", "86" ], [ "Christmas Island", "cx", "61", 2, [ "89164" ] ], [ "Cocos (Keeling) Islands", "cc", "61", 1, [ "89162" ] ], [ "Colombia", "co", "57" ], [ "Comoros (‫جزر القمر‬‎)", "km", "269" ], [ "Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)", "cd", "243" ], [ "Congo (Republic) (Congo-Brazzaville)", "cg", "242" ], [ "Cook Islands", "ck", "682" ], [ "Costa Rica", "cr", "506" ], [ "Côte d’Ivoire", "ci", "225" ], [ "Croatia (Hrvatska)", "hr", "385" ], [ "Cuba", "cu", "53" ], [ "Curaçao", "cw", "599", 0 ], [ "Cyprus (Κύπρος)", "cy", "357" ], [ "Czech Republic (Česká republika)", "cz", "420" ], [ "Denmark (Danmark)", "dk", "45" ], [ "Djibouti", "dj", "253" ], [ "Dominica", "dm", "1", 13, [ "767" ] ], [ "Dominican Republic (República Dominicana)", "do", "1", 2, [ "809", "829", "849" ] ], [ "Ecuador", "ec", "593" ], [ "Egypt (‫مصر‬‎)", "eg", "20" ], [ "El Salvador", "sv", "503" ], [ "Equatorial Guinea (Guinea Ecuatorial)", "gq", "240" ], [ "Eritrea", "er", "291" ], [ "Estonia (Eesti)", "ee", "372" ], [ "Eswatini", "sz", "268" ], [ "Ethiopia", "et", "251" ], [ "Falkland Islands (Islas Malvinas)", "fk", "500" ], [ "Faroe Islands (Føroyar)", "fo", "298" ], [ "Fiji", "fj", "679" ], [ "Finland (Suomi)", "fi", "358", 0 ], [ "France", "fr", "33" ], [ "French Guiana (Guyane française)", "gf", "594" ], [ "French Polynesia (Polynésie française)", "pf", "689" ], [ "Gabon", "ga", "241" ], [ "Gambia", "gm", "220" ], [ "Georgia (საქართველო)", "ge", "995" ], [ "Germany (Deutschland)", "de", "49" ], [ "Ghana (Gaana)", "gh", "233" ], [ "Gibraltar", "gi", "350" ], [ "Greece (Ελλάδα)", "gr", "30" ], [ "Greenland (Kalaallit Nunaat)", "gl", "299" ], [ "Grenada", "gd", "1", 14, [ "473" ] ], [ "Guadeloupe", "gp", "590", 0 ], [ "Guam", "gu", "1", 15, [ "671" ] ], [ "Guatemala", "gt", "502" ], [ "Guernsey", "gg", "44", 1, [ "1481", "7781", "7839", "7911" ] ], [ "Guinea (Guinée)", "gn", "224" ], [ "Guinea-Bissau (Guiné Bissau)", "gw", "245" ], [ "Guyana", "gy", "592" ], [ "Haiti", "ht", "509" ], [ "Honduras", "hn", "504" ], [ "Hong Kong (香港)", "hk", "852" ], [ "Hungary (Magyarország)", "hu", "36" ], [ "Iceland (Ísland)", "is", "354" ], [ "India (भारत)", "in", "91" ], [ "Indonesia", "id", "62" ], [ "Iran (‫ایران‬‎)", "ir", "98" ], [ "Iraq (‫العراق‬‎)", "iq", "964" ], [ "Ireland", "ie", "353" ], [ "Isle of Man", "im", "44", 2, [ "1624", "74576", "7524", "7924", "7624" ] ], [ "Israel (‫ישראל‬‎)", "il", "972" ], [ "Italy (Italia)", "it", "39", 0 ], [ "Jamaica", "jm", "1", 4, [ "876", "658" ] ], [ "Japan (日本)", "jp", "81" ], [ "Jersey", "je", "44", 3, [ "1534", "7509", "7700", "7797", "7829", "7937" ] ], [ "Jordan (‫الأردن‬‎)", "jo", "962" ], [ "Kazakhstan (Казахстан)", "kz", "7", 1, [ "33", "7" ] ], [ "Kenya", "ke", "254" ], [ "Kiribati", "ki", "686" ], [ "Kosovo", "xk", "383" ], [ "Kuwait (‫الكويت‬‎)", "kw", "965" ], [ "Kyrgyzstan (Кыргызстан)", "kg", "996" ], [ "Laos (ລາວ)", "la", "856" ], [ "Latvia (Latvija)", "lv", "371" ], [ "Lebanon (‫لبنان‬‎)", "lb", "961" ], [ "Lesotho", "ls", "266" ], [ "Liberia", "lr", "231" ], [ "Libya (‫ليبيا‬‎)", "ly", "218" ], [ "Liechtenstein", "li", "423" ], [ "Lithuania (Lietuva)", "lt", "370" ], [ "Luxembourg", "lu", "352" ], [ "Macau (澳門)", "mo", "853" ], [ "North Macedonia (Македонија)", "mk", "389" ], [ "Madagascar (Madagasikara)", "mg", "261" ], [ "Malawi", "mw", "265" ], [ "Malaysia", "my", "60" ], [ "Maldives", "mv", "960" ], [ "Mali", "ml", "223" ], [ "Malta", "mt", "356" ], [ "Marshall Islands", "mh", "692" ], [ "Martinique", "mq", "596" ], [ "Mauritania (‫موريتانيا‬‎)", "mr", "222" ], [ "Mauritius (Moris)", "mu", "230" ], [ "Mayotte", "yt", "262", 1, [ "269", "639" ] ], [ "Mexico (México)", "mx", "52" ], [ "Micronesia", "fm", "691" ], [ "Moldova (Republica Moldova)", "md", "373" ], [ "Monaco", "mc", "377" ], [ "Mongolia (Монгол)", "mn", "976" ], [ "Montenegro (Crna Gora)", "me", "382" ], [ "Montserrat", "ms", "1", 16, [ "664" ] ], [ "Morocco (‫المغرب‬‎)", "ma", "212", 0 ], [ "Mozambique (Moçambique)", "mz", "258" ], [ "Myanmar (Burma) (မြန်မာ)", "mm", "95" ], [ "Namibia (Namibië)", "na", "264" ], [ "Nauru", "nr", "674" ], [ "Nepal (नेपाल)", "np", "977" ], [ "Netherlands (Nederland)", "nl", "31" ], [ "New Caledonia (Nouvelle-Calédonie)", "nc", "687" ], [ "New Zealand", "nz", "64" ], [ "Nicaragua", "ni", "505" ], [ "Niger (Nijar)", "ne", "227" ], [ "Nigeria", "ng", "234" ], [ "Niue", "nu", "683" ], [ "Norfolk Island", "nf", "672" ], [ "North Korea (조선 민주주의 인민 공화국)", "kp", "850" ], [ "Northern Mariana Islands", "mp", "1", 17, [ "670" ] ], [ "Norway (Norge)", "no", "47", 0 ], [ "Oman (‫عُمان‬‎)", "om", "968" ], [ "Pakistan (‫پاکستان‬‎)", "pk", "92" ], [ "Palau", "pw", "680" ], [ "Palestine (‫فلسطين‬‎)", "ps", "970" ], [ "Panama (Panamá)", "pa", "507" ], [ "Papua New Guinea", "pg", "675" ], [ "Paraguay", "py", "595" ], [ "Peru (Perú)", "pe", "51" ], [ "Philippines", "ph", "63" ], [ "Poland (Polska)", "pl", "48" ], [ "Portugal", "pt", "351" ], [ "Puerto Rico", "pr", "1", 3, [ "787", "939" ] ], [ "Qatar (‫قطر‬‎)", "qa", "974" ], [ "Réunion (La Réunion)", "re", "262", 0 ], [ "Romania (România)", "ro", "40" ], [ "Russia (Россия)", "ru", "7", 0 ], [ "Rwanda", "rw", "250" ], [ "Saint Barthélemy", "bl", "590", 1 ], [ "Saint Helena", "sh", "290" ], [ "Saint Kitts and Nevis", "kn", "1", 18, [ "869" ] ], [ "Saint Lucia", "lc", "1", 19, [ "758" ] ], [ "Saint Martin (Saint-Martin (partie française))", "mf", "590", 2 ], [ "Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)", "pm", "508" ], [ "Saint Vincent and the Grenadines", "vc", "1", 20, [ "784" ] ], [ "Samoa", "ws", "685" ], [ "San Marino", "sm", "378" ], [ "São Tomé and Príncipe (São Tomé e Príncipe)", "st", "239" ], [ "Saudi Arabia (‫المملكة العربية السعودية‬‎)", "sa", "966" ], [ "Senegal (Sénégal)", "sn", "221" ], [ "Serbia (Србија)", "rs", "381" ], [ "Seychelles", "sc", "248" ], [ "Sierra Leone", "sl", "232" ], [ "Singapore", "sg", "65" ], [ "Sint Maarten", "sx", "1", 21, [ "721" ] ], [ "Slovakia (Slovensko)", "sk", "421" ], [ "Slovenia (Slovenija)", "si", "386" ], [ "Solomon Islands", "sb", "677" ], [ "Somalia (Soomaaliya)", "so", "252" ], [ "South Africa", "za", "27" ], [ "South Korea (대한민국)", "kr", "82" ], [ "South Sudan (‫جنوب السودان‬‎)", "ss", "211" ], [ "Spain (España)", "es", "34" ], [ "Sri Lanka (ශ්‍රී ලංකාව)", "lk", "94" ], [ "Sudan (‫السودان‬‎)", "sd", "249" ], [ "Suriname", "sr", "597" ], [ "Svalbard and Jan Mayen", "sj", "47", 1, [ "79" ] ], [ "Sweden (Sverige)", "se", "46" ], [ "Switzerland (Schweiz)", "ch", "41" ], [ "Syria (‫سوريا‬‎)", "sy", "963" ], [ "Taiwan (台灣)", "tw", "886" ], [ "Tajikistan", "tj", "992" ], [ "Tanzania", "tz", "255" ], [ "Thailand (ไทย)", "th", "66" ], [ "Timor-Leste", "tl", "670" ], [ "Togo", "tg", "228" ], [ "Tokelau", "tk", "690" ], [ "Tonga", "to", "676" ], [ "Trinidad and Tobago", "tt", "1", 22, [ "868" ] ], [ "Tunisia (‫تونس‬‎)", "tn", "216" ], [ "Turkey (Türkiye)", "tr", "90" ], [ "Turkmenistan", "tm", "993" ], [ "Turks and Caicos Islands", "tc", "1", 23, [ "649" ] ], [ "Tuvalu", "tv", "688" ], [ "U.S. Virgin Islands", "vi", "1", 24, [ "340" ] ], [ "Uganda", "ug", "256" ], [ "Ukraine (Україна)", "ua", "380" ], [ "United Arab Emirates (‫الإمارات العربية المتحدة‬‎)", "ae", "971" ], [ "United Kingdom", "gb", "44", 0 ], [ "United States", "us", "1", 0 ], [ "Uruguay", "uy", "598" ], [ "Uzbekistan (Oʻzbekiston)", "uz", "998" ], [ "Vanuatu", "vu", "678" ], [ "Vatican City (Città del Vaticano)", "va", "39", 1, [ "06698" ] ], [ "Venezuela", "ve", "58" ], [ "Vietnam (Việt Nam)", "vn", "84" ], [ "Wallis and Futuna (Wallis-et-Futuna)", "wf", "681" ], [ "Western Sahara (‫الصحراء الغربية‬‎)", "eh", "212", 1, [ "5288", "5289" ] ], [ "Yemen (‫اليمن‬‎)", "ye", "967" ], [ "Zambia", "zm", "260" ], [ "Zimbabwe", "zw", "263" ], [ "Åland Islands", "ax", "358", 1, [ "18" ] ] ];
-            for (var i = 0; i < allCountries.length; i++) {
-                var c = allCountries[i];
-                allCountries[i] = {
-                    name: c[0],
-                    iso2: c[1],
-                    dialCode: c[2],
-                    priority: c[3] || 0,
-                    areaCodes: c[4] || null
-                };
-            }
-            if ("object" === typeof module && module.exports) module.exports = allCountries; else window.allCountries = allCountries;
-        })();
         const input = document.querySelector("#phone");
         intlTelInput(input, {
-            placeholderNumberType: "MOBILE",
             preferredCountries: [ "ua", "us" ],
             separateDialCode: true
         });
         const input2 = document.querySelector("#phone_2");
         intlTelInput(input2, {
-            placeholderNumberType: "MOBILE",
             preferredCountries: [ "ua", "us" ],
             separateDialCode: true
         });
-        const productSection = document.querySelector(".product");
-        const productWrapper = document.querySelector(".product__wrapper");
-        const productBody = document.querySelector(".product__body");
-        let leftBodyPosition = 0;
-        if (productSection.classList.contains("active-section")) productWrapper.onwheel = function(event) {
-            let deltaEv = event.deltaY;
-            leftBodyPosition -= .8 * deltaEv;
-            productBody.style.left = leftBodyPosition + "px";
-            if (leftBodyPosition > "-1") ;
-            return false;
-        };
         window["FLS"] = true;
         isWebp();
         addTouchClass();

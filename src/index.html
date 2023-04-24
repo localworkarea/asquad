@@ -1,150 +1,746 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Верстка «NEW_PROJECT_NAME»</title>
-	</head>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Unleash Your Business with Asquad's Payment Solutions"
+	})
 	<body>
-		<div class="rootpage">
-			<h1>Верстка «NEW_PROJECT_NAME»</h1>
-			<div class="rootpage__info">
-				Опис проєкту
+		<div data-fp data-fp-effect="fade" class="wrapper">
+			@@include('html/_header.htm',{})
+			<div class="image-anim">
+				<video  muted autoplay loop class="image-anim__item">
+					<!-- <source class="animation__webm-pc" src="@img/animations//01_Hero_PC_webm_1200px.webm" type="video/webm"> -->
+					<!-- <source class="animation__webm-mob" src="@img/animations/01_Hero_Mob_webm_494px.webm" type="video/webm"> -->
+				</video>
+				<!-- <img src="@img/animations/01_Hero_PC_apng_600px.svg" class="image-anim__item animation__apng-pc" alt="hero">  -->
+				<!-- <img src="@img/animations/01_Hero_Mob_apng_247px.svg" class="image-anim__item animation__apng-mob" alt="hero">  -->
 			</div>
-			<h2>Готові сторінки:</h2>
-			<ol class="rootpage__list">
-				<li><a target="_blank" href="home.html">Головна</a></li>
-			</ol>
-			<h2>Попапи:</h2>
-			<ol class="rootpage__list">
-				<li><a target="_blank" href="home.html#"></a></li>
-			</ol>
-			<div class="rootpage__tnx">
-				<h2>Дякую за замовлення!</h2>
-				<p>Буду радий (да) гарному відгуку.</p>
-				<p>Звертайтесь ще!</p>
-			</div>
-			<div class="rootpage__contacts">
-				<h2>Мої контакти:</h2>
-				<p>Пошта: <a href="mailto:localworkarea@gmail.com">localworkarea@gmail.com</a></p>
-				<p>Телефон: <a href="tel:380933189424">+38(093) 318 94 24</a></p>
-				<p>Соц. мережі: <a href="https://t.me/DenysM_WebDeveloper">Telegram</a></p>
-			</div>
-		</div>
-	</body>
-	<style>
-		@charset "UTF-8";
-		@import url("https://fonts.googleapis.com/css?family=Montserrat:regular,700&display=swap");
-		* ,*::before, *::after {
-			padding: 0px;
-			margin: 0px;
-			border: 0px;
-			box-sizing: border-box; 
-		}
-		html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-			min-width: 320px;
-			width: 100%;
-			color: #2c2c2c;
-			background-color: #636363;
-		}
-		body {
-			font-family: Montserrat;
-			font-size: 100%;
-			line-height: 1;
-			font-size: 1rem;
-		}
-		a {
-			text-decoration: underline;
-			color: #ffffff
-		}
-		a:visited {
-			text-decoration: underline;
-			color: #ffffff;
-		}
-			a:hover {
-			text-decoration: none;
-		}
-		ul li {
-			list-style: none;
-		}
-		img {
-			vertical-align: top;
-		}
-		.wrapper {
-			width: 100%;
-			min-height: 100%;
-			overflow: hidden;
-		}
-		.rootpage{
-			padding: 30px;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-		}
-		@media (max-width: 767px) {
-			.rootpage{
-				padding:30px 15px;
-			}
-		}
-		h1 {
-			color: #b686ac;
-			font-size: 2.5rem;
-			margin: 0px 0px 1.25rem 0px;
-		}
-		@media (max-width: 767px) {
-			h1 {
-				font-size: 1.85rem;
-				margin: 0px 0px 1.25rem 0px;
-			}
-		}
-		h2 {
-			color: #ebe691;
-			font-size: 1.25rem;
-			margin: 0px 0px 1rem 0px;
-		}
-		@media (max-width: 767px) {
-			 h2 {
-				font-size: 1.125rem;
-				margin: 0px 0px 1rem 0px;
-			}
-		}
-		.rootpage__info{
-			line-height: 140%;
-			margin: 0px 0px 1.5rem 0px;
-		}
+			<main  class="page">
+					<section data-fp-section class="main _header-hidden bg-black">
+						<div class="main__container">
+							<div class="main__logo">
+								<img src="@img/icons-logo/Logo.svg" alt="logo">
+							</div>
+							<h1 class="main__title title-main"><span>Low-Code</span> <span>Payment</span> <span>Platform</span></h1>
+							<p class="main__text"><span>Payment Innovations they say..</span><br class="main__text-br"> <span>Well, they say, but we do</span></p>
+							<div class="main__mouse-wheel mouse-wheel">
+								<div class="mouse-wheel__body">
+									<img class="mouse-wheel__mouse" src="@img/icons/mouse.svg" alt="mouse">
+									<img class="mouse-wheel__wheel" src="@img/icons/wheel.svg" alt="wheel">
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-fp-section class="focus bg-black">
+						<div class="focus__container">
+							<div class="focus__content">
+								<div class="focus__item">
+									<div class="focus__text">What traditional gateways take weeks to do, <b>we execute in</b> <b>12 hours,</b> allowing you to expand into new markets faster</div>
+								</div>
+								<div class="focus__item">
+									<div class="focus__text">Our focus is on the <b>speed of</b> <b>integrations</b> with new financial entities, with no compromise on quality</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-fp-section class="integrations bg-black">
+						<div class="integrations__container">
+							<div class="integrations__content">
+								<h2 class="integrations__title title-second-b"><span>Integrations</span> <span>in</span> <span>one</span> <span>day</span></h2>
+								<div class="integrations__text anim-text-top">A group of Fintech enthusiasts with backgrounds in payment infrastructure creation decided to join forces and build a payment gateway and processing system based on the latest technologies.</div>
+								<div class="integrations__text anim-text-btm">And you know what?<br> It runs smooth as buttered silk</div>
+								<div class="integrations__block">
+									<p class="integrations__item">Bank tech integration&nbsp;<span>12 hours</span></p>
+									<p class="integrations__item">Current integration edit&nbsp;<span>~ 30 min</span></p>
+								</div>
+							</div>
+						</div>
+					</section> 
 
-		.rootpage__list{
-			margin: 0px 0px 2.25rem 1.25rem;
-		}
-		.rootpage__list li:not(:last-child){
-			margin: 0px 0px 15px 0px;
-		}
-		.rootpage__contacts,
-		.rootpage__tnx{
-			border-radius: 200px;
-			padding: 20px 65px;
-			line-height: 140%;
-		}
-		@media (max-width: 767px){
-		.rootpage__contacts,
-		.rootpage__tnx{
-			border-radius:40px;
-			padding: 20px;
-		}
-		}
-		.rootpage__contacts{
-			background: #32b5a4;
-			
-		}
-		.rootpage__contacts a{
-			color: #ebe691;
-		}
-		.rootpage__tnx{
-			background: #c22d63;
-			margin: 0px 0px 1rem 0px;
-		}
-	</style>
+					<section data-fp-section class="awesome bg-blue">
+						<div class="awesome__container">
+							<div class="awesome__content">
+								<div class="lottie__awesome"></div>
+							</div>
+						</div>
+					</section>
+					<section data-fp-section class="industries bg-blue">
+						<div class="industries__container">
+								<div class="industries__block">
+									<div class="industries__body">
+										<h2 class="industries__title title-second"><span>Across</span> <span>Industries</span></h2>
+										<p class="industries__text text-second">
+											<span class="anim-text">We use ready-made integrations</span>
+											<span class="anim-text">to accelerate your business</span>
+											<span class="anim-text">expansion, adapting them to</span>
+											<span class="anim-text">specific business needs.</span>
+											<span class="anim-text">Plus, new payment integrations</span>
+											<span class="anim-text">are completed several times faster</span>
+										</p>
+									</div>
+								</div>
+						</div>
+						<div class="industries__image">
+							<video muted autoplay loop class="industries__img">
+								<!-- <source class="animation__webm-pc" src="@img/animations/02_Across_PC_webm_1200px.webm" type="video/webm"> -->
+								<!-- <source class="animation__webm-mob" src="@img/animations/02_Across_Mob_webm_494px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/02_Across_PC_apng_600px.svg" class="industries__img across__apng-pc" alt="hero"> 
+							<img src="@img/animations/02_Across_Mob_apng_247px.svg" class="industries__img across__apng-mob" alt="hero">  -->
+						</div>
+					</section>
+					<section data-fp-section class="choose bg-blue">
+						<div class="choose__container">
+							<h2 class="choose__title text-second"><span>Choose</span> <span>your</span> <span>path:</span></h2>
+							<div class="choose__content-wr">	
+								<div class="choose__content">
+									<div class="choose__block">
+											<div class="choose__head">
+												<!-- <img src="@img/animations/03_Logo_apng.svg" alt="logo" class="choose__img img-choose-one"> -->
+												<h3 class="choose__subtitle subtitle-chose-one title-second"><span>White</span> <span>Label</span></h3>
+											</div>
+											<div class="choose__text choose__text_all text-second text-choose-one">
+												<span>Leverage a <b>tailor-made payment</b></span> 
+												<span><b>solution</b> to power your daily</span> 
+												<span>operations with payments and</span> 
+												<span>reduce development costs</span>
+											</div>
+											<div class="choose__text choose__text_tablet text-second text-choose-one">
+												<span>Leverage a <b>tailor-made payment solution</b></span> 
+												<span>to power your daily operations with</span> 
+												<span> payments and reduce development costs</span> 
+											</div>
+									</div>
+									<div class="choose__block">
+											<div class="choose__head">
+												<!-- <img src="@img/animations/03_Logo_apng.svg" alt="logo" class="choose__img img-choose-sec"> -->
+												<h3 class="choose__subtitle subtitle-chose-two title-second"><span>Payment</span> <span>Gateway</span></h3>
+											</div>
+											<div class="choose__text choose__text_all text-second text-choose-two">
+												<span><b>Become a proud partner of</b></span> 
+												<span><b>ours,</b> then accept payments</span> 
+												<span>and make payouts in a secure</span> 
+												<span>and efficient way</span>
+											</div>
+											<div class="choose__text choose__text_tablet text-second text-choose-two">
+												<span><b>Become a proud partner of ours,</b> then</span> 
+												<span>accept payments and make payouts in a</span> 
+												<span>secure and efficient way</span>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section data-fp-section class="manage _header-black bg-gray">
+						<div class="manage__container">
+							<div class="manage__content">
+								<div class="manage__block">
+									<div class="block-info">									
+										<h2 class="block-info__title title-third"><span>Manage</span> <span>Payments</span> <span>Through</span><br> <span>Uncluttered</span> <span>Admin</span> <span>Panel</span></h2>
+										<div class="block-info__texts text-third">
+											<span class="anim-txt-a">The intuitive admin portal keeps you in</span> <span class="anim-txt-b">complete control of all your data. Initiate</span> <span class="anim-txt-c">and analyze payment traffic.</span><br class="break"><span class="anim-txt-d">Make single and batch payouts.</span><br class="break"><span class="anim-txt-e">Assign roles for your team, share access with</span> <span class="anim-txt-f">specified capabilities, and perform numerous</span> <span class="anim-txt-g">other functions with no extra effort</span>
+										</div>
+										<div class="manage__block-inf-txt-tablet text-third">The intuitive admin portal keeps you in complete control of all your data. Initiate and analyze payment traffic. Make single and batch payouts. Assign roles for your team, share access with specified capabilities, and perform numerous other functions with no extra effort</div>
+									</div>
+									<div class="progress-line">
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+									</div>
+								</div>
+								<div data-da=".manage,768,2" class="manage__anim anim-manage">
+									<div class="anim-manage__body">
+										<div  class="anim-manage__item item-first">
+											<div class="lottie__manage-amount"></div>
+										</div>
+										<div class="anim-manage__item item-second">
+											<div class="lottie__manage-transactions"></div>
+										</div>
+										<div class="anim-manage__item item-third">
+											<div class="lottie__manage-graphic"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</section>
+					<section data-fp-section class="options _header-black bg-gray">
+						<div class="options__container">
+								<div class="options__block">
+									<div class="block-info">									
+										<h2 class="block-info__title title-third">
+											<span>Juggle</span> <span>the</span> <span>Multiple</span>
+											<span>Payment</span> <span>Options</span></h2>
+										<div class="block-info__texts options__block-inf-txt text-third">
+												We don't limit you to standard payment methods; instead, we adapt to the needs of your customer base in specific GEO
+										</div>
+									</div>
+									<div class="progress-line">
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+										<span class="progress-line__line"></span>
+									</div>
+								</div>
+								<div data-da=".options,768,2"  class="options__btns btns-options">
+									<div class="btns-options__wrapper">
+										<div class="btns-options__logo">
+											<img class="btns-options__big" src="@img/icons-logo/logo-half-1.svg" alt="logo">
+											<img class="btns-options__small" src="@img/icons/s-black.svg" alt="logo">
+										</div>
+										<div class="btns-options__body">
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+											<button data-popup="#form-partner" type="button" class="btns-options__btn"></button>
+										</div>
+										<div class="btns-options__body">
+											<div class="btns-options__card">
+												<img class="card-item card-item-1" src="@img/sections/section_8/american_express.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-2" src="@img/sections/section_8/apple_pay.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-3" src="@img/sections/section_8/discover.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-4" src="@img/sections/section_8/f.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-5" src="@img/sections/section_8/google_pay.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-6" src="@img/sections/section_8/jcb.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-7" src="@img/sections/section_8/master_card-blue.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-8" src="@img/sections/section_8/master_card-orange.svg" alt="payment-options">
+											</div>
+											<div class="btns-options__card">
+												<img class="card-item card-item-9" src="@img/sections/section_8/visa.svg" alt="payment-options">
+											</div>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</section>
+					<section data-fp-section class="custom custom-first _header-black bg-gray">
+						<div class="custom__container">
+							<div class="custom__block">
+								<div class="block-info">									
+									<h2 class="block-info__title title-third"><span>Customize</span> <span>Payment</span>	<span>Widget</span> <span>for</span> <span>Your</span> <span>Niche</span></h2>
+									<div class="block-info__texts text-third">
+										<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
+										<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
+									</div>
+									<div class="custom__text-tablet text-third">
+										Seamlessly deploy our Widget into your company's digital experience. Then customize it with your logo and branding for a seamless experience
+									</div>
+								</div>
+								<div class="progress-line">
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+								</div>
+							</div>
+							<div data-da=".custom,768,2" class="custom__anim anim-custom">
+								<div class="anim-custom__wrapper">
+									<div class="anim-custom__wrapper-02">
+										<span></span>
+										<div  class="anim-custom__item item-first">
+											<img class="anim-custom__img img-1" src="@img/sections/section_9/1.png" alt="image">
+										</div>
+										<div class="anim-custom__item item-second">
+											<img class="anim-custom__img img-3" src="@img/sections/section_9/2.png" alt="image">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>  
+					<section data-fp-section class="custom custom-second _header-black bg-gray">
+						<div class="custom__container">
+							<div class="custom__block">
+								<div class="block-info">									
+									<h2 class="block-info__title title-third">Customize Payment	Widget for Your Niche</h2>
+									<div class="block-info__texts text-third">
+										<span>Seamlessly deploy our Widget into</span> <span>your company's digital experience.</span>
+										<span>Then customize it with your logo and</span> <span>branding for a seamless experience</span>
+									</div>
+									<div class="custom__text-tablet text-third">
+										Seamlessly deploy our Widget into your company's digital experience. Then customize it with your logo and branding for a seamless experience
+									</div>
+								</div>
+								<div class="progress-line">
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+								</div>
+							</div>
+							<div data-da=".custom-second,768,2" class="custom__anim anim-custom">
+								<div class="anim-custom__wrapper">
+									<span></span>
+									<div  class="anim-custom__item item-first">
+										<img class="anim-custom__img img-2" src="@img/sections/section_9/3.png" alt="image">
+									</div>
+									<div class="anim-custom__item item-second">
+										<img class="anim-custom__img img-4" src="@img/sections/section_9/4.png" alt="image">
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>   
+					<section data-fp-section class="api _header-black bg-gray">
+						<div class="api__container">
+							<div class="api__block">
+								<div class="block-info">									
+									<h2 class="block-info__title title-third"><span>API</span> <span>at</span> <span>a</span> <span>Glance</span></h2>
+									<div class="api__text-split text-third">
+										Asquad's API is about both innovations in payments and intelligible documentation.
+
+										It allows developers to adapt payment flow quickly to your business needs.
+										
+										Though it's self-explanatory and rarely needs assistance, our support team is available to answer any questions you may have
+									</div>
+								</div>
+								<div class="progress-line">
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line "></span>
+									<span class="progress-line__line"></span>
+									<span class="progress-line__line"></span>
+								</div>
+							</div>
+							<div data-da=".api,1200,2" class="api__typing">
+								<div class="api__typing-body">
+									<div class="tying__id" id="typed-strings">
+										<p class="typing__text">
+											<span class="typing__numb">1</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">function</span> <span class="typing__orang">asquad</span> (<span class="typing__orang">payments, payouts</span>) {<br>
+											<span class="typing__numb">2</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">const</span> <span class="typing__orang">rule</span> <span class="typing__red">=</span> <span class="typing__yell">"We do not miss Declines and route them to Success"</span>;<br>
+											<span class="typing__numb">3</span>&nbsp;&nbsp;&nbsp;<br>
+											<span class="typing__numb">4</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> IntegrationBy(<span class="typing__red">43200</span>); <span class="typing__gray">//24 hours</span><br>
+											<span class="typing__numb">5</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">do</span> ChangesBy(<span class="typing__red">1800</span>); <span class="typing__gray">//30 minutes</span><br>
+											<span class="typing__numb">6</span>&nbsp;&nbsp;&nbsp;<span class="typing__purp">if</span> (canFixDecline()) { <span class="typing__purp">do</span> Success(); }<br>
+											<span class="typing__numb">7</span>&nbsp;&nbsp;&nbsp;  <br>
+											<span class="typing__numb">8</span>&nbsp;&nbsp;&nbsp;asquadVisualized();<br>
+											<span class="typing__numb">9</span>&nbsp;&nbsp;&nbsp;}<br>
+											<span class="typing__numb">10</span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+										</p>
+									</div>
+									<span id="typed"></span>
+								</div>
+								
+							</div>
+						</div>
+						<span class="api__typing-line"></span>
+					</section> 
+
+					 <section data-fp-section class="routing bg-black">
+						<div class="routing__container">
+								<div class="industries__block">
+									<div class="industries__body">
+										<h2 class="industries__title title-second"><span>Smart</span> <span>Routing</span> <span>&</span><br> <span>Elastic</span> <span>Cascading</span></h2>
+										<p class="industries__text text-pc text-second">
+											<span>With an entry <b>70% conversion rate,</b></span>
+											<span><b>the merchant can increase this</b></span>	
+											<span><b>number to 95%</b> through our Smart</span>
+											<span>Routing and Elastic Cascading</span>
+										</p>
+										<p class="industries__text text-mob text-second">
+											<span>With an entry <b>70% conversion</b></span>
+											<span><b> rate, the merchant can increase</b></span>	
+											<span><b>this number to 95%</b> through our </span>
+											<span>Smart Routing and Elastic</span> 
+											<span>Cascading</span>
+										</p>
+									</div>
+								</div>
+						</div>
+						<div class="routing__image">
+							<video muted autoplay loop class="routing__img">
+								<!-- <source class="animation__webm-pc" src="@img/animations/04_Roating_PC_webm_2100px.webm" type="video/webm"> -->
+								<!-- <source class="animation__webm-mob" src="@img/animations/04_Roating_Mob_webm_878px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/04_Roating_PC_apng_1050px.svg" class="routing__img animation__apng-pc" alt="hero">  -->
+							<!-- <img src="@img/animations/04_Roating_Mob_apng_439px.svg" class="routing__img animation__apng-mob" alt="hero">  -->
+						</div>
+					</section>
+					<section data-fp-section class="hold bg-black">
+						<div class="awesome__container">
+							<div class="awesome__content">
+								<div class="lottie__hold-on"></div>
+							</div>
+						</div>
+					</section> 
+					<section data-fp-section class="product bg-black">
+								<div class="product__wrapper">
+									<div class="product__body">
+										<div class="product__slide slide-product slide-one">
+											<div class="slide-product__image-ibg">
+												<video muted autoplay loop>
+													<!-- <source class="slide-product__img" src="@img/animations/05_Business_PC_webm_248px.webm" type="video/webm"> -->
+													<!-- <source class="slide-product__img" src="@img/animations/05_Business_Mob_webm_148px.webm" type="video/webm"> -->
+												</video>
+												<!-- <img class="slide-product__img" src="@img/animations/05_Business_PC_apng_124px.svg" alt="image"> -->
+												<!-- <img class="slide-product__img" src="@img/animations/05_Business_Mob_apng_74px.svg" alt="image"> -->
+											</div>
+											<h3 class="slide-product__title title-third title-one">
+												<span class="anim-title">Business</span> <span class="not-thin anim-title">X</span> <br class="line-break"> <span class="anim-title">Technology</span> <span class="anim-title">Synergy</span>
+											</h3>
+											<div class="slide-product__info text-pc text-third">
+												<span>Forget instructions, get down to business. We</span> 
+												<span>designed payment infrastructure with a high </span>
+												<span>degree of empathy, so you could use it right </span>
+												<span>away.</span>
+												<br class="line-break">
+												<span>Spend less time learning how system works and </span>
+												<span>more time for delivering great online payment </span>
+												<span>experience to your customers and clients</span>
+											</div>
+											<div class="slide-product__info text-tablet text-third">
+												<span>Forget instructions, get down to</span> 
+												<span>business. We designed payment</span>
+												<span>infrastructure with a high degree</span>
+												<span>of empathy, so you could use it</span>
+												<span>right away.</span>
+												<br class="line-break">
+												<span>Spend less time learning how</span>
+												<span>system works and more time for</span>
+												<span>delivering great online payment</span>
+												<span>experience to your customers</span>
+												<span>and clients</span>
+											</div>
+											<div class="slide-product__info text-mob text-third">
+												<span>Forget instructions, get</span> 
+												<span>down to business. We</span> 
+												<span>designed payment</span>
+												<span>infrastructure with a</span>
+												<span>high degree of empathy,</span>
+												<span>so you could use it right</span>
+												<span>away.</span>
+												<br class="line-break">
+												<span>Spend less time learning</span>
+												<span>how system works and</span>
+												<span>more time for delivering</span>
+												<span>great online payment</span>
+												<span>experience to your</span>
+												<span>customers and clients</span>
+											</div>
+										</div>
+
+										<div class="product__slide slide-product slide-two">
+											<div class="slide-product__image-ibg">
+												<video muted autoplay loop>
+													<!-- <source class="slide-product__img" src="@img/animations/06_Flexibility_PC_webm_248px.webm" type="video/webm"> -->
+													<!-- <source class="slide-product__img" src="@img/animations/06_Flexibility_Mob_webm_148px.webm" type="video/webm"> -->
+												</video>
+												<!-- <img class="slide-product__img" src="@img/animations/06_Flexibility_PC_apng_124px.svg" alt="image"> -->
+												<!-- <img class="slide-product__img" src="@img/animations/06_Flexibility_Mob_apng_74px.svg" alt="image"> -->
+											</div>
+											<h3 class="slide-product__title title-third title-two">
+												<span class="anim-title">Flexibility</span> <span class="not-thin anim-title">&</span><br class="line-break"> <span class="anim-title">Customization</span>
+											</h3>
+											<div class="slide-product__info text-pc text-third">
+												<span>Create your own custom configurations for</span> 
+												<span>the <b>Payment Flow</b> and <b>Payment Widget.</b></span>
+															<br class="line-break">
+												<span>Integrate seamlessly: complete new </span>
+												<span>integrations with the Bank or make changes </span>
+												<span>into your existing payment inegrations </span>
+												<span>without downtime or lost transactions</span>
+											</div>
+											<div class="slide-product__info text-tablet text-third">
+												<span>Create your own custom configurations</span> 
+												<span>for the <b>Payment Flow</b> and <b>Payment</b></span>
+												<span><b>Widget.</b></span>
+															<br class="line-break">
+												<span>Integrate seamlessly: complete new</span>
+												<span>integrations with the Bank or make</span>
+												<span>changes into your existing payment</span>
+												<span>inegrations without downtime or lost</span>
+												<span>transactions</span>
+											</div>
+											<div class="slide-product__info text-mob text-third">
+												<span>Create your own custom</span> 
+												<span>configurations</span> 
+												<span>for the <b>Payment Flow</b></span>
+												<span>and <b>Payment Widget.</b></span>
+															<br class="line-break">
+												<span>Integrate seamlessly:</span>
+												<span>complete new </span>
+												<span>integrations with the</span>
+												<span>Bank or make changes</span>
+												<span>into your existing</span>
+												<span>payment inegrations </span>
+												<span>without downtime or lost</span>
+												<span>transactions</span>
+											</div>
+										</div>
+
+										<div class="product__slide slide-product slide-three">
+											<div class="slide-product__image-ibg">
+												<video muted autoplay loop>
+													<!-- <source class="slide-product__img" src="@img/animations/07_Perfomance_PC_webm_248px.webm" type="video/webm"> -->
+													<!-- <source class="slide-product__img" src="@img/animations/07_Perfomance_Mob_webm_148px.webm" type="video/webm"> -->
+												</video>
+												<!-- <img class="slide-product__img" src="@img/animations/07_Perfomance_PC_apng_124px.svg" alt="image"> -->
+												<!-- <img class="slide-product__img" src="@img/animations/07_Perfomance_Mob_apng_124px.svg" alt="image"> -->
+											</div>
+											<h3 class="slide-product__title title-third title-three">
+												<span class="anim-title">Performance</span> <span class="not-thin anim-title">&</span><br class="line-break"> <span class="anim-title">Scalability</span>
+											</h3>
+											<ul class="slide-product__info-list">
+												<li class="slide-product__label">We're able to:</li>
+												<li class="slide-product__item">
+													<img src="@img/sections/section_13/Icons.svg" alt="icon">
+													<div class="slide-product__text text-third">Process >3m requests per day</div>
+												</li>
+												<li class="slide-product__item">
+													<img src="@img/sections/section_13/Icons.svg" alt="icon">
+													<div class="slide-product__text text-third">Accelerate to 34 transactions per second <span class="text-regular">(and it's not the limit)</span></div>
+												</li>
+												<li class="slide-product__item">
+													<img src="@img/sections/section_13/Icons.svg" alt="icon">
+													<div class="slide-product__text text-third">Raise your conversion rate to 95%</div>
+												</li>
+												<li class="slide-product__label">What you get:</li>
+												<li class="slide-product__item">
+													<img src="@img/sections/section_13/Icons.svg" alt="icon">
+													<div class="slide-product__text text-third">Expand to new GEOs without a friction</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+					</section>  
+
+					<section data-fp-section class="technologies _header-black bg-gray">
+						<div class="technologies__container">
+							<h2 class="technologies__title"><span>Technologies</span> <span class="gray-title">&</span> <span>Certificates</span>
+							</h2>
+							<div data-tabs class="technologies__content">
+								<nav data-tabs-titles class="technologies__buttons">
+									<button type="button" class="technologies__btn_none _tab-active"></button>
+									<button type="button" class="technologies__btn btn-tch-one">Based on</button>
+									<button type="button" class="technologies__btn btn-tch-two">Comply with</button>
+									<button type="button" class="technologies__btn btn-tch-three">Secured by</button>
+								</nav>
+								<div data-tabs-body class="technologies__content">
+									<div class="technologies__body">
+										<div class="technologies__logos">
+											<div class="technologies__image java-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/java.svg" alt="logo">
+											</div>
+											<div class="technologies__image corezoid-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/corezoid.svg" alt="logo">
+											</div>
+											<div class="technologies__image amazon-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/amazpnEKS.svg" alt="logo">
+											</div>
+											<div class="technologies__image aws-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/aws.svg" alt="logo">
+											</div>
+											<div class="technologies__image pci-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/pci_dss.svg" alt="logo">
+											</div>
+											<div class="technologies__image gdpr-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/gdpr.svg" alt="logo">
+											</div>
+											<div class="technologies__image asquad-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/asquad.svg" alt="logo">
+											</div>
+											<div class="technologies__image secure-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/3d_secure.svg" alt="logo">
+											</div>
+										</div>
+									</div>
+									<div class="technologies__body">
+										<div class="technologies__logos">
+											<div class="technologies__image java-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/java.svg" alt="logo">
+											</div>
+											<div class="technologies__image corezoid-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/corezoid.svg" alt="logo">
+											</div>
+											<div class="technologies__image amazon-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/amazpnEKS.svg" alt="logo">
+											</div>
+											<div class="technologies__image aws-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/aws.svg" alt="logo">
+											</div>
+											<div class="technologies__image pci-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/pci_dss-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image gdpr-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/gdpr-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image asquad-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/asquad-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image secure-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/3d_secure-g.svg" alt="logo">
+											</div>
+										</div>
+									</div>
+									<div class="technologies__body">
+										<div class="technologies__logos">
+											<div class="technologies__image java-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/java-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image corezoid-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/corezoid-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image amazon-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/amazpnEKS-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image aws-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/aws-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image pci-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/pci_dss.svg" alt="logo">
+											</div>
+											<div class="technologies__image gdpr-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/gdpr.svg" alt="logo">
+											</div>
+											<div class="technologies__image asquad-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/asquad-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image secure-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/3d_secure-g.svg" alt="logo">
+											</div>
+										</div>
+									</div>
+									<div class="technologies__body">
+										<div class="technologies__logos">
+											<div class="technologies__image java-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/java-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image corezoid-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/corezoid-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image amazon-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/amazpnEKS-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image aws-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/aws-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image pci-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/pci_dss-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image gdpr-logo">
+												<img class="technologies__img-gray" src="@img/sections/section_14/gdpr-g.svg" alt="logo">
+											</div>
+											<div class="technologies__image asquad-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/asquad.svg" alt="logo">
+											</div>
+											<div class="technologies__image secure-logo">
+												<img class="technologies__img-color" src="@img/sections/section_14/3d_secure.svg" alt="logo">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section data-fp-section class="result _header-black bg-gray">
+						<div class="result__container">
+							<div class="industries__block">
+								<div class="industries__body">
+									<h2 class="industries__title title-second">
+										<span>Give</span> <span>your</span> <span>clients</span>
+											<br>
+										<span>what</span> <span>they</span> <span>need</span>
+									</h2>
+									<p class="industries__text text-second">
+										<span>Provide them with a better</span> 
+										<span>payment experience</span>
+									</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="result__image">
+							<video muted autoplay loop class="result__img">
+								<!-- <source class="animation__webm-pc" src="@img/animations/08_Payment_PC_webm_1200px.webm" type="video/webm"> -->
+								<!-- <source class="animation__webm-mob" src="@img/animations/08_Payment_Mob_webm_594px.webm" type="video/webm"> -->
+							</video>
+							<!-- <img src="@img/animations/08_Payment_PC_apng_600px.svg" class="result__img animation__apng-pc" alt="hero">  -->
+							<!-- <img src="@img/animations/08_Payment_Mob_apng_297px.svg" class="result__img animation__apng-mob" alt="hero">  -->
+						</div>
+					</section> 
+					<div data-fp-section class="request _header-black bg-gray">
+						<section class="request__wrapper  section">
+							<div class="request__container">
+								<div class="text-block__texts texts-gray-top-a">
+									<p class="text-block__txt txt-gray txt-one">Our platform lets you move and scale your business faster than your competitors</p>
+									<p class="text-block__txt txt-gray txt-two">We are a constant you can rely on</p>
+									<p class="text-block__txt txt-gray txt-three">We're powered for speed, simplicity, and flexibility</p>
+									<p class="text-block__txt txt-gray txt-fourth">Integrations with financial entities are faster than at traditional payment systems</p>
+									<p class="text-block__txt txt-gray txt-five">We convince with unique, intelligently networked innovations, not with words</p>
+								</div>
+								<div class="text-block__texts texts-gray-top">
+									<p class="text-block__txt txt-gray txt-one">Our platform lets you move and scale your business faster than your competitors</p>
+									<p class="text-block__txt txt-gray txt-two">We are a constant you can rely on</p>
+									<p class="text-block__txt txt-gray txt-three">We're powered for speed, simplicity, and flexibility</p>
+									<p class="text-block__txt txt-gray txt-fourth">Integrations with financial entities are faster than at traditional payment systems</p>
+									<p class="text-block__txt txt-gray txt-five">We convince with unique, intelligently networked innovations, not with words</p>
+								</div>
+
+								<div class="request__block text-block">
+									<div class="text-block__texts texts-color-center">
+										<p class="text-block__txt txt-blue">Our platform lets you move and scale your business faster than your competitors</p>
+										<p class="text-block__txt txt-red">We are a constant you can rely on</p>
+										<p class="text-block__txt txt-green">We're powered for speed, simplicity, and flexibility</p>
+										<p class="text-block__txt txt-pupr">Integrations with financial entities are faster than at traditional payment systems</p>
+										<p class="text-block__txt txt-orange">We convince with unique, intelligently networked innovations, not with words</p>
+									</div>
+									<button data-popup="#form-demo" type="button" class="text-block__btn">
+										<span>Request a Demo</span>
+										<div class="lottie__btn-request"></div>
+									</button>
+								</div>
+
+								<div class="text-block__texts texts-gray-bottom">
+									<p class="text-block__txt txt-gray txt-one">Our platform lets you move and scale your business faster than your competitors</p>
+									<p class="text-block__txt txt-gray txt-two">We are a constant you can rely on</p>
+									<p class="text-block__txt txt-gray txt-three">We're powered for speed, simplicity, and flexibility</p>
+									<p class="text-block__txt txt-gray txt-fourth">Integrations with financial entities are faster than at traditional payment systems</p>
+									<p class="text-block__txt txt-gray txt-five">We convince with unique, intelligently networked innovations, not with words</p>
+								</div>
+								<div class="text-block__texts texts-gray-bottom-a">
+									<p class="text-block__txt txt-gray txt-one">Our platform lets you move and scale your business faster than your competitors</p>
+									<p class="text-block__txt txt-gray txt-two">We are a constant you can rely on</p>
+									<p class="text-block__txt txt-gray txt-three">We're powered for speed, simplicity, and flexibility</p>
+									<p class="text-block__txt txt-gray txt-fourth">Integrations with financial entities are faster than at traditional payment systems</p>
+									<p class="text-block__txt txt-gray txt-five">We convince with unique, intelligently networked innovations, not with words</p>
+								</div>
+							</div>
+						</section>
+						@@include('html/_footer.htm',{})	
+					</div> 
+			</main>
+		</div>
+		<!-- или подключить через _js.htm -->
+<!-- <script src="js/lottie-player.js"></script>
+<script src="js/bodymovin.js"></script> -->
+		@@include('html/_popup.htm',{})
+		@@include('html/_preloader.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
 </html>

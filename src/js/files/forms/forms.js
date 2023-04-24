@@ -24,9 +24,14 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			if (!targetElement.hasAttribute('data-no-focus-classes')) {
 				targetElement.classList.add('_form-focus');
 				targetElement.parentElement.classList.add('_form-focus');
+				
+				// document.getElementById("btn-part-submit").disabled = true;
+				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			targetElement.hasAttribute('data-validate') ? formValidate.removeError(targetElement) : null;
 		}
+
+
 	});
 	document.body.addEventListener("focusout", function (e) {
 		const targetElement = e.target;
@@ -34,8 +39,9 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			if (!targetElement.hasAttribute('data-no-focus-classes')) {
 				targetElement.classList.remove('_form-focus');
 				targetElement.parentElement.classList.remove('_form-focus');
-				document.getElementById("btn-part-submit").disabled = false;
-				document.getElementById("btn-req-submit").disabled = false;
+
+				// document.getElementById("btn-part-submit").disabled = true;
+				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			// Миттєва валідація
 			targetElement.hasAttribute('data-validate') ? formValidate.validateInput(targetElement) : null;
@@ -43,34 +49,50 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 		}
 	});
 
-	const formBlocks = document.querySelectorAll('.form__block');
-	formBlocks.forEach(item => {
-		item.addEventListener("keyup", function (e) {
-			const targetElement = e.target;
-			if (targetElement.value.length > 0) {
-					targetElement.parentElement.classList.add('_show-reset-btn');
-		 } else {
-			targetElement.parentElement.classList.remove('_show-reset-btn');
-		}
-		});
-	});
+	// const formBlocks = document.querySelectorAll('.form__block');
+	// formBlocks.forEach(item => {
+	// 	item.addEventListener("keyup", function (e) {
+	// 		const targetElement = e.target;
+	// 		if (targetElement.value.length > 0) {
+	// 				targetElement.parentElement.classList.add('_show-reset-btn');
+	// 	 } else {
+	// 		targetElement.parentElement.classList.remove('_show-reset-btn');
+	// 	}
+	// 	});
+	// });
 
-	const itemFormPhone = document.querySelectorAll('.item-form-phone');
-	itemFormPhone.forEach(item => {
-		item.addEventListener("keyup", function(e) {
-			const targetElement = e.target;
-			if (targetElement.value.length > 0) {
-				const itemFormPhone = document.querySelectorAll('.item-form-phone');
-				itemFormPhone.forEach(item => {
-					item.classList.add('_show-reset-btn');
-				});
-			} else {
-				itemFormPhone.forEach(item => {
-					item.classList.remove('_show-reset-btn');
-				});
-			}
-		})
-	});
+	// const itemFormPhone = document.querySelectorAll('.item-form-phone');
+	// itemFormPhone.forEach(item => {
+	// 	item.addEventListener("keyup", function(e) {
+	// 		const targetElement = e.target;
+	// 		if (targetElement.value.length > 0) {
+	// 			const itemFormTel = document.querySelectorAll('.item-form-phone');
+	// 			itemFormPhone.forEach(item => {
+	// 				item.classList.add('_show-reset-btn');
+	// 			});
+	// 		} else {
+	// 			itemFormPhone.forEach(item => {
+	// 				item.classList.remove('_show-reset-btn');
+	// 			});
+	// 		}
+	// 	})
+	// });
+	// const itemFormTel = document.querySelectorAll('.item-form-tel');
+	// itemFormTel.forEach(item => {
+	// 	item.addEventListener("keyup", function(e) {
+	// 		const targetElement = e.target;
+	// 		if (targetElement.value.length > 0) {
+	// 			const itemFormPhone = document.querySelectorAll('.item-form-phone');
+	// 			itemFormPhone.forEach(item => {
+	// 				item.classList.add('_show-reset-btn');
+	// 			});
+	// 		} else {
+	// 			itemFormPhone.forEach(item => {
+	// 				item.classList.remove('_show-reset-btn');
+	// 			});
+	// 		}
+	// 	})
+	// });
 
 }
 // Валідація форм
@@ -83,11 +105,16 @@ export let formValidate = {
 			formRequiredItems.forEach(formRequiredItem => {
 				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
 					error += this.validateInput(formRequiredItem);
-					
+						
+						// document.getElementById("btn-part-submit").disabled = true;
+						// document.getElementById("btn-req-submit").disabled = true;
 				}
 			});
 		}
+		// document.getElementById("btn-part-submit").disabled = false;
+		// document.getElementById("btn-req-submit").disabled = false;
 		return error;
+
 	},
 	validateInput(formRequiredItem) {
 		let error = 0;
@@ -110,9 +137,19 @@ export let formValidate = {
 				this.removeError(formRequiredItem);
 			}
 		}
+
+		if (error == 0) {
+			document.getElementById("btn-part-submit").disabled = false;
+			document.getElementById("btn-req-submit").disabled = false;
+		} else {
+			document.getElementById("btn-part-submit").disabled = true;
+			document.getElementById("btn-req-submit").disabled = true;
+		}
+
 		return error;
 	},
 	addError(formRequiredItem) {
+
 		const itemFormPhone = document.querySelectorAll('.item-form-phone');
     itemFormPhone.forEach(item => {
       item.classList.add("_form-error");
@@ -120,8 +157,8 @@ export let formValidate = {
 
 		formRequiredItem.classList.add('_form-error');
 		formRequiredItem.parentElement.classList.add('_form-error');
-		document.getElementById("btn-part-submit").disabled = true;
-		document.getElementById("btn-req-submit").disabled = true;
+		// document.getElementById("btn-part-submit").disabled = true;
+		// document.getElementById("btn-req-submit").disabled = true;
 		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
 		if (formRequiredItem.dataset.error) {
@@ -129,13 +166,15 @@ export let formValidate = {
 		}
 	},
 	removeError(formRequiredItem) {
+
 		const itemFormPhone = document.querySelectorAll('.item-form-phone');
 		itemFormPhone.forEach(item => {
       item.classList.remove("_form-error");
     });
+		
 		formRequiredItem.classList.remove('_form-error');
-		document.getElementById("btn-part-submit").disabled = false;
-		document.getElementById("btn-req-submit").disabled = false;
+		// document.getElementById("btn-part-submit").disabled = false;
+		// document.getElementById("btn-req-submit").disabled = false;
 		formRequiredItem.parentElement.classList.remove('_form-error');
 		if (formRequiredItem.parentElement.querySelector('.form__error')) {
 			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
@@ -150,8 +189,8 @@ export let formValidate = {
 				el.parentElement.classList.remove('_form-focus');
 				el.classList.remove('_form-focus');
 				formValidate.removeError(el);
-				document.getElementById("btn-part-submit").disabled = true;
-				document.getElementById("btn-req-submit").disabled = true;
+				// document.getElementById("btn-part-submit").disabled = true;
+				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
 			if (checkboxes.length > 0) {
@@ -178,6 +217,7 @@ export let formValidate = {
 /* Відправлення форм */
 export function formSubmit() {
 	const forms = document.forms;
+
 	if (forms.length) {
 		for (const form of forms) {
 			form.addEventListener('submit', function (e) {

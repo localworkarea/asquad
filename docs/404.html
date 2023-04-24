@@ -5,7 +5,7 @@
 	<title>404</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20230329155847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230424194907">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -106,73 +106,13 @@
 			</div>
 		</footer>
 	</div>
-	<div id="form-partner" aria-hidden="true" class="popup-form">
-		<div class="popup-form__wrapper">
-			<div class="popup-form__content">
-				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
-					<div class="form__block">
-						<div class="form__head">
-							<div class="form__title form-title">Let's Partner</div>
-							<div class="form__subtitle">Fill out the form and we'll contact you about integrating your service</div>
-						</div>
-						<div class="form__inputs">
-							<div class="form__item">
-								<label for="formName-1" class="form__label">Name</label>
-								<input id="formName-1" type="text" name="name" placeholder="Adam Smith" class="form__input">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item item-form-phone">
-								<label for="phone_2" class="form__label">Phone number</label>
-								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item">
-								<label for="formEmail" class="form__label">Email</label>
-								<input id="formEmail" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-							<div class="form__item">
-								<label for="formWebsite" class="form__label">Website</label>
-								<input id="formWebsite" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
-								<div class="reset-btn">
-									<img src="img/icons/x.svg" alt="reset">
-								</div>
-							</div>
-						</div>
-						<div class="form__item">
-							<label for="formMessage" class="form__label">Leave us a message</label>
-							<textarea id="formMessage" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
-							<div class="reset-btn btn-reset-textarea">
-								<img src="img/icons/x.svg" alt="reset">
-							</div>
-						</div>
-					</div>
-					<div class="form__buttons">
-						<button data-close type="button" class="form__button form-btn btn-later-two btn-gray-light">
-							<span>Later</span>
-							<div class="lottie__btn-later-two"></div>
-						</button>
-						<button id="btn-part-submit" type="submit" class="form__button btn-submit-two form-btn btn-black">
-							<span>Submit</span>
-							<div class="lottie__btn-submit-two"></div>
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
 
-
+	// --- R E Q U E S T a D E M 0 ---------------------------------
 
 	<div id="form-demo" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content">
+				<div id="response"></div>
 				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
 					<div class="form__block">
 						<div class="form__head">
@@ -182,7 +122,7 @@
 						<div class="form__inputs">
 							<div class="form__item">
 								<label for="formName" class="form__label">Name</label>
-								<input id="formName" type="text" name="name" placeholder="Adam Smith" class="form__input">
+								<input id="formName" type="text" name="name" maxlength="50" placeholder="Adam Smith" class="form__input">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -196,22 +136,23 @@
 							</div>
 							<div class="form__item">
 								<label for="formEmail_2" class="form__label">Email</label>
-								<input id="formEmail_2" data-required="email" data-validate type="text" name="email" data-error="Required field" placeholder="once@said.earlier" class="form__input form-req">
+								<input id="formEmail_2" data-required="email" maxlength="255" data-validate type="text" name="email" data-error="The email format is not valid" placeholder="once@said.earlier" class="form__input form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
 							</div>
 							<div class="form__item">
 								<label for="formWebsite_2" class="form__label">Website</label>
-								<input id="formWebsite_2" data-required data-validate type="text" name="email" data-error="Required field" placeholder="evolve.io" class="form__input form-req">
+								<input id="formWebsite_2" data-required data-validate maxlength="500" type="url" name="url" data-error="The website format is not valid" placeholder="evolve.io" class="form__input input-form-web form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
+								<div class="error-web">The website format is not valid</div>
 							</div>
 						</div>
 						<div class="form__item">
 							<label for="formMessage_2" class="form__label">Leave us a message</label>
-							<textarea id="formMessage_2" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
+							<textarea id="formMessage_2" maxlength="2000" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
 							<div class="reset-btn btn-reset-textarea">
 								<img src="img/icons/x.svg" alt="reset">
 							</div>
@@ -232,11 +173,78 @@
 		</div>
 	</div>
 
+
+
+	// --- L E T` S P A R T N E R ---------------------------------
+
+	<div id="form-partner" aria-hidden="true" class="popup-form">
+		<div class="popup-form__wrapper">
+			<div class="popup-form__content">
+				<form data-dev data-popup-message="#form-message" class="form" action="files/sendmail/sendmail.php" method="POST">
+					<div class="form__block">
+						<div class="form__head">
+							<div class="form__title form-title">Let's Partner</div>
+							<div class="form__subtitle">Fill out the form and we'll contact you about integrating your service</div>
+						</div>
+						<div class="form__inputs">
+							<div class="form__item">
+								<label for="formName-1" class="form__label">Name</label>
+								<input id="formName-1" type="text" name="name" maxlength="50" placeholder="Adam Smith" class="form__input">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item item-form-phone">
+								<label for="phone_2" class="form__label">Phone number</label>
+								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item">
+								<label for="formEmail" class="form__label">Email</label>
+								<input id="formEmail" data-required="email" maxlength="255" data-validate type="text" name="email" data-error="The email format is not valid" placeholder="once@said.earlier" class="form__input form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+							</div>
+							<div class="form__item">
+								<label for="formWebsite" class="form__label">Website</label>
+								<input id="formWebsite" data-required data-validate maxlength="500" type="url" name="email" data-error="The website format is not valid" placeholder="evolve.io" class="form__input input-form-web form-req">
+								<div class="reset-btn">
+									<img src="img/icons/x.svg" alt="reset">
+								</div>
+								<div class="error-web">Error website</div>
+							</div>
+						</div>
+						<div class="form__item">
+							<label for="formMessage" class="form__label">Leave us a message</label>
+							<textarea id="formMessage" maxlength="2000" name="message" class="form__input form-textarea" placeholder="On the road from the City of Skepticism, I had to pass through the Valley of Ambiguity"></textarea>
+							<div class="reset-btn btn-reset-textarea">
+								<img src="img/icons/x.svg" alt="reset">
+							</div>
+						</div>
+					</div>
+					<div class="form__buttons">
+						<button data-close type="button" class="form__button form-btn btn-later-two btn-gray-light">
+							<span>Later</span>
+							<div class="lottie__btn-later-two"></div>
+						</button>
+						<button id="btn-part-submit" type="submit" class="form__button btn-submit-two form-btn btn-black">
+							<span>Submit</span>
+							<div class="lottie__btn-submit-two"></div>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<div id="form-message" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content form-message__content">
 				<div class="form-message__text form-title">
-					Thank you!<br>
+					<span>Thank you!</span><br>
 					Our manager will contact you shortly
 				</div>
 				<button data-close type="button" class="form-message__close form-btn btn-close btn-gray-light">
@@ -246,7 +254,12 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20230329155847"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230424194907"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230424194907"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230424194907"></script> -->
+	<script src="files/lottie-player.js?_v=20230424194907"></script>
+	<script src="files/bodymovin.js?_v=20230424194907"></script>
+	<script src="js/app.min.js?_v=20230424194907"></script>
 </body>
 
 </html>

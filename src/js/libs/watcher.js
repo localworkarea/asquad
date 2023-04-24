@@ -122,7 +122,7 @@ class ScrollWatcher {
 			// if (targetElement.classList.contains('_header-white')) {
 			// 	document.documentElement.classList.remove('header-black');
 			// }
-			if (targetElement.classList.contains('footer__bottom')) {
+			if (targetElement.classList.contains('footer')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.add('hide-header');
 			}
@@ -167,7 +167,7 @@ class ScrollWatcher {
 			// if (targetElement.classList.contains('main')) {
 			// 	animSlide.classList.remove('_anim-main');
 			// }
-			if (targetElement.classList.contains('footer__bottom')) {
+			if (targetElement.classList.contains('footer')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.remove('hide-header');
 			}

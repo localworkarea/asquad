@@ -1,11 +1,12 @@
 .title-main {
   font-weight: 700;
-  @include adaptiveValue("font-size", 96, 38);
+  @include adaptiveValue("font-size", 96, 64, 0, 1920, 1366);
+  @include adaptiveValue("font-size", 64, 39, 3, 768, 375);
   line-height: calc(110/96);
 }
 .title-second {
   font-weight: 700;
-  @include adaptiveValue("font-size", 64, 28);
+  @include adaptiveValue("font-size", 64, 28, 0, 1920, 375);
   line-height: calc(74/64);
 }
 .title-second-b {
@@ -17,7 +18,7 @@
   font-weight: 700;
   color: white;
   @include adaptiveValue("font-size", 36, 32, 0, 1920, 1366);
-  @include adaptiveValue("font-size", 32, 18, 3, 768, 320);
+  @include adaptiveValue("font-size", 32, 18, 3, 768, 375);
   line-height: calc(42/36);
 }
 .title-fourth {
@@ -28,14 +29,14 @@
 .text-second {
   font-weight: 500;
   @include adaptiveValue("font-size", 36, 32, 0, 1920, 1366);
-  @include adaptiveValue("font-size", 32, 18, 3, 768, 320);
+  @include adaptiveValue("font-size", 32, 18, 3, 768, 375);
   line-height: calc(42/36);
   color: $blue_100;
   text-align: center;
 }
 .text-third {
   font-weight: 500;
-  @include adaptiveValue("font-size", 24, 16, 0, 768, 320);
+  @include adaptiveValue("font-size", 24, 16, 0, 768, 375);
   line-height: calc(26/24);
 }
 
@@ -56,28 +57,6 @@
   }
 }
 
-// @keyframes mouse-move {
-//   0% {
-//       transform: translateY(0%);
-//   }
-//   100% {
-//       transform: translateY(45px);
-//   }
-// }
-// @keyframes wheel-move {
-//   0% {
-//       transform: translateY(0%);
-//   }
-//   100% {
-//       transform: translateY(45px);
-//   }
-// }
-
-
-.previous-section {}
-.active-section {}
-.next-section {}
-
 // HERO ANIMATION == section 1-3 =====================
 .image-anim {
 position: fixed;
@@ -87,20 +66,28 @@ pointer-events: none;
 overflow: hidden;
 visibility: hidden;
 display: none;
+opacity: 0;
+transition: opacity 0.5s ease 0s;
+.loaded & {
+  opacity: 1;
+}
 
   &._anim-main {
     visibility: visible;
     display: block;
     .image-anim__item {
-      transform: translate(11%, 18%);
+      transform: translate(6%, 10%);
+      @media (max-width:1024px){
+        transform: translate(-6%, 13%);
+      }
       @media (max-width: 992px) {
         transform: translate(0%, 38%);
       }      
       @media (max-width: $mobile) {
-        transform: translate(0%, 51%);
+        transform: translate(0%, 28%);
       }      
       @media (max-width: $mobileXS) {
-        transform: translate(0%, 58%);
+        transform: translate(0%, 42%);
       }      
     }
   }
@@ -108,15 +95,18 @@ display: none;
     visibility: visible;
     display: block;
     .image-anim__item {
-      transform: translate(11%, -15%);
+      transform: translate(6%, -19%);
+      @media (max-width:1024px){
+        transform: translate(-6%, -16%);
+      }
       @media (max-width: 992px) {
         transform: translate(0%, 0%);
       } 
       @media (max-width: $mobile) {
-        transform: translate(0%, 5%);
+        transform: translate(0%, -4%);
       } 
       @media (max-width: $mobileXS) {
-        transform: translate(0%, -2%);
+        transform: translate(0%, -26%);
       } 
     }
   }
@@ -124,28 +114,38 @@ display: none;
     visibility: visible;
     display: block;
     .image-anim__item {
-      transform: translate(11%, -50%);
+      transform: translate(6%, -48%);
+      @media (max-width:1024px){
+        transform: translate(-6%, -49%);
+      }
       @media (max-width: 992px) {
-        transform: translate(0%, -50%);
+        transform: translate(0%, -38%);
       } 
       @media (max-width: $mobileXS) {
-        transform: translate(0%, -34%);
+        transform: translate(0%, -26%);
       } 
     }
   }
   // .image-anim__item
   &__item {
     position: absolute;
-    width: 80%;
+    width: 90%;
     height: auto;
     transform: translate(11%, -90%);
     transition: transform 0.5s cubic-bezier(0.55, 0.085, 0, 0.99) 0s;
 
+    @media (max-width:1024px){
+      width: 112%;
+    }
     @media (max-width: 992px) {
       left: -12%;
       width: 120%;
       transform: translate(0%, -90%);
-    } 
+    }
+    @media (max-width:$mobile){
+      left: -24%;
+      width: 147%;
+    }
     @media (max-width:$mobileSmall){
       left: -18%;
       width: 140%;
@@ -251,7 +251,7 @@ display: none;
       height: rem(2);
       z-index: 2;
       background-color: $mainColor;
-      transition: all 4s linear 0.3s;
+      transition: all 2.5s linear 0.3s;
     }
 
     &:nth-child(1) {}
@@ -266,6 +266,8 @@ display: none;
   }
 }
 
+
+// ========================================================================================================================
 // == dropdown list form intup ===========
 .iti__country {
   padding: rem(12) rem(24);
@@ -334,11 +336,6 @@ display: none;
   }
 }
 .iti__selected-flag {
-  // padding: 0;
-  // width: 16px;
-  // height: 16px;
-  // border-radius: 50%;
-  // overflow: hidden;
   .iti__flag {
     object-fit: cover;
     transform: scale(1.4);
@@ -346,10 +343,6 @@ display: none;
 }
 .iti__flag {
   transform: scale(1.4);
-  // width: 16px;
-  // height: 16px;
-  // border-radius: 50%;
-  // overflow: hidden;
 }
 .iti__arrow {
   display: none;
@@ -363,24 +356,25 @@ display: none;
   border-radius: rem(5);
   border: unset;
   top: rem(46);
-  left: rem(2);
+  left: 0;
   white-space: unset;
-  width: rem(430);
+  width: rem(440);
   z-index: 5;
   overflow-y: scroll;
   &::-webkit-scrollbar { width: 0; }
      -ms-overflow-style: none;
      -webkit-overflow-scrolling: touch;
-     @media (max-width: 1200px) {
-      left: rem(5);
-			width: rem(545);
-		}
-		@media (max-width: 860px) {
-      left: rem(3);
-			max-width: rem(425);
-		}
-    @media (max-width:510px){
-       max-width: rem(400); 
+    //  @media (max-width: 1200px) {
+    //   left: rem(5);
+		// 	width: rem(545);
+		// }
+		// @media (max-width: 860px) {
+    //   left: rem(3);
+		// 	max-width: rem(425);
+		// }
+    @media (max-width:684px){
+       max-width: rem(440); 
+       width: max-content;
     }
     @media (max-width:$mobileSmall){
         position: fixed;
@@ -391,7 +385,99 @@ display: none;
     }
 }
 
-// ========================================================================================================================
+  // Поиск по выпадающему списку (собственный стиль и класс) -----------
+  .li-intlTel-search {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: white;
+  
+    padding: rem(16) rem(45) rem(16) rem(24);
+    margin-bottom: rem(18);
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 89%;
+      height: rem(1);
+      margin: 0 rem(24);
+      background-color: #BCCCD1;
+      z-index: 5;
+      @media (max-width:$mobileSmall){
+         margin: 0 rem(16); 
+         width: 91%;
+      }
+    }
+    @media (max-width:$mobileSmall){
+      padding: rem(16) rem(45) rem(11) rem(16);
+    }
+  }
+  
+  .input-intlTel-search {
+    height: rem(40);
+    width: 100%;
+    outline: none;
+    padding: 0 !important;
+    
+    font-weight: 400;
+    font-size: rem(18);
+    line-height: calc(20/18);
+    &::placeholder {
+      color: $gray_dark;
+    }
+    @media (max-width:$mobileSmall){
+       padding: 0 0 0 17px !important; 
+       font-size: rem(16);
+    }
+  }
+  .icon-search-tel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: rem(24);
+  
+    width: rem(13);
+    height: rem(13);
+    @media (max-width:$mobileSmall){
+       right: rem(34);
+       top: 73%; 
+    }
+  }
+  .title-of-list-mob {
+    display: none;
+    @media (max-width:$mobileSmall){
+       display: block; 
+       position: relative;
+       font-weight: 700;
+        font-size: rem(20);
+        line-height: calc(23/20);
+        margin-bottom: rem(31);
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -5%;
+        height: 2px;
+        width: 8px;
+        background-color: $gray_dark;
+        border-radius: 4px;
+      }
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+        top: 30%;
+      }
+    }
+  }
+  // --------------------------------
+
 .iti {
   position: relative;
   display: inline-block; }
@@ -423,51 +509,19 @@ display: none;
     align-items: center;
     height: 100%;
     padding: 0 6px 0 8px; }
-  // .iti__arrow {
-  //   margin-left: 6px;
-  //   width: 0;
-  //   height: 0;
-  //   border-left: 3px solid transparent;
-  //   border-right: 3px solid transparent;
-  //   border-top: 4px solid #555; }
     .iti__arrow--up {
       border-top: none;
       border-bottom: 4px solid #555; }
-  // .iti__country-list {
-  //   position: absolute;
-  //   z-index: 2;
-  //   list-style: none;
-  //   text-align: left;
-  //   padding: 0;
-  //   margin: 0 0 0 -1px;
-  //   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-  //   background-color: white;
-  //   border: 1px solid #CCC;
-  //   white-space: nowrap;
-  //   max-height: 200px;
-  //   overflow-y: scroll;
-  //   -webkit-overflow-scrolling: touch; }
     .iti__country-list--dropup {
       bottom: 100%;
       margin-bottom: -1px; }
     @media (max-width: 500px) {
       .iti__country-list {
         white-space: normal; } }
-  // .iti__flag-box {
-  //   display: inline-block;
-  //   width: 20px; }
   .iti__divider {
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #CCC; }
-  // .iti__country {
-  //   padding: 5px 10px;
-  //   outline: none; 
-  // }
-  // .iti__dial-code {
-  //   color: #999; }
-  .iti__country.iti__highlight {
-    // background-color: rgba(0, 0, 0, 0.05); 
+    // padding-bottom: 5px;
+    // margin-bottom: 5px;
+    // border-bottom: 1px solid #CCC; 
   }
   .iti__flag-box, .iti__country-name, .iti__dial-code {
     vertical-align: middle; }
@@ -492,8 +546,6 @@ display: none;
       background-color: transparent; }
   .iti--container {
     position: absolute;
-    // top: -1000px;
-    // left: -1000px;
     z-index: 1060;
     padding: 1px; }
     .iti--container:hover {
@@ -513,6 +565,8 @@ display: none;
 .iti-mobile .iti__country {
   padding: 10px 10px;
   line-height: 1.5em; }
+
+
 
 .iti__flag {
   width: 20px; }

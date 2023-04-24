@@ -2,6 +2,7 @@ import { isMobile } from "../files/functions.js";
 import { flsModules } from "../files/modules.js";
 // Can also be included with a regular script tag
 import Typed from 'typed.js';
+
 /*
 	data-fp - оболонка
 	data-fp-section - секції
@@ -59,6 +60,8 @@ const animationManageTransct = bodymovin.loadAnimation({
 	autoplay: false,
 	path: 'files/ManagePayments_TransactionFlow.json',
 });
+
+
 
 var $is_typed_call = false;
 // Клас FullPage
@@ -342,6 +345,7 @@ export class FullPage {
 			const header = document.querySelector('.header');
 			const imageAnim = document.querySelector('.image-anim');
 			const requestSection = document.querySelector('.request');
+			const apiTyping = document.querySelector('.api__typing');
 
 			if (index === this.activeSectionId) {
 				section.style.opacity = '1';
@@ -428,6 +432,11 @@ export class FullPage {
 						animationManageTransct.stop();
 				}
   			if (section.classList.contains('api') && section.classList.contains('active-section')) {
+					apiTyping.style.visibility = "hidden";
+					setTimeout(() => {
+						apiTyping.style.visibility = "visible";
+					}, 700);
+
   			  if(!$is_typed_call){
 					let timerId =	setTimeout(function() {
 							var typed = new Typed('#typed', {
@@ -437,7 +446,7 @@ export class FullPage {
 								loopCount: Infinity,
 								showCursor: false,
 							});
-						}, 400);
+						}, 700);
 							$is_typed_call = true;
   			  }
   			}
@@ -536,27 +545,31 @@ export class FullPage {
 
 			// Клік для буллетів
 			// click: this.clickBullets.bind(this),
+
+			// Клік по блоку choose your path:
 			clickblock: this.clickBlock.bind(this),
 
 
 		}
+
 		if (isMobile.iOS()) {
 			document.addEventListener('touchmove', (e) => {
 				e.preventDefault();
 			});
 		}
 	
-	//===============================
+		//===============================
 		// перемикання слайдів choose your path:
 		const chooseBlocks = document.querySelectorAll('.choose__block');
 		for (let index = 0; index < chooseBlocks.length; index++) {
 			chooseBlocks[index].addEventListener("click", this.events.clickblock);
 		}
-
+		// --------------------------
+		
 		this.setEvents();
-// --------------------------
-	
 	}
+	
+	// перемикання слайдів choose your path:
 	clickBlock(e) {
 		this.switchingSection(6);
 	}
@@ -612,6 +625,7 @@ export class FullPage {
 	// 	}
 	// }
 	//===============================
+	
 	// Функція натискання тач/пера/курсора
 	touchDown(e) {
 		// Змінна для свайпа
@@ -671,7 +685,7 @@ export class FullPage {
 		// Чи дозволено перехід? 
 		this.checkScroll(yCoord, targetElement);
 		// Перехід
-		if (this.goScroll && Math.abs(yCoord) > 100) { // было 20 (29.03.23)
+		if (this.goScroll && Math.abs(yCoord) > 50) { // было 20 (29.03.23)
 			this.choiceOfDirection(yCoord);
 		}
 	}
@@ -707,18 +721,18 @@ export class FullPage {
 		// Перехід
 		if (this.goScroll) this.choiceOfDirection(yCoord);
 	}
-	//===============================
 	// Функція вибору напряму
+	//===============================
 	// choiceOfDirection(direction) {
-	// 	// Зупиняємо роботу подій
+		// Зупиняємо роботу подій
 	// 	this.stopEvent = true;
 
-	// 	// Якщо слайд крайні, то дозволяємо події
+		// Якщо слайд крайні, то дозволяємо події
 	// 	if (((this.activeSectionId === 0) && direction < 0) || ((this.activeSectionId === (this.sections.length - 1)) && direction > 0)) {
 	// 		this.stopEvent = false;
 	// 	}
 
-	// 	// Встановлення потрібних id
+		// Встановлення потрібних id
 	// 	if (direction > 0 && this.nextSection !== false) {
 	// 		this.activeSectionId = (this.activeSectionId + 1) < this.sections.length ?
 	// 			++this.activeSectionId : this.activeSectionId;
@@ -727,9 +741,12 @@ export class FullPage {
 	// 			--this.activeSectionId : this.activeSectionId;
 	// 	}
 
-	// 		// Зміна слайдів
+			// Зміна слайдів
 	// 	if (this.stopEvent) this.switchingSection();
 	// }
+
+	//===============================
+	// Функція вибору напряму
 	choiceOfDirection(direction) {
 		// Встановлення потрібних id
 		if (direction > 0 && this.nextSection !== false) {

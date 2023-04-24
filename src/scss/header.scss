@@ -111,7 +111,7 @@
 			filter: invert(0%) sepia(97%) saturate(0%) hue-rotate(34deg) brightness(91%) contrast(103%);
 		}
 		
-		@media (min-width: 768.98px){
+		@media (min-width: 481px){
 			 display: block; 
 		}
 	}
@@ -127,7 +127,7 @@
 			filter: invert(0%) sepia(97%) saturate(0%) hue-rotate(34deg) brightness(91%) contrast(103%);
 		}
 		
-		@media (max-width:$mobile){
+		@media (max-width:480px){
 			 display: block; 
 		}
 		@media (max-width:$mobileSmall){
@@ -167,7 +167,7 @@
 			}
 		}
 		@media (max-width:$mobileSmall){
-			 row-gap: (36); 
+			 row-gap: rem(36); 
 			 padding: rem(16) rem(16) rem(32);
 		}
 	}
@@ -186,6 +186,10 @@
 		}
 		@media (max-width:$mobileSmall){
 			padding-top: rem(70);
+		}
+		@media (max-width:$mobileXS){
+			 row-gap: rem(36); 
+			 padding-top: rem(69);
 		}
 	}
 	// .menu__item
@@ -208,8 +212,14 @@
 		@media (max-width: 1100px) {
 			color: $mainColor;
 		}
+		@media (max-width:$mobileXS){
+			 font-size: rem(18); 
+		}
 		.header-black & {
 			color: $gray_dark;
+			@media (max-width: 1100px) {
+				color: $mainColor;
+			}
 		}
 	}
 	// .menu__sub-list
@@ -230,6 +240,9 @@
 			height: 58%;
 			width: rem(2);
 			background: $blue_main;
+			@media (max-width:$mobileXS){
+				 height: 71%; 
+			}
 		}
 		@media (max-width: 1100px) {
 			position: relative;
@@ -239,11 +252,17 @@
 		@media (max-width:$mobile){
 			 padding-top: rem(24); 
 		}
+		@media (max-width:$mobileXS){
+			  padding-top: rem(18);
+		}
 	}
 	// .menu__sub-item
 	&__sub-item {
 		&:not(:last-child) {
 			margin-bottom: rem(24);
+			@media (max-width:$mobileXS){
+				 margin-bottom: rem(12); 
+			}
 		}
 	}
 	// .menu__sub-link
@@ -301,6 +320,10 @@
 			background-color: $mainColor;
 			color: white;
 		}
+		@media (max-width:$mobileXS){
+			  height: rem(30);
+				font-size: rem(16);
+		}
 		.header-black & {
 			background-color: $mainColor;
 			color: white;
@@ -317,8 +340,8 @@
 	@media (max-width: 1100px) {
 		display: block;
 		position: relative;
-		width: rem(16);
-		height: rem(16);
+		width: rem(12);
+		height: rem(12);
 		z-index: 12;
 		@media (any-hover: none) {
 			cursor: default;
@@ -330,7 +353,7 @@
 			transition: all 0.2s ease 0s;
 			right: 0;
 			position: absolute;
-			width: rem(16);
+			width: rem(12);
 			height: rem(2);
 			background-color: white;
 			.header-black & {

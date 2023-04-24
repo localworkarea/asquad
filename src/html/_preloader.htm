@@ -8,9 +8,10 @@
 	.loading body{
 		opacity: 0;
 		visibility: hidden;
+		transition: opacity 0.8s linear 0s;
 	}
 	.loaded body{
-		transition: opacity 0.8s ease 0s, background-color 0.3s ease 0s;
+		transition: opacity 0.8s linear 0s;
 		opacity: 1;
 		visibility: visible;
 	}
@@ -54,8 +55,17 @@
 		.fls-preloader__images {
 			width: 40px;
 			height: 40px;
-			animation: spinner 0.3s linear 0.3s infinite normal none;
+			animation: spinner 1.5s ease-in-out 0.2s 1 normal none;
 		}
+		@keyframes spinner {
+  		0% { 
+  		  transform: rotate(0deg);
+  		}
+  		100% {
+  		  transform: rotate(1440deg);
+  		}
+		}
+	
 		/* Блок з лічильником */
 		.fls-preloader__counter {
 			font-family: 'GT', sans-serif;
@@ -67,17 +77,8 @@
 		.fls-preloader__counter span {
 			color: #BCCCD1;
 		}
-	
-		@keyframes spinner {
-  		0% { 
-  		  transform: rotate(0deg);
-  		}
-  		100% {
-  		  transform: rotate(360deg);
-  		}
-		}
 
-		@media (max-width: 479.98px) {
+		@media (max-width: 1366px) {
 			.fls-preloader__body {
 				padding-top: 2rem;
 			}
@@ -149,13 +150,19 @@
 					}, 10);
 				}
 				function addLoadedClass() {
-					htmlDocument.classList.add('loaded');
-					htmlDocument.classList.remove('lock');
-					htmlDocument.classList.remove('loading');
+
+					setInterval(() => {
+						htmlDocument.classList.add('loaded');
+						htmlDocument.classList.remove('lock');
+						htmlDocument.classList.remove('loading');
+
+
+					}, 300);
 					setInterval(() => {
 						preloader.remove();
-						preloaderContainer.remove();
-					}, 500);
+						preloaderContainer.remove();						
+					
+					}, 600);
 				}
 			}else{
 				preloaderContainer.remove();
