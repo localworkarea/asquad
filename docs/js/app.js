@@ -4558,6 +4558,7 @@
         }));
         function resetInput() {
             this.previousElementSibling.value = "";
+            if ("TEXTAREA" == this.previousElementSibling.tagName) this.previousElementSibling.style.height = "initial";
             const formItems = document.querySelectorAll(".form__item");
             formItems.forEach((item => {
                 item.classList.remove("_show-reset-btn");
@@ -4704,27 +4705,36 @@
                 }));
             }
         }));
-        new SplitType(".focus__text", {
+        const focusText = new SplitType(".focus__text", {
             types: "lines"
         });
-        new SplitType(".anim-text-top", {
+        const animTextTop = new SplitType(".anim-text-top", {
             types: "lines"
         });
-        new SplitType(".anim-text-btm", {
+        const animTextBtm = new SplitType(".anim-text-btm", {
             types: "lines"
         });
-        new SplitType(".manage__block-inf-txt-tablet", {
+        const manageBlockText = new SplitType(".manage__block-inf-txt-tablet", {
             types: "lines"
         });
-        new SplitType(".options__block-inf-txt", {
+        const optionsBlockText = new SplitType(".options__block-inf-txt", {
             types: "lines"
         });
-        new SplitType(".custom__text-tablet", {
+        const customText = new SplitType(".custom__text-tablet", {
             types: "lines"
         });
-        new SplitType(".api__text-split", {
+        const apiText = new SplitType(".api__text-split", {
             types: "lines"
         });
+        window.addEventListener("resize", (function() {
+            focusText.split();
+            animTextTop.split();
+            animTextBtm.split();
+            manageBlockText.split();
+            optionsBlockText.split();
+            customText.split();
+            apiText.split();
+        }));
         (function(factory) {
             if ("object" === typeof module && module.exports) module.exports = factory(); else window.intlTelInput = factory();
         })((function(undefined) {
@@ -5729,6 +5739,31 @@
             preferredCountries: [ "ua", "us" ],
             separateDialCode: true
         });
+        if (window.matchMedia("(max-width: 480px)").matches) {
+            const customBlockScroll = document.querySelector(".custom-first .custom__anim");
+            const optionsBlockScroll = document.querySelector(".options__btns");
+            if (customBlockScroll) {
+                customBlockScroll.style.justifyContent = "flex-end";
+                setTimeout((() => {
+                    customBlockScroll.style.justifyContent = "normal";
+                }), 200);
+            }
+            if (optionsBlockScroll) {
+                optionsBlockScroll.style.justifyContent = "center";
+                setTimeout((() => {
+                    optionsBlockScroll.style.justifyContent = "normal";
+                }), 200);
+            }
+        }
+        var product__body = document.querySelector(".product__body");
+        product__body.addEventListener("mousewheel", (function(event) {
+            if (event.wheelDelta > 0) product__body.scrollLeft -= 10; else product__body.scrollLeft += 10;
+            var maxScroll = product__body.scrollWidth - product__body.clientWidth;
+            if (product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        }), false);
         window["FLS"] = true;
         isWebp();
         addTouchClass();

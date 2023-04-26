@@ -88,7 +88,7 @@
 		span {
 			display: block;
 			@media (max-width:$mobileXS){
-				 margin-bottom: 2px; 
+				 margin-bottom: rem(32); 
 			}
 		}
 		@media (max-width:$mobileXS){
@@ -197,6 +197,11 @@
 	min-height: rem(88);
 	resize: none;
 	min-width: 100%;
+	@media (max-width: 1024px) {
+		min-width: unset;
+		max-width: 440px;
+		margin: 0 3px;
+	}
 }
 .reset-btn {
 	position: absolute;

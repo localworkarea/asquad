@@ -10,11 +10,9 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230424194907">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230426120026">
 	<link rel="shortcut icon" href="favicon.ico">
-	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js?_v=20230424194907"></script> -->
 </head>
 
 <body>
@@ -354,9 +352,9 @@
 						<div class="block-info">
 							<h2 class="block-info__title title-third"><span>API</span> <span>at</span> <span>a</span> <span>Glance</span></h2>
 							<div class="api__text-split text-third">
-								Asquad's API is about both innovations in payments and intelligible documentation.
+								Asquad's API is about both innovations in payments and intelligible documentation.<br>
 
-								It allows developers to adapt payment flow quickly to your business needs.
+								It allows developers to adapt payment flow quickly to your business needs.<br>
 
 								Though it's self-explanatory and rarely needs assistance, our support team is available to answer any questions you may have
 							</div>
@@ -835,11 +833,9 @@
 			</div>
 		</main>
 	</div>
-	<!-- или подключить через _js.htm -->
-	<!-- <script src="js/lottie-player.js?_v=20230424194907"></script>
-<script src="js/bodymovin.js?_v=20230424194907"></script> -->
 
-	// --- R E Q U E S T a D E M 0 ---------------------------------
+
+	<!-- --- R E Q U E S T  a  D E M 0 --------------------------------- -->
 
 	<div id="form-demo" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
@@ -907,7 +903,7 @@
 
 
 
-	// --- L E T` S P A R T N E R ---------------------------------
+	<!-- --- L E T` S   P A R T N E R  --------------------------------- -->
 
 	<div id="form-partner" aria-hidden="true" class="popup-form">
 		<div class="popup-form__wrapper">
@@ -946,7 +942,7 @@
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
-								<div class="error-web">Error website</div>
+								<div class="error-web">The website format is not valid</div>
 							</div>
 						</div>
 						<div class="form__item">
@@ -976,7 +972,7 @@
 		<div class="popup-form__wrapper">
 			<div class="popup-form__content form-message__content">
 				<div class="form-message__text form-title">
-					<span>Thank you!</span><br>
+					<span>Thank you!</span>
 					Our manager will contact you shortly
 				</div>
 				<button data-close type="button" class="form-message__close form-btn btn-close btn-gray-light">
@@ -988,6 +984,10 @@
 	</div>
 	<!-- Стилі для body -->
 	<style>
+		body {
+			transition: opacity .5s linear 0s;
+		}
+
 		.lock body {
 			overflow: hidden;
 			touch-action: none;
@@ -997,11 +997,11 @@
 		.loading body {
 			opacity: 0;
 			visibility: hidden;
-			transition: opacity 0.8s linear 0s;
+			/* transition: opacity 1s linear 0s, visibility 1s linear 0s; */
 		}
 
 		.loaded body {
-			transition: opacity 0.8s linear 0s;
+			/* transition: opacity .5s linear 0s, visibility .5s linear 0s; */
 			opacity: 1;
 			visibility: visible;
 		}
@@ -1032,7 +1032,18 @@
 				display: flex;
 				justify-content: center;
 				align-items: flex-start;
+			}
+
+			.fls-preloader::before {
 				background-color: #101820;
+				width: 100%;
+				height: 100%;
+				opacity: 1;
+			}
+
+			.fls-preloader::before.load-hidden {
+				opacity: 0;
+				transition: opacity 0.5s ease 0s;
 			}
 
 			/* Блок з елементами */
@@ -1052,6 +1063,11 @@
 				animation: spinner 1.5s ease-in-out 0.2s 1 normal none;
 			}
 
+			.fls-preloader__images.load-hidden {
+				opacity: 0;
+				transition: opacity 0.5s ease 0s;
+			}
+
 			@keyframes spinner {
 				0% {
 					transform: rotate(0deg);
@@ -1069,6 +1085,11 @@
 				font-size: 3rem;
 				line-height: calc(56/48);
 				color: #FFFFFF;
+			}
+
+			.fls-preloader__counter.load-hidden {
+				opacity: 0;
+				transition: opacity 0.3s ease 0s;
 			}
 
 			.fls-preloader__counter span {
@@ -1118,6 +1139,7 @@
 						preloader = document.querySelector('.fls-preloader'),
 						showPecentLoad = document.querySelector('.fls-preloader__counter'),
 						showLineLoad = document.querySelector('.fls-preloader__line span'),
+						spinnerPreloader = document.querySelector('.fls-preloader__images'),
 						htmlDocument = document.documentElement;
 
 					let imagesLoadedCount = counter = progress = 0;
@@ -1151,32 +1173,41 @@
 
 					function addLoadedClass() {
 
+
+						setTimeout(() => {
+							showPecentLoad.classList.add('load-hidden');
+						}, 300);
+						setTimeout(() => {
+							preloader.classList.add('load-hidden');
+						}, 600);
+						setTimeout(() => {
+							spinnerPreloader.classList.add('load-hidden');
+						}, 900);
+
 						setInterval(() => {
-							htmlDocument.classList.add('loaded');
+
 							htmlDocument.classList.remove('lock');
 							htmlDocument.classList.remove('loading');
+							htmlDocument.classList.add('loaded');
 
-
-						}, 300);
-						setInterval(() => {
 							preloader.remove();
 							preloaderContainer.remove();
 
-						}, 600);
+						}, 1000);
 					}
 				} else {
-					preloaderContainer.remove();
+					// preloaderContainer.remove();
 				}
 			}
 			preloader();
 		</script>
 	</div>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230424194907"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230424194907"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230424194907"></script> -->
-	<script src="files/lottie-player.js?_v=20230424194907"></script>
-	<script src="files/bodymovin.js?_v=20230424194907"></script>
-	<script src="js/app.min.js?_v=20230424194907"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230426120026"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230426120026"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230426120026"></script> -->
+	<script src="files/lottie-player.js?_v=20230426120026"></script>
+	<script src="files/bodymovin.js?_v=20230426120026"></script>
+	<script src="js/app.min.js?_v=20230426120026"></script>
 </body>
 
 </html>

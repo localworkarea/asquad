@@ -35,7 +35,10 @@ function resetInput() {
 //   document.querySelectorAll('form')[0].reset();
 // document.getElementById('formEmail').value = '';
 this.previousElementSibling.value = '';
-this.previousElementSibling.tagName = '';
+
+if(this.previousElementSibling.tagName == 'TEXTAREA'){
+    this.previousElementSibling.style.height = 'initial';
+}
   const formItems =  document.querySelectorAll('.form__item');
   formItems.forEach(item => {
     item.classList.remove('_show-reset-btn');
@@ -220,6 +223,15 @@ const optionsBlockText = new SplitType('.options__block-inf-txt', { types: 'line
 const customText = new SplitType('.custom__text-tablet', { types: 'lines'});
 const apiText = new SplitType('.api__text-split', { types: 'lines'});
 
+window.addEventListener("resize", function() {
+    focusText.split();
+    animTextTop.split();
+    animTextBtm.split();
+    manageBlockText.split();
+    optionsBlockText.split();
+    customText.split();
+    apiText.split();
+});
 
 
 
@@ -1788,3 +1800,31 @@ intlTelInput(input2, {
 
 
 // =============================================================================================================================================================================================================================
+    if (window.matchMedia("(max-width: 480px)").matches) {
+        const customBlockScroll = document.querySelector('.custom-first .custom__anim');
+        const optionsBlockScroll = document.querySelector('.options__btns');
+
+        if (customBlockScroll) {
+            customBlockScroll.style.justifyContent = 'flex-end';
+            setTimeout(() => {
+                customBlockScroll.style.justifyContent = 'normal';
+            }, 200);
+        }
+        if (optionsBlockScroll) {
+            optionsBlockScroll.style.justifyContent = 'center';
+            setTimeout(() => {
+                optionsBlockScroll.style.justifyContent = 'normal';
+            }, 200);
+        }
+    }
+
+
+
+    // == VERTICAL-HORIZONTAL SCROLL (API SECTION) ===================
+    var product__body = document.querySelector('.product__body');
+    product__body.addEventListener("mousewheel", function (event) {
+    if(event.wheelDelta > 0) product__body.scrollLeft -= 10; else  product__body.scrollLeft += 10;
+    
+    var maxScroll = product__body.scrollWidth - product__body.clientWidth;
+    if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
+    }, false);

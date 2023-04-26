@@ -70,6 +70,7 @@ opacity: 0;
 transition: opacity 0.5s ease 0s;
 .loaded & {
   opacity: 1;
+  transition-delay: 0.5s;
 }
 
   &._anim-main {
@@ -380,8 +381,11 @@ transition: opacity 0.5s ease 0s;
         position: fixed;
         top: 0;
         left: 0;
+        min-width: 100%;
         max-width: 100%;
         max-height: 100%;
+        min-height: 100%;
+        // width:-webkit-fill-available;
     }
 }
 
