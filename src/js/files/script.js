@@ -1822,8 +1822,8 @@ intlTelInput(input2, {
 
     // == VERTICAL-HORIZONTAL SCROLL (API SECTION) ===================
     var product__body = document.querySelector('.product__body');
-    product__body.addEventListener("mousewheel", function (event) {
-    if(event.wheelDelta > 0) product__body.scrollLeft -= 10; else  product__body.scrollLeft += 10;
+    product__body.addEventListener("wheel", function (event) {
+    if(event.wheelDelta > 0) product__body.scrollLeft -= 50; else  product__body.scrollLeft += 50;
     
     var maxScroll = product__body.scrollWidth - product__body.clientWidth;
     if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
