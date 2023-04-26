@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230426133539">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230426152321">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -857,7 +857,7 @@
 							</div>
 							<div class="form__item item-form-phone">
 								<label for="phone" class="form__label">Phone number</label>
-								<input id="phone" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone-1" data-error="Required field" class="form__input input-form-tel form-req">
+								<input id="phone" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone-1" data-error="Required field" class="form__input input-form-tel form-req" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -924,7 +924,7 @@
 							</div>
 							<div class="form__item item-form-phone">
 								<label for="phone_2" class="form__label">Phone number</label>
-								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
+								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -1202,12 +1202,12 @@
 			preloader();
 		</script>
 	</div>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230426133539"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230426133539"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230426133539"></script> -->
-	<script src="files/lottie-player.js?_v=20230426133539"></script>
-	<script src="files/bodymovin.js?_v=20230426133539"></script>
-	<script src="js/app.min.js?_v=20230426133539"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230426152321"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230426152321"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230426152321"></script> -->
+	<script src="files/lottie-player.js?_v=20230426152321"></script>
+	<script src="files/bodymovin.js?_v=20230426152321"></script>
+	<script src="js/app.min.js?_v=20230426152321"></script>
 </body>
 
 </html>

@@ -5739,6 +5739,20 @@
             preferredCountries: [ "ua", "us" ],
             separateDialCode: true
         });
+        let formNameInput = document.getElementById("formName");
+        formNameInput.addEventListener("keydown", (function(e) {
+            if (e.key.match(/[0-9]/)) return e.preventDefault();
+        }));
+        formNameInput.addEventListener("input", (function(e) {
+            formNameInput.value = formNameInput.value.replace(/[0-9]/g, "");
+        }));
+        let formNameInputOne = document.getElementById("formName-1");
+        formNameInputOne.addEventListener("keydown", (function(e) {
+            if (e.key.match(/[0-9]/)) return e.preventDefault();
+        }));
+        formNameInputOne.addEventListener("input", (function(e) {
+            formNameInputOne.value = formNameInputOne.value.replace(/[0-9]/g, "");
+        }));
         if (window.matchMedia("(max-width: 480px)").matches) {
             const customBlockScroll = document.querySelector(".custom-first .custom__anim");
             const optionsBlockScroll = document.querySelector(".options__btns");

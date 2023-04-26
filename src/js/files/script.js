@@ -1795,7 +1795,30 @@ intlTelInput(input2, {
 });
 
 
+// ВВод только слов/букв, кроме чисел =============================
+let formNameInput = document.getElementById("formName");
 
+formNameInput.addEventListener('keydown', function(e){
+  if( e.key.match(/[0-9]/) ) return e.preventDefault();
+}); // Будет перехватывать все числа при ручном вводе. 
+// Тажке нужна, чтобы replace не сбрасывал каретку, срабатывая каждый раз.
+
+formNameInput.addEventListener('input', function(e){
+  // На случай, если умудрились ввести через копипаст или авто-дополнение.
+  formNameInput.value = formNameInput.value.replace(/[0-9]/g, "");
+});
+
+
+
+let formNameInputOne = document.getElementById("formName-1");
+
+formNameInputOne.addEventListener('keydown', function(e){
+  if( e.key.match(/[0-9]/) ) return e.preventDefault();
+});
+
+formNameInputOne.addEventListener('input', function(e){
+  formNameInputOne.value = formNameInputOne.value.replace(/[0-9]/g, "");
+});
 
 
 

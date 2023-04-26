@@ -3872,45 +3872,20 @@
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 0 rem(120);
-
-    // old style
     position: relative;
-    // width: max-content;
-    // display: flex;
-    // column-gap: rem(271);
-    // margin: rem(0) rem(120);
     cursor: pointer;
    
     @media (max-width: 1366px) {
-      // column-gap: rem(31);
-      // margin: rem(0) rem(32);
       width: 1632px; // 1568+32+32
       padding: 0 rem(32);
     }
     @media (max-width:1024px){
-        // column-gap: rem(26);
         // для тач экранов
       overflow: unset;
     }
-    @media (max-width:$mobile){
-      //  column-gap: rem(137); 
-    }
-    // @media (max-width:$mobileSmall){
-    //    margin-top: rem(25);
-    //    margin-bottom: rem(80);
-    // }
     @media (max-width:$mobileXS ){
       width: rem(712);
       padding: 0 rem(16);
-      //  column-gap: rem(70); 
-      //  margin-top: rem(90);
-      //  margin-bottom: rem(15);
-      //  margin-left: rem(16);
-      //  margin-right: rem(16);
-    }
-    @media (max-width: 320px) {
-      // margin-top: rem(35);
-      // margin-bottom: 0;
     }
   }
 }
@@ -3944,9 +3919,6 @@
 
   &.slide-one {
     width: rem(542);
-    // @media (max-width: 1366px) {
-    //   width: rem(482);
-    // }
     @media (max-width: 768px) {
       width: rem(364);
     }
