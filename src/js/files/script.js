@@ -1194,8 +1194,9 @@ window.addEventListener("resize", function() {
             }, {
                 key: "_searchForCountry",
                 value: function _searchForCountry(query) {
+					console.log(query);
                     for (var i = 0; i < this.countries.length; i++) {
-                        if (this._startsWith(this.countries[i].name, query) || this._startsWith('+'+this.countries[i].dialCode, query)) {
+                        if (this._startsWith(this.countries[i].name, query.toLowerCase()) || this._startsWith(this.countries[i].dialCode, query.replace("+", ""))) {
                             var listItem = this.countryList.querySelector("#iti-".concat(this.id, "__item-").concat(this.countries[i].iso2));
                             // update highlighting and scroll
                             this._highlightListItem(listItem, false);
@@ -1454,7 +1455,7 @@ window.addEventListener("resize", function() {
                     var elementTop = element.getBoundingClientRect().top + windowTop;
                     var elementBottom = elementTop + elementHeight;
                     var newScrollTop = elementTop - containerTop + container.scrollTop;
-                    var middleOffset = containerHeight / 2 - elementHeight / 2;
+                    var middleOffset = containerHeight - elementHeight;
                     if (elementTop < containerTop) {
                         // scroll up
                         if (middle) {
@@ -1781,43 +1782,49 @@ window.addEventListener("resize", function() {
 
 const input = document.querySelector("#phone");
 intlTelInput(input, {
-//   placeholderNumberType: "MOBILE",
+    singleDialCode: false,
+    customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+      return "+"+selectedCountryData.dialCode+' ' + selectedCountryPlaceholder;
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
       preferredCountries: ['ua', 'us'],
-    //   preferredCountries: false,
-      separateDialCode: true,
 });
 const input2 = document.querySelector("#phone_2");
 intlTelInput(input2, {
-//   placeholderNumberType: "MOBILE",
+    singleDialCode: false,
+    customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+      return "+"+selectedCountryData.dialCode+' ' + selectedCountryPlaceholder;
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
   preferredCountries: ['ua', 'us'],
-//   preferredCountries: false,
-  separateDialCode: true,
 });
 
 
-// ВВод только слов/букв, кроме чисел =============================
+// ВВод только слов/букв, кроме чисел и клавиатурных символов =============================
 let formNameInput = document.getElementById("formName");
 
 formNameInput.addEventListener('keydown', function(e){
-  if( e.key.match(/[0-9]/) ) return e.preventDefault();
-}); // Будет перехватывать все числа при ручном вводе. 
-// Тажке нужна, чтобы replace не сбрасывал каретку, срабатывая каждый раз.
-
+  if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
+}); 
+formNameInput.addEventListener('input', function(e){
+    formNameInput.value = formNameInput.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+}); 
 formNameInput.addEventListener('input', function(e){
   // На случай, если умудрились ввести через копипаст или авто-дополнение.
-  formNameInput.value = formNameInput.value.replace(/[0-9]/g, "");
+  formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
 });
-
 
 
 let formNameInputOne = document.getElementById("formName-1");
 
 formNameInputOne.addEventListener('keydown', function(e){
-  if( e.key.match(/[0-9]/) ) return e.preventDefault();
+    if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
 });
-
 formNameInputOne.addEventListener('input', function(e){
-  formNameInputOne.value = formNameInputOne.value.replace(/[0-9]/g, "");
+    formNameInputOne.value = formNameInputOne.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+}); 
+formNameInputOne.addEventListener('input', function(e){
+    formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
 });
 
 

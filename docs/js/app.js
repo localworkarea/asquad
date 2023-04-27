@@ -5325,7 +5325,8 @@
                     }, {
                         key: "_searchForCountry",
                         value: function _searchForCountry(query) {
-                            for (var i = 0; i < this.countries.length; i++) if (this._startsWith(this.countries[i].name, query) || this._startsWith("+" + this.countries[i].dialCode, query)) {
+                            console.log(query);
+                            for (var i = 0; i < this.countries.length; i++) if (this._startsWith(this.countries[i].name, query.toLowerCase()) || this._startsWith(this.countries[i].dialCode, query.replace("+", ""))) {
                                 var listItem = this.countryList.querySelector("#iti-".concat(this.id, "__item-").concat(this.countries[i].iso2));
                                 this._highlightListItem(listItem, false);
                                 this._scrollTo(listItem, true);
@@ -5504,7 +5505,7 @@
                             var elementTop = element.getBoundingClientRect().top + windowTop;
                             var elementBottom = elementTop + elementHeight;
                             var newScrollTop = elementTop - containerTop + container.scrollTop;
-                            var middleOffset = containerHeight / 2 - elementHeight / 2;
+                            var middleOffset = containerHeight - elementHeight;
                             if (elementTop < containerTop) {
                                 if (middle) newScrollTop -= middleOffset;
                                 container.scrollTop = newScrollTop;
@@ -5731,27 +5732,41 @@
         }));
         const input = document.querySelector("#phone");
         intlTelInput(input, {
-            preferredCountries: [ "ua", "us" ],
-            separateDialCode: true
+            singleDialCode: false,
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                return "+" + selectedCountryData.dialCode + " " + selectedCountryPlaceholder;
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
+            preferredCountries: [ "ua", "us" ]
         });
         const input2 = document.querySelector("#phone_2");
         intlTelInput(input2, {
-            preferredCountries: [ "ua", "us" ],
-            separateDialCode: true
+            singleDialCode: false,
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                return "+" + selectedCountryData.dialCode + " " + selectedCountryPlaceholder;
+            },
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
+            preferredCountries: [ "ua", "us" ]
         });
         let formNameInput = document.getElementById("formName");
         formNameInput.addEventListener("keydown", (function(e) {
-            if (e.key.match(/[0-9]/)) return e.preventDefault();
+            if (e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/)) return e.preventDefault();
         }));
         formNameInput.addEventListener("input", (function(e) {
-            formNameInput.value = formNameInput.value.replace(/[0-9]/g, "");
+            formNameInput.value = formNameInput.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+        }));
+        formNameInput.addEventListener("input", (function(e) {
+            formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
         }));
         let formNameInputOne = document.getElementById("formName-1");
         formNameInputOne.addEventListener("keydown", (function(e) {
-            if (e.key.match(/[0-9]/)) return e.preventDefault();
+            if (e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/)) return e.preventDefault();
         }));
         formNameInputOne.addEventListener("input", (function(e) {
-            formNameInputOne.value = formNameInputOne.value.replace(/[0-9]/g, "");
+            formNameInputOne.value = formNameInputOne.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+        }));
+        formNameInputOne.addEventListener("input", (function(e) {
+            formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
         }));
         if (window.matchMedia("(max-width: 480px)").matches) {
             const customBlockScroll = document.querySelector(".custom-first .custom__anim");
