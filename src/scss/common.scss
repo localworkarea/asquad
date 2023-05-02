@@ -57,6 +57,13 @@
   }
 }
 
+.symbol-style {
+  font-family: Rosa ASQD;
+  @include adaptiveValue("font-size", 62, 46, 0, 1920, 1366);
+  @include adaptiveValue("font-size", 46, 26, 3, 768, 375);
+  line-height: 1.05;
+} 
+
 // HERO ANIMATION == section 1-3 =====================
 .image-anim {
 position: fixed;
@@ -541,7 +548,7 @@ transition: opacity 0.5s ease 0s;
     margin-right: 6px; }
   .iti--allow-dropdown input, .iti--allow-dropdown input[type=text], .iti--allow-dropdown input[type=tel], .iti--separate-dial-code input, .iti--separate-dial-code input[type=text], .iti--separate-dial-code input[type=tel] {
     padding-right: 6px;
-    padding-left: 52px;
+    padding-left: 34px;
     margin-left: 0; }
   .iti--allow-dropdown .iti__flag-container, .iti--separate-dial-code .iti__flag-container {
     right: auto;
@@ -599,1250 +606,1250 @@ transition: opacity 0.5s ease 0s;
 
   .iti__flag.iti__ar {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10px -10px;
+    background: url('../img/flags/css_sprites.svg') -10px -10px;
 }
 
 .iti__flag.iti__am {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -94px -10px;
+    background: url('../img/flags/css_sprites.svg') -94px -10px;
 }
 
 .iti__flag.iti__aw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -178px -10px;
+    background: url('../img/flags/css_sprites.svg ') -178px -10px;
 }
 
 .iti__flag.iti__au {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -262px -10px;
+    background: url('../img/flags/css_sprites.svg') -262px -10px;
 }
 
 .iti__flag.iti__at {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -346px -10px;
+    background: url('../img/flags/css_sprites.svg') -346px -10px;
 }
 
 .iti__flag.iti__az {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -430px -10px;
+    background: url('../img/flags/css_sprites.svg') -430px -10px;
 }
 
 .iti__flag.iti__azores_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -514px -10px;
+    background: url('../img/flags/css_sprites.svg') -514px -10px;
 }
 
 .iti__flag.iti__bs {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -598px -10px;
+    background: url('../img/flags/css_sprites.svg') -598px -10px;
 }
 
 .iti__flag.iti__bh {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -682px -10px;
+    background: url('../img/flags/css_sprites.svg') -682px -10px;
 }
 
 .iti__flag.iti__balearic_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -766px -10px;
+    background: url('../img/flags/css_sprites.svg') -766px -10px;
 }
 
 .iti__flag.iti__bd {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -850px -10px;
+    background: url('../img/flags/css_sprites.svg') -850px -10px;
 }
 
 .iti__flag.iti__bb {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -934px -10px;
+    background: url('../img/flags/css_sprites.svg') -934px -10px;
 }
 
 .iti__flag.iti__basque_country {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1018px -10px;
+    background: url('../img/flags/css_sprites.svg') -1018px -10px;
 }
 
 .iti__flag.iti__by {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1102px -10px;
+    background: url('../img/flags/css_sprites.svg') -1102px -10px;
 }
 
 .iti__flag.iti__be {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1186px -10px;
+    background: url('../img/flags/css_sprites.svg') -1186px -10px;
 }
 
 .iti__flag.iti__bz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1270px -10px;
+    background: url('../img/flags/css_sprites.svg') -1270px -10px;
 }
 
 .iti__flag.iti__bj {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1354px -10px;
+    background: url('../img/flags/css_sprites.svg') -1354px -10px;
 }
 
 .iti__flag.iti__bm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1438px -10px;
+    background: url('../img/flags/css_sprites.svg') -1438px -10px;
 }
 
 .iti__flag.iti__bt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1522px -10px;
+    background: url('../img/flags/css_sprites.svg') -1522px -10px;
 }
 
 .iti__flag.iti__bt_1 {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1606px -10px;
+    background: url('../img/flags/css_sprites.svg') -1606px -10px;
 }
 
 .iti__flag.iti__bo {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1690px -10px;
+    background: url('../img/flags/css_sprites.svg') -1690px -10px;
 }
 
 .iti__flag.iti__bonaire {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1774px -10px;
+    background: url('../img/flags/css_sprites.svg') -1774px -10px;
 }
 
 .iti__flag.iti__ba {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1858px -10px;
+    background: url('../img/flags/css_sprites.svg') -1858px -10px;
 }
 
 .iti__flag.iti__bw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -1942px -10px;
+    background: url('../img/flags/css_sprites.svg') -1942px -10px;
 }
 
 .iti__flag.iti__br {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2026px -10px;
+    background: url('../img/flags/css_sprites.svg') -2026px -10px;
 }
 
 .iti__flag.iti__british_columbia {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2110px -10px;
+    background: url('../img/flags/css_sprites.svg') -2110px -10px;
 }
 
 .iti__flag.iti__io {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2194px -10px;
+    background: url('../img/flags/css_sprites.svg') -2194px -10px;
 }
 
 .iti__flag.iti__vg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2278px -10px;
+    background: url('../img/flags/css_sprites.svg') -2278px -10px;
 }
 
 .iti__flag.iti__bn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2362px -10px;
+    background: url('../img/flags/css_sprites.svg') -2362px -10px;
 }
 
 .iti__flag.iti__bg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2446px -10px;
+    background: url('../img/flags/css_sprites.svg') -2446px -10px;
 }
 
 .iti__flag.iti__bf {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2530px -10px;
+    background: url('../img/flags/css_sprites.svg') -2530px -10px;
 }
 
 .iti__flag.iti__bi {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2614px -10px;
+    background: url('../img/flags/css_sprites.svg') -2614px -10px;
 }
 
 .iti__flag.iti__kh {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2698px -10px;
+    background: url('../img/flags/css_sprites.svg') -2698px -10px;
 }
 
 .iti__flag.iti__cm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2782px -10px;
+    background: url('../img/flags/css_sprites.svg') -2782px -10px;
 }
 
 .iti__flag.iti__ca {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2866px -10px;
+    background: url('../img/flags/css_sprites.svg') -2866px -10px;
 }
 
 .iti__flag.iti__canary_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -2950px -10px;
+    background: url('../img/flags/css_sprites.svg') -2950px -10px;
 }
 
 .iti__flag.iti__cv {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3034px -10px;
+    background: url('../img/flags/css_sprites.svg') -3034px -10px;
 }
 
 .iti__flag.iti__ky {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3118px -10px;
+    background: url('../img/flags/css_sprites.svg') -3118px -10px;
 }
 
 .iti__flag.iti__cf {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3202px -10px;
+    background: url('../img/flags/css_sprites.svg') -3202px -10px;
 }
 
 .iti__flag.iti__ceuta {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3286px -10px;
+    background: url('../img/flags/css_sprites.svg') -3286px -10px;
 }
 
 .iti__flag.iti__td {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3370px -10px;
+    background: url('../img/flags/css_sprites.svg') -3370px -10px;
 }
 
 .iti__flag.iti__cl {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3454px -10px;
+    background: url('../img/flags/css_sprites.svg') -3454px -10px;
 }
 
 .iti__flag.iti__cn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3538px -10px;
+    background: url('../img/flags/css_sprites.svg') -3538px -10px;
 }
 
 .iti__flag.iti__cx {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3622px -10px;
+    background: url('../img/flags/css_sprites.svg') -3622px -10px;
 }
 
 .iti__flag.iti__cocos_island {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3706px -10px;
+    background: url('../img/flags/css_sprites.svg') -3706px -10px;
 }
 
 .iti__flag.iti__co {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3790px -10px;
+    background: url('../img/flags/css_sprites.svg') -3790px -10px;
 }
 
 .iti__flag.iti__km {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3874px -10px;
+    background: url('../img/flags/css_sprites.svg') -3874px -10px;
 }
 
 .iti__flag.iti__ck {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -3958px -10px;
+    background: url('../img/flags/css_sprites.svg') -3958px -10px;
 }
 
 .iti__flag.iti__corsica {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4042px -10px;
+    background: url('../img/flags/css_sprites.svg') -4042px -10px;
 }
 
 .iti__flag.iti__cr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4126px -10px;
+    background: url('../img/flags/css_sprites.svg') -4126px -10px;
 }
 
 .iti__flag.iti__hr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4210px -10px;
+    background: url('../img/flags/css_sprites.svg') -4210px -10px;
 }
 
 .iti__flag.iti__cu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4294px -10px;
+    background: url('../img/flags/css_sprites.svg') -4294px -10px;
 }
 
 .iti__flag.iti__curacao {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4378px -10px;
+    background: url('../img/flags/css_sprites.svg') -4378px -10px;
 }
 
 .iti__flag.iti__cyprus {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4462px -10px;
+    background: url('../img/flags/css_sprites.svg') -4462px -10px;
 }
 
 .iti__flag.iti__cz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4546px -10px;
+    background: url('../img/flags/css_sprites.svg') -4546px -10px;
 }
 
 .iti__flag.iti__democratic_republic_of_congo {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4630px -10px;
+    background: url('../img/flags/css_sprites.svg') -4630px -10px;
 }
 
 .iti__flag.iti__dk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4714px -10px;
+    background: url('../img/flags/css_sprites.svg') -4714px -10px;
 }
 
 .iti__flag.iti__dj {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4798px -10px;
+    background: url('../img/flags/css_sprites.svg') -4798px -10px;
 }
 
 .iti__flag.iti__dm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4882px -10px;
+    background: url('../img/flags/css_sprites.svg') -4882px -10px;
 }
 
 .iti__flag.iti__dmn_republic {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -4966px -10px;
+    background: url('../img/flags/css_sprites.svg') -4966px -10px;
 }
 
 .iti__flag.iti__east_timor {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5050px -10px;
+    background: url('../img/flags/css_sprites.svg') -5050px -10px;
 }
 
 .iti__flag.iti__ec {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5134px -10px;
+    background: url('../img/flags/css_sprites.svg') -5134px -10px;
 }
 
 .iti__flag.iti__eg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5218px -10px;
+    background: url('../img/flags/css_sprites.svg') -5218px -10px;
 }
 
 .iti__flag.iti__england {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5302px -10px;
+    background: url('../img/flags/css_sprites.svg') -5302px -10px;
 }
 
 .iti__flag.iti__gq {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5386px -10px;
+    background: url('../img/flags/css_sprites.svg') -5386px -10px;
 }
 
 .iti__flag.iti__er {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5470px -10px;
+    background: url('../img/flags/css_sprites.svg') -5470px -10px;
 }
 
 .iti__flag.iti__ee {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5554px -10px;
+    background: url('../img/flags/css_sprites.svg') -5554px -10px;
 }
 
 .iti__flag.iti__et {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5638px -10px;
+    background: url('../img/flags/css_sprites.svg') -5638px -10px;
 }
 
 .iti__flag.iti__european_union {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5722px -10px;
+    background: url('../img/flags/css_sprites.svg') -5722px -10px;
 }
 
 .iti__flag.iti__fk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5806px -10px;
+    background: url('../img/flags/css_sprites.svg') -5806px -10px;
 }
 
 .iti__flag.iti__fo {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5890px -10px;
+    background: url('../img/flags/css_sprites.svg') -5890px -10px;
 }
 
 .iti__flag.iti__fj {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -5974px -10px;
+    background: url('../img/flags/css_sprites.svg') -5974px -10px;
 }
 
 .iti__flag.iti__fi {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6058px -10px;
+    background: url('../img/flags/css_sprites.svg') -6058px -10px;
 }
 
 .iti__flag.iti__fr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6142px -10px;
+    background: url('../img/flags/css_sprites.svg') -6142px -10px;
 }
 
 .iti__flag.iti__pf {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6226px -10px;
+    background: url('../img/flags/css_sprites.svg') -6226px -10px;
 }
 
 .iti__flag.iti__ga {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6310px -10px;
+    background: url('../img/flags/css_sprites.svg') -6310px -10px;
 }
 
 .iti__flag.iti__galapagos_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6394px -10px;
+    background: url('../img/flags/css_sprites.svg') -6394px -10px;
 }
 
 .iti__flag.iti__gm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6478px -10px;
+    background: url('../img/flags/css_sprites.svg') -6478px -10px;
 }
 
 .iti__flag.iti__ge {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6562px -10px;
+    background: url('../img/flags/css_sprites.svg') -6562px -10px;
 }
 
 .iti__flag.iti__gh {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6646px -10px;
+    background: url('../img/flags/css_sprites.svg') -6646px -10px;
 }
 
 .iti__flag.iti__de {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6730px -10px;
+    background: url('../img/flags/css_sprites.svg') -6730px -10px;
 }
 
 .iti__flag.iti__gi {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6814px -10px;
+    background: url('../img/flags/css_sprites.svg') -6814px -10px;
 }
 
 .iti__flag.iti__gr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6898px -10px;
+    background: url('../img/flags/css_sprites.svg') -6898px -10px;
 }
 
 .iti__flag.iti__gl {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -6982px -10px;
+    background: url('../img/flags/css_sprites.svg') -6982px -10px;
 }
 
 .iti__flag.iti__gd {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7066px -10px;
+    background: url('../img/flags/css_sprites.svg') -7066px -10px;
 }
 
 .iti__flag.iti__gu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7150px -10px;
+    background: url('../img/flags/css_sprites.svg') -7150px -10px;
 }
 
 .iti__flag.iti__gt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7234px -10px;
+    background: url('../img/flags/css_sprites.svg') -7234px -10px;
 }
 
 .iti__flag.iti__gg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7318px -10px;
+    background: url('../img/flags/css_sprites.svg') -7318px -10px;
 }
 
 .iti__flag.iti__gn_bissau {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7402px -10px;
+    background: url('../img/flags/css_sprites.svg') -7402px -10px;
 }
 
 .iti__flag.iti__gn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7486px -10px;
+    background: url('../img/flags/css_sprites.svg') -7486px -10px;
 }
 
 .iti__flag.iti__gy {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7570px -10px;
+    background: url('../img/flags/css_sprites.svg') -7570px -10px;
 }
 
 .iti__flag.iti__ht {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7654px -10px;
+    background: url('../img/flags/css_sprites.svg') -7654px -10px;
 }
 
 .iti__flag.iti__hawaii {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7738px -10px;
+    background: url('../img/flags/css_sprites.svg') -7738px -10px;
 }
 
 .iti__flag.iti__hn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7822px -10px;
+    background: url('../img/flags/css_sprites.svg') -7822px -10px;
 }
 
 .iti__flag.iti__hu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7906px -10px;
+    background: url('../img/flags/css_sprites.svg') -7906px -10px;
 }
 
 .iti__flag.iti__hk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -7990px -10px;
+    background: url('../img/flags/css_sprites.svg') -7990px -10px;
 }
 
 .iti__flag.iti__is {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8074px -10px;
+    background: url('../img/flags/css_sprites.svg') -8074px -10px;
 }
 
 .iti__flag.iti__in {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8158px -10px;
+    background: url('../img/flags/css_sprites.svg') -8158px -10px;
 }
 
 .iti__flag.iti__id {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8242px -10px;
+    background: url('../img/flags/css_sprites.svg') -8242px -10px;
 }
 
 .iti__flag.iti__ir {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8326px -10px;
+    background: url('../img/flags/css_sprites.svg') -8326px -10px;
 }
 
 .iti__flag.iti__iq {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8410px -10px;
+    background: url('../img/flags/css_sprites.svg') -8410px -10px;
 }
 
 .iti__flag.iti__ie {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8494px -10px;
+    background: url('../img/flags/css_sprites.svg') -8494px -10px;
 }
 
 .iti__flag.iti__im {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8578px -10px;
+    background: url('../img/flags/css_sprites.svg') -8578px -10px;
 }
 
 .iti__flag.iti__il {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8662px -10px;
+    background: url('../img/flags/css_sprites.svg') -8662px -10px;
 }
 
 .iti__flag.iti__it {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8746px -10px;
+    background: url('../img/flags/css_sprites.svg') -8746px -10px;
 }
 
 .iti__flag.iti__ivory_coast {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8830px -10px;
+    background: url('../img/flags/css_sprites.svg') -8830px -10px;
 }
 
 .iti__flag.iti__jm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8914px -10px;
+    background: url('../img/flags/css_sprites.svg') -8914px -10px;
 }
 
 .iti__flag.iti__jp {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -8998px -10px;
+    background: url('../img/flags/css_sprites.svg') -8998px -10px;
 }
 
 .iti__flag.iti__je {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9082px -10px;
+    background: url('../img/flags/css_sprites.svg') -9082px -10px;
 }
 
 .iti__flag.iti__jo {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9166px -10px;
+    background: url('../img/flags/css_sprites.svg') -9166px -10px;
 }
 
 .iti__flag.iti__kz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9250px -10px;
+    background: url('../img/flags/css_sprites.svg') -9250px -10px;
 }
 
 .iti__flag.iti__ke {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9334px -10px;
+    background: url('../img/flags/css_sprites.svg') -9334px -10px;
 }
 
 .iti__flag.iti__ki {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9418px -10px;
+    background: url('../img/flags/css_sprites.svg') -9418px -10px;
 }
 
 .iti__flag.iti__xk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9502px -10px;
+    background: url('../img/flags/css_sprites.svg') -9502px -10px;
 }
 
 .iti__flag.iti__kw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9586px -10px;
+    background: url('../img/flags/css_sprites.svg') -9586px -10px;
 }
 
 .iti__flag.iti__kg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9670px -10px;
+    background: url('../img/flags/css_sprites.svg') -9670px -10px;
 }
 
 .iti__flag.iti__la {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9754px -10px;
+    background: url('../img/flags/css_sprites.svg') -9754px -10px;
 }
 
 .iti__flag.iti__lv {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9838px -10px;
+    background: url('../img/flags/css_sprites.svg') -9838px -10px;
 }
 
 .iti__flag.iti__lb {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -9922px -10px;
+    background: url('../img/flags/css_sprites.svg') -9922px -10px;
 }
 
 .iti__flag.iti__ls {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10006px -10px;
+    background: url('../img/flags/css_sprites.svg') -10006px -10px;
 }
 
 .iti__flag.iti__lr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10090px -10px;
+    background: url('../img/flags/css_sprites.svg') -10090px -10px;
 }
 
 .iti__flag.iti__ly {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10174px -10px;
+    background: url('../img/flags/css_sprites.svg') -10174px -10px;
 }
 
 .iti__flag.iti__li {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10258px -10px;
+    background: url('../img/flags/css_sprites.svg') -10258px -10px;
 }
 
 .iti__flag.iti__lt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10342px -10px;
+    background: url('../img/flags/css_sprites.svg') -10342px -10px;
 }
 
 .iti__flag.iti__lu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10426px -10px;
+    background: url('../img/flags/css_sprites.svg') -10426px -10px;
 }
 
 .iti__flag.iti__macao {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10510px -10px;
+    background: url('../img/flags/css_sprites.svg') -10510px -10px;
 }
 
 .iti__flag.iti__mg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10594px -10px;
+    background: url('../img/flags/css_sprites.svg') -10594px -10px;
 }
 
 .iti__flag.iti__madeira {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10678px -10px;
+    background: url('../img/flags/css_sprites.svg') -10678px -10px;
 }
 
 .iti__flag.iti__mw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10762px -10px;
+    background: url('../img/flags/css_sprites.svg') -10762px -10px;
 }
 
 .iti__flag.iti__my {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10846px -10px;
+    background: url('../img/flags/css_sprites.svg') -10846px -10px;
 }
 
 .iti__flag.iti__mv {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -10930px -10px;
+    background: url('../img/flags/css_sprites.svg') -10930px -10px;
 }
 
 .iti__flag.iti__ml {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11014px -10px;
+    background: url('../img/flags/css_sprites.svg') -11014px -10px;
 }
 
 .iti__flag.iti__mt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11098px -10px;
+    background: url('../img/flags/css_sprites.svg') -11098px -10px;
 }
 
 .iti__flag.iti__mh {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11182px -10px;
+    background: url('../img/flags/css_sprites.svg') -11182px -10px;
 }
 
 .iti__flag.iti__mq {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11266px -10px;
+    background: url('../img/flags/css_sprites.svg') -11266px -10px;
 }
 
 .iti__flag.iti__mr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11350px -10px;
+    background: url('../img/flags/css_sprites.svg') -11350px -10px;
 }
 
 .iti__flag.iti__mu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11434px -10px;
+    background: url('../img/flags/css_sprites.svg') -11434px -10px;
 }
 
 .iti__flag.iti__melilla {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11518px -10px;
+    background: url('../img/flags/css_sprites.svg') -11518px -10px;
 }
 
 .iti__flag.iti__mx {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11602px -10px;
+    background: url('../img/flags/css_sprites.svg') -11602px -10px;
 }
 
 .iti__flag.iti__fm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11686px -10px;
+    background: url('../img/flags/css_sprites.svg') -11686px -10px;
 }
 
 .iti__flag.iti__md {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11770px -10px;
+    background: url('../img/flags/css_sprites.svg') -11770px -10px;
 }
 
 .iti__flag.iti__mc {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11854px -10px;
+    background: url('../img/flags/css_sprites.svg') -11854px -10px;
 }
 
 .iti__flag.iti__mn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -11938px -10px;
+    background: url('../img/flags/css_sprites.svg') -11938px -10px;
 }
 
 .iti__flag.iti__me {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12022px -10px;
+    background: url('../img/flags/css_sprites.svg') -12022px -10px;
 }
 
 .iti__flag.iti__ms {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12106px -10px;
+    background: url('../img/flags/css_sprites.svg') -12106px -10px;
 }
 
 .iti__flag.iti__ma {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12190px -10px;
+    background: url('../img/flags/css_sprites.svg') -12190px -10px;
 }
 
 .iti__flag.iti__mz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12274px -10px;
+    background: url('../img/flags/css_sprites.svg') -12274px -10px;
 }
 
 .iti__flag.iti__mm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12358px -10px;
+    background: url('../img/flags/css_sprites.svg') -12358px -10px;
 }
 
 .iti__flag.iti__na {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12442px -10px;
+    background: url('../img/flags/css_sprites.svg') -12442px -10px;
 }
 
 .iti__flag.iti__nato {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12526px -10px;
+    background: url('../img/flags/css_sprites.svg') -12526px -10px;
 }
 
 .iti__flag.iti__nr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12610px -10px;
+    background: url('../img/flags/css_sprites.svg') -12610px -10px;
 }
 
 .iti__flag.iti__np {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12694px -10px;
+    background: url('../img/flags/css_sprites.svg') -12694px -10px;
 }
 
 .iti__flag.iti__nl {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12778px -10px;
+    background: url('../img/flags/css_sprites.svg') -12778px -10px;
 }
 
 .iti__flag.iti__nz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12862px -10px;
+    background: url('../img/flags/css_sprites.svg') -12862px -10px;
 }
 
 .iti__flag.iti__ni {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -12946px -10px;
+    background: url('../img/flags/css_sprites.svg') -12946px -10px;
 }
 
 .iti__flag.iti__ne {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13030px -10px;
+    background: url('../img/flags/css_sprites.svg') -13030px -10px;
 }
 
 .iti__flag.iti__ng {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13114px -10px;
+    background: url('../img/flags/css_sprites.svg') -13114px -10px;
 }
 
 .iti__flag.iti__nu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13198px -10px;
+    background: url('../img/flags/css_sprites.svg') -13198px -10px;
 }
 
 .iti__flag.iti__nf {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13282px -10px;
+    background: url('../img/flags/css_sprites.svg') -13282px -10px;
 }
 
 .iti__flag.iti__northen_cyprus {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13366px -10px;
+    background: url('../img/flags/css_sprites.svg') -13366px -10px;
 }
 
 .iti__flag.iti__mp {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13450px -10px;
+    background: url('../img/flags/css_sprites.svg') -13450px -10px;
 }
 
 .iti__flag.iti__kp {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13534px -10px;
+    background: url('../img/flags/css_sprites.svg') -13534px -10px;
 }
 
 .iti__flag.iti__no {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13618px -10px;
+    background: url('../img/flags/css_sprites.svg') -13618px -10px;
 }
 
 .iti__flag.iti__om {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13702px -10px;
+    background: url('../img/flags/css_sprites.svg') -13702px -10px;
 }
 
 .iti__flag.iti__orkney_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13786px -10px;
+    background: url('../img/flags/css_sprites.svg') -13786px -10px;
 }
 
 .iti__flag.iti__ossetia {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13870px -10px;
+    background: url('../img/flags/css_sprites.svg') -13870px -10px;
 }
 
 .iti__flag.iti__pk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -13954px -10px;
+    background: url('../img/flags/css_sprites.svg') -13954px -10px;
 }
 
 .iti__flag.iti__pw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14038px -10px;
+    background: url('../img/flags/css_sprites.svg') -14038px -10px;
 }
 
 .iti__flag.iti__ps {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14122px -10px;
+    background: url('../img/flags/css_sprites.svg') -14122px -10px;
 }
 
 .iti__flag.iti__pa {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14206px -10px;
+    background: url('../img/flags/css_sprites.svg') -14206px -10px;
 }
 
 .iti__flag.iti__pg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14290px -10px;
+    background: url('../img/flags/css_sprites.svg') -14290px -10px;
 }
 
 .iti__flag.iti__py {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14374px -10px;
+    background: url('../img/flags/css_sprites.svg') -14374px -10px;
 }
 
 .iti__flag.iti__pe {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14458px -10px;
+    background: url('../img/flags/css_sprites.svg') -14458px -10px;
 }
 
 .iti__flag.iti__ph {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14542px -10px;
+    background: url('../img/flags/css_sprites.svg') -14542px -10px;
 }
 
 .iti__flag.iti__pitcairn_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14626px -10px;
+    background: url('../img/flags/css_sprites.svg') -14626px -10px;
 }
 
 .iti__flag.iti__pt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14710px -10px;
+    background: url('../img/flags/css_sprites.svg') -14710px -10px;
 }
 
 .iti__flag.iti__pr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14794px -10px;
+    background: url('../img/flags/css_sprites.svg') -14794px -10px;
 }
 
 .iti__flag.iti__qa {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14878px -10px;
+    background: url('../img/flags/css_sprites.svg') -14878px -10px;
 }
 
 .iti__flag.iti__rapa_nui {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -14962px -10px;
+    background: url('../img/flags/css_sprites.svg') -14962px -10px;
 }
 
 .iti__flag.iti__republic_of_macedonia {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15046px -10px;
+    background: url('../img/flags/css_sprites.svg') -15046px -10px;
 }
 
 .iti__flag.iti__republic_of_pl {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15130px -10px;
+    background: url('../img/flags/css_sprites.svg') -15130px -10px;
 }
 
 .iti__flag.iti__republic_of_the_congo {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15214px -10px;
+    background: url('../img/flags/css_sprites.svg') -15214px -10px;
 }
 
 .iti__flag.iti__ro {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15298px -10px;
+    background: url('../img/flags/css_sprites.svg') -15298px -10px;
 }
 
 .iti__flag.iti__ru {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15382px -10px;
+    background: url('../img/flags/css_sprites.svg') -15382px -10px;
 }
 
 .iti__flag.iti__rw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15466px -10px;
+    background: url('../img/flags/css_sprites.svg') -15466px -10px;
 }
 
 .iti__flag.iti__saba_island {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15550px -10px;
+    background: url('../img/flags/css_sprites.svg') -15550px -10px;
 }
 
 .iti__flag.iti__kn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15634px -10px;
+    background: url('../img/flags/css_sprites.svg') -15634px -10px;
 }
 
 .iti__flag.iti__salvador {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15718px -10px;
+    background: url('../img/flags/css_sprites.svg') -15718px -10px;
 }
 
 .iti__flag.iti__ws {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15802px -10px;
+    background: url('../img/flags/css_sprites.svg') -15802px -10px;
 }
 
 .iti__flag.iti__sm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15886px -10px;
+    background: url('../img/flags/css_sprites.svg') -15886px -10px;
 }
 
 .iti__flag.iti__st {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -15970px -10px;
+    background: url('../img/flags/css_sprites.svg') -15970px -10px;
 }
 
 .iti__flag.iti__sardinia {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16054px -10px;
+    background: url('../img/flags/css_sprites.svg') -16054px -10px;
 }
 
 .iti__flag.iti__sa {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16138px -10px;
+    background: url('../img/flags/css_sprites.svg') -16138px -10px;
 }
 
 .iti__flag.iti__scotland {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16222px -10px;
+    background: url('../img/flags/css_sprites.svg') -16222px -10px;
 }
 
 .iti__flag.iti__sn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16306px -10px;
+    background: url('../img/flags/css_sprites.svg') -16306px -10px;
 }
 
 .iti__flag.iti__rs {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16390px -10px;
+    background: url('../img/flags/css_sprites.svg') -16390px -10px;
 }
 
 .iti__flag.iti__sc {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16474px -10px;
+    background: url('../img/flags/css_sprites.svg') -16474px -10px;
 }
 
 .iti__flag.iti__sl {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16558px -10px;
+    background: url('../img/flags/css_sprites.svg') -16558px -10px;
 }
 
 .iti__flag.iti__sg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16642px -10px;
+    background: url('../img/flags/css_sprites.svg') -16642px -10px;
 }
 
 .iti__flag.iti__sint_eustatius {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16726px -10px;
+    background: url('../img/flags/css_sprites.svg') -16726px -10px;
 }
 
 .iti__flag.iti__sx {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16810px -10px;
+    background: url('../img/flags/css_sprites.svg') -16810px -10px;
 }
 
 .iti__flag.iti__sk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16894px -10px;
+    background: url('../img/flags/css_sprites.svg') -16894px -10px;
 }
 
 .iti__flag.iti__si {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -16978px -10px;
+    background: url('../img/flags/css_sprites.svg') -16978px -10px;
 }
 
 .iti__flag.iti__sb {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17062px -10px;
+    background: url('../img/flags/css_sprites.svg') -17062px -10px;
 }
 
 .iti__flag.iti__so {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17146px -10px;
+    background: url('../img/flags/css_sprites.svg') -17146px -10px;
 }
 
 .iti__flag.iti__somlland {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17230px -10px;
+    background: url('../img/flags/css_sprites.svg') -17230px -10px;
 }
 
 .iti__flag.iti__za {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17314px -10px;
+    background: url('../img/flags/css_sprites.svg') -17314px -10px;
 }
 
 .iti__flag.iti__kr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17398px -10px;
+    background: url('../img/flags/css_sprites.svg') -17398px -10px;
 }
 
 .iti__flag.iti__ss {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17482px -10px;
+    background: url('../img/flags/css_sprites.svg') -17482px -10px;
 }
 
 .iti__flag.iti__es {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17566px -10px;
+    background: url('../img/flags/css_sprites.svg') -17566px -10px;
 }
 
 .iti__flag.iti__lk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17650px -10px;
+    background: url('../img/flags/css_sprites.svg') -17650px -10px;
 }
 
 .iti__flag.iti__st_barts {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17734px -10px;
+    background: url('../img/flags/css_sprites.svg') -17734px -10px;
 }
 
 .iti__flag.iti__st_lucia {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17818px -10px;
+    background: url('../img/flags/css_sprites.svg') -17818px -10px;
 }
 
 .iti__flag.iti__st_vincent_and_the_grenadines {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17902px -10px;
+    background: url('../img/flags/css_sprites.svg') -17902px -10px;
 }
 
 .iti__flag.iti__sd {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -17986px -10px;
+    background: url('../img/flags/css_sprites.svg') -17986px -10px;
 }
 
 .iti__flag.iti__sr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18070px -10px;
+    background: url('../img/flags/css_sprites.svg') -18070px -10px;
 }
 
 .iti__flag.iti__swaziland {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18154px -10px;
+    background: url('../img/flags/css_sprites.svg') -18154px -10px;
 }
 
 .iti__flag.iti__se {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18238px -10px;
+    background: url('../img/flags/css_sprites.svg') -18238px -10px;
 }
 
 .iti__flag.iti__ch {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18322px -10px;
+    background: url('../img/flags/css_sprites.svg') -18322px -10px;
 }
 
 .iti__flag.iti__sy {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18406px -10px;
+    background: url('../img/flags/css_sprites.svg') -18406px -10px;
 }
 
 .iti__flag.iti__tw {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18490px -10px;
+    background: url('../img/flags/css_sprites.svg') -18490px -10px;
 }
 
 .iti__flag.iti__tj {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18574px -10px;
+    background: url('../img/flags/css_sprites.svg') -18574px -10px;
 }
 
 .iti__flag.iti__tz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18658px -10px;
+    background: url('../img/flags/css_sprites.svg') -18658px -10px;
 }
 
 .iti__flag.iti__th {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18742px -10px;
+    background: url('../img/flags/css_sprites.svg') -18742px -10px;
 }
 
 .iti__flag.iti__tibet {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18826px -10px;
+    background: url('../img/flags/css_sprites.svg') -18826px -10px;
 }
 
 .iti__flag.iti__tg {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18910px -10px;
+    background: url('../img/flags/css_sprites.svg') -18910px -10px;
 }
 
 .iti__flag.iti__tk {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -18994px -10px;
+    background: url('../img/flags/css_sprites.svg') -18994px -10px;
 }
 
 .iti__flag.iti__to {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19078px -10px;
+    background: url('../img/flags/css_sprites.svg') -19078px -10px;
 }
 
 .iti__flag.iti__transnistria {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19162px -10px;
+    background: url('../img/flags/css_sprites.svg') -19162px -10px;
 }
 
 .iti__flag.iti__tt {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19246px -10px;
+    background: url('../img/flags/css_sprites.svg') -19246px -10px;
 }
 
 .iti__flag.iti__tn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19330px -10px;
+    background: url('../img/flags/css_sprites.svg') -19330px -10px;
 }
 
 .iti__flag.iti__tr {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19414px -10px;
+    background: url('../img/flags/css_sprites.svg') -19414px -10px;
 }
 
 .iti__flag.iti__tm {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19498px -10px;
+    background: url('../img/flags/css_sprites.svg') -19498px -10px;
 }
 
 .iti__flag.iti__tc {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19582px -10px;
+    background: url('../img/flags/css_sprites.svg') -19582px -10px;
 }
 
 .iti__flag.iti__tv {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19666px -10px;
+    background: url('../img/flags/css_sprites.svg') -19666px -10px;
 }
 
 .iti__flag.iti__ug {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19750px -10px;
+    background: url('../img/flags/css_sprites.svg') -19750px -10px;
 }
 
 .iti__flag.iti__ua {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19834px -10px;
+    background: url('../img/flags/css_sprites.svg') -19834px -10px;
 }
 
 .iti__flag.iti__ae {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -19918px -10px;
+    background: url('../img/flags/css_sprites.svg') -19918px -10px;
 }
 
 .iti__flag.iti__gb {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20002px -10px;
+    background: url('../img/flags/css_sprites.svg') -20002px -10px;
 }
 
 .iti__flag.iti__united_nations {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20086px -10px;
+    background: url('../img/flags/css_sprites.svg') -20086px -10px;
 }
 
 .iti__flag.iti__us {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20170px -10px;
+    background: url('../img/flags/css_sprites.svg') -20170px -10px;
 }
 
 .iti__flag.iti__uy {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20254px -10px;
+    background: url('../img/flags/css_sprites.svg') -20254px -10px;
 }
 
 .iti__flag.iti__uz {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20338px -10px;
+    background: url('../img/flags/css_sprites.svg') -20338px -10px;
 }
 
 .iti__flag.iti__vu {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20422px -10px;
+    background: url('../img/flags/css_sprites.svg') -20422px -10px;
 }
 
 .iti__flag.iti__va {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20506px -10px;
+    background: url('../img/flags/css_sprites.svg') -20506px -10px;
 }
 
 .iti__flag.iti__ve {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20590px -10px;
+    background: url('../img/flags/css_sprites.svg') -20590px -10px;
 }
 
 .iti__flag.iti__vn {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20674px -10px;
+    background: url('../img/flags/css_sprites.svg') -20674px -10px;
 }
 
 .iti__flag.iti__virgin_islands {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20758px -10px;
+    background: url('../img/flags/css_sprites.svg') -20758px -10px;
 }
 
 .iti__flag.iti__wales {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20842px -10px;
+    background: url('../img/flags/css_sprites.svg') -20842px -10px;
 }
 
 .iti__flag.iti__eh {
     width: 64px; height: 64px;
-    background: url('../img/flags/css_sprites.png') -20926px -10px;
+    background: url('../img/flags/css_sprites.svg') -20926px -10px;
 }

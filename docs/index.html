@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230427191132">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230502213254">
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -98,7 +98,23 @@
 			<section data-fp-section class="awesome bg-blue">
 				<div class="awesome__container">
 					<div class="awesome__content">
-						<div class="lottie__awesome"></div>
+						<!-- <div class="lottie__awesome"></div> -->
+						<div class="awesome__txt txt-awesome">
+							<div class="txt-awesome__line">
+								<span class="txt-awesome__word aw-word__awesome"><span class="aw-letter__a">A</span><span class="aw-letter__a-symb symbol-style">a</span><span class="aw-letter__end-awesome">wesome,</span> </span>
+								<span class="txt-awesome__word aw-word__right">right?</span>
+							</div>
+							<div class="txt-awesome__line">
+								<span class="txt-awesome__word aw-word__keep">Ke<span class="aw-letter__e">e</span><span class="aw-letter__e-symb symbol-style">e</span>p </span>
+								<span class="txt-awesome__word aw-word__scrolling">scr<span class="aw-letter__o-block"><span class="aw-letter__o">o</span><span class="aw-letter__o-symb-one symbol-style">o</span><span class="aw-letter__o-symb-two symbol-style">i</span></span><span class="aw-letter__end-lling">lling</span></span>
+							</div>
+						</div>
+						<div class="awesome__mouse-wheel mouse-wheel">
+							<div class="mouse-wheel__body">
+								<img class="mouse-wheel__mouse" src="img/icons/mouse.svg" alt="mouse">
+								<img class="mouse-wheel__wheel" src="img/icons/wheel.svg" alt="wheel">
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -422,9 +438,27 @@
 				</div>
 			</section>
 			<section data-fp-section class="hold bg-black">
-				<div class="awesome__container">
-					<div class="awesome__content">
-						<div class="lottie__hold-on"></div>
+				<div class="hold__container">
+					<div class="hold__content">
+						<!-- <div class="lottie__hold-on"></div> -->
+						<div class="hold__txt txt-hold">
+							<div class="txt-hold__line">
+								<span class="txt-hold__word hold-wrd__one"><span class="hold-lttr__h">H</span><span class="hold-lttr__h-smb symbol-style">h</span>old </span>
+								<span class="txt-hold__word hold-wrd__two">on.</span>
+							</div>
+							<div class="txt-hold__line">
+								<span class="txt-hold__word hold-wrd__three"><span class="hold-lttr__w">W</span><span class="hold-lttr__w-smb-one symbol-style">w</span><span class="hold-lttr__w-smb-two symbol-style">i</span><span class="hold-lttr__е-one">e</span><span class="hold-lttr__е-one-ap">’</span><span class="hold-lttr__е-one-smb symbol-style">e</span>re </span>
+								<span class="txt-hold__word hold-wrd__fourth">Not </span>
+								<span class="txt-hold__word hold-wrd__five">Done </span>
+								<span class="txt-hold__word hold-wrd__six"><span class="hold-lttr__y">Y</span><span class="hold-lttr__е-two">e</span><span class="hold-lttr__е-two-smb-one symbol-style">e</span><span class="hold-lttr__е-two-smb-two symbol-style">r</span>t</span>
+							</div>
+						</div>
+						<div class="hold__mouse-wheel mouse-wheel">
+							<div class="mouse-wheel__body">
+								<img class="mouse-wheel__mouse" src="img/icons/mouse.svg" alt="mouse">
+								<img class="mouse-wheel__wheel" src="img/icons/wheel.svg" alt="wheel">
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -857,7 +891,7 @@
 							</div>
 							<div class="form__item item-form-phone">
 								<label for="phone" class="form__label">Phone number</label>
-								<input id="phone" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone-1" data-error="Required field" class="form__input input-form-tel form-req" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+								<input id="phone" data-required="phone" data-validate type="tel" name="phone-1" data-error="Required field" class="form__input input-form-tel form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -924,7 +958,7 @@
 							</div>
 							<div class="form__item item-form-phone">
 								<label for="phone_2" class="form__label">Phone number</label>
-								<input id="phone_2" data-required="phone" data-validate type="tel" placeholder="(99) 999-99-99" name="phone" data-error="Required field" class="form__input input-form-tel form-req" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+								<input id="phone_2" data-required="phone" data-validate type="tel" name="phone" data-error="Required field" class="form__input input-form-tel form-req">
 								<div class="reset-btn">
 									<img src="img/icons/x.svg" alt="reset">
 								</div>
@@ -1202,12 +1236,13 @@
 			preloader();
 		</script>
 	</div>
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230427191132"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230427191132"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230427191132"></script> -->
-	<script src="files/lottie-player.js?_v=20230427191132"></script>
-	<script src="files/bodymovin.js?_v=20230427191132"></script>
-	<script src="js/app.min.js?_v=20230427191132"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js?_v=20230502213254"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js?_v=20230502213254"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js?_v=20230502213254"></script> -->
+	<script src="files/lottie-player.js?_v=20230502213254"></script>
+	<script src="files/bodymovin.js?_v=20230502213254"></script>
+	<script src="files/inputmask.js?_v=20230502213254"></script>
+	<script src="js/app.min.js?_v=20230502213254"></script>
 </body>
 
 </html>

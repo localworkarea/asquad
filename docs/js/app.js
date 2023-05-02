@@ -3578,13 +3578,6 @@
         }
         flsModules.watcher = new ScrollWatcher({});
         var lib_typed = __webpack_require__(614);
-        const animationAwesome = bodymovin.loadAnimation({
-            container: document.querySelector(".lottie__awesome"),
-            renderer: "svg",
-            loop: false,
-            autoplay: false,
-            path: "files/awesome_right.json"
-        });
         const animationHoldOn = bodymovin.loadAnimation({
             container: document.querySelector(".lottie__hold-on"),
             renderer: "svg",
@@ -3771,10 +3764,8 @@
                         if (!section.classList.contains("focus") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-focus");
                         if (section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.add("_anim-integrations");
                         if (!section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-integrations");
-                        if (section.classList.contains("awesome") && section.classList.contains("active-section")) setTimeout((() => {
-                            animationAwesome.play();
-                        }), 300);
-                        if (!section.classList.contains("awesome") && section.classList.contains("active-section")) animationAwesome.stop();
+                        if (section.classList.contains("awesome") && section.classList.contains("active-section")) ;
+                        if (!section.classList.contains("awesome") && section.classList.contains("active-section")) ;
                         if (section.classList.contains("hold") && section.classList.contains("active-section")) setTimeout((() => {
                             animationHoldOn.play();
                         }), 300);
@@ -5731,22 +5722,60 @@
             }();
         }));
         const input = document.querySelector("#phone");
-        intlTelInput(input, {
-            singleDialCode: false,
-            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                return "+" + selectedCountryData.dialCode + " " + selectedCountryPlaceholder;
-            },
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
+        const iti = intlTelInput(input, {
+            nationalMode: false,
+            formatOnDisplay: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js",
             preferredCountries: [ "ua", "us" ]
         });
         const input2 = document.querySelector("#phone_2");
-        intlTelInput(input2, {
-            singleDialCode: false,
-            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
-                return "+" + selectedCountryData.dialCode + " " + selectedCountryPlaceholder;
-            },
-            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js",
+        const iti2 = intlTelInput(input2, {
+            nationalMode: false,
+            formatOnDisplay: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js",
             preferredCountries: [ "ua", "us" ]
+        });
+        input.addEventListener("countrychange", (function() {
+            var selectedCountryData = iti.getSelectedCountryData();
+            var newPlaceholder = intlTelInputUtils.getExampleNumber(selectedCountryData.iso2, false, intlTelInputUtils.numberFormat.INTERNATIONAL);
+            iti.setNumber("");
+            var index_space = newPlaceholder.indexOf(" ");
+            var phone_2 = newPlaceholder.slice(index_space);
+            var phone_1 = newPlaceholder.substr(0, index_space);
+            var mask = phone_1 + phone_2.replace(/[0-9]/g, "*");
+            var im = new Inputmask({
+                alias: "phone",
+                mask
+            });
+            im.mask(input);
+        }));
+        input2.addEventListener("countrychange", (function() {
+            var selectedCountryData = iti2.getSelectedCountryData();
+            var newPlaceholder = intlTelInputUtils.getExampleNumber(selectedCountryData.iso2, false, intlTelInputUtils.numberFormat.INTERNATIONAL);
+            iti2.setNumber("");
+            var index_space = newPlaceholder.indexOf(" ");
+            var phone_2 = newPlaceholder.slice(index_space);
+            var phone_1 = newPlaceholder.substr(0, index_space);
+            var mask = phone_1 + phone_2.replace(/[0-9]/g, "*");
+            var im = new Inputmask({
+                alias: "phone",
+                mask
+            });
+            im.mask(input2);
+        }));
+        iti.promise.then((function() {
+            input.dispatchEvent(new Event("countrychange"));
+        }));
+        iti2.promise.then((function() {
+            input2.dispatchEvent(new Event("countrychange"));
+        }));
+        Inputmask.extendAliases({
+            phone: {
+                autoUnmask: true,
+                clearIncomplete: false,
+                allowPlus: true,
+                allowMinus: false
+            }
         });
         let formNameInput = document.getElementById("formName");
         formNameInput.addEventListener("keydown", (function(e) {

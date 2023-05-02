@@ -76,6 +76,9 @@
 		@media (max-width:1200px){
 			  max-width: 684px;
 		}
+		@media (max-width: 684px) {
+			justify-content: space-between;
+		}
 		&.popup-form__content {
 			@media (max-width:$mobileXS){
 				padding: rem(57) rem(16) rem(24) rem(16);

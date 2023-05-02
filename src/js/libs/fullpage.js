@@ -25,13 +25,13 @@ import Typed from 'typed.js';
 	fpdestroy
 	fpswitching
 */
-const animationAwesome = bodymovin.loadAnimation({
-	container: document.querySelector(".lottie__awesome"),
-	renderer: "svg",
-	loop: false,
-	autoplay: false,
-	path: "files/awesome_right.json"
-});
+// const animationAwesome = bodymovin.loadAnimation({
+// 	container: document.querySelector(".lottie__awesome"),
+// 	renderer: "svg",
+// 	loop: false,
+// 	autoplay: false,
+// 	path: "files/awesome_right.json"
+// });
 const animationHoldOn = bodymovin.loadAnimation({
 	container: document.querySelector('.lottie__hold-on'),
 	renderer: 'svg',
@@ -406,12 +406,12 @@ export class FullPage {
 					imageAnim.classList.remove('_anim-integrations');
 				} 
 				if (section.classList.contains("awesome") && section.classList.contains("active-section")) {
-					setTimeout(() => {
-							animationAwesome.play();
-					}, 300);
+					// setTimeout(() => {
+					// 		animationAwesome.play();
+					// }, 300);
 				} 
 				if (!section.classList.contains("awesome") && section.classList.contains("active-section")) {
-						animationAwesome.stop();
+						// animationAwesome.stop();
 				} 
 				if (section.classList.contains('hold') && section.classList.contains('active-section')) {
 						setTimeout(() => {
