@@ -3546,20 +3546,12 @@
             scrollWatcherIntersecting(entry, targetElement) {
                 if (entry.isIntersecting) {
                     !targetElement.classList.contains("_watcher-view") ? targetElement.classList.add("_watcher-view") : null;
-                    if (targetElement.classList.contains("request__wrapper")) {
-                        const headerItem = document.querySelector(".header");
-                        headerItem.classList.add("hide-header");
-                    }
                     if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.add("hide-header");
                     }
                 } else {
                     targetElement.classList.contains("_watcher-view") ? targetElement.classList.remove("_watcher-view") : null;
-                    if (targetElement.classList.contains("request__wrapper")) {
-                        const headerItem = document.querySelector(".header");
-                        headerItem.classList.remove("hide-header");
-                    }
                     if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.remove("hide-header");

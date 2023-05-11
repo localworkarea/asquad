@@ -127,10 +127,7 @@ class ScrollWatcher {
 			// 	const headerItem = document.querySelector('.header');
 			// 		headerItem.classList.add('hide-header');
 			// }
-			if (targetElement.classList.contains('request__wrapper')) {
-				const headerItem = document.querySelector('.header');
-					headerItem.classList.add('hide-header');
-			}
+			
 			if (targetElement.classList.contains('footer')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.add('hide-header');
@@ -180,10 +177,7 @@ class ScrollWatcher {
 			// 	const headerItem = document.querySelector('.header');
 			// 		headerItem.classList.remove('hide-header');
 			// }
-			if (targetElement.classList.contains('request__wrapper')) {
-				const headerItem = document.querySelector('.header');
-					headerItem.classList.remove('hide-header');
-			}
+		
 			if (targetElement.classList.contains('footer')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.remove('hide-header');
