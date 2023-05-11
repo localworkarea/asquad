@@ -3609,13 +3609,7 @@
         function ToogleHeader(e) {
             const el = e.target;
             const header = document.querySelector(".header");
-            if (el.scrollTop >= 50) {
-                header.classList.add("head-hidden");
-                console.log("header добавил hidden: " + el.classList);
-            } else {
-                header.classList.remove("head-hidden");
-                console.log("header удалил hidden: " + el.classList);
-            }
+            if (el.scrollTop >= 50) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
         }
         document.querySelector(".manage");
         document.querySelector(".options");
@@ -3842,6 +3836,14 @@
                         setTimeout(removeAnim, 13e3);
                         if (section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.add("_anim-start");
                         if (!section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.remove("_anim-start");
+                        if (section.classList.contains("request") && section.classList.contains("active-section")) {
+                            const sectionRequest = document.querySelector(".request");
+                            const requestWrapper = document.querySelector(".request__wrapper");
+                            sectionRequest.addEventListener("scroll", (function() {
+                                const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
+                                if (requestWrapperTop <= 60) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
+                            }));
+                        }
                     } else {
                         section.style.opacity = "0";
                         section.style.pointerEvents = "none";
@@ -5876,6 +5878,21 @@
                 event.stopPropagation();
             }
         }), false);
+        document.getElementById("FormDemo").addEventListener("submit", sendEmail);
+        document.getElementById("FormPartner").addEventListener("submit", sendEmail);
+        async function sendEmail(e) {
+            e.preventDefault();
+            var form = e.target;
+            let response = await fetch(form.getAttribute("action"), {
+                method: "POST",
+                body: new FormData(form)
+            });
+            let result = await response.json();
+            if ("ok" == result.status) {
+                form.reset();
+                flsModules.popup.open("#form-message");
+            } else alert("Something went wrong! Try later.");
+        }
         window["FLS"] = true;
         isWebp();
         addTouchClass();

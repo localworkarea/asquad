@@ -3636,7 +3636,7 @@ textarea:focus {
   opacity: 0;
   visibility: hidden;
 }
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 481px) and (max-width: 1200px) {
   .header.head-hidden {
     opacity: 0;
     pointer-events: none;
@@ -7322,6 +7322,12 @@ textarea:focus {
   overflow-y: auto;
   padding-top: 6.5rem;
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .manage::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+}
 @media (max-width: 30em) {
   .manage {
     padding-top: 3.5rem;
@@ -7877,6 +7883,15 @@ textarea:focus {
   overflow: auto;
   padding-top: 6.5rem;
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .options {
+    overflow-x: hidden;
+  }
+  .options::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+}
 @media (max-width: 30em) {
   .options {
     padding-top: 3.5rem;
@@ -7906,10 +7921,6 @@ textarea:focus {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
-  -webkit-animation-name: spinner-options;
-          animation-name: spinner-options;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
 }
 .options.previous-section .btns-options__btn {
   opacity: 1;
@@ -8013,8 +8024,8 @@ textarea:focus {
   transition: transform 0.6s ease 0.4s, opacity 0.6s linear 0.4s, -webkit-transform 0.6s ease 0.4s;
 }
 .options.active-section .btns-options__small {
-  -webkit-animation: spinner-options 1.2s linear 0s 1 normal none;
-          animation: spinner-options 1.2s linear 0s 1 normal none;
+  -webkit-animation: spinner-options 1.2s cubic-bezier(0.88, 0.01, 0.5, 0.87) 0s 1 backwards normal;
+          animation: spinner-options 1.2s cubic-bezier(0.88, 0.01, 0.5, 0.87) 0s 1 backwards normal;
   opacity: 1;
   -webkit-transition: opacity 1s linear;
   -o-transition: opacity 1s linear;
@@ -8148,6 +8159,7 @@ textarea:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   min-height: 100%;
+  height: inherit;
   position: relative;
 }
 @media (max-width: 1200px) {
@@ -8160,6 +8172,7 @@ textarea:focus {
         -ms-flex-direction: column;
             flex-direction: column;
     row-gap: 2rem;
+    height: unset;
   }
 }
 @media (max-width: 48em) {
@@ -8256,9 +8269,14 @@ textarea:focus {
 .btns-options::-webkit-scrollbar {
   height: 0;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1800px) {
   .btns-options {
     scale: 0.88;
+  }
+}
+@media (max-width: 1600px) {
+  .btns-options {
+    scale: 0.8;
   }
 }
 @media (max-width: 1366px) {
@@ -8390,7 +8408,6 @@ textarea:focus {
   top: 3%;
   right: -3%;
   width: auto;
-  opacity: 0;
 }
 @media (min-width: 120em) {
   .btns-options__small {
@@ -8437,19 +8454,10 @@ textarea:focus {
     -webkit-transform: rotate(0deg) scale(0.2);
             transform: rotate(0deg) scale(0.2);
   }
-  75% {
-    opacity: 0.5;
-    -webkit-transform: rotate(360deg) scale(0.6);
-            transform: rotate(360deg) scale(0.6);
-  }
-  76% {
-    -webkit-transform: rotate(0deg) scale(0.6);
-            transform: rotate(0deg) scale(0.6);
-  }
   100% {
     opacity: 1;
-    -webkit-transform: rotate(360deg) scale(1);
-            transform: rotate(360deg) scale(1);
+    -webkit-transform: rotate(720deg) scale(1);
+            transform: rotate(720deg) scale(1);
   }
 }
 @keyframes spinner-options {
@@ -8458,19 +8466,10 @@ textarea:focus {
     -webkit-transform: rotate(0deg) scale(0.2);
             transform: rotate(0deg) scale(0.2);
   }
-  75% {
-    opacity: 0.5;
-    -webkit-transform: rotate(360deg) scale(0.6);
-            transform: rotate(360deg) scale(0.6);
-  }
-  76% {
-    -webkit-transform: rotate(0deg) scale(0.6);
-            transform: rotate(0deg) scale(0.6);
-  }
   100% {
     opacity: 1;
-    -webkit-transform: rotate(360deg) scale(1);
-            transform: rotate(360deg) scale(1);
+    -webkit-transform: rotate(720deg) scale(1);
+            transform: rotate(720deg) scale(1);
   }
 }
 .btns-options__body {
@@ -8845,6 +8844,15 @@ textarea:focus {
   overflow: auto;
   padding-top: 6.5rem;
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .custom {
+    overflow-x: hidden;
+  }
+  .custom::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+}
 @media (max-width: 30em) {
   .custom {
     padding-top: 3.5rem;
@@ -8899,6 +8907,23 @@ textarea:focus {
 @media (min-width: 992px) {
   .custom__container {
     overflow: hidden;
+  }
+}
+@media (min-width: 1301px) and (max-width: 1350px) {
+  .custom-second .custom__container {
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1300px) {
+  .custom-second .custom__container {
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
+    -webkit-column-gap: unset;
+       -moz-column-gap: unset;
+            column-gap: unset;
   }
 }
 @media (max-width: 1200px) {
@@ -8986,6 +9011,11 @@ textarea:focus {
 .custom__block .block-info__title {
   max-width: 28.125rem;
 }
+@media (min-width: 1201px) and (max-width: 1350px) {
+  .custom__block .block-info__title {
+    max-width: 21.875rem;
+  }
+}
 @media (max-width: 1200px) {
   .custom__block .block-info__title {
     max-width: 100%;
@@ -9052,6 +9082,18 @@ textarea:focus {
 @media (max-width: 1366px) {
   .anim-custom {
     height: 34rem;
+  }
+}
+@media (min-width: 1266px) and (max-width: 1350px) {
+  .anim-custom {
+    width: unset;
+    scale: 0.9;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1265px) {
+  .anim-custom {
+    width: unset;
+    scale: 0.83;
   }
 }
 @media (max-width: 1200px) {

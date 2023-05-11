@@ -1919,9 +1919,11 @@
   overflow-y: auto;
   padding-top: rem(104);
   // padding-bottom: rem(32);
-  @media (min-width: 769px) and (max-width: 1200px) {
-    // display: flex;
-    // align-items: flex-start;
+  @media (min-width: 769px) and (max-width: 1024px) {
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
   }
   @media (max-width:$mobileSmall){
     padding-top: rem(56);
@@ -2331,6 +2333,13 @@
   overflow: auto;
   padding-top: rem(104);
   // padding-bottom: rem(32);
+  @media (min-width: 769px) and (max-width: 1024px) {
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
+  }
   @media (max-width:$mobileSmall){
     padding-top: rem(56);
     // padding-bottom: rem(16); 
@@ -2362,8 +2371,6 @@
       &__small {
         opacity: 1;
         transform: scale(1);
-        animation-name: spinner-options;
-        animation-play-state: paused;
       }
       &__btn {
         opacity: 1;
@@ -2436,9 +2443,15 @@
         transition: transform 0.6s ease 0.4s, opacity 0.6s linear 0.4s;
       }
       &__small {
-        animation: spinner-options 1.2s linear 0s 1 normal none;
+        animation: spinner-options 1.2s cubic-bezier(.88,.01,.5,.87) 0s 1 backwards normal;
         opacity: 1;
         transition: opacity 1s linear;
+        //   .fp-section-7.fp-up & {
+        //   // animation-name: spinner-options;
+        //   // animation-play-state: paused;
+        //   transform: scale(1);
+        //   opacity: 1;
+        // }
       }
       &__btn {
         opacity: 1;
@@ -2529,11 +2542,13 @@
     align-items: center;
     justify-content: space-between;
     min-height: 100%;
+    height: inherit;
     position: relative;
     @media (max-width: 1200px) {
       justify-content: flex-start;
       flex-direction: column;
       row-gap: rem(32);
+      height: unset;
     }
     @media (max-width:$mobile){
        min-height: auto; 
@@ -2606,8 +2621,11 @@
   &::-webkit-scrollbar {
     height: 0;
   }
-  @media (max-width: 1440px) {
+  @media (max-width: 1800px) {
     scale: 0.88;
+  }
+  @media (max-width: 1600px) {
+    scale: 0.8;
   }
   @media (max-width: 1366px) {
     width: rem(823);
@@ -2677,22 +2695,32 @@
     width: auto;
     @include adaptiveValue("height", 127, 92, 0, 1920, 1366);
     @include adaptiveValue("height", 92, 64, 3, 768, 478);
-    opacity: 0;
+    // opacity: 0;
+    // @keyframes spinner-options {
+    //   0% {
+    //     opacity: 0;
+    //     transform: rotate(0deg) scale(0.2);
+    //   }
+    //   75% {
+    //     opacity: 0.5;
+    //     transform: rotate(360deg) scale(0.6);
+    //   }
+    //   76% {
+    //     transform: rotate(0deg) scale(0.6);
+    //   }
+    //   100% {
+    //     opacity: 1;
+    //     transform: rotate(360deg) scale(1);
+    //   }
+    // }
     @keyframes spinner-options {
       0% {
         opacity: 0;
         transform: rotate(0deg) scale(0.2);
       }
-      75% {
-        opacity: 0.5;
-        transform: rotate(360deg) scale(0.6);
-      }
-      76% {
-        transform: rotate(0deg) scale(0.6);
-      }
       100% {
         opacity: 1;
-        transform: rotate(360deg) scale(1);
+        transform: rotate(720deg) scale(1);
       }
     }
   }
@@ -2928,12 +2956,17 @@
   overflow: auto;
   padding-top: rem(104);
   // padding-bottom: rem(32);
-  @media (max-width:$mobile){
+  @media (min-width: 769px) and (max-width: 1024px) {
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+    }
   }
   @media (max-width:$mobileSmall){
     padding-top: rem(56);
     // padding-bottom: rem(16); 
-      &::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       height: 0;
       width: 0;
     }
@@ -2983,7 +3016,16 @@
     @media (min-width: 992px) {
       overflow: hidden;
     }
-
+    .custom-second & {
+      @media (min-width: 1301px) and (max-width: 1350px) {
+       justify-content: unset;
+      //  column-gap: unset;
+      }
+      @media (min-width: 1201px) and (max-width: 1300px) {
+       justify-content: unset;
+       column-gap: unset;
+      }
+    }
     @media (max-width: 1200px) {
       flex-direction: column;
       justify-content: flex-start;
@@ -3023,6 +3065,9 @@
     }
     .block-info__title {
       max-width: rem(450);
+      @media (min-width: 1201px) and (max-width: 1350px) {
+        max-width: rem(350);
+      }
       @media (max-width: 1200px) {
         max-width: 100%;
       }
@@ -3077,6 +3122,14 @@
   }
   @media (max-width:1366px){
       height: rem(544);
+  }
+  @media (min-width: 1266px) and (max-width: 1350px) {
+    width: unset;
+    scale: 0.9;
+  }
+  @media (min-width: 1201px) and (max-width: 1265px) {
+    width: unset;
+    scale: 0.83;
   }
   @media (max-width: 1200px) {
     margin: unset;

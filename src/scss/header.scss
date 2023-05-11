@@ -86,10 +86,9 @@
 		visibility: hidden;
 	}
 	&.head-hidden {
-		@media (min-width: 769px) and (max-width: 1200px) {
+		@media (min-width: 481px) and (max-width: 1200px) {
 			opacity: 0;
 			pointer-events: none;
-			// transition: opacity 0.2s ease 0s;
 		}
 		
 	}

@@ -69,10 +69,10 @@ function ToogleHeader(e) {
   const header = document.querySelector(".header");
   if (el.scrollTop >= 50) {
     header.classList.add("head-hidden");
-    console.log("header добавил hidden: " + el.classList);
+    // console.log("header добавил hidden: " + el.classList);
   } else {
     header.classList.remove("head-hidden");
-    console.log("header удалил hidden: " + el.classList);
+    // console.log("header удалил hidden: " + el.classList);
   }
 }
 const sectionManage = document.querySelector(".manage");
@@ -617,6 +617,20 @@ export class FullPage {
 				if (!section.classList.contains('request') && section.classList.contains('active-section')) {
 					requestSection.classList.remove('_anim-start');
 				} 
+				if (section.classList.contains('request') && section.classList.contains('active-section')) {
+					
+					const sectionRequest = document.querySelector('.request');
+					const requestWrapper = document.querySelector('.request__wrapper');
+					sectionRequest.addEventListener('scroll', function() {
+						const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
+						if (requestWrapperTop <= 60) {
+							header.classList.add('head-hidden');
+						} else {
+							header.classList.remove('head-hidden');
+						}
+					})
+				} 
+
 
 			} else {
 				section.style.opacity = '0';
