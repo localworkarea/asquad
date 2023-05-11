@@ -66,7 +66,7 @@ const animationManageTransct = bodymovin.loadAnimation({
 
 function ToogleHeader(el) {
 	const header = document.querySelector('.header');
-	if (el.scrollTop >= 80) {
+	if (el.scrollTop >= 70) {
 		header.classList.add('head-hidden');
 		console.log("header добавил hidden" + el.classList);
 	} else {
@@ -459,6 +459,7 @@ export class FullPage {
               for (let item of list) {
                 item.play();
               }
+
 							// ToogleHeader(document.querySelector(".manage"));
 					
 					// const sectionManage = document.querySelector(".manage");
@@ -489,7 +490,10 @@ export class FullPage {
 			
 				if (section.classList.contains("options") && section.classList.contains("active-section")) {
 					// ToogleHeader(document.querySelector(".options"));
-					
+					// if (window.matchMedia("(min-width: 769px) and (max-width: 1200px)").matches) {
+					// 	const manage = document.querySelector('.manage');
+					// 	manage.scrollTop = 0;
+					// }
 				// 			const sectionOptions = document.querySelector(".options");
 				// 			const containerOptions = document.querySelector('.options__container');
 				// 			const containerOptionsTop = containerOptions.getBoundingClientRect().top;
@@ -621,7 +625,6 @@ export class FullPage {
 				section.style.pointerEvents = 'none';
 				//section.style.visibility = 'hidden'
 
-			
 			}
 		}
 	}
@@ -1034,16 +1037,23 @@ if (document.querySelector('[data-fp]')) {
 	flsModules.fullpage = new FullPage(document.querySelector('[data-fp]'), '');
 }
 document.addEventListener('fpswitching', function(e) {
-  if (e.detail.fp.activeSection.classList.contains("manage")){
-		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
-  }
+  // if (e.detail.fp.activeSection.classList.contains("manage")){
+	// 	e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+  // }
   if (e.detail.fp.activeSection.classList.contains("options")){
-		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		// e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		document.querySelector(".manage").scrollTop = 0;
   }
   if (e.detail.fp.activeSection.classList.contains("custom-first")){
-		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		// e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		document.querySelector(".options").scrollTop = 0;
   }
   if (e.detail.fp.activeSection.classList.contains("custom-second")){
-		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		// e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		document.querySelector(".custom-first").scrollTop = 0;
+  }
+  if (e.detail.fp.activeSection.classList.contains("api")){
+		// e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+		document.querySelector(".custom-second").scrollTop = 0;
   }
 })

@@ -3546,12 +3546,20 @@
             scrollWatcherIntersecting(entry, targetElement) {
                 if (entry.isIntersecting) {
                     !targetElement.classList.contains("_watcher-view") ? targetElement.classList.add("_watcher-view") : null;
+                    if (targetElement.classList.contains("request__wrapper")) {
+                        const headerItem = document.querySelector(".header");
+                        headerItem.classList.add("hide-header");
+                    }
                     if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.add("hide-header");
                     }
                 } else {
                     targetElement.classList.contains("_watcher-view") ? targetElement.classList.remove("_watcher-view") : null;
+                    if (targetElement.classList.contains("request__wrapper")) {
+                        const headerItem = document.querySelector(".header");
+                        headerItem.classList.remove("hide-header");
+                    }
                     if (targetElement.classList.contains("footer")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.remove("hide-header");
@@ -3608,7 +3616,7 @@
         });
         function ToogleHeader(el) {
             const header = document.querySelector(".header");
-            if (el.scrollTop >= 80) {
+            if (el.scrollTop >= 70) {
                 header.classList.add("head-hidden");
                 console.log("header добавил hidden" + el.classList);
             } else {
@@ -4015,10 +4023,10 @@
         }
         if (document.querySelector("[data-fp]")) flsModules.fullpage = new FullPage(document.querySelector("[data-fp]"), "");
         document.addEventListener("fpswitching", (function(e) {
-            if (e.detail.fp.activeSection.classList.contains("manage")) e.detail.fp.activeSection.dispatchEvent(new Event("scroll"));
-            if (e.detail.fp.activeSection.classList.contains("options")) e.detail.fp.activeSection.dispatchEvent(new Event("scroll"));
-            if (e.detail.fp.activeSection.classList.contains("custom-first")) e.detail.fp.activeSection.dispatchEvent(new Event("scroll"));
-            if (e.detail.fp.activeSection.classList.contains("custom-second")) e.detail.fp.activeSection.dispatchEvent(new Event("scroll"));
+            if (e.detail.fp.activeSection.classList.contains("options")) document.querySelector(".manage").scrollTop = 0;
+            if (e.detail.fp.activeSection.classList.contains("custom-first")) document.querySelector(".options").scrollTop = 0;
+            if (e.detail.fp.activeSection.classList.contains("custom-second")) document.querySelector(".custom-first").scrollTop = 0;
+            if (e.detail.fp.activeSection.classList.contains("api")) document.querySelector(".custom-second").scrollTop = 0;
         }));
         class DynamicAdapt {
             constructor(type) {
@@ -5861,21 +5869,6 @@
                 event.stopPropagation();
             }
         }), false);
-        document.getElementById("FormDemo").addEventListener("submit", sendEmail);
-        document.getElementById("FormPartner").addEventListener("submit", sendEmail);
-        async function sendEmail(e) {
-            e.preventDefault();
-            var form = e.target;
-            let response = await fetch(form.getAttribute("action"), {
-                method: "POST",
-                body: new FormData(form)
-            });
-            let result = await response.json();
-            if ("ok" == result.status) {
-                form.reset();
-                flsModules.popup.open("#form-message");
-            } else alert("Something went wrong! Try later.");
-        }
         window["FLS"] = true;
         isWebp();
         addTouchClass();

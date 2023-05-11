@@ -1903,35 +1903,20 @@ formNameInputOne.addEventListener('input', function(e){
 
 
     // == SENT MAIL ========================================
-    document.getElementById("FormDemo").addEventListener("submit", sendEmail);
-    document.getElementById("FormPartner").addEventListener("submit", sendEmail);
-    async function sendEmail(e) {
-      e.preventDefault();
-      var form = e.target;
-      let response = await fetch(form.getAttribute("action"), {
-        method: 'POST',
-        body: new FormData(form)
-      });
-      let result = await response.json();
-      if(result.status == 'ok'){
-        form.reset();
-        flsModules.popup.open('#form-message');
-      }else{
-        alert("Something went wrong! Try later.");
-      }
-    }
-
-
-//  function ToogleHeader(el) {
-//   if (el.scrollTop >= 60) {
-//     header.classList.add('head-hidden');
-//     console.log("header добавил hidden");
-//   } else {
-//     header.classList.remove('head-hidden');
-//     console.log("header удалил hidden");
-//   }
-// }
-// const sectionManage = document.querySelector(".manage");
-// const sectionOptions = document.querySelector(".options");
-// sectionManage.addEventListener('scroll', function() { ToogleHeader(this); });
-// sectionOptions.addEventListener('scroll', function() { ToogleHeader(this); });
+    // document.getElementById("FormDemo").addEventListener("submit", sendEmail);
+    // document.getElementById("FormPartner").addEventListener("submit", sendEmail);
+    // async function sendEmail(e) {
+    //   e.preventDefault();
+    //   var form = e.target;
+    //   let response = await fetch(form.getAttribute("action"), {
+    //     method: 'POST',
+    //     body: new FormData(form)
+    //   });
+    //   let result = await response.json();
+    //   if(result.status == 'ok'){
+    //     form.reset();
+    //     flsModules.popup.open('#form-message');
+    //   }else{
+    //     alert("Something went wrong! Try later.");
+    //   }
+    // }
