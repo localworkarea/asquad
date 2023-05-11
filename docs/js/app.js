@@ -3609,7 +3609,7 @@
         function ToogleHeader(e) {
             const el = e.target;
             const header = document.querySelector(".header");
-            if (el.scrollTop >= 70) {
+            if (el.scrollTop >= 50) {
                 header.classList.add("head-hidden");
                 console.log("header добавил hidden: " + el.classList);
             } else {
@@ -3621,6 +3621,7 @@
         document.querySelector(".options");
         document.querySelector(".custom-first");
         document.querySelector(".custom-second");
+        document.querySelector(".request__wrapper");
         var $is_typed_call = false;
         class FullPage {
             constructor(element, options) {
@@ -3792,6 +3793,11 @@
                             animationManageTransct.play();
                             var list = document.getElementsByTagName("video");
                             for (let item of list) item.play();
+                            const manageSection = document.querySelector(".manage");
+                            manageSection.style.overflow = "hidden";
+                            setTimeout((() => {
+                                manageSection.style.overflow = "auto";
+                            }), 2e3);
                         }
                         if (section.classList.contains("options") && section.classList.contains("active-section")) ;
                         if (section.classList.contains("custom-first") && section.classList.contains("active-section")) ;
@@ -3935,7 +3941,7 @@
                 if (!this.clickOrTouch || e.target.closest(this.options.noEventSelector)) return;
                 let yCoord = this._yP - e.changedTouches[0].pageY;
                 this.checkScroll(yCoord, targetElement);
-                if (this.goScroll && Math.abs(yCoord) > 20) this.choiceOfDirection(yCoord);
+                if (this.goScroll && Math.abs(yCoord) > 35) this.choiceOfDirection(yCoord);
             }
             touchUp(e) {
                 this._eventElement.removeEventListener("touchend", this.events.touchup);
@@ -3971,14 +3977,19 @@
                     this.setClasses();
                     this.setStyle();
                     if (this.options.bullets) this.setActiveBullet(this.activeSectionId);
+                    let delaySection;
                     if (direction < 0) {
+                        delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
                         document.documentElement.classList.add("fp-up");
                         document.documentElement.classList.remove("fp-down");
                     } else {
+                        delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
                         document.documentElement.classList.remove("fp-up");
                         document.documentElement.classList.add("fp-down");
                     }
-                    this.events.transitionEnd();
+                    setTimeout((() => {
+                        this.events.transitionEnd();
+                    }), delaySection);
                     this.options.onSwitching(this);
                     document.dispatchEvent(new CustomEvent("fpswitching", {
                         detail: {
@@ -4013,15 +4024,15 @@
                 setTimeout((() => {
                     pel.scrollTop = 0;
                     nel.scrollTop = 0;
-                }), 500);
+                }), 1e3);
             } else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")) {
                 nel.removeEventListener("scroll", ToogleHeader);
+                ael.addEventListener("scroll", ToogleHeader);
                 pel.removeEventListener("scroll", ToogleHeader);
                 setTimeout((() => {
                     pel.scrollTop = 0;
                     nel.scrollTop = 0;
-                }), 500);
-                ael.addEventListener("scroll", ToogleHeader);
+                }), 1e3);
             }
         }));
         class DynamicAdapt {

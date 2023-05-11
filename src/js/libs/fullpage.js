@@ -67,7 +67,7 @@ const animationManageTransct = bodymovin.loadAnimation({
 function ToogleHeader(e) {
   const el = e.target;
   const header = document.querySelector(".header");
-  if (el.scrollTop >= 70) {
+  if (el.scrollTop >= 50) {
     header.classList.add("head-hidden");
     console.log("header добавил hidden: " + el.classList);
   } else {
@@ -79,6 +79,7 @@ const sectionManage = document.querySelector(".manage");
 const sectionOptions = document.querySelector(".options");
 const sectionCustomFirst = document.querySelector(".custom-first");
 const sectionCustomSecond = document.querySelector(".custom-second");
+const sectionRequestWrapper = document.querySelector(".request__wrapper");
 // sectionManage.addEventListener('scroll', function() { ToogleHeader(this); });
 // sectionOptions.addEventListener('scroll', function() { ToogleHeader(this); });
 // sectionCustomFirst.addEventListener('scroll', function() { ToogleHeader(this); });
@@ -449,8 +450,6 @@ export class FullPage {
 
 				}
 				// ===== MANAGE =================
-		
-
 				if (section.classList.contains("manage") && section.classList.contains("active-section")) {
 					animationManageAmount.play();
 					animationManageGraphic.play();
@@ -460,8 +459,11 @@ export class FullPage {
               for (let item of list) {
                 item.play();
               }
-
-							// ToogleHeader(document.querySelector(".manage"));
+					const manageSection = document.querySelector('.manage');
+					manageSection.style.overflow = 'hidden';
+					setTimeout(() => {
+						manageSection.style.overflow = 'auto';
+					}, 2000);
 					
 					// const sectionManage = document.querySelector(".manage");
 					// const containerManage = document.querySelector('.manage__container');
@@ -486,9 +488,7 @@ export class FullPage {
 					// 	}
 					// })
 				}
-			
 				// ===== OPTIONS =================
-			
 				if (section.classList.contains("options") && section.classList.contains("active-section")) {
 					// ToogleHeader(document.querySelector(".options"));
 					// if (window.matchMedia("(min-width: 769px) and (max-width: 1200px)").matches) {
@@ -520,8 +520,6 @@ export class FullPage {
 				// 				}
 				// 		})
 				}
-			
-
 				// ===== CUSTOM FIRST =================
 				if (section.classList.contains("custom-first") && section.classList.contains("active-section")) {
 					// ToogleHeader(document.querySelector(".custom-first"));
@@ -545,7 +543,6 @@ export class FullPage {
 				// 				}
 				// 		})
 				}
-
 				// ===== CUSTOM SECOND =================
 				if (section.classList.contains("custom-second") && section.classList.contains("active-section")) {
 					// ToogleHeader(document.querySelector(".custom-second"));
@@ -834,7 +831,7 @@ export class FullPage {
 		// Чи дозволено перехід? 
 		this.checkScroll(yCoord, targetElement);
 		// Перехід
-		if (this.goScroll && Math.abs(yCoord) > 20) { // было 20 (29.03.23)
+		if (this.goScroll && Math.abs(yCoord) > 35) { // было 20 (29.03.23)
 			this.choiceOfDirection(yCoord);
 		}
 	}
@@ -968,20 +965,20 @@ export class FullPage {
 
 			// Встановлюємо затримку перемикання
 			// Додаємо класи напрямку руху
-			// let delaySection;
+			let delaySection;
 			if (direction < 0) {
-				// delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
+				delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
 				document.documentElement.classList.add('fp-up');
 				document.documentElement.classList.remove('fp-down');
 			} else {
-				// delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
+				delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
 				document.documentElement.classList.remove('fp-up');
 				document.documentElement.classList.add('fp-down');
 			}
 
-			// setTimeout(() => {
+			setTimeout(() => {
 				this.events.transitionEnd();
-			// }, delaySection);
+			}, delaySection);
 
 
 			// Створення події
@@ -1063,20 +1060,20 @@ document.addEventListener('fpswitching', function(e) {
 	document.querySelector(".header").classList.remove("head-hidden");
 	if (ael.classList.contains("manage")) {
 		ael.addEventListener("scroll", ToogleHeader);
-	}else if (ael.classList.contains("api")) {
+	} else if (ael.classList.contains("api")) {
 		pel.removeEventListener("scroll", ToogleHeader);
 		setTimeout(() => {
 			pel.scrollTop = 0;
 			nel.scrollTop = 0;
-		}, 500);
+		}, 1000);
 		
-	}else if(ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
+	} else if(ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
 		nel.removeEventListener("scroll", ToogleHeader);
+		ael.addEventListener("scroll", ToogleHeader);
 		pel.removeEventListener("scroll", ToogleHeader);
 		setTimeout(() => {
 			pel.scrollTop = 0;
 			nel.scrollTop = 0;
-		}, 500);
-		ael.addEventListener("scroll", ToogleHeader);
+		}, 1000);
 	}
 })
