@@ -3614,32 +3614,21 @@
             autoplay: false,
             path: "files/ManagePayments_TransactionFlow.json"
         });
-        function ToogleHeader(el) {
+        function ToogleHeader(e) {
+            const el = e.target;
             const header = document.querySelector(".header");
             if (el.scrollTop >= 70) {
                 header.classList.add("head-hidden");
-                console.log("header добавил hidden" + el.classList);
+                console.log("header добавил hidden: " + el.classList);
             } else {
                 header.classList.remove("head-hidden");
-                console.log("header удалил hidden" + el.classList);
+                console.log("header удалил hidden: " + el.classList);
             }
         }
-        const sectionManage = document.querySelector(".manage");
-        const sectionOptions = document.querySelector(".options");
-        const sectionCustomFirst = document.querySelector(".custom-first");
-        const sectionCustomSecond = document.querySelector(".custom-second");
-        sectionManage.addEventListener("scroll", (function() {
-            ToogleHeader(this);
-        }));
-        sectionOptions.addEventListener("scroll", (function() {
-            ToogleHeader(this);
-        }));
-        sectionCustomFirst.addEventListener("scroll", (function() {
-            ToogleHeader(this);
-        }));
-        sectionCustomSecond.addEventListener("scroll", (function() {
-            ToogleHeader(this);
-        }));
+        document.querySelector(".manage");
+        document.querySelector(".options");
+        document.querySelector(".custom-first");
+        document.querySelector(".custom-second");
         var $is_typed_call = false;
         class FullPage {
             constructor(element, options) {
@@ -4023,10 +4012,25 @@
         }
         if (document.querySelector("[data-fp]")) flsModules.fullpage = new FullPage(document.querySelector("[data-fp]"), "");
         document.addEventListener("fpswitching", (function(e) {
-            if (e.detail.fp.activeSection.classList.contains("options")) document.querySelector(".manage").scrollTop = 0;
-            if (e.detail.fp.activeSection.classList.contains("custom-first")) document.querySelector(".options").scrollTop = 0;
-            if (e.detail.fp.activeSection.classList.contains("custom-second")) document.querySelector(".custom-first").scrollTop = 0;
-            if (e.detail.fp.activeSection.classList.contains("api")) document.querySelector(".custom-second").scrollTop = 0;
+            var pel = e.detail.fp.previousSection;
+            var ael = e.detail.fp.activeSection;
+            var nel = e.detail.fp.nextSection;
+            document.querySelector(".header").classList.remove("head-hidden");
+            if (ael.classList.contains("manage")) ael.addEventListener("scroll", ToogleHeader); else if (ael.classList.contains("api")) {
+                pel.removeEventListener("scroll", ToogleHeader);
+                setTimeout((() => {
+                    pel.scrollTop = 0;
+                    nel.scrollTop = 0;
+                }), 500);
+            } else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")) {
+                nel.removeEventListener("scroll", ToogleHeader);
+                pel.removeEventListener("scroll", ToogleHeader);
+                setTimeout((() => {
+                    pel.scrollTop = 0;
+                    nel.scrollTop = 0;
+                }), 500);
+                ael.addEventListener("scroll", ToogleHeader);
+            }
         }));
         class DynamicAdapt {
             constructor(type) {
