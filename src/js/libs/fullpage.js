@@ -25,6 +25,8 @@ import Typed from 'typed.js';
 	fpdestroy
 	fpswitching
 */
+
+
 // const animationAwesome = bodymovin.loadAnimation({
 // 	container: document.querySelector(".lottie__awesome"),
 // 	renderer: "svg",
@@ -61,6 +63,25 @@ const animationManageTransct = bodymovin.loadAnimation({
 	path: 'files/ManagePayments_TransactionFlow.json',
 });
 
+
+function ToogleHeader(el) {
+	const header = document.querySelector('.header');
+	if (el.scrollTop >= 80) {
+		header.classList.add('head-hidden');
+		console.log("header добавил hidden" + el.classList);
+	} else {
+		header.classList.remove('head-hidden');
+		console.log("header удалил hidden" + el.classList);
+	}
+}
+const sectionManage = document.querySelector(".manage");
+const sectionOptions = document.querySelector(".options");
+const sectionCustomFirst = document.querySelector(".custom-first");
+const sectionCustomSecond = document.querySelector(".custom-second");
+sectionManage.addEventListener('scroll', function() { ToogleHeader(this); });
+sectionOptions.addEventListener('scroll', function() { ToogleHeader(this); });
+sectionCustomFirst.addEventListener('scroll', function() { ToogleHeader(this); });
+sectionCustomSecond.addEventListener('scroll', function() { ToogleHeader(this); });
 
 
 var $is_typed_call = false;
@@ -350,7 +371,9 @@ export class FullPage {
 			if (index === this.activeSectionId) {
 				section.style.opacity = '1';
 				section.style.pointerEvents = 'all';
-				//section.style.visibility = 'visible';
+				
+			
+	
 
 				if (section.classList.contains('_header-hidden') && section.classList.contains('active-section')) {
 					header.classList.add('header-hidden');
@@ -421,17 +444,137 @@ export class FullPage {
 				if (!section.classList.contains('hold') && section.classList.contains('active-section')) {
 					animationHoldOn.stop();
 				} 
+				if (section.classList.contains("choose") && section.classList.contains("active-section")) {
+
+				}
+				// ===== MANAGE =================
+		
+
 				if (section.classList.contains("manage") && section.classList.contains("active-section")) {
 					animationManageAmount.play();
 					animationManageGraphic.play();
 					animationManageTransct.play();
+
+					var list = document.getElementsByTagName('video');
+              for (let item of list) {
+                item.play();
+              }
+							// ToogleHeader(document.querySelector(".manage"));
+					
+					// const sectionManage = document.querySelector(".manage");
+					// const containerManage = document.querySelector('.manage__container');
+					// const containerManageTop = containerManage.getBoundingClientRect().top;
+					// console.log("Manage соответствует" + containerManageTop);
+					// if (containerManageTop <= 60) {
+					// 	header.classList.add('head-hidden');
+					// 	console.log('Manage Top меньше 60 Добавил hidden');
+					// }else {
+					// 	header.classList.remove('head-hidden');
+					// 	console.log('Manage Top больше 60 Удалил hidden');
+					// }
+
+					// sectionManage.addEventListener('scroll', function() {
+					// 	const containerManageTop = containerManage.getBoundingClientRect().top;
+					// 	if (containerManageTop <= 60) {
+					// 		header.classList.add('head-hidden');
+					// 		console.log("Manage Сработал Scroll < 60 - добавил hidden");
+					// 	} else {
+					// 		header.classList.remove('head-hidden');
+					// 		console.log("Manage Сработал Scroll > 60 - удалил hidden");
+					// 	}
+					// })
 				}
+			
+				// ===== OPTIONS =================
+			
+				if (section.classList.contains("options") && section.classList.contains("active-section")) {
+					// ToogleHeader(document.querySelector(".options"));
+					
+				// 			const sectionOptions = document.querySelector(".options");
+				// 			const containerOptions = document.querySelector('.options__container');
+				// 			const containerOptionsTop = containerOptions.getBoundingClientRect().top;
+				// 			console.log("Options соответствует" + containerOptionsTop);
+				// 			if (containerOptionsTop <= 60) {
+				// 				header.classList.add('head-hidden');
+				// 				console.log('Options Top меньше 60 Добавил hidden');
+				// 			}else {
+				// 				header.classList.remove('head-hidden');
+				// 				console.log('Options Top больше 60 Удалил hidden');
+				// 			}
+
+						
+
+				// 			sectionOptions.addEventListener('scroll', function() {
+				// 				const containerOptionsTop = containerOptions.getBoundingClientRect().top;
+				// 				if (containerOptionsTop <= 60) {
+				// 					header.classList.add('head-hidden');
+				// 					console.log("Options Сработал Scroll < 60 - добавил hidden");
+				// 				} else {
+				// 					header.classList.remove('head-hidden');
+				// 					console.log("Options Сработал Scroll > 60 - удалил hidden");
+				// 				}
+				// 		})
+				}
+			
+
+				// ===== CUSTOM FIRST =================
+				if (section.classList.contains("custom-first") && section.classList.contains("active-section")) {
+					// ToogleHeader(document.querySelector(".custom-first"));
+				// 		const sectionCustumFirst = document.querySelector(".custom-first");
+				// 		const containerCustumFirst = document.querySelector('.custom-first__container');
+				// 		const containerCustumFirstTop = containerCustumFirst.getBoundingClientRect().top;
+				// 		console.log(containerCustumFirstTop);
+				// 		if (containerCustumFirstTop < 60) {
+				// 			header.classList.add('head-hidden');
+				// 		}else {
+				// 			header.classList.remove('head-hidden');
+				// 		}
+
+						
+				// 		sectionCustumFirst.addEventListener('scroll', function() {
+				// 				const containerCustumFirstTop = containerCustumFirst.getBoundingClientRect().top;
+				// 				if (containerCustumFirstTop < 80) {
+				// 					header.classList.add('head-hidden');
+				// 				} else {
+				// 					// header.classList.remove('head-hidden');
+				// 				}
+				// 		})
+				}
+
+				// ===== CUSTOM SECOND =================
+				if (section.classList.contains("custom-second") && section.classList.contains("active-section")) {
+					// ToogleHeader(document.querySelector(".custom-second"));
+				// 		const sectionCustumSecond = document.querySelector(".custom-second");
+				// 			const containerCustumSecond = document.querySelector('.custom-second__container');
+				// 			const containerCustumSecondTop = containerCustumSecond.getBoundingClientRect().top;
+				// 			console.log(containerCustumSecondTop);
+				// 			if (containerCustumSecondTop < 60) {
+				// 				header.classList.add('head-hidden');
+				// 			}else {
+				// 				header.classList.remove('head-hidden');
+				// 			}
+						
+				// 			sectionCustumSecond.addEventListener('scroll', function() {
+				// 				const containerCustumSecondTop = containerCustumSecond.getBoundingClientRect().top;
+				// 				if (containerCustumSecondTop < 80) {
+				// 					header.classList.add('head-hidden');
+				// 				} else {
+				// 					// header.classList.remove('head-hidden');
+				// 				}
+				// 		})
+				}
+				
 				if (!section.classList.contains("manage") && section.classList.contains("active-section")) {
 						animationManageAmount.stop();
 						animationManageGraphic.stop();
 						animationManageTransct.stop();
 				}
+				
   			if (section.classList.contains('api') && section.classList.contains('active-section')) {
+						
+					header.classList.remove('head-hidden');
+
+
 					apiTyping.style.visibility = "hidden";
 					setTimeout(() => {
 						apiTyping.style.visibility = "visible";
@@ -476,7 +619,9 @@ export class FullPage {
 			} else {
 				section.style.opacity = '0';
 				section.style.pointerEvents = 'none';
-				//section.style.visibility = 'hidden';
+				//section.style.visibility = 'hidden'
+
+			
 			}
 		}
 	}
@@ -685,7 +830,7 @@ export class FullPage {
 		// Чи дозволено перехід? 
 		this.checkScroll(yCoord, targetElement);
 		// Перехід
-		if (this.goScroll && Math.abs(yCoord) > 50) { // было 20 (29.03.23)
+		if (this.goScroll && Math.abs(yCoord) > 20) { // было 20 (29.03.23)
 			this.choiceOfDirection(yCoord);
 		}
 	}
@@ -819,20 +964,20 @@ export class FullPage {
 
 			// Встановлюємо затримку перемикання
 			// Додаємо класи напрямку руху
-			let delaySection;
+			// let delaySection;
 			if (direction < 0) {
-				delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
+				// delaySection = this.activeSection.dataset.fpDirectionUp ? parseInt(this.activeSection.dataset.fpDirectionUp) : 500;
 				document.documentElement.classList.add('fp-up');
 				document.documentElement.classList.remove('fp-down');
 			} else {
-				delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
+				// delaySection = this.activeSection.dataset.fpDirectionDown ? parseInt(this.activeSection.dataset.fpDirectionDown) : 500;
 				document.documentElement.classList.remove('fp-up');
 				document.documentElement.classList.add('fp-down');
 			}
 
-			setTimeout(() => {
+			// setTimeout(() => {
 				this.events.transitionEnd();
-			}, delaySection);
+			// }, delaySection);
 
 
 			// Створення події
@@ -888,3 +1033,17 @@ export class FullPage {
 if (document.querySelector('[data-fp]')) {
 	flsModules.fullpage = new FullPage(document.querySelector('[data-fp]'), '');
 }
+document.addEventListener('fpswitching', function(e) {
+  if (e.detail.fp.activeSection.classList.contains("manage")){
+		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+  }
+  if (e.detail.fp.activeSection.classList.contains("options")){
+		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+  }
+  if (e.detail.fp.activeSection.classList.contains("custom-first")){
+		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+  }
+  if (e.detail.fp.activeSection.classList.contains("custom-second")){
+		e.detail.fp.activeSection.dispatchEvent(new Event('scroll'));
+  }
+})

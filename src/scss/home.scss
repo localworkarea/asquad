@@ -1551,7 +1551,7 @@
   background-color: $blue_main;
   overflow: auto;
   padding-top: rem(104);
-  padding-bottom: rem(32);
+  // padding-bottom: rem(32);
   @media (max-width:$mobileSmall){
     padding-top: rem(56);
     padding-bottom: rem(16); 
@@ -5479,11 +5479,11 @@
 .technologies {
   background-color: $gray_light;
   padding-top: rem(104);
-  padding-bottom: rem(32);
+  // padding-bottom: rem(32);
   overflow: auto;
   @media (max-width:$mobileSmall){
     padding-top: rem(56);
-    padding-bottom: rem(16); 
+    // padding-bottom: rem(16); 
   }
   
 

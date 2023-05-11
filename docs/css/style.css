@@ -1876,14 +1876,24 @@ textarea:focus {
   line-height: 1.5em;
 }
 
+.hidden {
+  display: none;
+}
+
 .iti__flag.iti__np {
   background-color: transparent;
+}
+
+.iti__flag.iti__as {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/american-samoa.svg");
 }
 
 .iti__flag.iti__ar {
   width: 64px;
   height: 64px;
-  background: url("../img/flags/css_sprites.png") -10px -10px;
+  background: url("../img/flags/css_sprites.svg") -10px -10px;
 }
 
 .iti__flag.iti__am {
@@ -2144,7 +2154,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -3622px -10px;
 }
 
-.iti__flag.iti__cocos_island {
+.iti__flag.iti__cc {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -3706px -10px;
@@ -2192,13 +2202,13 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -4294px -10px;
 }
 
-.iti__flag.iti__curacao {
+.iti__flag.iti__cw {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -4378px -10px;
 }
 
-.iti__flag.iti__cyprus {
+.iti__flag.iti__cy {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -4462px -10px;
@@ -2210,7 +2220,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -4546px -10px;
 }
 
-.iti__flag.iti__democratic_republic_of_congo {
+.iti__flag.iti__cd {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -4630px -10px;
@@ -2234,13 +2244,13 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -4882px -10px;
 }
 
-.iti__flag.iti__dmn_republic {
+.iti__flag.iti__do {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -4966px -10px;
 }
 
-.iti__flag.iti__east_timor {
+.iti__flag.iti__tl {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -5050px -10px;
@@ -2408,7 +2418,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -7318px -10px;
 }
 
-.iti__flag.iti__gn_bissau {
+.iti__flag.iti__gw {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -7402px -10px;
@@ -2510,7 +2520,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -8746px -10px;
 }
 
-.iti__flag.iti__ivory_coast {
+.iti__flag.iti__ci {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -8830px -10px;
@@ -2630,7 +2640,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -10426px -10px;
 }
 
-.iti__flag.iti__macao {
+.iti__flag.iti__mo {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -10510px -10px;
@@ -2954,19 +2964,19 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -14962px -10px;
 }
 
-.iti__flag.iti__republic_of_macedonia {
+.iti__flag.iti__mk {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -15046px -10px;
 }
 
-.iti__flag.iti__republic_of_pl {
+.iti__flag.iti__pl {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -15130px -10px;
 }
 
-.iti__flag.iti__republic_of_the_congo {
+.iti__flag.iti__cg {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -15214px -10px;
@@ -3002,7 +3012,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -15634px -10px;
 }
 
-.iti__flag.iti__salvador {
+.iti__flag.iti__sv {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -15718px -10px;
@@ -3152,13 +3162,13 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -17734px -10px;
 }
 
-.iti__flag.iti__st_lucia {
+.iti__flag.iti__lc {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -17818px -10px;
 }
 
-.iti__flag.iti__st_vincent_and_the_grenadines {
+.iti__flag.iti__vc {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -17902px -10px;
@@ -3176,7 +3186,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -18070px -10px;
 }
 
-.iti__flag.iti__swaziland {
+.iti__flag.iti__sz {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -18154px -10px;
@@ -3362,7 +3372,7 @@ textarea:focus {
   background: url("../img/flags/css_sprites.svg") -20674px -10px;
 }
 
-.iti__flag.iti__virgin_islands {
+.iti__flag.iti__vi {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -20758px -10px;
@@ -3378,6 +3388,138 @@ textarea:focus {
   width: 64px;
   height: 64px;
   background: url("../img/flags/css_sprites.svg") -20926px -10px;
+}
+
+.iti__flag.iti__nc {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -10px -10px;
+}
+
+.iti__flag.iti__re {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -94px -10px;
+}
+
+.iti__flag.iti__bl {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -178px -10px;
+}
+
+.iti__flag.iti__sh {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -262px -10px;
+}
+
+.iti__flag.iti__mf {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -346px -10px;
+}
+
+.iti__flag.iti__pm {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -430px -10px;
+}
+
+.iti__flag.iti__sj {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -514px -10px;
+}
+
+.iti__flag.iti__wf {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -598px -10px;
+}
+
+.iti__flag.iti__ye {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -682px -10px;
+}
+
+.iti__flag.iti__zm {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -766px -10px;
+}
+
+.iti__flag.iti__zw {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -850px -10px;
+}
+
+.iti__flag.iti__bq {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -934px -10px;
+}
+
+.iti__flag.iti__ax {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1018px -10px;
+}
+
+.iti__flag.iti__al {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1102px -10px;
+}
+
+.iti__flag.iti__dz {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1186px -10px;
+}
+
+.iti__flag.iti__ad {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1270px -10px;
+}
+
+.iti__flag.iti__ao {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1354px -10px;
+}
+
+.iti__flag.iti__ai {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1438px -10px;
+}
+
+.iti__flag.iti__ag {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1522px -10px;
+}
+
+.iti__flag.iti__gf {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1606px -10px;
+}
+
+.iti__flag.iti__gp {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1690px -10px;
+}
+
+.iti__flag.iti__yt {
+  width: 64px;
+  height: 64px;
+  background: url("../img/flags/css_sprites_2.svg") -1774px -10px;
 }
 
 .header {
@@ -3493,6 +3635,14 @@ textarea:focus {
 .header.header-hidden {
   opacity: 0;
   visibility: hidden;
+}
+@media (min-width: 769px) and (max-width: 1200px) {
+  .header.head-hidden {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease 0s;
+    -o-transition: opacity 0.2s ease 0s;
+    transition: opacity 0.2s ease 0s;
+  }
 }
 .header__container {
   display: -webkit-box;
@@ -6657,7 +6807,6 @@ textarea:focus {
   background-color: #0062EB;
   overflow: auto;
   padding-top: 6.5rem;
-  padding-bottom: 2rem;
 }
 @media (max-width: 30em) {
   .choose {
@@ -12218,13 +12367,11 @@ textarea:focus {
 .technologies {
   background-color: #F0F4F5;
   padding-top: 6.5rem;
-  padding-bottom: 2rem;
   overflow: auto;
 }
 @media (max-width: 30em) {
   .technologies {
     padding-top: 3.5rem;
-    padding-bottom: 1rem;
   }
 }
 .technologies.previous-section .technologies__title span {

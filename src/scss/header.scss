@@ -85,7 +85,13 @@
 		opacity: 0;
 		visibility: hidden;
 	}
-
+	&.head-hidden {
+		@media (min-width: 769px) and (max-width: 1200px) {
+			opacity: 0;
+			transition: opacity 0.2s ease 0s;
+		}
+		
+	}
 	// .header__container
 	&__container {
 		display: flex;
@@ -96,7 +102,8 @@
 	// .header__logo
 	&__logo {
 		z-index: 12;
-
+		// стили для скрытия логотипа на экране Manage при media (min-width: 769px) and (max-width: 1200px)
+		
 	}
 	// .header__logo-pc
 	&__logo-pc {
