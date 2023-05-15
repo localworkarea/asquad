@@ -1841,12 +1841,12 @@ Inputmask.extendAliases({
   }
 });
 
+
 // ВВод только слов/букв, кроме чисел и клавиатурных символов =============================
 let formNameInput = document.getElementById("formName");
-
-formNameInput.addEventListener('keydown', function(e){
-  if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
-}); 
+// formNameInput.addEventListener('keydown', function(e){
+//   if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
+// }); 
 formNameInput.addEventListener('input', function(e){
     formNameInput.value = formNameInput.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
 }); 
@@ -1857,16 +1857,18 @@ formNameInput.addEventListener('input', function(e){
 
 
 let formNameInputOne = document.getElementById("formName-1");
-
-formNameInputOne.addEventListener('keydown', function(e){
-    if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
-});
+// formNameInputOne.addEventListener('keydown', function(e){
+//     if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
+// });
 formNameInputOne.addEventListener('input', function(e){
     formNameInputOne.value = formNameInputOne.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
 }); 
 formNameInputOne.addEventListener('input', function(e){
     formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
 });
+
+// ==========================================
+
 
 
 // =============================================================================================================================================================================================================================
@@ -1903,20 +1905,20 @@ formNameInputOne.addEventListener('input', function(e){
 
 
     // == SENT MAIL ========================================
-    document.getElementById("FormDemo").addEventListener("submit", sendEmail);
-    document.getElementById("FormPartner").addEventListener("submit", sendEmail);
-    async function sendEmail(e) {
-      e.preventDefault();
-      var form = e.target;
-      let response = await fetch(form.getAttribute("action"), {
-        method: 'POST',
-        body: new FormData(form)
-      });
-      let result = await response.json();
-      if(result.status == 'ok'){
-        form.reset();
-        flsModules.popup.open('#form-message');
-      }else{
-        alert("Something went wrong! Try later.");
-      }
-    }
+    // document.getElementById("FormDemo").addEventListener("submit", sendEmail);
+    // document.getElementById("FormPartner").addEventListener("submit", sendEmail);
+    // async function sendEmail(e) {
+    //   e.preventDefault();
+    //   var form = e.target;
+    //   let response = await fetch(form.getAttribute("action"), {
+    //     method: 'POST',
+    //     body: new FormData(form)
+    //   });
+    //   let result = await response.json();
+    //   if(result.status == 'ok'){
+    //     form.reset();
+    //     flsModules.popup.open('#form-message');
+    //   }else{
+    //     alert("Something went wrong! Try later.");
+    //   }
+    // }

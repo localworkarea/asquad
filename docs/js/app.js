@@ -1195,7 +1195,10 @@
                         this.addError(formRequiredItem);
                         error++;
                     } else this.removeError(formRequiredItem);
-                } else if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
+                } else if ("website" === formRequiredItem.dataset.required) if (this.websiteTest(formRequiredItem)) {
+                    this.addError(formRequiredItem);
+                    error++;
+                } else this.removeError(formRequiredItem); else if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
                     this.addError(formRequiredItem);
                     error++;
                 } else if (!formRequiredItem.value.trim()) {
@@ -1257,6 +1260,9 @@
             },
             emailTest(formRequiredItem) {
                 return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
+            },
+            websiteTest(formRequiredItem) {
+                return !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(formRequiredItem.value);
             }
         };
         function formSubmit() {
@@ -3609,13 +3615,8 @@
         function ToogleHeader(e) {
             const el = e.target;
             const header = document.querySelector(".header");
-            if (el.scrollTop >= 50) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
+            if (el.scrollTop >= 5) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
         }
-        document.querySelector(".manage");
-        document.querySelector(".options");
-        document.querySelector(".custom-first");
-        document.querySelector(".custom-second");
-        document.querySelector(".request__wrapper");
         var $is_typed_call = false;
         class FullPage {
             constructor(element, options) {
@@ -3841,7 +3842,7 @@
                             const requestWrapper = document.querySelector(".request__wrapper");
                             sectionRequest.addEventListener("scroll", (function() {
                                 const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
-                                if (requestWrapperTop <= 60) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
+                                if (requestWrapperTop <= 100) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
                             }));
                         }
                     } else {
@@ -4020,7 +4021,9 @@
             var pel = e.detail.fp.previousSection;
             var ael = e.detail.fp.activeSection;
             var nel = e.detail.fp.nextSection;
-            document.querySelector(".header").classList.remove("head-hidden");
+            setTimeout((() => {
+                document.querySelector(".header").classList.remove("head-hidden");
+            }), 1e3);
             if (ael.classList.contains("manage")) ael.addEventListener("scroll", ToogleHeader); else if (ael.classList.contains("api")) {
                 pel.removeEventListener("scroll", ToogleHeader);
                 setTimeout((() => {
@@ -5834,9 +5837,6 @@
             }
         });
         let formNameInput = document.getElementById("formName");
-        formNameInput.addEventListener("keydown", (function(e) {
-            if (e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/)) return e.preventDefault();
-        }));
         formNameInput.addEventListener("input", (function(e) {
             formNameInput.value = formNameInput.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
         }));
@@ -5844,9 +5844,6 @@
             formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
         }));
         let formNameInputOne = document.getElementById("formName-1");
-        formNameInputOne.addEventListener("keydown", (function(e) {
-            if (e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/)) return e.preventDefault();
-        }));
         formNameInputOne.addEventListener("input", (function(e) {
             formNameInputOne.value = formNameInputOne.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
         }));
@@ -5878,21 +5875,6 @@
                 event.stopPropagation();
             }
         }), false);
-        document.getElementById("FormDemo").addEventListener("submit", sendEmail);
-        document.getElementById("FormPartner").addEventListener("submit", sendEmail);
-        async function sendEmail(e) {
-            e.preventDefault();
-            var form = e.target;
-            let response = await fetch(form.getAttribute("action"), {
-                method: "POST",
-                body: new FormData(form)
-            });
-            let result = await response.json();
-            if ("ok" == result.status) {
-                form.reset();
-                flsModules.popup.open("#form-message");
-            } else alert("Something went wrong! Try later.");
-        }
         window["FLS"] = true;
         isWebp();
         addTouchClass();

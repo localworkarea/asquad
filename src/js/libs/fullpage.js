@@ -67,7 +67,7 @@ const animationManageTransct = bodymovin.loadAnimation({
 function ToogleHeader(e) {
   const el = e.target;
   const header = document.querySelector(".header");
-  if (el.scrollTop >= 50) {
+  if (el.scrollTop >= 5) {
     header.classList.add("head-hidden");
     // console.log("header добавил hidden: " + el.classList);
   } else {
@@ -75,11 +75,12 @@ function ToogleHeader(e) {
     // console.log("header удалил hidden: " + el.classList);
   }
 }
-const sectionManage = document.querySelector(".manage");
-const sectionOptions = document.querySelector(".options");
-const sectionCustomFirst = document.querySelector(".custom-first");
-const sectionCustomSecond = document.querySelector(".custom-second");
-const sectionRequestWrapper = document.querySelector(".request__wrapper");
+// const sectionManage = document.querySelector(".manage");
+// const sectionOptions = document.querySelector(".options");
+// const sectionCustomFirst = document.querySelector(".custom-first");
+// const sectionCustomSecond = document.querySelector(".custom-second");
+// const sectionApi = document.querySelector(".api");
+// const sectionRequestWrapper = document.querySelector(".request__wrapper");
 // sectionManage.addEventListener('scroll', function() { ToogleHeader(this); });
 // sectionOptions.addEventListener('scroll', function() { ToogleHeader(this); });
 // sectionCustomFirst.addEventListener('scroll', function() { ToogleHeader(this); });
@@ -623,7 +624,7 @@ export class FullPage {
 					const requestWrapper = document.querySelector('.request__wrapper');
 					sectionRequest.addEventListener('scroll', function() {
 						const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
-						if (requestWrapperTop <= 60) {
+						if (requestWrapperTop <= 100) {
 							header.classList.add('head-hidden');
 						} else {
 							header.classList.remove('head-hidden');
@@ -1071,7 +1072,9 @@ document.addEventListener('fpswitching', function(e) {
 	var pel = e.detail.fp.previousSection;
 	var ael = e.detail.fp.activeSection;
 	var nel = e.detail.fp.nextSection;
-	document.querySelector(".header").classList.remove("head-hidden");
+	setTimeout(() => {
+		document.querySelector(".header").classList.remove("head-hidden");
+	}, 1000);
 	if (ael.classList.contains("manage")) {
 		ael.addEventListener("scroll", ToogleHeader);
 	} else if (ael.classList.contains("api")) {
@@ -1081,7 +1084,7 @@ document.addEventListener('fpswitching', function(e) {
 			nel.scrollTop = 0;
 		}, 1000);
 		
-	} else if(ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
+	} else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
 		nel.removeEventListener("scroll", ToogleHeader);
 		ael.addEventListener("scroll", ToogleHeader);
 		pel.removeEventListener("scroll", ToogleHeader);

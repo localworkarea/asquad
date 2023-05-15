@@ -11,6 +11,35 @@ import { gotoBlock } from "../scroll/gotoblock.js";
 Документація: https://template.fls.guru/template-docs/rabota-s-formami.html
 */
 
+// ВВод только слов/букв, кроме чисел и клавиатурных символов =============================
+// let formNameInput = document.getElementById("formName");
+
+// formNameInput.addEventListener('keydown', function(e){
+//   if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
+// }); 
+// formNameInput.addEventListener('input', function(e){
+//     formNameInput.value = formNameInput.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+// }); 
+// formNameInput.addEventListener('input', function(e){
+//   // На случай, если умудрились ввести через копипаст или авто-дополнение.
+//   formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
+// });
+
+
+// let formNameInputOne = document.getElementById("formName-1");
+
+// formNameInputOne.addEventListener('keydown', function(e){
+//     if( e.key.match(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/) ) return e.preventDefault();
+// });
+// formNameInputOne.addEventListener('input', function(e){
+//     formNameInputOne.value = formNameInputOne.value.replace(/[\d\~\!\@\#\$\%\^\&\*\(\)\+\_\=\+\[\]\,\.\<\>\/\?\|\\\"\;\:]/g, "");
+// }); 
+// formNameInputOne.addEventListener('input', function(e){
+//     formNameInput.value = formNameInput.value.replace(/^[а-я][А-ЯёЁ][a-z][A-Z]+$/g, "");
+// });
+
+// ==========================================
+
 document.getElementById("btn-part-submit").disabled = true;
 document.getElementById("btn-req-submit").disabled = true;
 
@@ -125,7 +154,16 @@ export let formValidate = {
 				error++;
 			} else {
 				this.removeError(formRequiredItem);
+			} 
+			// проверка валидации поля с дата атрибутом website ----
+		} else if (formRequiredItem.dataset.required === "website") {
+			if (this.websiteTest(formRequiredItem)) {
+				this.addError(formRequiredItem);
+				error++;
+			} else {
+				this.removeError(formRequiredItem);
 			}
+			// ----------------------------------------------------------
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
@@ -212,6 +250,32 @@ export let formValidate = {
 	},
 	emailTest(formRequiredItem) {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
+	},
+	websiteTest(formRequiredItem) {
+		// Вариант 1) для проверки форматов 
+		//  	www.google.com
+		//  	http://www.google.com
+		//  	mailto:somebody@google.com
+		//  	somebody@google.com
+		//  	www.url-with-querystring.com/?url=has-querystring
+		// return !/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/.test(formRequiredItem.value);
+
+		// Вариант 2)  для проверки форматов:
+		//    https://www.example.com
+		//    http://www.example.com
+		//    www.example.com
+		//    example.com
+		//    http://blog.example.com
+		//    http://www.example.com/product
+		//    http://www.example.com/products?id=1&page=2
+		//    http://www.example.com#up
+		//    http://255.255.255.255
+		//    255.255.255.255
+		//    http://www.site.com:8008
+		// кроме вот этого, он не пройдет проверку:
+	  //    http://invalid.com/perl.cgi?key= | http://web-site.com/cgi-bin/perl.cgi?key1=value1&key2
+
+		return !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(formRequiredItem.value);
 	}
 }
 /* Відправлення форм */
