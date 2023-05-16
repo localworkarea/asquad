@@ -53,9 +53,6 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 			if (!targetElement.hasAttribute('data-no-focus-classes')) {
 				targetElement.classList.add('_form-focus');
 				targetElement.parentElement.classList.add('_form-focus');
-				
-				// document.getElementById("btn-part-submit").disabled = true;
-				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			targetElement.hasAttribute('data-validate') ? formValidate.removeError(targetElement) : null;
 		}
@@ -69,59 +66,12 @@ export function formFieldsInit(options = { viewPass: false, autoHeight: false })
 				targetElement.classList.remove('_form-focus');
 				targetElement.parentElement.classList.remove('_form-focus');
 
-				// document.getElementById("btn-part-submit").disabled = true;
-				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			// Миттєва валідація
 			targetElement.hasAttribute('data-validate') ? formValidate.validateInput(targetElement) : null;
 	
 		}
 	});
-
-	// const formBlocks = document.querySelectorAll('.form__block');
-	// formBlocks.forEach(item => {
-	// 	item.addEventListener("keyup", function (e) {
-	// 		const targetElement = e.target;
-	// 		if (targetElement.value.length > 0) {
-	// 				targetElement.parentElement.classList.add('_show-reset-btn');
-	// 	 } else {
-	// 		targetElement.parentElement.classList.remove('_show-reset-btn');
-	// 	}
-	// 	});
-	// });
-
-	// const itemFormPhone = document.querySelectorAll('.item-form-phone');
-	// itemFormPhone.forEach(item => {
-	// 	item.addEventListener("keyup", function(e) {
-	// 		const targetElement = e.target;
-	// 		if (targetElement.value.length > 0) {
-	// 			const itemFormTel = document.querySelectorAll('.item-form-phone');
-	// 			itemFormPhone.forEach(item => {
-	// 				item.classList.add('_show-reset-btn');
-	// 			});
-	// 		} else {
-	// 			itemFormPhone.forEach(item => {
-	// 				item.classList.remove('_show-reset-btn');
-	// 			});
-	// 		}
-	// 	})
-	// });
-	// const itemFormTel = document.querySelectorAll('.item-form-tel');
-	// itemFormTel.forEach(item => {
-	// 	item.addEventListener("keyup", function(e) {
-	// 		const targetElement = e.target;
-	// 		if (targetElement.value.length > 0) {
-	// 			const itemFormPhone = document.querySelectorAll('.item-form-phone');
-	// 			itemFormPhone.forEach(item => {
-	// 				item.classList.add('_show-reset-btn');
-	// 			});
-	// 		} else {
-	// 			itemFormPhone.forEach(item => {
-	// 				item.classList.remove('_show-reset-btn');
-	// 			});
-	// 		}
-	// 	})
-	// });
 
 }
 // Валідація форм
@@ -134,14 +84,11 @@ export let formValidate = {
 			formRequiredItems.forEach(formRequiredItem => {
 				if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === "SELECT") && !formRequiredItem.disabled) {
 					error += this.validateInput(formRequiredItem);
-						
-						// document.getElementById("btn-part-submit").disabled = true;
-						// document.getElementById("btn-req-submit").disabled = true;
+					// console.log("сработал getErrors");
 				}
 			});
 		}
-		// document.getElementById("btn-part-submit").disabled = false;
-		// document.getElementById("btn-req-submit").disabled = false;
+
 		return error;
 
 	},
@@ -164,6 +111,18 @@ export let formValidate = {
 				this.removeError(formRequiredItem);
 			}
 			// ----------------------------------------------------------
+		}  else if (formRequiredItem.dataset.required === "website"|| formRequiredItem.dataset.required === "email" || formRequiredItem.dataset.required === "phone") {
+			if (((formRequiredItem.dataset.required === "website") === "" || (formRequiredItem.dataset.required === "email") === "" || (formRequiredItem.dataset.required === "phone") === "" )) {
+				document.getElementById("btn-part-submit").disabled = true;
+				document.getElementById("btn-req-submit").disabled = true;
+				// console.log("Одно из полей не заполнено - исправить ошибку");
+				// error++;
+			} else {
+				document.getElementById("btn-part-submit").disabled = false;
+				document.getElementById("btn-req-submit").disabled = false;
+				// console.log("Поля заполнены - можно отправлять");
+			}
+		
 		} else if (formRequiredItem.type === "checkbox" && !formRequiredItem.checked) {
 			this.addError(formRequiredItem);
 			error++;
@@ -179,9 +138,11 @@ export let formValidate = {
 		if (error == 0) {
 			document.getElementById("btn-part-submit").disabled = false;
 			document.getElementById("btn-req-submit").disabled = false;
+			// console.log("Error == 0 можно отправлять");
 		} else {
 			document.getElementById("btn-part-submit").disabled = true;
 			document.getElementById("btn-req-submit").disabled = true;
+			// console.log("Error > 1 исправить ошибку");
 		}
 
 		return error;
@@ -195,8 +156,6 @@ export let formValidate = {
 
 		formRequiredItem.classList.add('_form-error');
 		formRequiredItem.parentElement.classList.add('_form-error');
-		// document.getElementById("btn-part-submit").disabled = true;
-		// document.getElementById("btn-req-submit").disabled = true;
 		let inputError = formRequiredItem.parentElement.querySelector('.form__error');
 		if (inputError) formRequiredItem.parentElement.removeChild(inputError);
 		if (formRequiredItem.dataset.error) {
@@ -211,8 +170,6 @@ export let formValidate = {
     });
 		
 		formRequiredItem.classList.remove('_form-error');
-		// document.getElementById("btn-part-submit").disabled = false;
-		// document.getElementById("btn-req-submit").disabled = false;
 		formRequiredItem.parentElement.classList.remove('_form-error');
 		if (formRequiredItem.parentElement.querySelector('.form__error')) {
 			formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
@@ -227,8 +184,6 @@ export let formValidate = {
 				el.parentElement.classList.remove('_form-focus');
 				el.classList.remove('_form-focus');
 				formValidate.removeError(el);
-				// document.getElementById("btn-part-submit").disabled = true;
-				// document.getElementById("btn-req-submit").disabled = true;
 			}
 			let checkboxes = form.querySelectorAll('.checkbox__input');
 			if (checkboxes.length > 0) {

@@ -431,14 +431,6 @@ export class FullPage {
 				if (!section.classList.contains('integrations') && section.classList.contains('active-section')) {
 					imageAnim.classList.remove('_anim-integrations');
 				} 
-				if (section.classList.contains("awesome") && section.classList.contains("active-section")) {
-					// setTimeout(() => {
-					// 		animationAwesome.play();
-					// }, 300);
-				} 
-				if (!section.classList.contains("awesome") && section.classList.contains("active-section")) {
-						// animationAwesome.stop();
-				} 
 				if (section.classList.contains('hold') && section.classList.contains('active-section')) {
 						setTimeout(() => {
 							animationHoldOn.play();  
@@ -466,107 +458,8 @@ export class FullPage {
 						manageSection.style.overflow = 'auto';
 					}, 2000);
 					
-					// const sectionManage = document.querySelector(".manage");
-					// const containerManage = document.querySelector('.manage__container');
-					// const containerManageTop = containerManage.getBoundingClientRect().top;
-					// console.log("Manage соответствует" + containerManageTop);
-					// if (containerManageTop <= 60) {
-					// 	header.classList.add('head-hidden');
-					// 	console.log('Manage Top меньше 60 Добавил hidden');
-					// }else {
-					// 	header.classList.remove('head-hidden');
-					// 	console.log('Manage Top больше 60 Удалил hidden');
-					// }
-
-					// sectionManage.addEventListener('scroll', function() {
-					// 	const containerManageTop = containerManage.getBoundingClientRect().top;
-					// 	if (containerManageTop <= 60) {
-					// 		header.classList.add('head-hidden');
-					// 		console.log("Manage Сработал Scroll < 60 - добавил hidden");
-					// 	} else {
-					// 		header.classList.remove('head-hidden');
-					// 		console.log("Manage Сработал Scroll > 60 - удалил hidden");
-					// 	}
-					// })
 				}
-				// ===== OPTIONS =================
-				if (section.classList.contains("options") && section.classList.contains("active-section")) {
-					// ToogleHeader(document.querySelector(".options"));
-					// if (window.matchMedia("(min-width: 769px) and (max-width: 1200px)").matches) {
-					// 	const manage = document.querySelector('.manage');
-					// 	manage.scrollTop = 0;
-					// }
-				// 			const sectionOptions = document.querySelector(".options");
-				// 			const containerOptions = document.querySelector('.options__container');
-				// 			const containerOptionsTop = containerOptions.getBoundingClientRect().top;
-				// 			console.log("Options соответствует" + containerOptionsTop);
-				// 			if (containerOptionsTop <= 60) {
-				// 				header.classList.add('head-hidden');
-				// 				console.log('Options Top меньше 60 Добавил hidden');
-				// 			}else {
-				// 				header.classList.remove('head-hidden');
-				// 				console.log('Options Top больше 60 Удалил hidden');
-				// 			}
 
-						
-
-				// 			sectionOptions.addEventListener('scroll', function() {
-				// 				const containerOptionsTop = containerOptions.getBoundingClientRect().top;
-				// 				if (containerOptionsTop <= 60) {
-				// 					header.classList.add('head-hidden');
-				// 					console.log("Options Сработал Scroll < 60 - добавил hidden");
-				// 				} else {
-				// 					header.classList.remove('head-hidden');
-				// 					console.log("Options Сработал Scroll > 60 - удалил hidden");
-				// 				}
-				// 		})
-				}
-				// ===== CUSTOM FIRST =================
-				if (section.classList.contains("custom-first") && section.classList.contains("active-section")) {
-					// ToogleHeader(document.querySelector(".custom-first"));
-				// 		const sectionCustumFirst = document.querySelector(".custom-first");
-				// 		const containerCustumFirst = document.querySelector('.custom-first__container');
-				// 		const containerCustumFirstTop = containerCustumFirst.getBoundingClientRect().top;
-				// 		console.log(containerCustumFirstTop);
-				// 		if (containerCustumFirstTop < 60) {
-				// 			header.classList.add('head-hidden');
-				// 		}else {
-				// 			header.classList.remove('head-hidden');
-				// 		}
-
-						
-				// 		sectionCustumFirst.addEventListener('scroll', function() {
-				// 				const containerCustumFirstTop = containerCustumFirst.getBoundingClientRect().top;
-				// 				if (containerCustumFirstTop < 80) {
-				// 					header.classList.add('head-hidden');
-				// 				} else {
-				// 					// header.classList.remove('head-hidden');
-				// 				}
-				// 		})
-				}
-				// ===== CUSTOM SECOND =================
-				if (section.classList.contains("custom-second") && section.classList.contains("active-section")) {
-					// ToogleHeader(document.querySelector(".custom-second"));
-				// 		const sectionCustumSecond = document.querySelector(".custom-second");
-				// 			const containerCustumSecond = document.querySelector('.custom-second__container');
-				// 			const containerCustumSecondTop = containerCustumSecond.getBoundingClientRect().top;
-				// 			console.log(containerCustumSecondTop);
-				// 			if (containerCustumSecondTop < 60) {
-				// 				header.classList.add('head-hidden');
-				// 			}else {
-				// 				header.classList.remove('head-hidden');
-				// 			}
-						
-				// 			sectionCustumSecond.addEventListener('scroll', function() {
-				// 				const containerCustumSecondTop = containerCustumSecond.getBoundingClientRect().top;
-				// 				if (containerCustumSecondTop < 80) {
-				// 					header.classList.add('head-hidden');
-				// 				} else {
-				// 					// header.classList.remove('head-hidden');
-				// 				}
-				// 		})
-				}
-				
 				if (!section.classList.contains("manage") && section.classList.contains("active-section")) {
 						animationManageAmount.stop();
 						animationManageGraphic.stop();
@@ -574,10 +467,9 @@ export class FullPage {
 				}
 				
   			if (section.classList.contains('api') && section.classList.contains('active-section')) {
-						
-					header.classList.remove('head-hidden');
-
-
+					
+						document.documentElement.classList.add('_header-api');	
+					
 					apiTyping.style.visibility = "hidden";
 					setTimeout(() => {
 						apiTyping.style.visibility = "visible";
@@ -596,6 +488,10 @@ export class FullPage {
 							$is_typed_call = true;
   			  }
   			}
+				
+				if (!section.classList.contains('api') && section.classList.contains('active-section')) {
+						document.documentElement.classList.remove('_header-api');	
+				}
 
 				function addAnim() {
 					if (section.classList.contains('request') && section.classList.contains('active-section')) {
@@ -618,19 +514,19 @@ export class FullPage {
 				if (!section.classList.contains('request') && section.classList.contains('active-section')) {
 					requestSection.classList.remove('_anim-start');
 				} 
-				if (section.classList.contains('request') && section.classList.contains('active-section')) {
+				// if (section.classList.contains('request') && section.classList.contains('active-section')) {
 					
-					const sectionRequest = document.querySelector('.request');
-					const requestWrapper = document.querySelector('.request__wrapper');
-					sectionRequest.addEventListener('scroll', function() {
-						const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
-						if (requestWrapperTop <= 100) {
-							header.classList.add('head-hidden');
-						} else {
-							header.classList.remove('head-hidden');
-						}
-					})
-				} 
+					// const sectionRequest = document.querySelector('.request');
+					// const requestWrapper = document.querySelector('.request__wrapper');
+					// sectionRequest.addEventListener('scroll', function() {
+					// 	const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
+					// 	if (requestWrapperTop <= 100) {
+					// 		header.classList.add('head-hidden');
+					// 	} else {
+					// 		header.classList.remove('head-hidden');
+					// 	}
+					// })
+				// } 
 
 
 			} else {
@@ -1084,6 +980,9 @@ document.addEventListener('fpswitching', function(e) {
 			nel.scrollTop = 0;
 		}, 1000);
 		
+	} else if (ael.classList.contains("request")) {
+		ael.addEventListener("scroll", ToogleHeader);
+		ael.scrollTop = 0;
 	} else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
 		nel.removeEventListener("scroll", ToogleHeader);
 		ael.addEventListener("scroll", ToogleHeader);

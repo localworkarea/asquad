@@ -26,24 +26,34 @@ import { flsModules } from "./modules.js";
 // Очистити поля форми ====================
 
 const resetBtn = document.querySelectorAll('.reset-btn');
+const resetBtnPhone = document.querySelectorAll('.reset-btn-phone');
 
 resetBtn.forEach(item => {
   item.addEventListener("click", resetInput);
 });
-function resetInput() {
-//   document.querySelectorAll('form')[1].reset();
-//   document.querySelectorAll('form')[0].reset();
-// document.getElementById('formEmail').value = '';
-this.previousElementSibling.value = '';
 
-if(this.previousElementSibling.tagName == 'TEXTAREA'){
-    this.previousElementSibling.style.height = 'initial';
-}
+resetBtnPhone.forEach(item => {
+  item.addEventListener("click", ()=> {
+    const phoneInput = document.querySelectorAll('.input-form-tel');
+      phoneInput.forEach(phoneInput => {
+        phoneInput.value = '';
+      });
+  });
+});
+function resetInput() {
+  //   document.querySelectorAll('form')[1].reset();
+  //   document.querySelectorAll('form')[0].reset();
+  // document.getElementById('formEmail').value = '';
+  this.previousElementSibling.value = '';
+  if(this.previousElementSibling.tagName == 'TEXTAREA'){
+      this.previousElementSibling.style.height = 'initial';
+  }
   const formItems =  document.querySelectorAll('.form__item');
   formItems.forEach(item => {
     item.classList.remove('_show-reset-btn');
   });
 }
+
 
 const txHeight = 40;
 const tx = document.getElementsByTagName("textarea");
@@ -179,23 +189,23 @@ if (formBtn) {
         if (formBtn.classList.contains('btn-black')) {
             formBtn.addEventListener("mouseenter", function() {
                 animBtnFormSubm.play();
-                lottieBtnFormSubm.style.opacity = '1';
+                // lottieBtnFormSubm.style.opacity = '1';
             });
             
             formBtn.addEventListener("mouseleave", function() {
                 animBtnFormSubm.stop();
-                lottieBtnFormSubm.style.opacity = '0';
+                // lottieBtnFormSubm.style.opacity = '0';
             });
         }
         if (formBtn.classList.contains('btn-submit-two')) {
             formBtn.addEventListener("mouseenter", function() {
                 animBtnFormSubmTwo.play();
-                lottieBtnFormSubmTwo.style.opacity = '1';
+                // lottieBtnFormSubmTwo.style.opacity = '1';
             });
             
             formBtn.addEventListener("mouseleave", function() {
                 animBtnFormSubmTwo.stop();
-                lottieBtnFormSubmTwo.style.opacity = '0';
+                // lottieBtnFormSubmTwo.style.opacity = '0';
             });
         }
         if (formBtn.classList.contains('btn-close')) {
@@ -1890,35 +1900,92 @@ formNameInputOne.addEventListener('input', function(e){
         }
     }
 
-    
-  
 
 
     // == VERTICAL-HORIZONTAL SCROLL (API SECTION) ===================
     var product__body = document.querySelector('.product__body');
-    product__body.addEventListener("wheel", function (event) {
-    if(event.wheelDelta > 0) product__body.scrollLeft -= 50; else  product__body.scrollLeft += 50;
-    
-    var maxScroll = product__body.scrollWidth - product__body.clientWidth;
-    if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
-    }, false);
-
+    if (product__body) {
+        product__body.addEventListener("wheel", function (event) {
+        if(event.wheelDelta > 0) product__body.scrollLeft -= 50; else  product__body.scrollLeft += 50;
+        
+        var maxScroll = product__body.scrollWidth - product__body.clientWidth;
+        if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
+        }, false);
+    }
 
     // == SENT MAIL ========================================
+    let formDemo = document.getElementById('FormDemo');
+    if (formDemo !== null) {
+        formDemo.addEventListener("submit", sendEmail);
+    }
+
+    let formPartner = document.getElementById('FormPartner');
+    if (formPartner !== null) {
+        formPartner.addEventListener("submit", sendEmail);
+    }
     // document.getElementById("FormDemo").addEventListener("submit", sendEmail);
     // document.getElementById("FormPartner").addEventListener("submit", sendEmail);
-    // async function sendEmail(e) {
-    //   e.preventDefault();
-    //   var form = e.target;
-    //   let response = await fetch(form.getAttribute("action"), {
-    //     method: 'POST',
-    //     body: new FormData(form)
-    //   });
-    //   let result = await response.json();
-    //   if(result.status == 'ok'){
-    //     form.reset();
-    //     flsModules.popup.open('#form-message');
-    //   }else{
-    //     alert("Something went wrong! Try later.");
-    //   }
-    // }
+    async function sendEmail(e) {
+      e.preventDefault();
+      var form = e.target;
+      let response = await fetch(form.getAttribute("action"), {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      let result = await response.json();
+      if(result.status == 'ok'){
+        form.reset();
+        flsModules.popup.open('#form-message');
+      }else{
+        alert("Something went wrong! Try later.");
+      }
+    }
+
+
+    // == Scroll header on 404 page ========================================
+        let addWindowScrollEvent = false;
+        function headerScroll() {
+            addWindowScrollEvent = true;
+            const header = document.querySelector('header.header');
+            const headerShow = header.hasAttribute('data-scroll-show');
+            const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+            const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+            let scrollDirection = 0;
+            let timer;
+            document.addEventListener("windowScroll", function (e) {
+                const scrollTop = window.scrollY;
+                clearTimeout(timer);
+                if (scrollTop >= startPoint) {
+                    !header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
+                    if (headerShow) {
+                        if (scrollTop > scrollDirection) {
+                            // downscroll code
+                            header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+                        } else {
+                            // upscroll code
+                            !header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+                        }
+                        timer = setTimeout(() => {
+                            !header.classList.contains('_header-show') ? header.classList.add('_header-show') : null;
+                        }, headerShowTimer);
+                    }
+                } else {
+                    header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
+                    if (headerShow) {
+                        header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
+                    }
+                }
+                scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+            });
+        }
+        headerScroll();
+        setTimeout(() => {
+            if (addWindowScrollEvent) {
+                let windowScroll = new Event("windowScroll");
+                window.addEventListener("scroll", function (e) {
+                    document.dispatchEvent(windowScroll);
+                });
+            }
+        }, 0);
+        
+        

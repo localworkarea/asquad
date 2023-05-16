@@ -128,7 +128,7 @@ class ScrollWatcher {
 			// 		headerItem.classList.add('hide-header');
 			// }
 			
-			if (targetElement.classList.contains('footer')) {
+			if (targetElement.classList.contains('footer-main')) {
 				const headerItem = document.querySelector('.header');
 					headerItem.classList.add('hide-header');
 			}

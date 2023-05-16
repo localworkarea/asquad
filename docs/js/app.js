@@ -1198,7 +1198,13 @@
                 } else if ("website" === formRequiredItem.dataset.required) if (this.websiteTest(formRequiredItem)) {
                     this.addError(formRequiredItem);
                     error++;
-                } else this.removeError(formRequiredItem); else if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
+                } else this.removeError(formRequiredItem); else if ("website" === formRequiredItem.dataset.required || "email" === formRequiredItem.dataset.required || "phone" === formRequiredItem.dataset.required) if ("website" === formRequiredItem.dataset.required === "" || "email" === formRequiredItem.dataset.required === "" || "phone" === formRequiredItem.dataset.required === "") {
+                    document.getElementById("btn-part-submit").disabled = true;
+                    document.getElementById("btn-req-submit").disabled = true;
+                } else {
+                    document.getElementById("btn-part-submit").disabled = false;
+                    document.getElementById("btn-req-submit").disabled = false;
+                } else if ("checkbox" === formRequiredItem.type && !formRequiredItem.checked) {
                     this.addError(formRequiredItem);
                     error++;
                 } else if (!formRequiredItem.value.trim()) {
@@ -3552,7 +3558,7 @@
             scrollWatcherIntersecting(entry, targetElement) {
                 if (entry.isIntersecting) {
                     !targetElement.classList.contains("_watcher-view") ? targetElement.classList.add("_watcher-view") : null;
-                    if (targetElement.classList.contains("footer")) {
+                    if (targetElement.classList.contains("footer-main")) {
                         const headerItem = document.querySelector(".header");
                         headerItem.classList.add("hide-header");
                     }
@@ -3775,8 +3781,6 @@
                         if (!section.classList.contains("focus") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-focus");
                         if (section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.add("_anim-integrations");
                         if (!section.classList.contains("integrations") && section.classList.contains("active-section")) imageAnim.classList.remove("_anim-integrations");
-                        if (section.classList.contains("awesome") && section.classList.contains("active-section")) ;
-                        if (!section.classList.contains("awesome") && section.classList.contains("active-section")) ;
                         if (section.classList.contains("hold") && section.classList.contains("active-section")) setTimeout((() => {
                             animationHoldOn.play();
                         }), 300);
@@ -3794,16 +3798,13 @@
                                 manageSection.style.overflow = "auto";
                             }), 2e3);
                         }
-                        if (section.classList.contains("options") && section.classList.contains("active-section")) ;
-                        if (section.classList.contains("custom-first") && section.classList.contains("active-section")) ;
-                        if (section.classList.contains("custom-second") && section.classList.contains("active-section")) ;
                         if (!section.classList.contains("manage") && section.classList.contains("active-section")) {
                             animationManageAmount.stop();
                             animationManageGraphic.stop();
                             animationManageTransct.stop();
                         }
                         if (section.classList.contains("api") && section.classList.contains("active-section")) {
-                            header.classList.remove("head-hidden");
+                            document.documentElement.classList.add("_header-api");
                             apiTyping.style.visibility = "hidden";
                             setTimeout((() => {
                                 apiTyping.style.visibility = "visible";
@@ -3821,6 +3822,7 @@
                                 $is_typed_call = true;
                             }
                         }
+                        if (!section.classList.contains("api") && section.classList.contains("active-section")) document.documentElement.classList.remove("_header-api");
                         function addAnim() {
                             if (section.classList.contains("request") && section.classList.contains("active-section")) {
                                 requestSection.classList.add("_anim-start");
@@ -3837,14 +3839,6 @@
                         setTimeout(removeAnim, 13e3);
                         if (section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.add("_anim-start");
                         if (!section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.remove("_anim-start");
-                        if (section.classList.contains("request") && section.classList.contains("active-section")) {
-                            const sectionRequest = document.querySelector(".request");
-                            const requestWrapper = document.querySelector(".request__wrapper");
-                            sectionRequest.addEventListener("scroll", (function() {
-                                const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
-                                if (requestWrapperTop <= 100) header.classList.add("head-hidden"); else header.classList.remove("head-hidden");
-                            }));
-                        }
                     } else {
                         section.style.opacity = "0";
                         section.style.pointerEvents = "none";
@@ -4030,6 +4024,9 @@
                     pel.scrollTop = 0;
                     nel.scrollTop = 0;
                 }), 1e3);
+            } else if (ael.classList.contains("request")) {
+                ael.addEventListener("scroll", ToogleHeader);
+                ael.scrollTop = 0;
             } else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")) {
                 nel.removeEventListener("scroll", ToogleHeader);
                 ael.addEventListener("scroll", ToogleHeader);
@@ -4598,8 +4595,17 @@
             }
         }
         const resetBtn = document.querySelectorAll(".reset-btn");
+        const resetBtnPhone = document.querySelectorAll(".reset-btn-phone");
         resetBtn.forEach((item => {
             item.addEventListener("click", resetInput);
+        }));
+        resetBtnPhone.forEach((item => {
+            item.addEventListener("click", (() => {
+                const phoneInput = document.querySelectorAll(".input-form-tel");
+                phoneInput.forEach((phoneInput => {
+                    phoneInput.value = "";
+                }));
+            }));
         }));
         function resetInput() {
             this.previousElementSibling.value = "";
@@ -4660,8 +4666,8 @@
         const formBtn = document.querySelectorAll(".form-btn");
         const lottieBtnFormLater = document.querySelector(".lottie__btn-later");
         const lottieBtnFormLaterTwo = document.querySelector(".lottie__btn-later-two");
-        const lottieBtnFormSubm = document.querySelector(".lottie__btn-submit");
-        const lottieBtnFormSubmTwo = document.querySelector(".lottie__btn-submit-two");
+        document.querySelector(".lottie__btn-submit");
+        document.querySelector(".lottie__btn-submit-two");
         const lottieBtnFormClose = document.querySelector(".lottie__btn-close");
         const animBtnFormLater = bodymovin.loadAnimation({
             container: document.querySelector(".lottie__btn-later"),
@@ -4722,21 +4728,17 @@
             if (formBtn.classList.contains("btn-black")) {
                 formBtn.addEventListener("mouseenter", (function() {
                     animBtnFormSubm.play();
-                    lottieBtnFormSubm.style.opacity = "1";
                 }));
                 formBtn.addEventListener("mouseleave", (function() {
                     animBtnFormSubm.stop();
-                    lottieBtnFormSubm.style.opacity = "0";
                 }));
             }
             if (formBtn.classList.contains("btn-submit-two")) {
                 formBtn.addEventListener("mouseenter", (function() {
                     animBtnFormSubmTwo.play();
-                    lottieBtnFormSubmTwo.style.opacity = "1";
                 }));
                 formBtn.addEventListener("mouseleave", (function() {
                     animBtnFormSubmTwo.stop();
-                    lottieBtnFormSubmTwo.style.opacity = "0";
                 }));
             }
             if (formBtn.classList.contains("btn-close")) {
@@ -5867,7 +5869,7 @@
             }
         }
         var product__body = document.querySelector(".product__body");
-        product__body.addEventListener("wheel", (function(event) {
+        if (product__body) product__body.addEventListener("wheel", (function(event) {
             if (event.wheelDelta > 0) product__body.scrollLeft -= 50; else product__body.scrollLeft += 50;
             var maxScroll = product__body.scrollWidth - product__body.clientWidth;
             if (product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll) {
@@ -5875,6 +5877,59 @@
                 event.stopPropagation();
             }
         }), false);
+        let formDemo = document.getElementById("FormDemo");
+        if (null !== formDemo) formDemo.addEventListener("submit", sendEmail);
+        let formPartner = document.getElementById("FormPartner");
+        if (null !== formPartner) formPartner.addEventListener("submit", sendEmail);
+        async function sendEmail(e) {
+            e.preventDefault();
+            var form = e.target;
+            let response = await fetch(form.getAttribute("action"), {
+                method: "POST",
+                body: new FormData(form)
+            });
+            let result = await response.json();
+            if ("ok" == result.status) {
+                form.reset();
+                flsModules.popup.open("#form-message");
+            } else alert("Something went wrong! Try later.");
+        }
+        let addWindowScrollEvent = false;
+        function headerScroll() {
+            addWindowScrollEvent = true;
+            const header = document.querySelector("header.header");
+            const headerShow = header.hasAttribute("data-scroll-show");
+            const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+            const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+            let scrollDirection = 0;
+            let timer;
+            document.addEventListener("windowScroll", (function(e) {
+                const scrollTop = window.scrollY;
+                clearTimeout(timer);
+                if (scrollTop >= startPoint) {
+                    !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
+                    if (headerShow) {
+                        if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                        timer = setTimeout((() => {
+                            !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                        }), headerShowTimer);
+                    }
+                } else {
+                    header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
+                    if (headerShow) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null;
+                }
+                scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+            }));
+        }
+        headerScroll();
+        setTimeout((() => {
+            if (addWindowScrollEvent) {
+                let windowScroll = new Event("windowScroll");
+                window.addEventListener("scroll", (function(e) {
+                    document.dispatchEvent(windowScroll);
+                }));
+            }
+        }), 0);
         window["FLS"] = true;
         isWebp();
         addTouchClass();

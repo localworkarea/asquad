@@ -77,6 +77,10 @@
 			visibility: visible;
 		}
 	}
+	&._header-scroll {
+		opacity: 0;
+		visibility: hidden;
+	}
 	&.hide-header {
 		opacity: 0;
 		visibility: hidden;
@@ -228,6 +232,12 @@
 				color: $mainColor;
 			}
 		}
+		._header-api & {
+			@media (min-width: 1201px) {
+				color: white;
+				// transition: color 0.3s ease 0.7s;
+			}
+		}
 	}
 	// .menu__sub-list
 	&__sub-list {
@@ -334,6 +344,13 @@
 		.header-black & {
 			background-color: $mainColor;
 			color: white;
+		}
+		._header-api & {
+			@media (min-width: 1201px) {
+				color: $mainColor;
+				background-color: white;
+				// transition: all 0.3s ease 0.7s;
+			}
 		}
 	}
 	// .menu__icon
