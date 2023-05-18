@@ -3837,8 +3837,16 @@
                         }
                         setTimeout(addAnim, 13100);
                         setTimeout(removeAnim, 13e3);
-                        if (section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.add("_anim-start");
-                        if (!section.classList.contains("request") && section.classList.contains("active-section")) requestSection.classList.remove("_anim-start");
+                        if (section.classList.contains("request") && section.classList.contains("active-section")) {
+                            requestSection.classList.add("_anim-start");
+                            setTimeout((() => {
+                                document.querySelector(".footer-main").classList.remove("footer-block");
+                            }), 700);
+                        }
+                        if (!section.classList.contains("request") && section.classList.contains("active-section")) {
+                            requestSection.classList.remove("_anim-start");
+                            document.querySelector(".footer-main").classList.add("footer-block");
+                        }
                     } else {
                         section.style.opacity = "0";
                         section.style.pointerEvents = "none";
@@ -4024,9 +4032,6 @@
                     pel.scrollTop = 0;
                     nel.scrollTop = 0;
                 }), 1e3);
-            } else if (ael.classList.contains("request")) {
-                ael.addEventListener("scroll", ToogleHeader);
-                ael.scrollTop = 0;
             } else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")) {
                 nel.removeEventListener("scroll", ToogleHeader);
                 ael.addEventListener("scroll", ToogleHeader);

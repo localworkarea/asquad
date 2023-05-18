@@ -510,23 +510,15 @@ export class FullPage {
   			
 				if (section.classList.contains('request') && section.classList.contains('active-section')) {
 					requestSection.classList.add('_anim-start');
+					setTimeout(() => {
+						document.querySelector('.footer-main').classList.remove('footer-block');
+					}, 700);
 				}
 				if (!section.classList.contains('request') && section.classList.contains('active-section')) {
 					requestSection.classList.remove('_anim-start');
+					document.querySelector('.footer-main').classList.add('footer-block');
 				} 
-				// if (section.classList.contains('request') && section.classList.contains('active-section')) {
-					
-					// const sectionRequest = document.querySelector('.request');
-					// const requestWrapper = document.querySelector('.request__wrapper');
-					// sectionRequest.addEventListener('scroll', function() {
-					// 	const requestWrapperTop = requestWrapper.getBoundingClientRect().top;
-					// 	if (requestWrapperTop <= 100) {
-					// 		header.classList.add('head-hidden');
-					// 	} else {
-					// 		header.classList.remove('head-hidden');
-					// 	}
-					// })
-				// } 
+
 
 
 			} else {
@@ -980,9 +972,6 @@ document.addEventListener('fpswitching', function(e) {
 			nel.scrollTop = 0;
 		}, 1000);
 		
-	} else if (ael.classList.contains("request")) {
-		ael.addEventListener("scroll", ToogleHeader);
-		ael.scrollTop = 0;
 	} else if (ael.classList.contains("options") || ael.classList.contains("custom-first") || ael.classList.contains("custom-second")){
 		nel.removeEventListener("scroll", ToogleHeader);
 		ael.addEventListener("scroll", ToogleHeader);

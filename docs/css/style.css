@@ -4142,6 +4142,9 @@ textarea:focus {
     padding-bottom: 1rem;
   }
 }
+.footer.footer-block {
+  display: none;
+}
 .footer._watcher-view .top-footer__logo {
   opacity: 1;
   -webkit-transition: opacity 0.7s ease 0.2s;
