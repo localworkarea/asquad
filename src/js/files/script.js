@@ -1903,15 +1903,48 @@ formNameInputOne.addEventListener('input', function(e){
 
 
     // == VERTICAL-HORIZONTAL SCROLL (API SECTION) ===================
-    var product__body = document.querySelector('.product__body');
-    if (product__body) {
-        product__body.addEventListener("wheel", function (event) {
-        if(event.wheelDelta > 0) product__body.scrollLeft -= 50; else  product__body.scrollLeft += 50;
+    // var product__body = document.querySelector('.product__body');
+    // if (product__body) {
+    //     product__body.addEventListener("wheel", function (event) {
+    //     if(event.wheelDelta > 0) product__body.scrollLeft -= 50; else  product__body.scrollLeft += 50;
         
+    //     var maxScroll = product__body.scrollWidth - product__body.clientWidth;
+    //     if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
+    //     }, false);
+    // }
+    var product__body = document.querySelector(".product__body");
+    var wheel_delay = true;
+    if (product__body) product__body.addEventListener("wheel", (function(event) {
         var maxScroll = product__body.scrollWidth - product__body.clientWidth;
-        if(product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll ){ event.preventDefault(); event.stopPropagation(); }
-        }, false);
-    }
+        if(wheel_delay) {
+            wheel_delay = false;
+            setTimeout(() => { wheel_delay = true; }, 2000);
+            if (event.wheelDelta > 0) {
+                if(product__body.scrollLeft == maxScroll){
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                product__body.scroll({
+                    left: 0,
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }else{
+                if(product__body.scrollLeft == 0){
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                product__body.scroll({
+                    left: maxScroll,
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }else{
+            event.preventDefault();
+            event.stopPropagation();
+        }
+    }), false);
 
     // == SENT MAIL ========================================
     let formDemo = document.getElementById('FormDemo');

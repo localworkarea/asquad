@@ -3,7 +3,9 @@
   @include adaptiveValue("padding-top", 32, 16, 0, 768, 375);
   @include adaptiveValue("padding-bottom", 32, 16, 0, 768, 375);
   &.footer-block {
-    display: none;
+    @media (min-width: 769px) {
+      display: none;
+    }
   }
   &._watcher-view {
     .top-footer__logo {

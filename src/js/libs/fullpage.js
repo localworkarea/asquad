@@ -452,6 +452,9 @@ export class FullPage {
               for (let item of list) {
                 item.play();
               }
+					var list_img = document.getElementsByClassName("apng__lazyload");
+          for (let item_img of list_img) item_img.setAttribute('src', item_img.getAttribute("data-src"));
+
 					const manageSection = document.querySelector('.manage');
 					manageSection.style.overflow = 'hidden';
 					setTimeout(() => {

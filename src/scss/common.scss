@@ -585,23 +585,7 @@ transition: opacity 0.5s ease 0s;
   padding: 10px 10px;
   line-height: 1.5em; }
 
-    // .iti__flag {
-    //   background-image: url("../img/flags/flags.png");
-    //   width: 14px;
-    //   height: 14px;
-    //   border-radius: 50%;
-    // }
-    
-    // @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    //   .iti__flag {
-    //     background-image: url("../img/flags/flags@2x.png");
-    //     width: 14px;
-    //     height: 14px;
-    //     border-radius: 50%;
-    //   }
-    // }
-
-    .hidden { display:none }
+.hidden { display:none }
 
 .iti__flag.iti__np {
   background-color: transparent; }

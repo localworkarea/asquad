@@ -3792,6 +3792,8 @@
                             animationManageTransct.play();
                             var list = document.getElementsByTagName("video");
                             for (let item of list) item.play();
+                            var list_img = document.getElementsByClassName("apng__lazyload");
+                            for (let item_img of list_img) item_img.setAttribute("src", item_img.getAttribute("data-src"));
                             const manageSection = document.querySelector(".manage");
                             manageSection.style.overflow = "hidden";
                             setTimeout((() => {
@@ -5874,10 +5876,36 @@
             }
         }
         var product__body = document.querySelector(".product__body");
+        var wheel_delay = true;
         if (product__body) product__body.addEventListener("wheel", (function(event) {
-            if (event.wheelDelta > 0) product__body.scrollLeft -= 50; else product__body.scrollLeft += 50;
             var maxScroll = product__body.scrollWidth - product__body.clientWidth;
-            if (product__body.scrollLeft > 0 && product__body.scrollLeft < maxScroll) {
+            if (wheel_delay) {
+                wheel_delay = false;
+                setTimeout((() => {
+                    wheel_delay = true;
+                }), 2e3);
+                if (event.wheelDelta > 0) {
+                    if (product__body.scrollLeft == maxScroll) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    product__body.scroll({
+                        left: 0,
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                } else {
+                    if (0 == product__body.scrollLeft) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    product__body.scroll({
+                        left: maxScroll,
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                }
+            } else {
                 event.preventDefault();
                 event.stopPropagation();
             }
