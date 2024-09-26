@@ -5495,6 +5495,25 @@
       @include adaptiveValue("margin-bottom", 64, 24);
     }
   }
+  // .slide-product__img
+  &__img {
+    &.img-pc {
+      @media (min-width:$mobile){
+          
+      }
+      @media (max-width:$mobile){
+          display: none;
+      }
+    }
+    &.img-mb {
+      @media (min-width:$mobile){
+          display: none;
+      }
+      @media (max-width:$mobile){
+          
+      }
+    }
+  }
   // .slide-product__title
   &__title {
     text-align: center;
